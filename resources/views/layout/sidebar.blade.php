@@ -43,7 +43,7 @@
                         class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
                         <li><a href="{{ route('product-stock') }}">Add Product</a></li>
-                        <li><a href="#">Purchaseble Products</a></li>
+                        <li><a href="{{ route('product-stock') }}">Purchaseble Products</a></li>
                     </ul>
                     </li>
 

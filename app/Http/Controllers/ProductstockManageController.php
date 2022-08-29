@@ -14,7 +14,7 @@ class ProductstockManageController extends Controller
      */
     public function index()
     {
-        return view('admin.productManage.create');
+        return view('admin.productManage.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class ProductstockManageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.productManage.create');
     }
 
     /**
