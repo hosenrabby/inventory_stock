@@ -19,10 +19,6 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'authorized'] , function(){
-<<<<<<< HEAD
     Route::resource('product-stock', ProductstockManageController::class);
-=======
-    Route::get('product-stock', [ProductstockManageController::class, 'index'])->name('product-stock');
     Route::resource('category', CategoryController::class);
->>>>>>> e506d56e3d48a1577f8e26a08eba66d8b1b3461e
 });
