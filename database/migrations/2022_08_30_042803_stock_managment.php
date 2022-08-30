@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('prodType');
             $table->integer('prodQty');
             $table->decimal('prodPrice',8,2);
-            $table->unsignedBigInteger('productMangId');
-            $table->foreign('productMangId')->references('id')->on('productstock_manages');
+            // $table->unsignedBigInteger('productMangId');
+            // $table->foreign('productMangId')->references('id')->on('productstock_manages');
             $table->timestamps();
         });
     }

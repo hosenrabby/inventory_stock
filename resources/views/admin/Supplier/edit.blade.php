@@ -42,6 +42,10 @@
                                                     <label>Supplier Address</label>
                                                     <input type="text" class="form-control" name="supplierAddress" value="{{ $supplier->supplierAddress }}">
                                                 </div>
+                                                <div class="form-group col">
+                                                    <label>Supplier Carrent Balance</label>
+                                                    <input type="number" class="form-control" name="supplierCarrentBalance" value="{{ $supplier->supplierCarrentBalance }}">
+                                                </div>
                                             </div>
 
 
