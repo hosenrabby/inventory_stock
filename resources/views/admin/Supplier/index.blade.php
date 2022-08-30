@@ -41,7 +41,12 @@
                                             <td>{{ $supplier->supplierAddress }}</td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
-                                                    <a href="" class="btn btn-success">Edit</a>
+
+
+                                                    <a href="{{ url('authorized/supplier/' . $supplier->id . '/edit') }}"
+                                                        class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></a>
+
+
                                                 <form action="{{ url('authorized/supplier/' . $supplier->id) }}" method="POST">
                                                 @method('DELETE')
                                                 @csrf

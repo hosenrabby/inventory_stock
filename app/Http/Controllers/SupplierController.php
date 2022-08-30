@@ -60,9 +60,10 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supplier $supplier)
+    public function edit($id)
     {
-        //
+        $input = Supplier::find($id);
+        return view('admin.supplier.edit')->with('supplier',$input);
     }
 
     /**
@@ -72,9 +73,12 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Supplier $supplier)
+    public function update(Request $request,  $id)
     {
-        //
+        $supplier = Supplier::find($id);
+        $input = $request->all();
+        $supplier->update($input);
+        return redirect('authorized/supplier')->with('flash_message', 'supplier Updated!');
     }
 
     /**

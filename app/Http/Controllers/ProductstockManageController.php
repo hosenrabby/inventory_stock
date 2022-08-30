@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\productstockManage;
 use Illuminate\Http\Request;
+use App\Models\stockManagment;
+use App\Models\productstockManage;
 
 class ProductstockManageController extends Controller
 {
@@ -14,7 +15,8 @@ class ProductstockManageController extends Controller
      */
     public function index()
     {
-        return view('admin.productManage.index');
+        $showData = productstockManage::all();
+        return view('admin.productManage.index' , compact('showData'));
     }
 
     /**
@@ -35,7 +37,11 @@ class ProductstockManageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        // dd($data);
+        productstockManage::create($data);
+        return redirect('authorized/product-stock');
+        // stockManagment::create($data);
     }
 
     /**
@@ -46,7 +52,7 @@ class ProductstockManageController extends Controller
      */
     public function show(productstockManage $productstockManage)
     {
-        //
+        // return view('admin.productManage.productStockEdit');
     }
 
     /**
@@ -55,9 +61,11 @@ class ProductstockManageController extends Controller
      * @param  \App\Models\productstockManage  $productstockManage
      * @return \Illuminate\Http\Response
      */
-    public function edit(productstockManage $productstockManage)
+    public function edit($id)
     {
-        //
+        $findData = productstockManage::find($id);
+        $selectedData = productstockManage::all();
+        return view('admin.productManage.productStockEdit' , compact('findData','selectedData'));
     }
 
     /**
@@ -67,9 +75,12 @@ class ProductstockManageController extends Controller
      * @param  \App\Models\productstockManage  $productstockManage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, productstockManage $productstockManage)
+    public function update(Request $request,$id)
     {
-        //
+        $findDat = productstockManage::find($id);
+        $upData = $request->all();
+        $findDat->update($upData);
+        return redirect('authorized/product-stock');
     }
 
     /**
@@ -78,8 +89,9 @@ class ProductstockManageController extends Controller
      * @param  \App\Models\productstockManage  $productstockManage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(productstockManage $productstockManage)
+    public function destroy($id)
     {
-        //
+        productstockManage::destroy($id);
+        return back();
     }
 }
