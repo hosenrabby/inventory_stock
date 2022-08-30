@@ -15,8 +15,8 @@
                     <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Suplier <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="#">Add Suplier</a></li>
-                            <li><a href="#">Suplier Lists</a></li>
+                            <li><a href="{{ url('authorized/supplier/create') }}">Add Suplier</a></li>
+                            <li><a href="{{ url('authorized/supplier') }}">Suplier Lists</a></li>
                         </ul>
                     </li>
 
