@@ -25,6 +25,8 @@ return new class extends Migration
             $table->decimal('totalPrice',8,2);
             $table->decimal('paidAmmount',8,2);
             $table->decimal('duesAmmount',8,2);
+            $table->integer('suplierID');
+            $table->integer('catagoryID');
             // $table->unsignedBigInteger('suplierID');
             // $table->foreign('suplierID')->references('id')->on('suplierInfo');
             // $table->unsignedBigInteger('catagoryID');
