@@ -24,8 +24,8 @@
                     <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Catagory <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="#">Add Catagory</a></li>
-                            <li><a href="#">Catagory Manage</a></li>
+                            <li><a href="{{ route('category.create') }}">Add Catagory</a></li>
+                            <li><a href="{{ route('category.index') }}">Catagory Manage</a></li>
                         </ul>
                     </li>
 
