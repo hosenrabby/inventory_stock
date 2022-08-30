@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductstockManageController;
 use App\Http\Controllers\SupplierController;
@@ -22,4 +23,5 @@ Route::get('/', function () {
 Route::group(['prefix' => 'authorized'] , function(){
     Route::resource('product-stock', ProductstockManageController::class);
     Route::resource('supplier', SupplierController::class);
+    Route::resource('category', CategoryController::class);
 });
