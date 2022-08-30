@@ -42,8 +42,8 @@
                     <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Product Manage <span
                         class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
-                        <li><a href="{{ route('product-stock') }}">Add Product</a></li>
-                        <li><a href="{{ route('product-stock') }}">Purchaseble Products</a></li>
+                        <li><a href="{{ url('authorized/product-stock/create') }}">Add Product</a></li>
+                        <li><a href="{{ url('authorized/product-stock') }}">Purchaseble Products</a></li>
                     </ul>
                     </li>
 
