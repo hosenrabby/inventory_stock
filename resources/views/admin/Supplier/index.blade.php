@@ -1,59 +1,68 @@
 @extends('layout.master')
 @section('content')
 <div class="content-wrap">
-        <div class="main">
-            <div class="container-fluid">
-                    <!-- /# column -->
-                    <div class="row">
-                        <div class="col-lg-12 p-l-0 m-l-0">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Add Supplier</li>
-                                    </ol>
-                        </div>
-                    </div>
-                    <!-- /# column -->
-
-                    <div class="row">
-                        <div class="col-lg-1"></div>
-                        <div class="col-lg-10">
-                            <div class="card">
-                                <div class="card-title">
-                                    <h4>Supplier</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="basic-form">
-                                        <form action="" method="POST">
-                                            <div class="form-group">
-                                                <label>Supplier Name</label>
-                                                <input type="text" class="form-control" name="supplierName" placeholder="Supplier Name">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Supplier Email</label>
-                                                <input type="email" class="form-control" name="supplierEmail" placeholder="Supplier Email">
-                                            </div>
-                                            <div class="row">
-                                                <div class="form-group col">
-                                                    <label>Supplier Phone</label>
-                                                    <input type="number" class="form-control" name="supplierPhone" placeholder="Supplier Phone">
+<div class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- /# column -->
+            <div class="col-lg-4 p-l-0 title-margin-left">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Table-Export</li>
+                </ol>
+            </div>
+            <!-- /# column -->
+        </div>
+        <!-- /# row -->
+        <section id="main-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="bootstrap-data-table-panel">
+                            <div class="table-responsive">
+                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Serial No</th>
+                                            <th>Supplier Name</th>
+                                            <th>Supplier Email</th>
+                                            <th>Supplier Phone</th>
+                                            <th>Supplier Address</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($input as $supplier)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $supplier->supplierName }}</td>
+                                            <td>{{ $supplier->supplierEmail }}</td>
+                                            <td>{{ $supplier->supplierPhone }}</td>
+                                            <td>{{ $supplier->supplierAddress }}</td>
+                                            <td>
+                                                <div class="d-flex justify-content-center">
+                                                    <a href="" class="btn btn-success">Edit</a>
+                                                <form action="{{ url('authorized/supplier/' . $supplier->id) }}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
                                                 </div>
-                                                <div class="form-group col">
-                                                    <label>Supplier Address</label>
-                                                    <input type="text" class="form-control" name="supplierAddress" placeholder="Supplier Address">
-                                                </div>
-                                            </div>
+                                            </td>
+                                        </tr>
+                                        @endforeach
 
-                                            </div>
-
-                                            <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>
-                                        </form>
-                                    </div>
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    <div class="col-lg-1"></div>
+                    </div>
+                    <!-- /# card -->
                 </div>
+                <!-- /# column -->
             </div>
-                <!-- /# row -->
-
+        </section>
+    </div>
+</div>
+</div>
 @endsection

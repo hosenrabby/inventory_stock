@@ -15,7 +15,8 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        return view('admin.supplier.index');
+        $input=Supplier::all();
+        return view('admin.supplier.index' , compact('input'));
     }
 
     /**
@@ -25,7 +26,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.supplier.create');
     }
 
     /**
@@ -36,7 +37,10 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input= $request->all();
+
+        Supplier::create($input);
+        return redirect('authorized/supplier')->with('flash_message','supplier');
     }
 
     /**
@@ -79,8 +83,9 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Supplier $supplier)
+    public function destroy($id)
     {
-        //
+        Supplier::destroy($id);
+        return redirect('authorized/supplier')->with('flash_message', 'Supplier deleted!');
     }
 }

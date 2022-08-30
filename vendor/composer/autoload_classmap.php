@@ -23,6 +23,7 @@ return array(
     'App\\Models\\Supplier' => $baseDir . '/app/Models/Supplier.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\productstockManage' => $baseDir . '/app/Models/productstockManage.php',
+    'App\\Models\\stockManagment' => $baseDir . '/app/Models/stockManagment.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

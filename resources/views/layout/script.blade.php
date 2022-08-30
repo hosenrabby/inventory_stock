@@ -25,7 +25,7 @@
  <script src="{{ asset('public/assets/js/lib/owl-carousel/owl.carousel.min.js') }}"></script>
  <script src="{{ asset('public/assets/js/lib/owl-carousel/owl.carousel-init.js') }}"></script>
  <!-- scripit init-->
- {{-- <script src="{{ asset('public/assets/js/dashboard2.js') }}"></script> --}}
+ <script src="{{ asset('public/assets/js/dashboard2.js') }}"></script>
  <script src="{{ asset('assets/js/lib/data-table/datatables.min.js') }}"></script>
  <script src="{{ asset('assets/js/lib/data-table/dataTables.buttons.min.js') }}"></script>
  <script src="{{ asset('assets/js/lib/data-table/buttons.flash.min.js') }}"></script>
