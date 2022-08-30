@@ -15,20 +15,20 @@ return new class extends Migration
     {
         Schema::create('productstock_manages', function (Blueprint $table) {
             $table->id();
-            $table->string('prodName');
-            $table->string('prodCode');
-            $table->string('purchaseDate');
-            $table->string('recieveDate');
-            $table->string('prodType');
-            $table->intiger('prodQty');
-            $table->decimal('prodPrice',8,2);
-            $table->decimal('totalPrice',8,2);
-            $table->decimal('paidAmmount',8,2);
-            $table->decimal('duesAmmount',8,2);
-            $table->unsignedBigInteger('suplierID');
-            $table->foreign('suplierID')->references('id')->on('suplierInfo');
-            $table->unsignedBigInteger('catagoryID');
-            $table->foreign('catagoryID')->references('id')->on('catagory');
+            // $table->string('prodName');
+            // $table->string('prodCode');
+            // $table->string('purchaseDate');
+            // $table->string('recieveDate');
+            // $table->string('prodType');
+            // $table->integer('prodQty');
+            // $table->decimal('prodPrice',8,2);
+            // $table->decimal('totalPrice',8,2);
+            // $table->decimal('paidAmmount',8,2);
+            // $table->decimal('duesAmmount',8,2);
+            // $table->unsignedBigInteger('suplierID');
+            // $table->foreign('suplierID')->references('id')->on('suplierInfo');
+            // $table->unsignedBigInteger('catagoryID');
+            // $table->foreign('catagoryID')->references('id')->on('catagory');
             $table->timestamps();
         });
     }
