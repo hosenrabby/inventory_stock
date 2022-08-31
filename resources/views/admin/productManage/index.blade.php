@@ -26,14 +26,10 @@
                                             <th>SL</th>
                                             <th>Product Name</th>
                                             <th>Product Code</th>
-                                            <th>Purchase Date</th>
-                                            <th>Recieve Date</th>
-                                            <th>Producrt Type</th>
-                                            <th>Product QTY</th>
-                                            <th>Product Price</th>
-                                            <th>Total Price</th>
-                                            <th>Paid Ammount</th>
-                                            <th>Dues Ammount</th>
+                                            <th>Catagory Name</th>
+                                            <th>Sub Catagory Name</th>
+                                            <th>Product Rate</th>
+                                            <th>Stock Balance</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -41,16 +37,12 @@
                                         @foreach ($showData as $data)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $data->prodName }}</td>
+                                            <td>{{ $data->productName }}</td>
                                             <td>{{ $data->prodCode }}</td>
-                                            <td>{{ $data->recieveDate }}</td>
-                                            <td>{{ $data->prodType }}</td>
-                                            <td>{{ $data->prodQty }}</td>
-                                            <td>{{ $data->prodPrice }}</td>
-                                            <td>{{ $data->totalPrice }}</td>
-                                            <td>{{ $data->totalPrice }}</td>
-                                            <td>{{ $data->paidAmmount }}</td>
-                                            <td>{{ $data->duesAmmount }}</td>
+                                            <td>{{ $data->categoryName }}</td>
+                                            <td>{{ $data->subCatagoryID }}</td>
+                                            <td>{{ $data->prodRate }}</td>
+                                            <td>{{ $data->stockBalance }}</td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
                                                 <a href="{{ url('authorized/product-stock/' . $data->id . '/edit') }}"

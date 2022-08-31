@@ -11,17 +11,11 @@ class productstockManage extends Model
     protected $table = 'productstock_manages';
     protected $primarykey = 'id';
     protected $fillable = [
-        'prodName',
+        'productName',
         'prodCode',
-        'purchaseDate',
-        'recieveDate',
-        'prodType',
-        'prodQty',
-        'prodPrice',
-        'totalPrice',
-        'paidAmmount',
-        'duesAmmount',
-        'suplierID',
         'catagoryID',
+        'subcatagoryID',
+        'prodRate',
+        'stockBalance',
     ];
 }
