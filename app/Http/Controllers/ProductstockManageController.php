@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
+use App\Models\subCategory;
 use Illuminate\Http\Request;
-use App\Models\stockManagment;
 use App\Models\productstockManage;
+use Illuminate\Support\Facades\DB;
 
 class ProductstockManageController extends Controller
 {
@@ -15,8 +17,12 @@ class ProductstockManageController extends Controller
      */
     public function index()
     {
-        $showData = productstockManage::all();
-        return view('admin.productManage.index' , compact('showData'));
+        $showData = DB::table('productstock_manages')
+        ->leftJoin('categories' , 'productstock_manages.catagoryID','=','categories.id')
+        ->leftJoin('sub_categories' , 'productstock_manages.subCatagoryID','=','sub_categories.id')->get();
+        $find = productstockManage::all();
+
+        return view('admin.productManage.index' , compact('showData','find'));
     }
 
     /**
@@ -26,7 +32,9 @@ class ProductstockManageController extends Controller
      */
     public function create()
     {
-        return view('admin.productManage.create');
+        $catagory = category::all();
+        $subcatagory = subCategory::all();
+        return view('admin.productManage.create' , compact('catagory','subcatagory'));
     }
 
     /**

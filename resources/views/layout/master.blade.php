@@ -17,6 +17,5 @@
     @include('layout.footer')
     @include('layout.script')
 
-    {{-- {!! Toastr::message() !!} --}}
 </body>
 </html>
