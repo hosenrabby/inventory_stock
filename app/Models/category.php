@@ -16,4 +16,7 @@ class category extends Model
         'categoryCode'
     ];
 
+    public function subCategory(){
+        return $this->hasMany(subCategory::class);
+    }
 }

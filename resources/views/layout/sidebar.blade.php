@@ -33,8 +33,8 @@
                     <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i>SubCatagory <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="#">Add SubCatagory</a></li>
-                            <li><a href="#"> Sub Catagory Manage</a></li>
+                            <li><a href="{{ route('subcategory.create') }}">Add SubCatagory</a></li>
+                            <li><a href="{{ route('subcategory.index') }}"> Sub Catagory Manage</a></li>
                         </ul>
                     </li>
 

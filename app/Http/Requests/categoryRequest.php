@@ -24,8 +24,16 @@ class categoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'categoryName'=>'required|string|max:2',
+            'categoryName'=>'required|string|max:255',
             'categoryCode'=>'required|numeric'
+        ];
+    }
+
+    public function messages()
+    {
+        return[
+            'categoryName.required'=>'Please Enter Category Name only',
+            'categoryCode.required'=>'Please Enter Category Cone Number only'
         ];
     }
 }

@@ -8,7 +8,7 @@
                         <div class="col-lg-12 p-l-0 m-l-0">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Create_Category</li>
+                                        <li class="breadcrumb-item active">SubCategory_Category</li>
                                     </ol>
                         </div>
                     </div>
@@ -18,26 +18,29 @@
                         <div class="col-lg-10">
                             <div class="card">
                                 <div class="card-title">
-                                    <h4>Create Category Form</h4>
+                                    <h4>Create SubCategory Form</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form action="{{ route('category.store') }}" method="POST">
+                                        <form action="{{ route('subcategory.store') }}" method="POST">
                                             @csrf()
                                             <div class="form-group">
                                                 <label>Category Name</label>
-                                                <input type="text" class="form-control @error('categoryName')
-                                                is-invalid
-                                            @enderror" name="categoryName" placeholder="Category Name" value="{{ old('categoryName') }}">
-                                            @error('categoryName')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
+                                                <select class="form-control" name="category_id">
+                                                    <option selected>Open this select menu</option>
+                                                    @foreach ($subcategories as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->categoryName }}</option>
+                                                    @endforeach
+
+                                                </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Category Code</label>
-                                                <input type="number" class="form-control" name="categoryCode" placeholder="Category Code">
+                                                <label>subCategory Name</label>
+                                                <input type="text" class="form-control" name="subCategoryName" placeholder="SubCategory Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>subCategory Code</label>
+                                                <input type="number" class="form-control" name="subCategoryCode" placeholder="SubCategory Code">
                                             </div>
 
                                             <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>
