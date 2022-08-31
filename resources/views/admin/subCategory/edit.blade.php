@@ -22,20 +22,27 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form action="" method="POST" enctype="multipart/form-data">
+                                        <form action="{{ url('authorized/subcategory/'. $findData->id) }}" method="POST" enctype="multipart/form-data">
                                             @csrf()
                                             @method('PUT')
                                             <div class="form-group">
                                                 <label>Category Name</label>
-                                                <input type="text" class="form-control" name="categoryName" placeholder="Category Name" value="{{ $category->categoryName }}">
+                                                <select class="form-control" name="category_id">
+                                                    <option selected>Open this select menu</option>
+                                                    @foreach ($selectedData as $data)
+                                                        <option value="{{ $data->id }}"
+                                                            @if ($findData->category_id == $data->id) selected @endif>{{ $data->categoryName }}</option>
+                                                        @endforeach
+
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>SubCategory Name</label>
-                                                <input type="text" class="form-control" name="subCategoryName" placeholder="SubCategory Name" value="{{ $category->subCategoryName }}">
+                                                <input type="text" class="form-control" name="subCategoryName" placeholder="SubCategory Name" value="{{ $findData->subCategoryName }}">
                                             </div>
                                             <div class="form-group">
                                                 <label>SubCategory Code</label>
-                                                <input type="number" class="form-control" name="subCategoryCode" placeholder="SubCategory Code" value="{{ $category->subCategoryCode }}">
+                                                <input type="number" class="form-control" name="subCategoryCode" placeholder="SubCategory Code" value="{{ $findData->subCategoryCode }}">
                                             </div>
 
                                             <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>

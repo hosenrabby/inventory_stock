@@ -17,8 +17,11 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        $subcategory=DB::table('categories')
-        ->leftJoin('sub_categories', 'sub_categories.category_id', '=', 'categories.id')->get();
+
+
+        $subcategory=DB::table('sub_categories')
+        ->leftJoin('categories', 'categories.id', '=', 'sub_categories.category_id')->get();
+
         return view('admin.subCategory.index', compact('subcategory'));
     }
 
@@ -65,8 +68,9 @@ class SubCategoryController extends Controller
      */
     public function edit($id)
     {
-        $category=subCategory::find($id);
-        return view('admin.subCategory.edit', compact('category'));
+        $findData = subCategory::find($id);
+        $selectedData = category::all();
+        return view('admin.subCategory.edit', compact('findData', 'selectedData'));
     }
 
     /**
@@ -76,9 +80,12 @@ class SubCategoryController extends Controller
      * @param  \App\Models\subCategory  $subCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, subCategory $subCategory)
+    public function update(Request $request, $id)
     {
-        //
+        $subcategory=subCategory::find($id);
+        $input=$request->all();
+        $subcategory->update($input);
+        return redirect('authorized/subcategory');
     }
 
     /**
@@ -87,8 +94,9 @@ class SubCategoryController extends Controller
      * @param  \App\Models\subCategory  $subCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(subCategory $subCategory)
+    public function destroy($id)
     {
-        //
+        $categories=subCategory::find($id)->delete();
+        return redirect('authorized/subcategory');
     }
 }
