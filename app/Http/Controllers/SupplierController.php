@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Supplier;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\supplierRequest;
 use Illuminate\Http\Request;
 
 class SupplierController extends Controller
@@ -35,7 +36,7 @@ class SupplierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(supplierRequest $request)
     {
         $input= $request->all();
 

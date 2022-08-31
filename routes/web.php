@@ -22,6 +22,6 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'authorized'] , function(){
     Route::resource('product-stock', ProductstockManageController::class);
-    Route::resource('category', CategoryController::class);
     Route::resource('supplier', SupplierController::class);
+    Route::resource('category', CategoryController::class);
 });

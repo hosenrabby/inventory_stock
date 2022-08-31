@@ -28,6 +28,7 @@
                                             <th>Supplier Email</th>
                                             <th>Supplier Phone</th>
                                             <th>Supplier Address</th>
+                                            <th>Supplier Carrent Balance</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -39,6 +40,7 @@
                                             <td>{{ $supplier->supplierEmail }}</td>
                                             <td>{{ $supplier->supplierPhone }}</td>
                                             <td>{{ $supplier->supplierAddress }}</td>
+                                            <td>{{ $supplier->supplierCarrentBalance }}</td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
 
