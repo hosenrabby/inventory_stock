@@ -42,8 +42,6 @@ class CategoryController extends Controller
     {
         $input=$request->all();
         category::create($input);
-
-        Toastr::success('Category created successfully!');
         return redirect('authorized/category');
     }
 
@@ -82,7 +80,6 @@ class CategoryController extends Controller
         $category=category::find($id);
         $input=$request->all();
         $category->update($input);
-        Toastr::info('Category Updated successfully!');
         return redirect('authorized/category');
     }
 
@@ -95,7 +92,6 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category=category::find($id)->delete();
-        Toastr::warning('Category deleted successfully!');
         return back();
     }
 }

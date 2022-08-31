@@ -35,5 +35,3 @@
  <script src="{{ asset('assets/js/lib/data-table/buttons.html5.min.js') }}"></script>
  <script src="{{ asset('assets/js/lib/data-table/buttons.print.min.js') }}"></script>
  <script src="{{ asset('assets/js/lib/data-table/datatables-init.js') }}"></script>
- <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>

@@ -26,4 +26,3 @@
     <link href="{{ asset('public/assets/css/lib/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('public/assets/css/lib/helper.css') }}" rel="stylesheet">
     <link href="{{ asset('public/assets/css/style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
