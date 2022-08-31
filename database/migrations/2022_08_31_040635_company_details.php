@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stock_managment', function (Blueprint $table) {
+        Schema::create('company_details', function (Blueprint $table) {
             $table->id();
-            $table->string('prodName');
-            $table->string('prodCode');
-            $table->string('prodType');
-            $table->integer('prodQty');
-            $table->decimal('prodPrice',8,2);
-            // $table->unsignedBigInteger('productMangId');
-            // $table->foreign('productMangId')->references('id')->on('productstock_manages');
+            $table->string('companyName');
+            $table->string('companyEmail');
+            $table->integer('phone');
+            $table->string('address');
+            $table->string('logo');
             $table->timestamps();
         });
     }
