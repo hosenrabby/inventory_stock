@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductstockManageController;
 use App\Http\Controllers\SubCategoryController;
@@ -26,4 +27,5 @@ Route::group(['prefix' => 'authorized'] , function(){
     Route::resource('subcategory', SubCategoryController::class);
     Route::resource('product-stock', ProductstockManageController::class);
     Route::resource('supplier', SupplierController::class);
+    Route::resource('customer', CustomerController::class);
 });

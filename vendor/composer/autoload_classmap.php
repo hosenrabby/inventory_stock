@@ -28,6 +28,7 @@ return array(
     'App\\Models\\Supplier' => $baseDir . '/app/Models/Supplier.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\category' => $baseDir . '/app/Models/category.php',
+    'App\\Models\\customer' => $baseDir . '/app/Models/customer.php',
     'App\\Models\\productstockManage' => $baseDir . '/app/Models/productstockManage.php',
     'App\\Models\\stockManagment' => $baseDir . '/app/Models/stockManagment.php',
     'App\\Models\\subCategory' => $baseDir . '/app/Models/subCategory.php',
