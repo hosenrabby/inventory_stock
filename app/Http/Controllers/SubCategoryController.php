@@ -20,7 +20,7 @@ class SubCategoryController extends Controller
 
 
         $subcategory=DB::table('sub_categories')
-        ->leftJoin('categories', 'categories.id', '=', 'sub_categories.category_id')->get();
+        ->leftJoin('categories', 'categories.id', '=', 'sub_categories.category_idiuygiuyg')->get();
 
         return view('admin.subCategory.index', compact('subcategory'));
     }
