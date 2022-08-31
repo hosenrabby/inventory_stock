@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\categoryRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
+use App\Http\Requests\categoryRequest;
 
 class CategoryController extends Controller
 {
@@ -40,6 +41,8 @@ class CategoryController extends Controller
     {
         $input=$request->all();
         category::create($input);
+
+        Toastr::success('Category created successfully!');
         return redirect('authorized/category');
     }
 
@@ -78,6 +81,7 @@ class CategoryController extends Controller
         $category=category::find($id);
         $input=$request->all();
         $category->update($input);
+        Toastr::info('Category Updated successfully!');
         return redirect('authorized/category');
     }
 
@@ -90,6 +94,7 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category=category::find($id)->delete();
+        Toastr::warning('Category deleted successfully!');
         return back();
     }
 }

@@ -15,8 +15,8 @@
                     <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Suplier <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="#">Add Suplier</a></li>
-                            <li><a href="#">Suplier Lists</a></li>
+                            <li><a href="{{ url('authorized/supplier/create') }}">Add Suplier</a></li>
+                            <li><a href="{{ url('authorized/supplier') }}">Suplier Lists</a></li>
                         </ul>
                     </li>
 
@@ -33,8 +33,8 @@
                     <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i>SubCatagory <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="#">Add SubCatagory</a></li>
-                            <li><a href="#"> Sub Catagory Manage</a></li>
+                            <li><a href="{{ route('subcategory.create') }}">Add SubCatagory</a></li>
+                            <li><a href="{{ route('subcategory.index') }}"> Sub Catagory Manage</a></li>
                         </ul>
                     </li>
 
@@ -42,8 +42,8 @@
                     <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Product Manage <span
                         class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
-                        <li><a href="{{ route('product-stock') }}">Add Product</a></li>
-                        <li><a href="{{ route('product-stock') }}">Purchaseble Products</a></li>
+                        <li><a href="{{ url('authorized/product-stock/create') }}">Add Product</a></li>
+                        <li><a href="{{ url('authorized/product-stock') }}">Purchaseble Products</a></li>
                     </ul>
                     </li>
 

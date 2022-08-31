@@ -20,25 +20,29 @@
                     <div class="card">
                         <div class="bootstrap-data-table-panel">
                             <div class="table-responsive">
-                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered table-centre">
+                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th>Serial No</th>
-                                            <th>Category Name</th>
-                                            <th>Category Code</th>
+                                            <th>Supplier Name</th>
+                                            <th>Supplier Email</th>
+                                            <th>Supplier Phone</th>
+                                            <th>Supplier Address</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($category as $categories)
+                                        @foreach ($input as $supplier)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $categories->categoryName }}</td>
-                                            <td>{{ $categories->categoryCode }}</td>
+                                            <td>{{ $supplier->supplierName }}</td>
+                                            <td>{{ $supplier->supplierEmail }}</td>
+                                            <td>{{ $supplier->supplierPhone }}</td>
+                                            <td>{{ $supplier->supplierAddress }}</td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
-                                                    <a href="{{ route('category.edit', ['category'=>$categories->id]) }}" class="btn btn-success">Edit</a>
-                                                <form action="{{ route('category.destroy', ['category'=>$categories->id]) }}" method="POST">
+                                                    <a href="" class="btn btn-success">Edit</a>
+                                                <form action="{{ url('authorized/supplier/' . $supplier->id) }}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger">Delete</button>

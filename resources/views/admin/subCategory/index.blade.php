@@ -25,20 +25,22 @@
                                         <tr>
                                             <th>Serial No</th>
                                             <th>Category Name</th>
-                                            <th>Category Code</th>
+                                            <th>SubCategory Name</th>
+                                            <th>SubCategory Code</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($category as $categories)
+                                        @foreach ($subcategory as $categories)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $categories->categoryName }}</td>
-                                            <td>{{ $categories->categoryCode }}</td>
+                                            <td>{{ $categories->subCategoryName }}</td>
+                                            <td>{{ $categories->subCategoryCode }}</td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
-                                                    <a href="{{ route('category.edit', ['category'=>$categories->id]) }}" class="btn btn-success">Edit</a>
-                                                <form action="{{ route('category.destroy', ['category'=>$categories->id]) }}" method="POST">
+                                                    <a href="{{ url('authorized/subcategory/' . $categories->id) }}" class="btn btn-success">Edit</a>
+                                                <form action="" method="POST">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger">Delete</button>

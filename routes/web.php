@@ -3,6 +3,9 @@
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductstockManageController;
+use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\SupplierController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +22,8 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'authorized'] , function(){
-    Route::get('product-stock', [ProductstockManageController::class, 'index'])->name('product-stock');
     Route::resource('category', CategoryController::class);
+    Route::resource('subcategory', SubCategoryController::class);
+    Route::resource('product-stock', ProductstockManageController::class);
+    Route::resource('supplier', SupplierController::class);
 });
