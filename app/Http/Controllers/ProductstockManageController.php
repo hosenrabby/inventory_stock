@@ -19,10 +19,14 @@ class ProductstockManageController extends Controller
     {
         $showData = DB::table('productstock_manages')
         ->leftJoin('categories' , 'productstock_manages.catagoryID','=','categories.id')
-        ->leftJoin('sub_categories' , 'productstock_manages.subCatagoryID','=','sub_categories.id')->get();
+        ->leftJoin('sub_categories' , 'productstock_manages.subCatagoryID','=','sub_categories.id')->get([
+            'productstock_manages.*' ,
+            'categories.categoryName',
+            'sub_categories.subCategoryName',
+        ]);
         $find = productstockManage::all();
 
-        return view('admin.productManage.index' , compact('showData','find'));
+        return view('admin.productManage.index' , compact('showData'));
     }
 
     /**
@@ -72,8 +76,11 @@ class ProductstockManageController extends Controller
     public function edit($id)
     {
         $findData = productstockManage::find($id);
-        $selectedData = productstockManage::all();
-        return view('admin.productManage.productStockEdit' , compact('findData','selectedData'));
+        $catagory =  DB::table('productstock_manages')
+        ->leftJoin('categories' , 'productstock_manages.catagoryID','=','categories.id')->get();
+        $subcatagory = DB::table('productstock_manages')
+        ->leftJoin('sub_categories' , 'productstock_manages.catagoryID','=','sub_categories.id')->get();;
+        return view('admin.productManage.productStockEdit' , compact('findData','catagory','subcatagory'));
     }
 
     /**

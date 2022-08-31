@@ -40,7 +40,7 @@
                                             <td>{{ $data->productName }}</td>
                                             <td>{{ $data->prodCode }}</td>
                                             <td>{{ $data->categoryName }}</td>
-                                            <td>{{ $data->subCatagoryID }}</td>
+                                            <td>{{ $data->subCategoryName }}</td>
                                             <td>{{ $data->prodRate }}</td>
                                             <td>{{ $data->stockBalance }}</td>
                                             <td>
