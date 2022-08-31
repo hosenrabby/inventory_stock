@@ -14,9 +14,9 @@
     <!-- Standard iPhone Touch Icon-->
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
     <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"/>
     <link href="{{ asset('public/assets/css/lib/calendar2/pignose.calendar.min.css') }}" rel="stylesheet">
     <link href="{{ asset('public/assets/css/lib/chartist/chartist.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/assets/css/lib/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('public/assets/css/lib/themify-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('public/assets/css/lib/owl.carousel.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('public/assets/css/lib/owl.theme.default.min.css') }}" rel="stylesheet" />

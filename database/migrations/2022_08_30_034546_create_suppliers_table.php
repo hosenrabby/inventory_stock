@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('supplierEmail');
             $table->integer('supplierPhone');
             $table->string('supplierAddress');
+            $table->decimal('supplierCarrentBalance',8,2);
             $table->timestamps();
         });
     }

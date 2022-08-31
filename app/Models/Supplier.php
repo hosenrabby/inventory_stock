@@ -14,7 +14,8 @@ class Supplier extends Model
         'supplierName',
         'supplierEmail',
         'supplierPhone',
-        'supplierAddress'
+        'supplierAddress',
+        'supplierCarrentBalance',
 
     ];
 }

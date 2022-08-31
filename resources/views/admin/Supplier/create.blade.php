@@ -25,20 +25,53 @@
                                         <form class="forms-sample" action="{{ url('authorized/supplier') }}" method="POST">
                                             {!! csrf_field() !!}
                                             <div class="form-group">
+
                                                 <label>Supplier Name</label>
-                                                <input type="text" class="form-control" name="supplierName" placeholder="Supplier Name">
+                                                <input type="text" class="form-control @error('supplierName')
+                                                is-invalid
+
+                                                @enderror" name="supplierName" placeholder="Supplier Name" value="{{ old('supplierName') }}">
+                                                @error('supplierName')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+
+                                                </span>
+
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <label>Supplier Email</label>
-                                                <input type="email" class="form-control" name="supplierEmail" placeholder="Supplier Email">
+                                                <input type="text" class="form-control @error('supplierEmail') is-invalid
+
+                                                @enderror" name="supplierEmail" placeholder="Supplier Email" value="{{ old('supplierEmail') }}">
+                                                @error('supplierEmail')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+
+                                                </span>
+
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <label>Supplier Phone</label>
-                                                <input type="number" class="form-control" name="supplierPhone" placeholder="Supplier Phone">
+                                                <input type="text" class="form-control @error('supplierPhone') is-invalid
+
+                                                @enderror" name="supplierPhone" placeholder="Supplier Phone" value="{{ old('supplierPhone') }}">
+                                                @error('supplierPhone')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+
+                                                </span>
+
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <label>Supplier Address</label>
                                                 <input type="text" class="form-control" name="supplierAddress" placeholder="Supplier Address">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Supplier Carrent Balance</label>
+                                                <input type="number" class="form-control" name="supplierCarrentBalance" placeholder="Supplier Carrent Balance">
                                             </div>
 
 

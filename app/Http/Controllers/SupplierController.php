@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Supplier;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\supplierRequest;
 use Illuminate\Http\Request;
 
 class SupplierController extends Controller
@@ -35,7 +36,7 @@ class SupplierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(supplierRequest $request)
     {
         $input= $request->all();
 
@@ -60,9 +61,10 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supplier $supplier)
+    public function edit($id)
     {
-        //
+        $input = Supplier::find($id);
+        return view('admin.supplier.edit')->with('supplier',$input);
     }
 
     /**
@@ -72,9 +74,12 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Supplier $supplier)
+    public function update(Request $request,  $id)
     {
-        //
+        $supplier = Supplier::find($id);
+        $input = $request->all();
+        $supplier->update($input);
+        return redirect('authorized/supplier')->with('flash_message', 'supplier Updated!');
     }
 
     /**
