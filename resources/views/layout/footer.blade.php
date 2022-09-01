@@ -1,8 +1,12 @@
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="footer">
-                <p>2018 © Admin Board. - <a href="#">example.com</a></p>
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer">
+                        <p>2018 © Admin Board. - <a href="#">example.com</a></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
