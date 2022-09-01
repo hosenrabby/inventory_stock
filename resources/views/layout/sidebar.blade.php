@@ -27,7 +27,6 @@
                             <li><a href="{{ route('customer.index') }}">Manage Customer</a></li>
                         </ul>
                     </li>
-
                 <li class="label">CATAGORY</li>
                 <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Catagory <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
