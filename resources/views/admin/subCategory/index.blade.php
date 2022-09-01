@@ -20,7 +20,7 @@
                     <div class="card">
                         <div class="bootstrap-data-table-panel">
                             <div class="table-responsive">
-                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered table-centre">
+                                <table id="table" class="table table-striped table-bordered table-centre">
                                     <thead>
                                         <tr>
                                             <th>Serial No</th>
@@ -32,6 +32,9 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($subcategory as $categories)
+                                        {{-- @if ($categories->subCategoryName != null) --}}
+
+
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $categories->categoryName }}</td>
@@ -39,8 +42,8 @@
                                             <td>{{ $categories->subCategoryCode }}</td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
-                                                    <a href="{{ url('authorized/subcategory/' . $categories->id) }}" class="btn btn-success">Edit</a>
-                                                <form action="" method="POST">
+                                                    <a href="{{ url('authorized/subcategory/' . $categories->id) . '/edit' }}" class="btn btn-success">Edit</a>
+                                                <form action="{{ url('authorized/subcategory/' . $categories->id) }}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -48,6 +51,7 @@
                                                 </div>
                                             </td>
                                         </tr>
+                                        {{-- @endif --}}
                                         @endforeach
 
                                     </tbody>

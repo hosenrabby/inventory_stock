@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\company_details;
-
+use App\Models\customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CompanyDetailsController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,7 @@ class CompanyDetailsController extends Controller
      */
     public function index()
     {
-        $input=company_details::all();
-        return view('admin.companyDetails.index' , compact('input'));
+        //
     }
 
     /**
@@ -27,7 +25,7 @@ class CompanyDetailsController extends Controller
      */
     public function create()
     {
-        return view('admin.companyDetails.create');
+        return view('admin.Customer.create');
     }
 
     /**
@@ -38,20 +36,16 @@ class CompanyDetailsController extends Controller
      */
     public function store(Request $request)
     {
-        $input= $request->all();
-
-        company_details::create($input);
-        return redirect('authorized/company')->with('flash_message','company');
+        //
     }
-
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\company_details  $company_details
+     * @param  \App\Models\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show(company_details $company_details)
+    public function show(customer $customer)
     {
         //
     }
@@ -59,37 +53,33 @@ class CompanyDetailsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\company_details  $company_details
+     * @param  \App\Models\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(customer $customer)
     {
-        $input = company_details::find($id);
-        return view('admin.companyDetails.edit' , compact('input'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\company_details  $company_details
+     * @param  \App\Models\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $id)
+    public function update(Request $request, customer $customer)
     {
-        $company = company_details::find($id);
-        $input = $request->all();
-        $company->update($input);
-        return redirect('authorized/company')->with('flash_message', 'company Updated!');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\company_details  $company_details
+     * @param  \App\Models\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(company_details $company_details)
+    public function destroy(customer $customer)
     {
         //
     }

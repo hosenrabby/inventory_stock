@@ -1,75 +1,83 @@
 <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
-        <div class="nano">
-            <div class="nano-content">
-                <ul>
-                    <div class="logo">
-                        <a href="index.html">
-                            <img src="assets/images/logo.png" alt=""/>
-                            <span>Soeng Souy</span>
-                        </a>
-                    </div>
-                    <li class="label">Main</li>
-                    <li><a href="{{ url('/') }}" class="sideba"><i class="ti-home"></i> Dashboard</a></li>
-                    <li><a href="#" class="sideba"><i class="ti-home"></i> Company Details</a></li>
-                    <li class="label">SUPLIER</li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Suplier <span
-                                class="sidebar-collapse-icon ti-angle-down"></span></a>
-                        <ul>
-                            <li><a href="{{ url('authorized/supplier/create') }}">Add Suplier</a></li>
-                            <li><a href="{{ url('authorized/supplier') }}">Suplier Lists</a></li>
-                        </ul>
-                    </li>
+    <div class="nano">
+        <div class="nano-content">
+            <ul>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/images/logo.png" alt="" />
+                        <span>Soeng Souy</span>
+                    </a>
+                </div>
+                <li class="label">Main</li>
+                <li><a href="{{ url('/') }}" class="sideba"><i class="ti-home"></i> Dashboard</a></li>
+                <li><a href="#" class="sideba"><i class="ti-home"></i> Company Details</a></li>
+                <li class="label">SUPLIER</li>
+                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Suplier <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="{{ url('authorized/supplier/create') }}">Add Suplier</a></li>
+                        <li><a href="{{ url('authorized/supplier') }}">Suplier Lists</a></li>
+                    </ul>
+                </li>
+                <li class="label">CUSTOMER</li>
+                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Customer <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="{{ route('customer.create') }}">Add Customer</a></li>
+                        <li><a href="#">Manage Customer</a></li>
+                    </ul>
+                </li>
 
-                    <li class="label">CATAGORY</li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Catagory <span
-                                class="sidebar-collapse-icon ti-angle-down"></span></a>
-                        <ul>
-                            <li><a href="{{ route('category.create') }}">Add Catagory</a></li>
-                            <li><a href="{{ route('category.index') }}">Catagory Manage</a></li>
-                        </ul>
-                    </li>
+                <li class="label">CATAGORY</li>
+                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Catagory <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="{{ route('category.create') }}">Add Catagory</a></li>
+                        <li><a href="{{ route('category.index') }}">Catagory Manage</a></li>
+                    </ul>
+                </li>
 
-                    <li class="label">SUB CATAGORY</li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i>SubCatagory <span
-                                class="sidebar-collapse-icon ti-angle-down"></span></a>
-                        <ul>
-                            <li><a href="{{ route('subcategory.create') }}">Add SubCatagory</a></li>
-                            <li><a href="{{ route('subcategory.index') }}"> Sub Catagory Manage</a></li>
-                        </ul>
-                    </li>
+                <li class="label">SUB CATAGORY</li>
+                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i>SubCatagory <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="{{ route('subcategory.create') }}">Add SubCatagory</a></li>
+                        <li><a href="{{ route('subcategory.index') }}"> Sub Catagory Manage</a></li>
+                    </ul>
+                </li>
 
-                    <li class="label">PRODUCTS</li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Product Manage <span
-                        class="sidebar-collapse-icon ti-angle-down"></span></a>
+                <li class="label">PRODUCTS</li>
+                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Product Manage <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
                         <li><a href="{{ url('authorized/product-stock/create') }}">Add Product</a></li>
-                        <li><a href="{{ url('authorized/product-stock') }}">Purchaseble Products</a></li>
+                        <li><a href="{{ url('authorized/product-stock') }}">Products Information</a></li>
                     </ul>
-                    </li>
+                </li>
 
-                    <li class="label">STOCKS</li>
-                    <li><a href="#"><i class="ti-bar-chart-alt"></i> Stock Manage</a></li>
+                <li class="label">STOCKS</li>
+                <li><a href="#"><i class="ti-bar-chart-alt"></i> Stock Manage</a></li>
 
-                    <li class="label">SALES</li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Sales Products <span
-                        class="sidebar-collapse-icon ti-angle-down"></span></a>
+                <li class="label">SALES</li>
+                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Sales Products <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
                         <li><a href="#">Create Invoice</a></li>
                         <li><a href="#">All Invoice</a></li>
                     </ul>
-                    </li>
+                </li>
 
-                    <li class="label">REPORTS</li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> All Reports <span
-                        class="sidebar-collapse-icon ti-angle-down"></span></a>
+                <li class="label">REPORTS</li>
+                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> All Reports <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
                         <li><a href="#">Suplier Payment Reports</a></li>
                         <li><a href="#">Purchase Reports</a></li>
                         <li><a href="#">Sales Reports</a></li>
                     </ul>
-                    </li>
-                </ul>
-            </div>
+                </li>
+            </ul>
         </div>
     </div>
-    <!-- /# sidebar -->
+</div>
+<!-- /# sidebar -->

@@ -11,12 +11,11 @@ class category extends Model
     protected $table="categories";
     protected $primaryKey="id";
     protected $fillable=[
-        'id',
         'categoryName',
         'categoryCode'
     ];
 
-    public function subCategory(){
-        return $this->hasMany(subCategory::class);
-    }
+    // public function subCategory(){
+    //     return $this->hasMany(subCategory::class);
+    // }
 }

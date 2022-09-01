@@ -1,8 +1,7 @@
 <?php
-
-use App\Models\company_details;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\CompanyDetailsController;
@@ -29,4 +28,5 @@ Route::group(['prefix' => 'authorized'] , function(){
     Route::resource('product-stock', ProductstockManageController::class);
     Route::resource('supplier', SupplierController::class);
     Route::resource('company', CompanyDetailsController::class);
+    Route::resource('customer', CustomerController::class);
 });

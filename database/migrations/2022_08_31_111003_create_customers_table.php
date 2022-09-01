@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sub_categories', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
-            // $table->foreignId('category_id')->constrained('categories');
-            $table->string('subCategoryName');
-            $table->string('subCategoryCode');
+            $table->string('customerName');
+            $table->string('customerEmail');
+            $table->string('customerPhone');
+            $table->string('customerAddress');
+            $table->string('customerBalance');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub_categories');
+        Schema::dropIfExists('customers');
     }
 };
