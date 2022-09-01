@@ -9,13 +9,5 @@ class customer extends Model
 {
     use HasFactory;
 
-    protected $guarded='id';
-
-    // protected $fillable=[
-    //     'customerName',
-    //     'customerEmail',
-    //     'customerPhone',
-    //     'customerAddress',
-    //     'customerBalance'
-    // ];
+    protected $guarded=['id'];
 }

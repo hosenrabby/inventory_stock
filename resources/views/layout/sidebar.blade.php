@@ -24,7 +24,7 @@
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="{{ route('customer.create') }}">Add Customer</a></li>
-                            <li><a href="#">Manage Customer</a></li>
+                            <li><a href="{{ route('customer.index') }}">Manage Customer</a></li>
                         </ul>
                     </li>
 

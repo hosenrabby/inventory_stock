@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form action="" method="POST">
+                                        <form action="{{ route('customer.store') }}" method="POST">
                                             @csrf()
                                             <div class="form-group">
                                                 <label>Customer Name</label>
