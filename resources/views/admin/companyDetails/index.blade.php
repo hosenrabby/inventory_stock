@@ -117,12 +117,12 @@
 
                                      <tr>
 
-                                        <th>COMPANY LOGO</th>
+                                        <th class="pt-5">COMPANY LOGO</th>
 
-                                        <td class="text-center">{{ $company->logo }}</td>
+                                        <td class="text-center"><img src="{{ asset('public/'.$company->logo) }}" alt=""></td>
 
                                         </tr>
-                                        @endforeach
+
 
                                  </tbody>
 
@@ -134,7 +134,7 @@
                                                     <a href="{{ url('authorized/company/' . $company->id) . '/edit' }}" class="btn btn-success">Edit</a>
                                                 </div>
                                          </td>
-
+                                         @endforeach
 
                                     <tr>
 

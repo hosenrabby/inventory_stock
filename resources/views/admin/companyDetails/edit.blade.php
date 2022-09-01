@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form action="{{ url('authorized/company/'.$input->id) }}" method="POST">
+                                        <form action="{{ url('authorized/company/'.$input->id) }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             @method('PATCH')
                                             <div class="form-group">
@@ -44,7 +44,7 @@
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Logo</label>
-                                                    <input type="file" class="form-control" name="logo" value="{{ $input->logo }}">
+                                                    <input type="file" class="form-control" name="logo">
                                                 </div>
                                             </div>
 

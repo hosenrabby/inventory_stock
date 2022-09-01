@@ -15,7 +15,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $customer=customer::all();
+        return view('admin.Customer.index', compact('customer'));
     }
 
     /**
@@ -36,7 +37,9 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input=$request->all();
+        customer::create($input);
+        return redirect('authorized/customer');
     }
 
     /**
@@ -56,9 +59,10 @@ class CustomerController extends Controller
      * @param  \App\Models\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit(customer $customer)
+    public function edit($id)
     {
-        //
+        $customer = customer::find($id);
+        return view('admin.Customer.edit',compact('customer'));
     }
 
     /**
@@ -68,9 +72,12 @@ class CustomerController extends Controller
      * @param  \App\Models\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, customer $customer)
+    public function update(Request $request,  $id)
     {
-        //
+        $customer = customer::find($id);
+        $input = $request->all();
+        $customer->update($input);
+        return redirect('authorized/customer')->with('flash_message', 'customer Updated!');
     }
 
     /**
@@ -79,8 +86,9 @@ class CustomerController extends Controller
      * @param  \App\Models\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(customer $customer)
+    public function destroy($id)
     {
-        //
+        customer::destroy($id);
+        return redirect('authorized/customer')->with('flash_message', 'customer deleted!');
     }
 }
