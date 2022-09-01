@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
+use App\Models\company_details;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductstockManageController;
-use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\CompanyDetailsController;
+use App\Http\Controllers\ProductstockManageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +28,5 @@ Route::group(['prefix' => 'authorized'] , function(){
     Route::resource('subcategory', SubCategoryController::class);
     Route::resource('product-stock', ProductstockManageController::class);
     Route::resource('supplier', SupplierController::class);
+    Route::resource('company', CompanyDetailsController::class);
 });
