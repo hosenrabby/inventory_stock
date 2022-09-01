@@ -1,15 +1,17 @@
 <?php
 
+
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductstockManageController;
-use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\CompanyDetailsController;
+use App\Http\Controllers\ProductstockManageController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Routes for application
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -28,4 +30,5 @@ Route::group(['prefix' => 'authorized'] , function(){
     Route::resource('product-stock', ProductstockManageController::class);
     Route::resource('supplier', SupplierController::class);
     Route::resource('customer', CustomerController::class);
+    Route::resource('company', CompanyDetailsController::class);
 });
