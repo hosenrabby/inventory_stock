@@ -15,7 +15,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $customer=customer::all();
+        return view('admin.Customer.index', compact('customer'));
     }
 
     /**
@@ -36,7 +37,9 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input=$request->all();
+        customer::create($input);
+        return redirect('authorized/customer');
     }
 
     /**
