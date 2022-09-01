@@ -19,7 +19,6 @@
     </div>
     @yield('content')
 
-
     @include('layout.footer')
     @include('layout.script')
 

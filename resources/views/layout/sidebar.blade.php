@@ -51,6 +51,7 @@
                     <ul>
                         <li><a href="{{ url('authorized/product-stock/create') }}">Add Product</a></li>
                         <li><a href="{{ url('authorized/product-stock') }}">Products Information</a></li>
+                        <li><a href="{{ url('authorized/purchase-manage') }}">Purchase Manage</a></li>
                     </ul>
                 </li>
 

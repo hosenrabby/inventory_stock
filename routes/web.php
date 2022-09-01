@@ -6,6 +6,8 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\CompanyDetailsController;
 use App\Http\Controllers\ProductstockManageController;
+use App\Http\Controllers\PurchaseManageController;
+use App\Models\purchaseManage;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,7 @@ Route::group(['prefix' => 'authorized'] , function(){
     Route::resource('category', CategoryController::class);
     Route::resource('subcategory', SubCategoryController::class);
     Route::resource('product-stock', ProductstockManageController::class);
+    Route::resource('purchase-manage', PurchaseManageController::class);
     Route::resource('supplier', SupplierController::class);
     Route::resource('customer', CustomerController::class);
     Route::resource('company', CompanyDetailsController::class);
