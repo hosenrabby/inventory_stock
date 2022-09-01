@@ -24,28 +24,22 @@
                                     <div class="basic-form">
                                         <form action="{{ url('authorized/purchase_manage') }}" method="POST">
                                             @csrf
-                                            <div class="form-group">
-                                                <label>Select Product</label>
-                                                <select class="form-control" name="productID">
-                                                    <option value="" selected>Select Product</option>
-                                                    @foreach ($product as $product)
-                                                        <option value="{{ $product->id }}">{{ $product->productName }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
                                             <div class="row">
-                                            <div class="col">
-                                                <div class="form-group">
-                                                    <label>Invoice Number</label>
-                                                    <input type="number" class="form-control" name="invNumber" placeholder="Invoice Number">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label>Invoice Number</label>
+                                                        <input type="number" class="form-control" name="invNumber" placeholder="Invoice Number">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="form-group">
-                                                    <label>Product Code</label>
-                                                    <input type="number" class="form-control" name="prodCode" placeholder="Product Code">
+                                                <div class="form-group col">
+                                                    <label>Select Supplier</label>
+                                                    <select class="form-control" name="subcatagoryID">
+                                                        <option value="1" selected>Select Supplier</option>
+                                                        @foreach ($supplier as $supplier)
+                                                            <option value="{{ $supplier->id }}">{{ $supplier->supplierName }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
-                                            </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
@@ -67,31 +61,41 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group mt-2">
-                                                <label>Select Supplier</label>
-                                                <select class="form-control" name="subcatagoryID">
-                                                    <option value="1" selected>Select Supplier</option>
-                                                    @foreach ($supplier as $supplier)
-                                                        <option value="{{ $supplier->id }}">{{ $supplier->supplierName }}</option>
-                                                    @endforeach
-                                                </select>
+                                            <div class="extra-row" id="appendRow">
+                                                <div class="row mt-3">
+                                                    <div class="col-1">
+                                                        <button type="button" class="btn btn-outline-dark" id="addRow" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
+                                                    </div>
+                                                    <div class="form-group col">
+                                                        <label>Select Product</label>
+                                                        <select class="form-control" name="productID">
+                                                            <option value="" selected>Select Product</option>
+                                                            @foreach ($product as $product)
+                                                                <option value="{{ $product->id }}">{{ $product->productName }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                        <div class="form-group col">
+                                                            <label>Product Code</label>
+                                                            <input type="number" class="form-control" name="prodCode" placeholder="Product Code">
+                                                        </div>
+                                                    <div class="form-group col">
+                                                        <label>Product QTY</label>
+                                                        <input type="number" class="form-control" name="prodQty" placeholder="Product QTY">
+                                                    </div>
+                                                    <div class="form-group col">
+                                                        <label>Product Rate</label>
+                                                        <input type="number" class="form-control" name="prodRate" placeholder="Product Rate">
+                                                    </div>
+                                                    <div class="form-group col">
+                                                        <label>Total Price</label>
+                                                        <input type="number" class="form-control" name="totalPrice" placeholder="Total Price">
+                                                    </div>
+                                                </div>
                                             </div>
+
                                             <div class="row">
-                                                <div class="col-1">
-                                                    <button type="button" class="btn btn-outline-dark" id="addRow" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
-                                                </div>
-                                                <div class="form-group col">
-                                                    <label>Product QTY</label>
-                                                    <input type="number" class="form-control" name="prodQty" placeholder="Product QTY">
-                                                </div>
-                                                <div class="form-group col">
-                                                    <label>Product Rate</label>
-                                                    <input type="number" class="form-control" name="prodRate" placeholder="Product Rate">
-                                                </div>
-                                                <div class="form-group col">
-                                                    <label>Total Price</label>
-                                                    <input type="number" class="form-control" name="totalPrice" placeholder="Total Price">
-                                                </div>
+                                                <div class="col"></div>
                                                 <div class="form-group col">
                                                     <label>Paid Amount</label>
                                                     <input type="number" class="form-control" name="paidAmount" placeholder="Paid Amount">
@@ -111,5 +115,4 @@
                 </div>
             </div>
                 <!-- /# row -->
-
 @endsection

@@ -18,7 +18,7 @@
     });
 
 
-    /* 
+    /*
     ------------------------------------------------
     Sidebar open close animated humberger icon
     ------------------------------------------------*/
@@ -31,7 +31,7 @@
 
 
 
-    /* TO DO LIST 
+    /* TO DO LIST
     --------------------*/
     $(".tdl-new").on('keypress', function(e) {
         var code = (e.keyCode ? e.keyCode : e.which);
@@ -65,8 +65,47 @@
         return false;
     });
 
+//==========================================
+//       Purchase Form Append
+//==========================================
 
-    
+
+    $('#addRow').click(function(){
+        // alert('Hello world');
+        var row = '<div class="row mt-3" id="appendRow">'
+            row+= '<div class="col-1">'
+            row+= '<button type="button" class="btn btn-outline-dark" id="addRow" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button></div>'
+            row+= '<div class="form-group col">'
+            row+= '<label>Select Product</label>'
+            row+= '<select class="form-control" name="productID">'
+            row+= '<option value="" selected>Select Product</option>'
+            row+= '@foreach ($product as $product)'
+            row+= '<option value="{{ $product->id }}">{{ $product->productName }}</option>'
+            row+= '@endforeach'
+            row+= '</select>'
+                //     </div>
+                //         <div class="form-group col">
+                //             <label>Product Code</label>
+                //             <input type="number" class="form-control" name="prodCode" placeholder="Product Code">
+                //         </div>
+                //     <div class="form-group col">
+                //         <label>Product QTY</label>
+                //         <input type="number" class="form-control" name="prodQty" placeholder="Product QTY">
+                //     </div>
+                //     <div class="form-group col">
+                //         <label>Product Rate</label>
+                //         <input type="number" class="form-control" name="prodRate" placeholder="Product Rate">
+                //     </div>
+                //     <div class="form-group col">
+                //         <label>Total Price</label>
+                //         <input type="number" class="form-control" name="totalPrice" placeholder="Total Price">
+                //     </div>
+                // </div>';
+
+                $('#appendRow').append(row);
+    })
+
+
 
 
 
