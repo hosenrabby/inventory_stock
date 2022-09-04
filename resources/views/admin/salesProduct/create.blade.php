@@ -44,10 +44,10 @@
                                                     <input type="date" class="form-control" name="purchaseDate" placeholder="Purchase Date">
                                                 </div>
                                             </div>
-                                            <div class="extra-row" >
+                                            <div class="extra-row" id="RowAppend" >
                                                 <div class="row mt-3">
                                                     <div class="col-1">
-                                                        <button type="button" class="btn btn-outline-dark" id="addRow" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
+                                                        <button type="button" class="btn btn-outline-dark" id="RowAdd" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
