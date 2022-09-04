@@ -32,6 +32,16 @@
  <script src="{{ asset('assets/js/lib/data-table/jszip.min.js') }}"></script>
  <script src="{{ asset('assets/js/lib/data-table/pdfmake.min.js') }}"></script>
  <script src="{{ asset('assets/js/lib/data-table/vfs_fonts.js') }}"></script>
- <script src="{{ asset('assets/js/lib/data-table/buttons.html5.min.js') }}"></script>
+ <script src="{{ asset('assets/js/lib/data-table/buttons.html5.min.
+ ') }}"></script>
  <script src="{{ asset('assets/js/lib/data-table/buttons.print.min.js') }}"></script>
  <script src="{{ asset('assets/js/lib/data-table/datatables-init.js') }}"></script>
+
+
+<script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" > </script>
+
+<script>
+    $(document).ready( function () {
+        $('#bootstrap-data-table-export').DataTable();
+    } );
+    </script>

@@ -1,4 +1,5 @@
 @extends('layout.master')
+
 @section('content')
 <div class="content-wrap">
 <div class="main">
@@ -20,7 +21,7 @@
                     <div class="card">
                         <div class="bootstrap-data-table-panel">
                             <div class="table-responsive">
-                                <table id="table" class="table table-striped table-bordered table-centre">
+                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered table-centre">
                                     <thead>
                                         <tr>
                                             <th>Serial No</th>
@@ -67,4 +68,5 @@
     </div>
 </div>
 </div>
+
 @endsection
