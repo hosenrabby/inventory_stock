@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\subCategory;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\subCategoryRequest;
 use App\Models\category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -45,11 +46,11 @@ class SubCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(subCategoryRequest $request)
     {
         $input=$request->all();
         subCategory::create($input);
-        return redirect('authorized/subcategory');
+        return redirect('authorized/subcategory')->with('success', 'Sub Category create successfully.');
     }
 
     /**
@@ -83,12 +84,12 @@ class SubCategoryController extends Controller
      * @param  \App\Models\subCategory  $subCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(subCategoryRequest $request, $id)
     {
         $subcategory=subCategory::find($id);
         $input=$request->all();
         $subcategory->update($input);
-        return redirect('authorized/subcategory');
+        return redirect('authorized/subcategory')->with('info', 'Sub Category update successfully.');
     }
 
     /**
@@ -100,6 +101,6 @@ class SubCategoryController extends Controller
     public function destroy($id)
     {
         $categories=subCategory::find($id)->delete();
-        return redirect('authorized/subcategory');
+        return redirect('authorized/subcategory')->with('warning', 'Sub Category delete successfully.');
     }
 }

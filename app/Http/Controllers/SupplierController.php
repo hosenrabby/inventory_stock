@@ -41,7 +41,7 @@ class SupplierController extends Controller
         $input= $request->all();
 
         Supplier::create($input);
-        return redirect('authorized/supplier')->with('flash_message','supplier');
+        return redirect('authorized/supplier')->with('success', 'Supplier create successfully.');
     }
 
     /**
@@ -79,7 +79,7 @@ class SupplierController extends Controller
         $supplier = Supplier::find($id);
         $input = $request->all();
         $supplier->update($input);
-        return redirect('authorized/supplier')->with('flash_message', 'supplier Updated!');
+        return redirect('authorized/supplier')->with('info', 'Supplier update successfully.');
     }
 
     /**
@@ -91,6 +91,6 @@ class SupplierController extends Controller
     public function destroy($id)
     {
         Supplier::destroy($id);
-        return redirect('authorized/supplier')->with('flash_message', 'Supplier deleted!');
+        return redirect('authorized/supplier')->with('warning', 'Supplier delete successfully.');
     }
 }

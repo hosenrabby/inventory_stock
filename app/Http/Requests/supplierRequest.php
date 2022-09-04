@@ -24,9 +24,9 @@ class supplierRequest extends FormRequest
     public function rules()
     {
         return [
-            'supplierName'=>'required|string',
-            'supplierEmail'=>'required|email',
-            'supplierPhone'=>'required|numeric',
+            'supplierName'=>'Bail|required|string',
+            'supplierEmail'=>'Bail|required|email',
+            'supplierPhone'=>'Bail|required|numeric',
         ];
     }
 

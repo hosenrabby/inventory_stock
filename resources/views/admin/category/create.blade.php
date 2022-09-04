@@ -37,7 +37,16 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Category Code</label>
-                                                <input type="number" class="form-control" name="categoryCode" placeholder="Category Code">
+                                                <input type="number" class="form-control @error('categoryCode') is-invalid
+
+                                                @enderror" name="categoryCode" placeholder="Category Code" value="{{ old('categoryCode') }}">
+                                                @error('categoryCode')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+
+                                                </span>
+
+                                                @enderror
                                             </div>
 
                                             <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>

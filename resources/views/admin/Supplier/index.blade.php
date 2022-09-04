@@ -46,8 +46,8 @@
 
 
                                                                 <a href="{{ url('authorized/supplier/' . $supplier->id . '/edit') }}"
-                                                                    class="btn btn-success"><i
-                                                                        class="fa-solid fa-pen-to-square"></i></a>
+                                                                    class="btn btn-default">
+                                                                    <i class="fa-solid fa-pen-to-square"></i> </a>
 
 
                                                                 <form
@@ -56,7 +56,7 @@
                                                                     @method('DELETE')
                                                                     @csrf
                                                                     <button type="submit"
-                                                                        class="btn btn-danger">Delete</button>
+                                                                        class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                                                                 </form>
                                                             </div>
                                                         </td>

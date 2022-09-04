@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CustomerRequest extends FormRequest
+class subCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,8 @@ class CustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            'customerName'=>'Bail|required|string|max:255',
-            'customerEmail'=>'Bail|required|email|max:255',
-            'customerPhone'=>'Bail|required|min:11|numeric',
-            'customerAddress'=>'Bail|required|max:300',
-            'customerBalance'=>'Bail|required|numeric|'
+            'subCategoryName'=>'Bail|required|string|max:255',
+            'subCategoryCode'=>'Bail|required|numeric'
         ];
     }
 }
