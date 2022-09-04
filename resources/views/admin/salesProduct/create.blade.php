@@ -14,15 +14,14 @@
                     </div>
                     <!-- /# column -->
                     <div class="row">
-                        <div class="col-lg-1"></div>
-                        <div class="col-lg-10">
+                        <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-title">
                                     <h4>Sales Product Form</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form action="#" method="POST">
+                                        <form action="{{ url('authorized/salesproduct') }}" method="POST">
                                             @csrf
                                             <div class="row">
                                                 <div class="col">
@@ -40,20 +39,19 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
+                                                <div class="form-group col">
+                                                    <label>Purchase Date</label>
+                                                    <input type="date" class="form-control" name="purchaseDate" placeholder="Purchase Date">
+                                                </div>
                                             </div>
-                                            <div class="extra-row" id="appendRow">
+                                            <div class="extra-row" >
                                                 <div class="row mt-3">
                                                     <div class="col-1">
                                                         <button type="button" class="btn btn-outline-dark" id="addRow" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
                                                     </div>
                                                     <div class="form-group col">
-                                                        <label>Select Product</label>
-                                                        <select class="form-control" name="productID">
-                                                            <option value="1" selected>Select Product</option>
-                                                            @foreach ($product as $product)
-                                                                <option value="{{ $product->id }}">{{ $product->productName }}</option>
-                                                            @endforeach
-                                                        </select>
+                                                        <label>Product Name</label>
+                                                        <input type="text" class="form-control" name="productName" placeholder="Product Name">
                                                     </div>
                                                         <div class="form-group col">
                                                             <label>Product Code</label>
@@ -77,6 +75,10 @@
                                             <div class="row">
                                                 <div class="col"></div>
                                                 <div class="form-group col">
+                                                    <label>Grand Total</label>
+                                                    <input type="number" class="form-control" name="grandTotal" placeholder="Grand Total">
+                                                </div>
+                                                <div class="form-group col">
                                                     <label>Paid Amount</label>
                                                     <input type="number" class="form-control" name="paidAmount" placeholder="Paid Amount">
                                                 </div>
@@ -91,8 +93,8 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="col-lg-1"></div>
                 </div>
             </div>
+        </div>
                 <!-- /# row -->
 @endsection

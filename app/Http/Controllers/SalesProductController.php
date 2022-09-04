@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SalesProduct;
 use App\Http\Controllers\Controller;
+use App\Models\customer;
 use Illuminate\Http\Request;
 
 class SalesProductController extends Controller
@@ -15,7 +16,8 @@ class SalesProductController extends Controller
      */
     public function index()
     {
-        //
+        $showData=SalesProduct::all();
+        return view('admin.salesProduct.index', compact('showData'));
     }
 
     /**
@@ -25,7 +27,8 @@ class SalesProductController extends Controller
      */
     public function create()
     {
-        //
+        $customer=customer::all();
+        return view('admin.salesProduct.create', compact('customer'));
     }
 
     /**

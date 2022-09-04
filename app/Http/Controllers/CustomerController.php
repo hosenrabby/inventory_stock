@@ -78,7 +78,7 @@ class CustomerController extends Controller
         $customer = customer::find($id);
         $input = $request->all();
         $customer->update($input);
-        return redirect('authorized/customer')->with('flash_message', 'customer Updated!');
+        return redirect('authorized/customer')->with('info', "Customer Updated Successfully!");
     }
 
     /**
@@ -90,6 +90,6 @@ class CustomerController extends Controller
     public function destroy($id)
     {
         customer::destroy($id);
-        return redirect('authorized/customer')->with('flash_message', 'customer deleted!');
+        return redirect('authorized/customer')->with('warning', 'customer deleted successfully!');
     }
 }

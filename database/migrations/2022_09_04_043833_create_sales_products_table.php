@@ -16,12 +16,16 @@ return new class extends Migration
         Schema::create('sales_products', function (Blueprint $table) {
             $table->id();
             $table->integer('invNumber');
-            $table->foreign('customerID')->constrained('customers');
-            $table->foreign('productID')->constrained('productstock_manages');
+            $table->foreignId('customerID')->constrained('customers');
+            $table->string('purchaseDate');
+            $table->string('productName');
             $table->integer('prodCode');
             $table->integer('prodQty');
             $table->decimal('prodRate', 8,2);
             $table->decimal('totalPrice', 8,2);
+            $table->decimal('grandTotal', 8,2);
+            $table->decimal('paidAmount', 8,2);
+            $table->decimal('duesAmount', 8,2);
             $table->timestamps();
         });
     }
