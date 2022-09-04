@@ -69,60 +69,60 @@
 //       Purchase Form Append
 //==========================================
 
-    $('#addRow').click(function(){
-        $.ajax({
-            url:'pakage_data.php',
-            method:'post',
-            dataType:'html',
-            data:"",
-            success:function(data){
-                var dat=$.parseJSON(data);
-                var price=dat.res.package_price;
-            $('#totaldeliverycharge').val(price);
-            var delivary_charge=$('#totaldeliverycharge').val(price);
-           // totalPrice(delivary_charge);
-            }
-        });
-    })
+    // $('#addRow').click(function(){
+    //     $.ajax({
+    //         url:'http://localhost/inventory_stock/authorized/resources/views/admin/purchaseManage/prodData.blade.php',
+    //         method:'post',
+    //         dataType:'html',
+    //         data:"",
+    //         success:function(data){
+
+    //         }
+    //     });
+    // })
 
 
 
-    $('#addRow').click(function(){
+    $('.addRow').click(function(){
         // alert('Hello world');
-        var row = '<div class="row mt-3" id="appendRow">'
+        var i=1;
+        var row = '<div class="row mt-3" id="deleteRow">'
             row+= '<div class="col-1">'
-            row+= '<button type="button" class="btn btn-outline-dark" id="addRow" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button></div>'
+            // row+= '<button type="button" class="btn btn-outline-danger" id="minus" onclick="rowDelete()" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>'
+            row+= '</div>'
             row+= '<div class="form-group col">'
-            row+= '<label>Select Product</label>'
-            row+= '<select class="form-control" name="productID">'
-            row+= '<option value="" selected>Select Product</option>'
-            row+= '@foreach ($product as $product)'
-            row+= '<option value="{{ $product->id }}">{{ $product->productName }}</option>'
-            row+= '@endforeach'
-            row+= '</select>'
+            row+= '<label>Product Name</label>'
+            row+= '<input type="text" class="form-control" name="prodName" placeholder="Product Name">'
             row+= '</div>'
             row+= '<div class="form-group col">'
             row+= '<label>Product Code</label>'
-            row+= '<input type="number" class="form-control" name="prodCode" placeholder="Product Code">'
+            row+= '<input type="number" class="form-control" name="prodCode" id="prodCode" placeholder="Product Code">'
             row+= '</div>'
             row+= '<div class="form-group col">'
             row+= '<label>Product QTY</label>'
-            row+= '<input type="number" class="form-control" name="prodQty" placeholder="Product QTY">'
+            row+= '<input type="number" class="form-control" name="prodQty" id="prodQTY'+i+'" placeholder="Product QTY">'
             row+= '</div>'
             row+= '<div class="form-group col">'
             row+= '<label>Product Rate</label>'
-            row+= '<input type="number" class="form-control" name="prodRate" placeholder="Product Rate">'
+            row+= '<input type="number" class="form-control" name="prodRate" id="prodRate'+i+'" placeholder="Product Rate">'
             row+= '</div>'
             row+= '<div class="form-group col">'
             row+= '<label>Total Price</label>'
-            row+= '<input type="number" class="form-control" name="totalPrice" placeholder="Total Price">'
+            row+= '<input type="number" class="form-control" name="totalPrice" id="totalPrice'+i+'" placeholder="Total Price">'
             row+= '</div>'
             row+= '</div>';
 
                 $('#appendRow').append(row);
+                i++;
     })
 
+    $('#delRow').click(function(){
+        $('#deleteRow').remove();
+    })
 
+    // function rowDelete(){
+    //     $('#deleteRow').remove()
+    // }
 
 
 
