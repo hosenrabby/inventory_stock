@@ -81,15 +81,15 @@
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product QTY</label>
-                                                        <input type="number" class="form-control" name="prodQty" id="prodQTY" placeholder="Product QTY">
+                                                        <input type="number" class="form-control" name="prodQty" id="prodQTY1" onkeyup="parchaseCal(1)" placeholder="Product QTY">
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Rate</label>
-                                                        <input type="number" class="form-control" name="prodRate" id="prodRate" placeholder="Product Rate">
+                                                        <input type="number" class="form-control" name="prodRate" id="prodRate1" onkeyup="parchaseCal(1)" placeholder="Product Rate">
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Total Price</label>
-                                                        <input type="number" class="form-control" name="totalPrice" id="totalPrice" placeholder="Total Price">
+                                                        <input type="number" class="form-control totCount" name="totalPrice" id="totalPrice1" placeholder="Total Price">
                                                     </div>
                                                 </div>
                                             </div>
@@ -98,11 +98,11 @@
                                                 <div class="col"></div>
                                                 <div class="form-group col">
                                                     <label>Grand Total</label>
-                                                    <input type="number" class="form-control" name="paidAmount" id="grandTot" placeholder="Grand Total">
+                                                    <input type="number" class="form-control" name="grandTotal" id="grandTot" onkeyup="parchaseCal()" placeholder="Grand Total">
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Paid Amount</label>
-                                                    <input type="number" class="form-control" name="paidAmount" id="paidAmount" placeholder="Paid Amount">
+                                                    <input type="number" class="form-control" name="paidAmount" id="paidAmount" onkeyup="parchaseCal()" placeholder="Paid Amount">
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Dues Amunt</label>

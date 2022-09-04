@@ -36,11 +36,29 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>subCategory Name</label>
-                                                <input type="text" class="form-control" name="subCategoryName" placeholder="SubCategory Name">
+                                                <input type="text" class="form-control @error('subCategoryName') is-invalid
+
+                                                @enderror" name="subCategoryName" placeholder="SubCategory Name" value="{{ old('subCategoryName') }}">
+                                                @error('subCategoryName')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+
+
+                                                </span>
+
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <label>subCategory Code</label>
-                                                <input type="number" class="form-control" name="subCategoryCode" placeholder="SubCategory Code">
+                                                <input type="number" class="form-control @error('subCategoryCode') is-invalid
+
+                                                @enderror" name="subCategoryCode" placeholder="SubCategory Code" value="{{ old('subCategoryCode') }}">
+                                                @error('subCategoryCode')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+
+                                                @enderror
                                             </div>
 
                                             <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>

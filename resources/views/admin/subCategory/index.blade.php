@@ -42,11 +42,11 @@
                                             <td>{{ $categories->subCategoryCode }}</td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
-                                                    <a href="{{ url('authorized/subcategory/' . $categories->id) . '/edit' }}" class="btn btn-success">Edit</a>
+                                                    <a href="{{ url('authorized/subcategory/' . $categories->id) . '/edit' }}" class="btn btn-default"><i class="fa-solid fa-pen-to-square"></i></a>
                                                 <form action="{{ url('authorized/subcategory/' . $categories->id) }}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="submit" class="btn btn-danger ml-1"><i class="fa-solid fa-trash-can"></i></button>
                                                 </form>
                                                 </div>
                                             </td>

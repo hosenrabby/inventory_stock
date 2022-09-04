@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\productManageRequest;
 use App\Models\category;
 use App\Models\subCategory;
 use Illuminate\Http\Request;
@@ -47,12 +48,12 @@ class ProductstockManageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(productManageRequest $request)
     {
         $data = $request->all();
         // dd($data);
         productstockManage::create($data);
-        return redirect('authorized/product-stock');
+        return redirect('authorized/product-stock')->with('success', 'Product create successfully.');;
         // stockManagment::create($data);
     }
 
@@ -90,12 +91,12 @@ class ProductstockManageController extends Controller
      * @param  \App\Models\productstockManage  $productstockManage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(productManageRequest $request,$id)
     {
         $findDat = productstockManage::find($id);
         $upData = $request->all();
         $findDat->update($upData);
-        return redirect('authorized/product-stock');
+        return redirect('authorized/product-stock')->with('info', 'Product update successfully.');
     }
 
     /**
@@ -107,6 +108,6 @@ class ProductstockManageController extends Controller
     public function destroy($id)
     {
         productstockManage::destroy($id);
-        return back();
+        return back()->with('warning', 'Product delete successfully.') ;
     }
 }

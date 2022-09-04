@@ -42,7 +42,7 @@ class CategoryController extends Controller
     {
         $input=$request->all();
         category::create($input);
-        return redirect('authorized/category');
+        return redirect('authorized/category')->with('success', 'Category create successfully.');
     }
 
     /**
@@ -80,7 +80,7 @@ class CategoryController extends Controller
         $category=category::find($id);
         $input=$request->all();
         $category->update($input);
-        return redirect('authorized/category');
+        return redirect('authorized/category')->with('info', 'Category update successfully.');
     }
 
     /**
@@ -92,6 +92,6 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category=category::find($id)->delete();
-        return back();
+        return back()->with('warning', 'Category delete successfully.');
     }
 }

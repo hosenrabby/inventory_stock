@@ -65,68 +65,6 @@
         return false;
     });
 
-//==========================================
-//       Purchase Form Append
-//==========================================
-
-    // $('#addRow').click(function(){
-    //     $.ajax({
-    //         url:'http://localhost/inventory_stock/authorized/resources/views/admin/purchaseManage/prodData.blade.php',
-    //         method:'post',
-    //         dataType:'html',
-    //         data:"",
-    //         success:function(data){
-
-    //         }
-    //     });
-    // })
-
-
-
-    $('.addRow').click(function(){
-        // alert('Hello world');
-        var i=1;
-        var rowlen=parseInt($('#rowlenth').val());
-        i+=rowlen;
-        var row = '<div class="row mt-3" id="deleteRow">'
-            row+= '<div class="col-1">'
-            // row+= '<button type="button" class="btn btn-outline-danger" id="minus" onclick="rowDelete()" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>'
-            row+= '</div>'
-            row+= '<div class="form-group col">'
-            row+= '<label>Product Name</label>'
-            row+= '<input type="text" class="form-control" name="prodName" placeholder="Product Name">'
-            row+= '</div>'
-            row+= '<div class="form-group col">'
-            row+= '<label>Product Code</label>'
-            row+= '<input type="number" class="form-control" name="prodCode" id="prodCode" placeholder="Product Code">'
-            row+= '</div>'
-            row+= '<div class="form-group col">'
-            row+= '<label>Product QTY</label>'
-            row+= '<input type="number" class="form-control" name="prodQty" id="prodQTY'+i+'" placeholder="Product QTY">'
-            row+= '</div>'
-            row+= '<div class="form-group col">'
-            row+= '<label>Product Rate</label>'
-            row+= '<input type="number" class="form-control" name="prodRate" id="prodRate'+i+'" placeholder="Product Rate">'
-            row+= '</div>'
-            row+= '<div class="form-group col">'
-            row+= '<label>Total Price</label>'
-            row+= '<input type="number" class="form-control" name="totalPrice" id="totalPrice'+i+'" placeholder="Total Price">'
-            row+= '</div>'
-            row+= '</div>';
-
-                $('#appendRow').append(row);
-                $('#rowlenth').val(i);
-                i++;
-    })
-
-    $('#delRow').click(function(){
-        $('#deleteRow').remove();
-    })
-
-    // function rowDelete(){
-    //     $('#deleteRow').remove()
-    // }
-
 
     $('#RowAdd').click(function(){
 var row='<div class="extra-row" id="RowDelete" >'

@@ -37,11 +37,28 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Customer Email</label>
-                                                <input type="email" class="form-control" name="customerEmail" placeholder="Customer Email">
+                                                <input type="email" class="form-control @error('customerEmail') is-invalid
+
+                                                @enderror" name="customerEmail" placeholder="Customer Email" value="{{ old('customerEmail') }}">
+                                                @error('customerEmail')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <label>Customer Phone</label>
-                                                <input type="number" class="form-control" name="customerPhone" placeholder="Customer Phone">
+                                                <input type="number" class="form-control @error('customerPhone') is-invalid
+
+                                                @enderror" name="customerPhone" placeholder="Customer Phone" value="{{ old('customerPhone') }}">
+                                                @error('customerPhone')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+
+
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <label>Customer Address</label>

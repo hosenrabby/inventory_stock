@@ -24,7 +24,7 @@ class companyStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'logo'=>'required|mimes:jpg,bmp,png',
+            'logo'=>'Bail|required|mimes:jpg,bmp,png',
         ];
     }
 }

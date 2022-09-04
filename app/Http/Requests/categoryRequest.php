@@ -24,8 +24,8 @@ class categoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'categoryName'=>'required|string|max:255',
-            'categoryCode'=>'required|numeric'
+            'categoryName'=>'Bail|required|string|max:255',
+            'categoryCode'=>'Bail|required|numeric'
         ];
     }
 
