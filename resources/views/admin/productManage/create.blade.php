@@ -26,11 +26,29 @@
                                             @csrf
                                             <div class="form-group">
                                                 <label>Product Name</label>
-                                                <input type="text" class="form-control" name="productName" placeholder="Product Name">
+                                                <input type="text" class="form-control @error('productName') is-invalid
+
+                                                @enderror" name="productName" placeholder="Product Name" value="{{ old('productName') }}">
+                                                @error('productName')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+
+                                                </span>
+
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <label>Product Code</label>
-                                                <input type="number" class="form-control" name="prodCode" placeholder="Product Code">
+                                                <input type="number" class="form-control @error('prodCode') is-invalid
+
+                                                @enderror" name="prodCode" placeholder="Product Code" value="{{ old('prodCode') }}">
+                                                @error('prodCode')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+
+                                                </span>
+
+                                                @enderror
                                             </div>
                                             <div class="row">
                                                 <div class="col">
@@ -55,11 +73,30 @@
                                             <div class="row">
                                                 <div class="form-group col">
                                                     <label>Product Rate</label>
-                                                    <input type="number" class="form-control" name="prodRate" placeholder="Product Rate">
+                                                    <input type="number" class="form-control @error('prodRate') is-invalid
+
+                                                    @enderror" name="prodRate" placeholder="Product Rate" value="{{ old('prodRate') }}">
+                                                    @error('prodRate')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+
+                                                    </span>
+
+
+                                                    @enderror
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Stock Balance</label>
-                                                    <input type="number" class="form-control" name="stockBalance" placeholder="Stock Balance">
+                                                    <input type="number" class="form-control @error('stockBalance') is-invalid
+
+                                                    @enderror" name="stockBalance" placeholder="Stock Balance" value="{{ old('stockBalance') }}">
+                                                    @error('stockBalance')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+
+                                                    </span>
+
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>

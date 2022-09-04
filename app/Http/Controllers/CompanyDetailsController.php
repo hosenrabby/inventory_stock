@@ -114,7 +114,7 @@ class CompanyDetailsController extends Controller
             'logo'=>$img_url,
        ]);
        $company->update($input);
-        return redirect('authorized/company')->with('flash_message', 'company Updated!');
+        return redirect('authorized/company')->with('info', 'Company update successfully.');
     }
 
     /**

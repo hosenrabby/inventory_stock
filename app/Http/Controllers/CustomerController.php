@@ -73,7 +73,7 @@ class CustomerController extends Controller
      * @param  \App\Models\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $id)
+    public function update(CustomerRequest $request,  $id)
     {
         $customer = customer::find($id);
         $input = $request->all();

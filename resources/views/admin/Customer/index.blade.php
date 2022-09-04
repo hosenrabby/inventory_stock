@@ -43,11 +43,11 @@
                                             <td>{{ $customers->customerBalance }}</td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
-                                                    <a href="{{ route('customer.edit', ['customer'=>$customers->id]) }}" class="btn btn-success">Edit</a>
+                                                    <a href="{{ route('customer.edit', ['customer'=>$customers->id]) }}" class="btn btn-default"><i class="fa-solid fa-pen-to-square"></i></a>
                                                 <form action="{{ route('customer.destroy', ['customer'=>$customers->id]) }}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="submit" class="btn btn-danger ml-1"><i class="fa-solid fa-trash-can"></i></button>
                                                 </form>
                                                 </div>
                                             </td>
