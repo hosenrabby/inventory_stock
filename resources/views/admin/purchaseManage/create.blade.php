@@ -60,6 +60,10 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
+                                                <div class="form-group col">
+                                                    <label>Purchase Date</label>
+                                                    <input type="date" class="form-control" name="purchaseDate" placeholder="Purchase Date">
+                                                </div>
                                             </div>
                                             <div class="extra-row" id="appendRow">
                                                 <div class="row mt-3">
