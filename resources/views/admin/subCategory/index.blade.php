@@ -46,7 +46,7 @@
                                                 <form action="{{ url('authorized/subcategory/' . $categories->id) }}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                                                <button type="submit" class="btn btn-danger ml-1"><i class="fa-solid fa-trash-can"></i></button>
                                                 </form>
                                                 </div>
                                             </td>

@@ -39,16 +39,16 @@
                                                         <td>
                                                             <div class="d-flex justify-content-center">
 
-                                                                <a href="{{ route('category.edit', ['category' => $categories->id]) }}"
+                                                                <a href="{{ route('category.edit', ['category' =>  $categories->id]) }}"
                                                                     class="btn btn-default">
                                                                     <i class="fa-solid fa-pen-to-square"></i></a>
                                                                 <form
-                                                                    action="{{ route('category.destroy', ['category' => $categories->id]) }}"
+                                                                    action="{{ route('category.destroy', ['category' =>  $categories->id]) }}"
                                                                     method="POST">
                                                                     @method('DELETE')
                                                                     @csrf
                                                                     <button type="submit"
-                                                                        class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                                                                        class="btn btn-danger ml-1"><i class="fa-solid fa-trash-can"></i></button>
                                                                 </form>
                                                             </div>
                                                         </td>
