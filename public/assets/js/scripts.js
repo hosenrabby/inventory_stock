@@ -66,36 +66,6 @@
     });
 
 
-    $('#RowAdd').click(function(){
-var row='<div class="extra-row" id="RowDelete" >'
-    row+='<div class="row mt-3">'
-    row+='<div class="col-1">'
-    row+='<button type="button" class="btn btn-outline-dark" id="RowAdd" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>'
-    row+='</div>'
-    row+='<div class="form-group col">'
-    row+='<label>Product Name</label>'
-    row+='<input type="text" class="form-control" name="productName" placeholder="Product Name">'
-    row+='</div>'
-    row+='row+=<div class="form-group col">'
-    row+='<label>Product Code</label>'
-    row+='<input type="number" class="form-control" name="prodCode" placeholder="Product Code">'
-    row+='</div>'
-    row+='<div class="form-group col">'
-    row+='<label>Product QTY</label>'
-    row+='<input type="number" class="form-control" name="prodQty" placeholder="Product QTY">'
-    row+='</div>'
-    row+='<div class="form-group col">'
-    row+='<label>Product Rate</label>'
-    row+='<input type="number" class="form-control" name="prodRate" placeholder="Product Rate">'
-    row+='</div>'
-    row+='<div class="form-group col">'
-    row+='<label>Total Price</label>'
-    row+='<input type="number" class="form-control" name="totalPrice" placeholder="Total Price">'
-    row+='</div>'
-    row+='</div>'
-    row+='</div>'
 
-    $('#RowAppend').append(row);
-    })
 
 })(jQuery);

@@ -23,6 +23,7 @@
                                     <div class="basic-form">
                                         <form action="{{ url('authorized/salesproduct') }}" method="POST">
                                             @csrf
+                                            <input type="hidden" name="rowlen" id="rowlen" value="1">
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="form-group">
@@ -51,23 +52,23 @@
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
-                                                        <input type="text" class="form-control" name="productName" placeholder="Product Name">
+                                                        <input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name">
                                                     </div>
                                                         <div class="form-group col">
                                                             <label>Product Code</label>
-                                                            <input type="number" class="form-control" name="prodCode" placeholder="Product Code">
+                                                            <input type="number" class="form-control" name="prodCode" id="productCode" placeholder="Product Code">
                                                         </div>
                                                     <div class="form-group col">
                                                         <label>Product QTY</label>
-                                                        <input type="number" class="form-control" name="prodQty" placeholder="Product QTY">
+                                                        <input type="number" class="form-control" name="prodQty" id="productQty1" onkeyup="parchaseeCal(1)" placeholder="Product QTY">
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Rate</label>
-                                                        <input type="number" class="form-control" name="prodRate" placeholder="Product Rate">
+                                                        <input type="number" class="form-control" name="prodRate" id="productRate1" onkeyup="parchaseeCal(1)" placeholder="Product Rate">
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Total Price</label>
-                                                        <input type="number" class="form-control" name="totalPrice" placeholder="Total Price">
+                                                        <input type="number" class="form-control totalCount" name="totalPrice" id="totalePrice1" placeholder="Total Price">
                                                     </div>
                                                 </div>
                                             </div>
@@ -76,15 +77,15 @@
                                                 <div class="col"></div>
                                                 <div class="form-group col">
                                                     <label>Grand Total</label>
-                                                    <input type="number" class="form-control" name="grandTotal" placeholder="Grand Total">
+                                                    <input type="number" class="form-control" name="grandTotal" id="grandeTotal" onkeyup="parchaseeCal()" placeholder="Grand Total">
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Paid Amount</label>
-                                                    <input type="number" class="form-control" name="paidAmount" placeholder="Paid Amount">
+                                                    <input type="number" class="form-control" name="paidAmount" id="paiddAmount" onkeyup="parchaseeCal()" placeholder="Paid Amount">
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Dues Amunt</label>
-                                                    <input type="number" class="form-control" name="duesAmount" placeholder="Dues Amount">
+                                                    <input type="number" class="form-control" name="duesAmount" id="duessAmount" placeholder="Dues Amount">
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>
