@@ -10,8 +10,13 @@
 </head>
 <body>
     @include('layout.sidebar')
+
     @include('layout.header')
 
+
+    <div class="col-md-12 text-center">
+          @include('flash_message')
+    </div>
     @yield('content')
 
     @include('layout.footer')

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\customer;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CustomerRequest;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -35,11 +36,11 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CustomerRequest $request)
     {
         $input=$request->all();
         customer::create($input);
-        return redirect('authorized/customer');
+        return redirect('authorized/customer')->with('success', 'Customer Created successfully.');
     }
 
     /**
