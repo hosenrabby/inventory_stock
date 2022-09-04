@@ -7,9 +7,10 @@
  <script src="{{ asset('assets/js/lib/data-table/jszip.min.js') }}"></script>
  <script src="{{ asset('assets/js/lib/data-table/pdfmake.min.js') }}"></script>
  <script src="{{ asset('assets/js/lib/data-table/vfs_fonts.js') }}"></script>
- <script src="{{ asset('assets/js/lib/data-table/buttons.html5.min.js') }}"></script>
+ <script src="{{ asset('assets/js/lib/data-table/buttons.html5.min.') }}"></script>
  <script src="{{ asset('assets/js/lib/data-table/buttons.print.min.js') }}"></script>
  <script src="{{ asset('assets/js/lib/data-table/datatables-init.js') }}"></script>
+
  <!-- jquery vendor -->
  <script src="{{ asset('public/assets/js/lib/jquery.min.js') }}"></script>
  <script src="{{ asset('public/assets/js/lib/jquery.nanoscroller.min.js') }}"></script>
@@ -39,7 +40,14 @@
 
 
  <!-- bootstrap -->
+
+ <script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" > </script>
  <script type="text/javascript">
+
+ $(document).ready( function () {
+        $('#bootstrap-data-table-export').DataTable();
+    } );
+
     //==========================================
 //       Purchase Form Append
 //==========================================
