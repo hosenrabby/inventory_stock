@@ -86,6 +86,8 @@
     $('.addRow').click(function(){
         // alert('Hello world');
         var i=1;
+        var rowlen=parseInt($('#rowlenth').val());
+        i+=rowlen;
         var row = '<div class="row mt-3" id="deleteRow">'
             row+= '<div class="col-1">'
             // row+= '<button type="button" class="btn btn-outline-danger" id="minus" onclick="rowDelete()" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>'
@@ -113,6 +115,7 @@
             row+= '</div>';
 
                 $('#appendRow').append(row);
+                $('#rowlenth').val(i);
                 i++;
     })
 

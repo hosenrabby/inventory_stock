@@ -23,6 +23,7 @@
                                     <div class="basic-form">
                                         <form action="{{ url('authorized/purchase_manage') }}" method="POST">
                                             @csrf
+                                            <input type="hidden" name="rowlenth" id="rowlenth" value="1">
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="form-group">
