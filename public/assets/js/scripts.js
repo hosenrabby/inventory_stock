@@ -65,7 +65,4 @@
         return false;
     });
 
-
-
-
 })(jQuery);
