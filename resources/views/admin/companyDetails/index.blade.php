@@ -119,7 +119,7 @@
 
                                         <th class="pt-5">COMPANY LOGO</th>
 
-                                        <td class="text-center"><img src="{{ asset('public/'.$company->logo) }}" alt=""></td>
+                                        <td class="text-center"><img src="{{ asset('public/'.$company->logo) }}" alt="" width="150" height="150"></td>
 
                                         </tr>
 
