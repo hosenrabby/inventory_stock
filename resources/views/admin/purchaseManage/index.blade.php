@@ -35,6 +35,7 @@
                                                     <th>Product QTY</th>
                                                     <th>Product Rate</th>
                                                     <th>Total Price</th>
+                                                    <th>Grand Total</th>
                                                     <th>Paid Ammount</th>
                                                     <th>Dues Ammount</th>
                                                     <th>Action</th>
@@ -53,6 +54,7 @@
                                                         <td>{{ $data->supplierID }}</td>
                                                         <td>{{ $data->prodQty }}</td>
                                                         <td>{{ $data->prodRate }}</td>
+                                                        <td>{{ $data->grandTotal }}</td>
                                                         <td>{{ $data->totalPrice }}</td>
                                                         <td>{{ $data->paidAmount }}</td>
                                                         <td>{{ $data->duesAmount }}</td>

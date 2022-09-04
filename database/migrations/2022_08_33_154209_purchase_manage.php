@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('purchase_manage', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('productID');
-            $table->foreign('productID')->references('id')->on('productstock_manages');
+            // $table->unsignedBigInteger('productID');
+            // $table->foreign('productID')->references('id')->on('productstock_manages');
+            $table->string('prodName');
             $table->string('prodCode');
             $table->string('invNumber');
             $table->string('purchaseDate');
@@ -29,6 +30,7 @@ return new class extends Migration
             $table->integer('prodQty');
             $table->decimal('prodRate',8,2);
             $table->decimal('totalPrice',8,2);
+            $table->decimal('grandTotal',8,2);
             $table->decimal('paidAmount',8,2);
             $table->decimal('duesAmount',8,2);
             $table->timestamps();
