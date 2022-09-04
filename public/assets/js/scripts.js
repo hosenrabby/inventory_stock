@@ -69,6 +69,23 @@
 //       Purchase Form Append
 //==========================================
 
+    $('#addRow').click(function(){
+        $.ajax({
+            url:'pakage_data.php',
+            method:'post',
+            dataType:'html',
+            data:"",
+            success:function(data){
+                var dat=$.parseJSON(data);
+                var price=dat.res.package_price;
+            $('#totaldeliverycharge').val(price);
+            var delivary_charge=$('#totaldeliverycharge').val(price);
+           // totalPrice(delivary_charge);
+            }
+        });
+    })
+
+
 
     $('#addRow').click(function(){
         // alert('Hello world');
@@ -83,24 +100,24 @@
             row+= '<option value="{{ $product->id }}">{{ $product->productName }}</option>'
             row+= '@endforeach'
             row+= '</select>'
-                //     </div>
-                //         <div class="form-group col">
-                //             <label>Product Code</label>
-                //             <input type="number" class="form-control" name="prodCode" placeholder="Product Code">
-                //         </div>
-                //     <div class="form-group col">
-                //         <label>Product QTY</label>
-                //         <input type="number" class="form-control" name="prodQty" placeholder="Product QTY">
-                //     </div>
-                //     <div class="form-group col">
-                //         <label>Product Rate</label>
-                //         <input type="number" class="form-control" name="prodRate" placeholder="Product Rate">
-                //     </div>
-                //     <div class="form-group col">
-                //         <label>Total Price</label>
-                //         <input type="number" class="form-control" name="totalPrice" placeholder="Total Price">
-                //     </div>
-                // </div>';
+            row+= '</div>'
+            row+= '<div class="form-group col">'
+            row+= '<label>Product Code</label>'
+            row+= '<input type="number" class="form-control" name="prodCode" placeholder="Product Code">'
+            row+= '</div>'
+            row+= '<div class="form-group col">'
+            row+= '<label>Product QTY</label>'
+            row+= '<input type="number" class="form-control" name="prodQty" placeholder="Product QTY">'
+            row+= '</div>'
+            row+= '<div class="form-group col">'
+            row+= '<label>Product Rate</label>'
+            row+= '<input type="number" class="form-control" name="prodRate" placeholder="Product Rate">'
+            row+= '</div>'
+            row+= '<div class="form-group col">'
+            row+= '<label>Total Price</label>'
+            row+= '<input type="number" class="form-control" name="totalPrice" placeholder="Total Price">'
+            row+= '</div>'
+            row+= '</div>';
 
                 $('#appendRow').append(row);
     })
