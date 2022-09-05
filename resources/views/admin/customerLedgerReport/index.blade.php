@@ -65,10 +65,10 @@
                                             <thead>
                                                 <tr>
                                                     <th>Serial No</th>
-                                                    <th>Supplier Name</th>
-                                                    <th>Supplier Email</th>
-                                                    <th>Supplier Phone</th>
-                                                    <th>Supplier Carrent Balance</th>
+                                                    <th>Customer Name</th>
+                                                    <th>Customer Email</th>
+                                                    <th>Customer Phone</th>
+                                                    <th>Customer Carrent Balance</th>
 
                                                 </tr>
                                             </thead>
