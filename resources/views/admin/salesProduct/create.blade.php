@@ -101,3 +101,83 @@
         </div>
                 <!-- /# row -->
 @endsection
+
+@section('script')
+
+<script type="text/javascript">
+    function row_Append(){
+        var i=1;
+        var rowlength=parseInt($('#rowlen').val());
+        i+=rowlength;
+// '<div class="extra-row"  >'
+    var row='<div class="row mt-3" id="DelRow'+i+'">'
+    row+='<div class="col-1">'
+    row+='<button type="button" class="btn btn-sm btn-outline-danger" id="minus" onclick="row_Remove('+i+')"  style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>'
+    // <button type="button" class="btn btn-outline-danger" id="RowDelete" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>
+    row+='</div>'
+    row+='<div class="form-group col">'
+    row+='<label>Product Name</label>'
+    row+='<input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name">'
+    row+='</div>'
+    row+='<div class="form-group col">'
+    row+='<label>Product Code</label>'
+    row+='<input type="number" class="form-control" name="productCode" placeholder="Product Code">'
+    row+='</div>'
+    row+='<div class="form-group col">'
+    row+='<label>Product QTY</label>'
+    row+='<input type="number" class="form-control" name="prodQty" id="productQty'+i+'" onkeyup="parchaseeCal('+i+')" placeholder="Product QTY">'
+    row+='</div>'
+    row+='<div class="form-group col">'
+    row+='<label>Product Rate</label>'
+    row+='<input type="number" class="form-control" name="prodRate" id="productRate'+i+'" onkeyup="parchaseeCal('+i+')" placeholder="Product Rate">'
+    row+='</div>'
+    row+='<div class="form-group col">'
+    row+='<label>Total Price</label>'
+    row+='<input type="number" class="form-control totalCount" name="totalPrice" id="totalePrice'+i+'" placeholder="Total Price">'
+    row+='</div>'
+    row+='</div>'
+    // row+='</div>'
+
+    $('#RowAppend').append(row);
+
+    $('#rowlen').val(i);
+                i++;
+
+
+    }
+    function row_Remove(id){
+        // alert(id)
+        $('#DelRow'+id).remove();
+    }
+
+
+    function parchaseeCal(id){
+        var productQty = $('#productQty'+id).val();
+        var productRate = $('#productRate'+id).val();
+        var totalP = (productQty*productRate);
+            $('#totalePrice'+id).val(totalP);
+
+            var allTotalP = 0;
+            $('.totalCount').each(function(){
+                var get_valu = $(this).val();
+                if($.isNumeric(get_valu)){
+                    allTotalP += parseInt(get_valu);
+                }
+            });
+            $('#grandeTotal').val(allTotalP);
+
+            var grandValu = $('#grandeTotal').val();
+            var paidAmount = $('#paiddAmount').val();
+
+            if(grandValu != paidAmount){
+                var duesA = grandValu - paidAmount;
+                $('#duessAmount').val(duesA);
+            } else{
+                $('#duessAmount').val(0);
+            }
+    }
+
+</script>
+
+@endsection
+

@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('purchase_manage', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('productID');
-            // $table->foreign('productID')->references('id')->on('productstock_manages');
-            $table->string('prodName');
+            $table->integer('pid');
+            $table->unsignedBigInteger('productID');
+            $table->foreign('productID')->references('id')->on('productstock_manages');
             $table->string('prodCode');
             $table->string('invNumber');
             $table->string('purchaseDate');
