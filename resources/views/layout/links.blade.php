@@ -27,3 +27,4 @@
     <link href="{{ asset('public/assets/css/lib/helper.css') }}" rel="stylesheet">
     <link href="{{ asset('public/assets/css/style.css') }}" rel="stylesheet">
     <link href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

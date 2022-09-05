@@ -53,7 +53,13 @@
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
-                                                        <input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name">
+                                                        {{-- <input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name"> --}}
+                                                        <select class="form-control" name="productName" id="productName" onchange="product_rate()">
+                                                            <option value="1" selected>Select Product</option>
+                                                            @foreach ($productName as $products)
+                                                                <option value="{{ $products->id }}">{{ $products->productName }}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                         <div class="form-group col">
                                                             <label>Product Code</label>
@@ -117,7 +123,12 @@
     row+='</div>'
     row+='<div class="form-group col">'
     row+='<label>Product Name</label>'
-    row+='<input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name">'
+    row+='<select class="form-control" name="productName" id="productName">'
+    row+='<option value="1" selected>Select Product</option>'
+    row+='@foreach ($productName as $products)'
+    row+='<option value="{{ $products->id }}">{{ $products->productName }}</option>'
+    row+='@endforeach'
+    row+='</select>'
     row+='</div>'
     row+='<div class="form-group col">'
     row+='<label>Product Code</label>'
@@ -178,6 +189,5 @@
     }
 
 </script>
-
 @endsection
 
