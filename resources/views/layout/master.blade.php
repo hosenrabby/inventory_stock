@@ -23,4 +23,5 @@
     @include('layout.script')
 
 </body>
+    @yield('script')
 </html>
