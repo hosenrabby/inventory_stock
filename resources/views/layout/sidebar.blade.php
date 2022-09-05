@@ -71,7 +71,8 @@
                 <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> All Reports <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
-                        <li><a href="#">Suplier Payment Reports</a></li>
+                        <li><a href="{{ url('authorized/supplierLedgerReport') }}">Suplier Payment Reports</a></li>
+                        <li><a href="{{ url('authorized/customerLedgerReport') }}">Customer Ledger Reports</a></li>
                         <li><a href="#">Purchase Reports</a></li>
                         <li><a href="#">Sales Reports</a></li>
                     </ul>
