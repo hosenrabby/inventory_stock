@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('sales_products', function (Blueprint $table) {
             $table->id();
+            $table->integer('pid');
             $table->integer('invNumber');
             $table->foreignId('customerID')->constrained('customers');
             $table->string('purchaseDate');
-            $table->string('productName');
+            $table->foreignId('productName')->constrained('productstockManage');
             $table->integer('prodCode');
             $table->integer('prodQty');
             $table->decimal('prodRate', 8,2);

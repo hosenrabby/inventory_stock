@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\SalesProduct;
 use App\Http\Controllers\Controller;
 use App\Models\customer;
+use App\Models\productstockManage;
+use App\Models\stockManagment;
 use Illuminate\Http\Request;
 
 class SalesProductController extends Controller
@@ -28,7 +30,10 @@ class SalesProductController extends Controller
     public function create()
     {
         $customer=customer::all();
-        return view('admin.salesProduct.create', compact('customer'));
+
+        $productName=productstockManage::all();
+
+        return view('admin.salesProduct.create', compact('customer', 'productName'));
     }
 
     /**
