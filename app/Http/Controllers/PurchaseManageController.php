@@ -8,6 +8,7 @@ use App\Models\purchaseManage;
 use App\Models\subCategory;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PurchaseManageController extends Controller
 {
@@ -27,6 +28,7 @@ class PurchaseManageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         $product = productstockManage::all();
@@ -36,6 +38,14 @@ class PurchaseManageController extends Controller
         return view('admin.purchaseManage.create', compact('product','catagory','subCatagory','supplier'));
     }
 
+    public function dataRetrive(Request $request)
+    {
+        // if ($request->get('productName')) {
+        //     $query = $request->get('productName');
+        //     $data = DB::table('productstock_manages')->where('id','=', $query)->get();
+        //     // return compact('data');
+        // }
+    }
     /**
      * Store a newly created resource in storage.
      *
