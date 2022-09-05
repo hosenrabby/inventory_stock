@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SalesProduct;
 use App\Http\Controllers\Controller;
 use App\Models\customer;
+use App\Models\productstockManage;
 use Illuminate\Http\Request;
 
 class SalesProductController extends Controller
