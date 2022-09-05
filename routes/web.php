@@ -8,6 +8,7 @@ use App\Http\Controllers\CompanyDetailsController;
 use App\Http\Controllers\ProductstockManageController;
 use App\Http\Controllers\PurchaseManageController;
 use App\Http\Controllers\SalesProductController;
+use App\Http\Controllers\SupplierLedgerReport;
 use App\Models\purchaseManage;
 
 /*
@@ -34,4 +35,5 @@ Route::group(['prefix' => 'authorized'] , function(){
     Route::resource('customer', CustomerController::class);
     Route::resource('company', CompanyDetailsController::class);
     Route::resource('salesproduct', SalesProductController::class);
+    Route::resource('supplierLedgerReport', SupplierLedgerReport::class);
 });

@@ -36,9 +36,10 @@
  <script src="{{ asset('public/assets/js/lib/bootstrap.min.js') }}"></script>
  <script src="{{ asset('public/assets/js/scripts.js') }}"></script>
  <!-- bootstrap -->
-
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
  <script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" > </script>
  <script type="text/javascript">
+
 
  $(document).ready( function () {
         $('#bootstrap-data-table-export').DataTable();
@@ -131,5 +132,26 @@
                 $('#duesAmount').val(0);
             }
     }
+
+
+
+        $('.delete-confirm').click(function(event) {
+       var form =  $(this).closest("form");
+       var name = $(this).data("name");
+       event.preventDefault();
+       swal({
+          title: `Are you sure you want to delete this?`,
+          text: "If you delete this, it will be gone forever.",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+         })
+        .then((willDelete) => {
+        if (willDelete) {
+          form.submit();
+        }
+       });
+       });
+
 
 </script>
