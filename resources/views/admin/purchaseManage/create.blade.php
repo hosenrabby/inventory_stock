@@ -68,12 +68,18 @@
                                             <div class="extra-row" id="appendRow">
                                                 <div class="row mt-3">
                                                     <div class="col-1">
-                                                        <button type="button" class="btn btn-outline-dark addRow" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
-                                                        <button type="button" class="btn btn-outline-danger" id="delRow" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>
+                                                        <button type="button" class="btn btn-sm btn-outline-dark addRow" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
+                                                        <button type="button" class="btn btn-sm btn-outline-danger" id="delRow" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
-                                                        <input type="text" class="form-control" name="prodName" id="prodName" placeholder="Product Name">
+                                                        {{-- <input type="text" class="form-control" name="prodName" id="prodName" placeholder="Product Name"> --}}
+                                                        <select class="form-control" name="subcatagoryID" id="prodName">
+                                                            <option value="1" selected>select product</option>
+                                                            @foreach ($product as $products)
+                                                                <option value="{{ $products->id }}">{{ $products->productName }}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Code</label>
@@ -121,9 +127,107 @@
 
                 {{-- <script type="text/javascript">
                     $(document).ready(
-                        $("#addRow").click(function({
+                        $(".addRow").click(function({
                             alert('kaj korse');
                         }))
                     )
                 </script> --}}
+@endsection
+@section('script')
+
+    <script type="text/javascript">
+        //==========================================
+//       Purchase Form Append
+//==========================================
+
+    // $('#addRow').click(function(){
+    //     $.ajax({
+    //         url:'http://localhost/inventory_stock/authorized/resources/views/admin/purchaseManage/prodData.blade.php',
+    //         method:'post',
+    //         dataType:'html',
+    //         data:"",
+    //         success:function(data){
+
+    //         }
+    //     });
+    // })
+
+
+
+    $('.addRow').click(function(){
+        // alert('Hello world');
+        var i=1;
+        var rowlen=parseInt($('#rowlenth').val());
+        i+=rowlen;
+        var row = '<div class="row mt-3" id="deleteRow'+i+'">'
+            row+= '<div class="col-1">'
+            row+= '<button type="button" class="btn btn-sm btn-outline-danger" id="delRow'+i+'" onclick="rowDelete('+i+')" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>'
+            row+= '</div>'
+            row+= '<div class="form-group col">'
+            row+= '<label>Product Name</label>'
+            row+= '<select class="form-control" name="subcatagoryID" id="prodName">'
+            row+= '<option value="1" selected>select product</option>'
+            row+= '@foreach ($product as $products)'
+            row+= '<option value="{{ $products->id }}">{{ $products->productName }}</option>'
+            row+= '@endforeach'
+            row+= '</select>'
+            row+= '</div>'
+            row+= '<div class="form-group col">'
+            row+= '<label>Product Code</label>'
+            row+= '<input type="number" class="form-control" name="prodCode" id="prodCode" placeholder="Product Code">'
+            row+= '</div>'
+            row+= '<div class="form-group col">'
+            row+= '<label>Product QTY</label>'
+            row+= '<input type="number" class="form-control" name="prodQty" id="prodQTY'+i+'" onkeyup="parchaseCal('+i+')" placeholder="Product QTY">'
+            row+= '</div>'
+            row+= '<div class="form-group col">'
+            row+= '<label>Product Rate</label>'
+            row+= '<input type="number" class="form-control" name="prodRate" id="prodRate'+i+'" onkeyup="parchaseCal('+i+')" placeholder="Product Rate">'
+            row+= '</div>'
+            row+= '<div class="form-group col">'
+            row+= '<label>Total Price</label>'
+            row+= '<input type="number" class="form-control totCount" name="totalPrice" id="totalPrice'+i+'" placeholder="Total Price">'
+            row+= '</div>'
+            row+= '</div>';
+
+                $('#appendRow').append(row);
+                $('#rowlenth').val(i);
+                i++;
+    })
+
+    // $('#delRow').click(function(){
+    //     $('#deleteRow').remove();
+    // })
+
+    function rowDelete(id){
+        $('#deleteRow'+id).remove()
+    }
+
+    function parchaseCal(id){
+        var prodQty = $('#prodQTY'+id).val();
+        var prodRate = $('#prodRate'+id).val();
+        var total = (prodQty*prodRate);
+            $('#totalPrice'+id).val(total);
+
+            var allTotal = 0;
+            $('.totCount').each(function(){
+                var get_value = $(this).val();
+                if($.isNumeric(get_value)){
+                    allTotal += parseInt(get_value);
+                }
+            });
+            $('#grandTot').val(allTotal);
+
+            var grandVal = $('#grandTot').val();
+            var paidA = $('#paidAmount').val();
+
+            if(grandVal != paidA){
+                var dues = grandVal - paidA;
+                $('#duesAmount').val(dues);
+            } else{
+                $('#duesAmount').val(0);
+            }
+    }
+
+    </script>
 @endsection

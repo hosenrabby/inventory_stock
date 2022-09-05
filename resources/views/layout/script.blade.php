@@ -1,18 +1,4 @@
 
-<script src="{{ asset('public/assets/js/lib/calendar-2/moment.latest.min.js') }}"></script>
- <script src="{{ asset('public/assets/js/lib/calendar-2/pignose.calendar.min.js') }}"></script>
- <script src="{{ asset('public/assets/js/lib/calendar-2/pignose.init.js') }}"></script>
-
-
- <script src="{{ asset('public/assets/js/lib/weather/jquery.simpleWeather.min.js') }}"></script>
- <script src="{{ asset('public/assets/js/lib/weather/weather-init.js') }}"></script>
- <script src="{{ asset('public/assets/js/lib/circle-progress/circle-progress.min.js') }}"></script>
- <script src="{{ asset('public/assets/js/lib/circle-progress/circle-progress-init.js') }}"></script>
- <script src="{{ asset('public/assets/js/lib/chartist/chartist.min.js') }}"></script>
- <script src="{{ asset('public/assets/js/lib/sparklinechart/jquery.sparkline.min.js') }}"></script>
- <script src="{{ asset('public/assets/js/lib/sparklinechart/sparkline.init.js') }}"></script>
- <script src="{{ asset('public/assets/js/lib/owl-carousel/owl.carousel.min.js') }}"></script>
- <script src="{{ asset('public/assets/js/lib/owl-carousel/owl.carousel-init.js') }}"></script>
  <!-- scripit init-->
  <script src="{{ asset('public/assets/js/dashboard2.js') }}"></script>
  <script src="{{ asset('assets/js/lib/data-table/datatables.min.js') }}"></script>
@@ -35,6 +21,24 @@
 
  <script src="{{ asset('public/assets/js/lib/bootstrap.min.js') }}"></script>
  <script src="{{ asset('public/assets/js/scripts.js') }}"></script>
+
+<script src="{{ asset('public/assets/js/lib/calendar-2/moment.latest.min.js') }}"></script>
+ <script src="{{ asset('public/assets/js/lib/calendar-2/pignose.calendar.min.js') }}"></script>
+ <script src="{{ asset('public/assets/js/lib/calendar-2/pignose.init.js') }}"></script>
+
+
+ <script src="{{ asset('public/assets/js/lib/weather/jquery.simpleWeather.min.js') }}"></script>
+ <script src="{{ asset('public/assets/js/lib/weather/weather-init.js') }}"></script>
+ <script src="{{ asset('public/assets/js/lib/circle-progress/circle-progress.min.js') }}"></script>
+ <script src="{{ asset('public/assets/js/lib/circle-progress/circle-progress-init.js') }}"></script>
+ <script src="{{ asset('public/assets/js/lib/chartist/chartist.min.js') }}"></script>
+ <script src="{{ asset('public/assets/js/lib/sparklinechart/jquery.sparkline.min.js') }}"></script>
+ <script src="{{ asset('public/assets/js/lib/sparklinechart/sparkline.init.js') }}"></script>
+ <script src="{{ asset('public/assets/js/lib/owl-carousel/owl.carousel.min.js') }}"></script>
+ <script src="{{ asset('public/assets/js/lib/owl-carousel/owl.carousel-init.js') }}"></script>
+
+
+
  <!-- bootstrap -->
  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
  <script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" > </script>
@@ -44,114 +48,4 @@
  $(document).ready( function () {
         $('#bootstrap-data-table-export').DataTable();
     } );
-
-    //==========================================
-//       Purchase Form Append
-//==========================================
-
-    // $('#addRow').click(function(){
-    //     $.ajax({
-    //         url:'http://localhost/inventory_stock/authorized/resources/views/admin/purchaseManage/prodData.blade.php',
-    //         method:'post',
-    //         dataType:'html',
-    //         data:"",
-    //         success:function(data){
-
-    //         }
-    //     });
-    // })
-
-
-
-    $('.addRow').click(function(){
-        // alert('Hello world');
-        var i=1;
-        var rowlen=parseInt($('#rowlenth').val());
-        i+=rowlen;
-        var row = '<div class="row mt-3" id="deleteRow">'
-            row+= '<div class="col-1">'
-            // row+= '<button type="button" class="btn btn-outline-danger" id="minus" onclick="rowDelete()" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>'
-            row+= '</div>'
-            row+= '<div class="form-group col">'
-            row+= '<label>Product Name</label>'
-            row+= '<input type="text" class="form-control" name="prodName" placeholder="Product Name">'
-            row+= '</div>'
-            row+= '<div class="form-group col">'
-            row+= '<label>Product Code</label>'
-            row+= '<input type="number" class="form-control" name="prodCode" id="prodCode" placeholder="Product Code">'
-            row+= '</div>'
-            row+= '<div class="form-group col">'
-            row+= '<label>Product QTY</label>'
-            row+= '<input type="number" class="form-control" name="prodQty" id="prodQTY'+i+'" onkeyup="parchaseCal('+i+')" placeholder="Product QTY">'
-            row+= '</div>'
-            row+= '<div class="form-group col">'
-            row+= '<label>Product Rate</label>'
-            row+= '<input type="number" class="form-control" name="prodRate" id="prodRate'+i+'" onkeyup="parchaseCal('+i+')" placeholder="Product Rate">'
-            row+= '</div>'
-            row+= '<div class="form-group col">'
-            row+= '<label>Total Price</label>'
-            row+= '<input type="number" class="form-control totCount" name="totalPrice" id="totalPrice'+i+'" placeholder="Total Price">'
-            row+= '</div>'
-            row+= '</div>';
-
-                $('#appendRow').append(row);
-                $('#rowlenth').val(i);
-                i++;
-    })
-
-    $('#delRow').click(function(){
-        $('#deleteRow').remove();
-    })
-
-    // function rowDelete(){
-    //     $('#deleteRow').remove()
-    // }
-
-    function parchaseCal(id){
-        var prodQty = $('#prodQTY'+id).val();
-        var prodRate = $('#prodRate'+id).val();
-        var total = (prodQty*prodRate);
-            $('#totalPrice'+id).val(total);
-
-            var allTotal = 0;
-            $('.totCount').each(function(){
-                var get_value = $(this).val();
-                if($.isNumeric(get_value)){
-                    allTotal += parseInt(get_value);
-                }
-            });
-            $('#grandTot').val(allTotal);
-
-            var grandVal = $('#grandTot').val();
-            var paidA = $('#paidAmount').val();
-
-            if(grandVal != paidA){
-                var dues = grandVal - paidA;
-                $('#duesAmount').val(dues);
-            } else{
-                $('#duesAmount').val(0);
-            }
-    }
-
-
-
-        $('.delete-confirm').click(function(event) {
-       var form =  $(this).closest("form");
-       var name = $(this).data("name");
-       event.preventDefault();
-       swal({
-          title: `Are you sure you want to delete this?`,
-          text: "If you delete this, it will be gone forever.",
-          icon: "warning",
-          buttons: true,
-          dangerMode: true,
-         })
-        .then((willDelete) => {
-        if (willDelete) {
-          form.submit();
-        }
-       });
-       });
-
-
 </script>

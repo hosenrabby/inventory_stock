@@ -23,6 +23,7 @@
                                     <div class="basic-form">
                                         <form action="{{ url('authorized/salesproduct') }}" method="POST">
                                             @csrf
+                                            <input type="hidden" name="rowlen" id="rowlen" value="1">
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="form-group">
@@ -44,30 +45,32 @@
                                                     <input type="date" class="form-control" name="purchaseDate" placeholder="Purchase Date">
                                                 </div>
                                             </div>
-                                            <div class="extra-row" id="RowAppend" >
-                                                <div class="row mt-3">
+                                            <div class="extra-row" id="" >
+                                                <div class="row mt-3" id="RowAppend">
                                                     <div class="col-1">
-                                                        <button type="button" class="btn btn-outline-dark" id="RowAdd" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
+                                                        <button type="button" class="btn btn-sm btn-outline-dark" id="RowAdd" onclick="row_Append()" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
+                                                        <button type="button" class="btn btn-sm btn-outline-danger" id="RowDeletesd" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
-                                                        <input type="text" class="form-control" name="productName" placeholder="Product Name">
+                                                        <input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name">
                                                     </div>
                                                         <div class="form-group col">
                                                             <label>Product Code</label>
-                                                            <input type="number" class="form-control" name="prodCode" placeholder="Product Code">
+                                                            <input type="number" class="form-control" name="prodCode" id="productCode" placeholder="Product Code">
+
                                                         </div>
                                                     <div class="form-group col">
                                                         <label>Product QTY</label>
-                                                        <input type="number" class="form-control" name="prodQty" placeholder="Product QTY">
+                                                        <input type="number" class="form-control" name="prodQty" id="productQty1" onkeyup="parchaseeCal(1)" placeholder="Product QTY">
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Rate</label>
-                                                        <input type="number" class="form-control" name="prodRate" placeholder="Product Rate">
+                                                        <input type="number" class="form-control" name="prodRate" id="productRate1" onkeyup="parchaseeCal(1)" placeholder="Product Rate">
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Total Price</label>
-                                                        <input type="number" class="form-control" name="totalPrice" placeholder="Total Price">
+                                                        <input type="number" class="form-control totalCount" name="totalPrice" id="totalePrice1" placeholder="Total Price">
                                                     </div>
                                                 </div>
                                             </div>
@@ -76,15 +79,15 @@
                                                 <div class="col"></div>
                                                 <div class="form-group col">
                                                     <label>Grand Total</label>
-                                                    <input type="number" class="form-control" name="grandTotal" placeholder="Grand Total">
+                                                    <input type="number" class="form-control" name="grandTotal" id="grandeTotal" onkeyup="parchaseeCal()" placeholder="Grand Total">
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Paid Amount</label>
-                                                    <input type="number" class="form-control" name="paidAmount" placeholder="Paid Amount">
+                                                    <input type="number" class="form-control" name="paidAmount" id="paiddAmount" onkeyup="parchaseeCal()" placeholder="Paid Amount">
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Dues Amunt</label>
-                                                    <input type="number" class="form-control" name="duesAmount" placeholder="Dues Amount">
+                                                    <input type="number" class="form-control" name="duesAmount" id="duessAmount" placeholder="Dues Amount">
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>
@@ -98,3 +101,83 @@
         </div>
                 <!-- /# row -->
 @endsection
+
+@section('script')
+
+<script type="text/javascript">
+    function row_Append(){
+        var i=1;
+        var rowlength=parseInt($('#rowlen').val());
+        i+=rowlength;
+// '<div class="extra-row"  >'
+    var row='<div class="row mt-3" id="DelRow'+i+'">'
+    row+='<div class="col-1">'
+    row+='<button type="button" class="btn btn-sm btn-outline-danger" id="minus" onclick="row_Remove('+i+')"  style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>'
+    // <button type="button" class="btn btn-outline-danger" id="RowDelete" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>
+    row+='</div>'
+    row+='<div class="form-group col">'
+    row+='<label>Product Name</label>'
+    row+='<input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name">'
+    row+='</div>'
+    row+='<div class="form-group col">'
+    row+='<label>Product Code</label>'
+    row+='<input type="number" class="form-control" name="productCode" placeholder="Product Code">'
+    row+='</div>'
+    row+='<div class="form-group col">'
+    row+='<label>Product QTY</label>'
+    row+='<input type="number" class="form-control" name="prodQty" id="productQty'+i+'" onkeyup="parchaseeCal('+i+')" placeholder="Product QTY">'
+    row+='</div>'
+    row+='<div class="form-group col">'
+    row+='<label>Product Rate</label>'
+    row+='<input type="number" class="form-control" name="prodRate" id="productRate'+i+'" onkeyup="parchaseeCal('+i+')" placeholder="Product Rate">'
+    row+='</div>'
+    row+='<div class="form-group col">'
+    row+='<label>Total Price</label>'
+    row+='<input type="number" class="form-control totalCount" name="totalPrice" id="totalePrice'+i+'" placeholder="Total Price">'
+    row+='</div>'
+    row+='</div>'
+    // row+='</div>'
+
+    $('#RowAppend').append(row);
+
+    $('#rowlen').val(i);
+                i++;
+
+
+    }
+    function row_Remove(id){
+        // alert(id)
+        $('#DelRow'+id).remove();
+    }
+
+
+    function parchaseeCal(id){
+        var productQty = $('#productQty'+id).val();
+        var productRate = $('#productRate'+id).val();
+        var totalP = (productQty*productRate);
+            $('#totalePrice'+id).val(totalP);
+
+            var allTotalP = 0;
+            $('.totalCount').each(function(){
+                var get_valu = $(this).val();
+                if($.isNumeric(get_valu)){
+                    allTotalP += parseInt(get_valu);
+                }
+            });
+            $('#grandeTotal').val(allTotalP);
+
+            var grandValu = $('#grandeTotal').val();
+            var paidAmount = $('#paiddAmount').val();
+
+            if(grandValu != paidAmount){
+                var duesA = grandValu - paidAmount;
+                $('#duessAmount').val(duesA);
+            } else{
+                $('#duessAmount').val(0);
+            }
+    }
+
+</script>
+
+@endsection
+
