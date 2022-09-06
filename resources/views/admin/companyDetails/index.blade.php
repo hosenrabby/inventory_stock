@@ -20,48 +20,6 @@
                     <div class="card">
                         <div class="bootstrap-data-table-panel">
                             <div class="table-responsive">
-                                {{-- <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Serial No</th>
-                                            <th>Company Name</th>
-                                            <th>Company Email</th>
-                                            <th>Phone</th>
-                                            <th>Address</th>
-                                            <th>Logo</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($input as $company)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $company->companyName }}</td>
-                                            <td>{{ $company->companyEmail }}</td>
-                                            <td>{{ $company->phone }}</td>
-                                            <td>{{ $company->address }}</td>
-                                            <td>{{ $company->logo }}</td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-
-
-
-
-
-                                                <form action="{{ url('authorized/supplier/' . $supplier->id . '/edit') }}" method="POST">
-                                                @method('DELETE')
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger">Edit</button>
-                                                </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-
-                                    </tbody>
-                                </table> --}}
-
-
 
                                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
 
@@ -138,7 +96,7 @@
 
                                     <tr>
 
-                                        <td class="table-primary" colspan="2">THINKS UPDATE YOUR COMPANY INFORMATION</td>
+                                        <td class="table-primary text-center" colspan="2">THINKS UPDATE YOUR COMPANY INFORMATION</td>
 
                                     </tr>
 
