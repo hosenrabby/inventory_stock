@@ -73,7 +73,8 @@
                     <ul>
                         <li><a href="{{ url('authorized/supplierLedgerReport') }}">Suplier Payment Reports</a></li>
                         <li><a href="{{ url('authorized/customerLedgerReport') }}">Customer Ledger Reports</a></li>
-                        <li><a href="#">Purchase Reports</a></li>
+                        <li><a href="{{ url('authorized/stockLedgerReport') }}">Purchase Reports</a></li>
+                        <li><a href="#">Stock ledger Report</a></li>
                         <li><a href="#">Sales Reports</a></li>
                     </ul>
                 </li>

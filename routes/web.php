@@ -9,6 +9,7 @@ use App\Http\Controllers\customerLedgerReport;
 use App\Http\Controllers\ProductstockManageController;
 use App\Http\Controllers\PurchaseManageController;
 use App\Http\Controllers\SalesProductController;
+use App\Http\Controllers\stockLedgerReport;
 use App\Http\Controllers\SupplierLedgerReport;
 use App\Models\purchaseManage;
 
@@ -38,4 +39,5 @@ Route::group(['prefix' => 'authorized'] , function(){
     Route::resource('salesproduct', SalesProductController::class);
     Route::resource('supplierLedgerReport', SupplierLedgerReport::class);
     Route::resource('customerLedgerReport', customerLedgerReport::class);
+    Route::resource('stockLedgerReport', stockLedgerReport::class);
 });
