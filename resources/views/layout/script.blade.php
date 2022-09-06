@@ -46,7 +46,7 @@
 <script type="text/javascript">
 
 
-<!-- DataTable startd-->
+//<!-- DataTable startd-->
 
 $(document).ready(
     function(){
@@ -54,9 +54,9 @@ $(document).ready(
     }
 );
 
-<!-- DataTable End -->
+//<!-- DataTable End -->
 
-<!-- Delaete Alert startd -->
+//<!-- Delaete Alert startd -->
 
 $('.delete-confirm').click(function(event) {
 var form = $(this).closest("form");
@@ -76,10 +76,10 @@ form.submit();
 });
 });
 
-<!-- Delaete Alert End -->
+// <!-- Delaete Alert End -->
 
 
-<!-- Timepicker startd -->
+// <!-- Timepicker startd -->
 
 $(function() {
 $(".datepicker").datepicker({
@@ -90,5 +90,5 @@ changeYear: true,
 });
 });
 
-<!-- Timepicker End -->
+// <!-- Timepicker End -->
 </script>

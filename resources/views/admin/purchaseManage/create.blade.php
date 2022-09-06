@@ -54,9 +54,9 @@
                                                 <div class="col">
                                                     <label>Select Sub Catagory</label>
                                                     <select class="form-control" name="subcatagoryID">
-                                                        <option value="1" selected>Select Sub Catagory</option>
+                                                        <option value="0" selected>Select Sub Catagory</option>
                                                         @foreach ($subCatagory as $subCatagory)
-                                                            <option value="{{ $subCatagory->id }}">{{ $subCatagory->subCategoryName }}</option>
+                                                            <option value="{{ $subCatagory->id }}" id="{{ $subCatagory->id }}">{{ $subCatagory->subCategoryName }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -74,16 +74,16 @@
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
                                                         {{-- <input type="text" class="form-control" name="prodName" id="prodName" placeholder="Product Name"> --}}
-                                                        <select class="form-control" name="prodName" id="prodName">
-                                                            <option value="1" selected>select product</option>
+                                                        <select class="form-control" name="prodName" id="prodName1">
+                                                            <option value="1" id="1" selected>select product</option>
                                                             @foreach ($product as $products)
-                                                                <option value="{{ $products->id }}">{{ $products->productName }}</option>
+                                                                <option value="{{ $products->id }}" id="{{ $products->id }}">{{ $products->productName }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Code</label>
-                                                        <input type="number" class="form-control" name="prodCode" id="prodCode" placeholder="Product Code">
+                                                        <input type="number" class="form-control" name="prodCode" id="prodCode1" placeholder="Product Code">
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product QTY</label>
@@ -136,43 +136,35 @@
 @section('script')
 
     <script type="text/javascript">
-        //==========================================
+//==========================================
 //       Purchase Form Append
 //==========================================
 
+$('#prodName1').change(function(){
+    var id = $(this).find("option:selected").attr('id');
+
+    if (id) {
+        alert(id)
+        $.ajax({
+                url: "{{ url('/authorized/purchase-manage') }}/"+id,
+                type: "GET",
+                cache: false,
+                dataType: "json",
+                success: function(data) {
+                console.log(data);
 
 
-    // $('#prodName').change(function(){
-    //     var productName = $(this).val()
-    //     // alert(productName)
-    //     if (productName != '') {
-    //         var _token = $('input[name="_token"]').val()
+                    $.each(data, function(key, value) {
+                        $('#prodCode1').val(value.prodCode);
+                        $('#prodRate1').val(value.prodRate);
+                    })
 
-    //         $.ajax({
-    //         url:'{{ url('authorized/purchase-manage') }}',
-    //         method:'POST',
-    //         data:{productName:productName , _token:_token},
-    //         success:function(data){
-
-    //         }
-    //     });
-    // }
-    // })
+                }
+            });
+    }
+})
 
 
-    // function prodData(){
-    //     var productName = $('#prodName').val()
-    //     alert(productName);
-    //         $.ajax({
-    //         url:'{{ url('authorized/purchase-manage') }}',
-    //         method:'post',
-    //         data:"productName:productName",
-    //         success:function(data){
-
-    //         }
-    //     });
-
-    // })
 
     $('.addRow').click(function(){
         // alert('Hello world');
@@ -185,16 +177,16 @@
             row+= '</div>'
             row+= '<div class="form-group col">'
             row+= '<label>Product Name</label>'
-            row+= '<select class="form-control select2" name="subcatagoryID" id="prodName">'
+            row+= '<select class="form-control select2" name="prodName" id="prodName'+i+'" onchange="prodAdd('+i+')">'
             row+= '<option value="1" selected>select product</option>'
             row+= '@foreach ($product as $products)'
-            row+= '<option value="{{ $products->id }}">{{ $products->productName }}</option>'
+            row+= '<option value="{{ $products->id }}" id="{{ $products->id }}">{{ $products->productName }}</option>'
             row+= '@endforeach'
             row+= '</select>'
             row+= '</div>'
             row+= '<div class="form-group col">'
             row+= '<label>Product Code</label>'
-            row+= '<input type="number" class="form-control" name="prodCode" id="prodCode" placeholder="Product Code">'
+            row+= '<input type="number" class="form-control" name="prodCode" id="prodCode'+i+'" placeholder="Product Code">'
             row+= '</div>'
             row+= '<div class="form-group col">'
             row+= '<label>Product QTY</label>'
@@ -210,14 +202,40 @@
             row+= '</div>'
             row+= '</div>';
 
-                $('#appendRow').append(row);
-                $('#rowlenth').val(i);
-                i++;
+
+            $('#appendRow').append(row);
+            $('#rowlenth').val(i);
+            i++;
+
+
+
     })
 
-    // $('#delRow').click(function(){
-    //     $('#deleteRow').remove();
-    // })
+    function prodAdd(id){
+                $('#prodName'+id).change(function(){
+                var id = $(this).find("option:selected").attr('id');
+                // alert(id)
+                if (id) {
+                    // alert(id)
+                    $.ajax({
+                            url: "{{ url('/authorized/purchase-manage') }}/"+id,
+                            type: "GET",
+                            cache: false,
+                            dataType: "json",
+                            success: function(data) {
+                            console.log(data);
+
+                                $.each(data, function(key, value) {
+                                    $('#prodCode'+id).val(value.prodCode);
+                                    $('#prodRate'+id).val(value.prodRate);
+                                })
+
+                            }
+                        });
+                }
+            })
+
+        }
 
     function rowDelete(id){
         $('#deleteRow'+id).remove()

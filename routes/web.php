@@ -1,16 +1,17 @@
 <?php
+use App\Models\purchaseManage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\SubCategoryController;
-use App\Http\Controllers\CompanyDetailsController;
 use App\Http\Controllers\customerLedgerReport;
-use App\Http\Controllers\ProductstockManageController;
-use App\Http\Controllers\PurchaseManageController;
-use App\Http\Controllers\SalesProductController;
 use App\Http\Controllers\SupplierLedgerReport;
-use App\Models\purchaseManage;
+use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\SalesProductController;
+use App\Http\Controllers\CompanyDetailsController;
+use App\Http\Controllers\PurchaseManageController;
+use App\Http\Controllers\PurchaseManageController2;
+use App\Http\Controllers\ProductstockManageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,8 +32,10 @@ Route::group(['prefix' => 'authorized'] , function(){
     Route::resource('category', CategoryController::class);
     Route::resource('subcategory', SubCategoryController::class);
     Route::resource('product-stock', ProductstockManageController::class);
-    Route::resource('purchase-manage', PurchaseManageController::class);
-    // Route::get('purchase-manage', [PurchaseManageController::class , 'dataRetrive']);
+    // Route::get('purchase-manage', [PurchaseManageController::class , 'index']);
+    // Route::get('purchase-from', [PurchaseManageController::class , 'create']);
+    // Route::get('purchase-data', [PurchaseManageController::class , 'dataRetrive']);
+    Route::resource('purchase-manage', PurchaseManageController2::class);
     Route::resource('supplier', SupplierController::class);
     Route::resource('customer', CustomerController::class);
     Route::resource('company', CompanyDetailsController::class);
