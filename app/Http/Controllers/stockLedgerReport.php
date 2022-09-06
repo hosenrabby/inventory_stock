@@ -7,9 +7,5 @@ use Illuminate\Http\Request;
 
 class stockLedgerReport extends Controller
 {
-    public function index()
-    {
-
-        return view('admin.stockLedgerReport.index');
-    }
+    public function index() { return view('admin.stockLedgerReport.index'); }
 }
