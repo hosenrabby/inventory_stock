@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('content')
 <div class="content-wrap">
-        <div class="main">
+        <div class="main" onload="max_id_increment()">
             <div class="container-fluid">
                     <!-- /# column -->
                     <div class="row">
@@ -24,6 +24,7 @@
                                         <form action="{{ url('authorized/salesproduct') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="rowlen" id="rowlen" value="1">
+                                            <input type="hidden" name="invoice_id" id="invoice_id" value="1" />
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="form-group">
@@ -33,7 +34,7 @@
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Select Customer</label>
-                                                    <select class="form-control" name="customerid">
+                                                    <select class="form-control" name="customerID">
                                                         <option value="1" selected>Select Customer</option>
                                                         @foreach ($customer as $customers)
                                                             <option value="{{ $customers->id }}">{{ $customers->customerName }}</option>
@@ -54,10 +55,10 @@
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
                                                         {{-- <input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name"> --}}
-                                                        <select class="form-control" name="productName" id="productName" onchange="product_rate()">
+                                                        <select class="form-control" name="productName" id="productName">
                                                             <option value="1" selected>Select Product</option>
                                                             @foreach ($productName as $products)
-                                                                <option value="{{ $products->id }}">{{ $products->productName }}</option>
+                                                                <option value="{{ $products->id }}" id="{{ $products->id }}">{{ $products->productName }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -110,7 +111,33 @@
 
 @section('script')
 
+
 <script type="text/javascript">
+
+$("#productName").change(function() {
+    var id = $(this).find('option:selected').attr('id');
+    // alert(id);
+    if(id){
+        // alert(id);
+        $.ajax({
+            url:"{{ url('authorized/salesproduct') }}/"+id,
+            type:"GET",
+            cache:false,
+            dataType:"json",
+            success:function(data){
+                console.log(data);
+
+        $.each(data, function(key, value){
+            $('#productCode').val(value.prodCode);
+            $('#productRate1').val(value.prodRate);
+        })
+            }
+
+        })
+    }
+});
+
+
     function row_Append(){
         var i=1;
         var rowlength=parseInt($('#rowlen').val());
@@ -126,7 +153,7 @@
     row+='<select class="form-control" name="productName" id="productName">'
     row+='<option value="1" selected>Select Product</option>'
     row+='@foreach ($productName as $products)'
-    row+='<option value="{{ $products->id }}">{{ $products->productName }}</option>'
+    row+='<option value="{{ $products->id }}" id="{{ $products->id }}">{{ $products->productName }}</option>'
     row+='@endforeach'
     row+='</select>'
     row+='</div>'
@@ -156,10 +183,14 @@
 
 
     }
+
+
     function row_Remove(id){
         // alert(id)
         $('#DelRow'+id).remove();
     }
+
+
 
 
     function parchaseeCal(id){
@@ -187,6 +218,8 @@
                 $('#duessAmount').val(0);
             }
     }
+
+
 
 </script>
 @endsection
