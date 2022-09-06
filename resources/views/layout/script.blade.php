@@ -41,24 +41,20 @@
 <!-- bootstrap -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-
-
+ <!-- bootstrap -->
+ {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script> --}}
 <script type="text/javascript">
 
 
-    <!-- DataTable startd-->
+<!-- DataTable startd-->
 
-    $(document).ready(
-    function
-    ()
-    {
+$(document).ready(
+    function(){
     $('#bootstrap-data-table-export').DataTable();
     }
-    );
+);
 
 <!-- DataTable End -->
-
-
 
 <!-- Delaete Alert startd -->
 
@@ -95,6 +91,4 @@ changeYear: true,
 });
 
 <!-- Timepicker End -->
-
-
 </script>

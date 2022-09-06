@@ -74,7 +74,7 @@
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
                                                         {{-- <input type="text" class="form-control" name="prodName" id="prodName" placeholder="Product Name"> --}}
-                                                        <select class="form-control" name="subcatagoryID" id="prodName">
+                                                        <select class="form-control" name="prodName" id="prodName">
                                                             <option value="1" selected>select product</option>
                                                             @foreach ($product as $products)
                                                                 <option value="{{ $products->id }}">{{ $products->productName }}</option>
@@ -140,19 +140,39 @@
 //       Purchase Form Append
 //==========================================
 
-    // $('#addRow').click(function(){
-    //     $.ajax({
-    //         url:'http://localhost/inventory_stock/authorized/resources/views/admin/purchaseManage/prodData.blade.php',
-    //         method:'post',
-    //         dataType:'html',
-    //         data:"",
+
+
+    // $('#prodName').change(function(){
+    //     var productName = $(this).val()
+    //     // alert(productName)
+    //     if (productName != '') {
+    //         var _token = $('input[name="_token"]').val()
+
+    //         $.ajax({
+    //         url:'{{ url('authorized/purchase-manage') }}',
+    //         method:'POST',
+    //         data:{productName:productName , _token:_token},
     //         success:function(data){
 
     //         }
     //     });
+    // }
     // })
 
 
+    // function prodData(){
+    //     var productName = $('#prodName').val()
+    //     alert(productName);
+    //         $.ajax({
+    //         url:'{{ url('authorized/purchase-manage') }}',
+    //         method:'post',
+    //         data:"productName:productName",
+    //         success:function(data){
+
+    //         }
+    //     });
+
+    // })
 
     $('.addRow').click(function(){
         // alert('Hello world');
@@ -165,7 +185,7 @@
             row+= '</div>'
             row+= '<div class="form-group col">'
             row+= '<label>Product Name</label>'
-            row+= '<select class="form-control" name="subcatagoryID" id="prodName">'
+            row+= '<select class="form-control select2" name="subcatagoryID" id="prodName">'
             row+= '<option value="1" selected>select product</option>'
             row+= '@foreach ($product as $products)'
             row+= '<option value="{{ $products->id }}">{{ $products->productName }}</option>'
@@ -229,5 +249,8 @@
             }
     }
 
+
+
+    // $('.select2').select2();
     </script>
 @endsection

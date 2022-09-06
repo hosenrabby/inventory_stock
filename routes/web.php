@@ -33,6 +33,7 @@ Route::group(['prefix' => 'authorized'] , function(){
     Route::resource('subcategory', SubCategoryController::class);
     Route::resource('product-stock', ProductstockManageController::class);
     Route::resource('purchase-manage', PurchaseManageController::class);
+    // Route::get('purchase-manage', [PurchaseManageController::class , 'dataRetrive']);
     Route::resource('supplier', SupplierController::class);
     Route::resource('customer', CustomerController::class);
     Route::resource('company', CompanyDetailsController::class);
