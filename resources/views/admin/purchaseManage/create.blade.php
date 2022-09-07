@@ -140,32 +140,6 @@
 //       Purchase Form Append
 //==========================================
 
-// $('#prodName1').change(function(){
-//     var id = $(this).find("option:selected").attr('id');
-
-//     if (id) {
-//         alert(id)
-//         $.ajax({
-//                 url: "{{ url('/authorized/purchase-manage') }}/"+id,
-//                 type: "GET",
-//                 cache: false,
-//                 dataType: "json",
-//                 success: function(data) {
-//                 console.log(data);
-
-
-//                     $.each(data, function(key, value) {
-//                         $('#prodCode1').val(value.prodCode);
-//                         $('#prodRate1').val(value.prodRate);
-//                     })
-
-//                 }
-//             });
-//     }
-// })
-
-
-
     $('.addRow').click(function(){
         // alert('Hello world');
         var i=1;
