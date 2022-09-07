@@ -140,6 +140,32 @@
 //       Purchase Form Append
 //==========================================
 
+// $('#prodName1').change(function(){
+//     var id = $(this).find("option:selected").attr('id');
+
+//     if (id) {
+//         alert(id)
+//         $.ajax({
+//                 url: "{{ url('/authorized/purchase-manage') }}/"+id,
+//                 type: "GET",
+//                 cache: false,
+//                 dataType: "json",
+//                 success: function(data) {
+//                 console.log(data);
+
+
+//                     $.each(data, function(key, value) {
+//                         $('#prodCode1').val(value.prodCode);
+//                         $('#prodRate1').val(value.prodRate);
+//                     })
+
+//                 }
+//             });
+//     }
+// })
+
+
+
     $('.addRow').click(function(){
         // alert('Hello world');
         var i=1;
@@ -186,22 +212,25 @@
     })
 
     function prodAdd(id){
-        var optID = $('#prodName'+id).find("option:selected").attr('id');// alert(optID)
-        if (optID) {
-            $.ajax({
-            url: "{{ url('/authorized/purchase-manage') }}/"+id,
-            type: "GET",
-            cache: false,
-            dataType: "json",
-            success: function(data) {
-                console.log(data);
-                $.each(data, function(key, value) {
-                $('#prodCode'+id).val(value.prodCode);
-                $('#prodRate'+id).val(value.prodRate);
-                })
-            });
-        }
-    }
+        var optID = $('#prodName'+id).find("option:selected").attr('id');
+            if (optID) {
+            alert(optID)
+                $.ajax({
+                    url: "{{ url('/authorized/purchase-manage') }}/"+optID,
+                    type: "GET",
+                    cache: false,
+                    dataType: "json",
+                        success: function(data) {
+                            console.log(data);
+                                $.each(data, function(key, value) {
+                                    $('#prodCode'+id).val(value.prodCode);
+                                    $('#prodRate'+id).val(value.prodRate);
+                                })
+
+                            }
+                        });
+                    }
+                }
 
     function rowDelete(id){
         $('#deleteRow'+id).remove()
