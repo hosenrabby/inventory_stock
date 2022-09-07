@@ -214,7 +214,6 @@
     function prodAdd(id){
         var optID = $('#prodName'+id).find("option:selected").attr('id');
             if (optID) {
-            alert(optID)
                 $.ajax({
                     url: "{{ url('/authorized/purchase-manage') }}/"+optID,
                     type: "GET",
