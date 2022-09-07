@@ -74,7 +74,7 @@
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
                                                         {{-- <input type="text" class="form-control" name="prodName" id="prodName" placeholder="Product Name"> --}}
-                                                        <select class="form-control" name="prodName" id="prodName1">
+                                                        <select class="form-control" name="prodName" id="prodName1" onchange="prodAdd(1)">
                                                             <option value="1" id="1" selected>select product</option>
                                                             @foreach ($product as $products)
                                                                 <option value="{{ $products->id }}" id="{{ $products->id }}">{{ $products->productName }}</option>
@@ -140,29 +140,29 @@
 //       Purchase Form Append
 //==========================================
 
-$('#prodName1').change(function(){
-    var id = $(this).find("option:selected").attr('id');
+// $('#prodName1').change(function(){
+//     var id = $(this).find("option:selected").attr('id');
 
-    if (id) {
-        alert(id)
-        $.ajax({
-                url: "{{ url('/authorized/purchase-manage') }}/"+id,
-                type: "GET",
-                cache: false,
-                dataType: "json",
-                success: function(data) {
-                console.log(data);
+//     if (id) {
+//         alert(id)
+//         $.ajax({
+//                 url: "{{ url('/authorized/purchase-manage') }}/"+id,
+//                 type: "GET",
+//                 cache: false,
+//                 dataType: "json",
+//                 success: function(data) {
+//                 console.log(data);
 
 
-                    $.each(data, function(key, value) {
-                        $('#prodCode1').val(value.prodCode);
-                        $('#prodRate1').val(value.prodRate);
-                    })
+//                     $.each(data, function(key, value) {
+//                         $('#prodCode1').val(value.prodCode);
+//                         $('#prodRate1').val(value.prodRate);
+//                     })
 
-                }
-            });
-    }
-})
+//                 }
+//             });
+//     }
+// })
 
 
 
@@ -212,30 +212,22 @@ $('#prodName1').change(function(){
     })
 
     function prodAdd(id){
-                $('#prodName'+id).change(function(){
-                var id = $(this).find("option:selected").attr('id');
-                // alert(id)
-                if (id) {
-                    // alert(id)
-                    $.ajax({
-                            url: "{{ url('/authorized/purchase-manage') }}/"+id,
-                            type: "GET",
-                            cache: false,
-                            dataType: "json",
-                            success: function(data) {
-                            console.log(data);
-
-                                $.each(data, function(key, value) {
-                                    $('#prodCode'+id).val(value.prodCode);
-                                    $('#prodRate'+id).val(value.prodRate);
-                                })
-
-                            }
-                        });
-                }
-            })
-
+        var optID = $('#prodName'+id).find("option:selected").attr('id');// alert(optID)
+        if (optID) {
+            $.ajax({
+            url: "{{ url('/authorized/purchase-manage') }}/"+id,
+            type: "GET",
+            cache: false,
+            dataType: "json",
+            success: function(data) {
+                console.log(data);
+                $.each(data, function(key, value) {
+                $('#prodCode'+id).val(value.prodCode);
+                $('#prodRate'+id).val(value.prodRate);
+                })
+            });
         }
+    }
 
     function rowDelete(id){
         $('#deleteRow'+id).remove()
