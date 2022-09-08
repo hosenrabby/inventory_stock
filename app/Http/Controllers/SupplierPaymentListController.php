@@ -15,7 +15,8 @@ class SupplierPaymentListController extends Controller
      */
     public function index()
     {
-        //
+        $input=supplierPaymentList::all();
+        return view('admin.supplierPaymentList.index' , compact('input'));
     }
 
     /**

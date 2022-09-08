@@ -67,10 +67,10 @@
                     </ul>
                 </li>
                 <li class="label">Payments</li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Payment <span
+                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Payments <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
-                        <li><a href="">Supplier payment List</a></li>
+                        <li><a href="{{ url('authorized/supplierPaymentList') }}">Supplier payment List</a></li>
                         <li><a href="">Customer Payment List</a></li>
                     </ul>
                 </li>

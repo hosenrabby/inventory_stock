@@ -8,7 +8,7 @@
                     <div class="col-lg-12 p-l-0 title-margin-left">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Purchase manage</li>
+                            <li class="breadcrumb-item active">Payment manage</li>
                         </ol>
                     </div>
                     <!-- /# column -->
@@ -21,14 +21,13 @@
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
                                         <a
-                                            href="{{ url('authorized/purchase-manage/create') }}"class="btn btn-default mb-3">Supplier
+                                            href="{{ url('authorized/supplierPaymentList/create') }}"class="btn btn-default mb-3">Supplier
                                             Payment</a>
                                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th>SL</th>
                                                     <th>Supplier ID</th>
-                                                    <th>Supplier Name</th>
                                                     <th>Supplier Email</th>
                                                     <th>Supplier Contact</th>
                                                     <th>Payment Date</th>
@@ -39,17 +38,16 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($data as $data)
+                                                @foreach ($input as $supplierPayment)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $data->productID }}</td>
-                                                        <td>{{ $data->prodCode }}</td>
-                                                        <td>{{ $data->invNumber }}</td>
-                                                        <td>{{ $data->purchaseDate }}</td>
-                                                        <td>{{ $data->catagoryID }}</td>
-                                                        <td>{{ $data->subCatagoryID }}</td>
-                                                        <td>{{ $data->supplierID }}</td>
-                                                        <td>{{ $data->prodQty }}</td>
+                                                        <td>{{ $supplierPayment->supplierID }}</td>
+                                                        <td>{{ $supplierPayment->supplierEmail}}</td>
+                                                        <td>{{ $supplierPayment->supplierContact}}</td>
+                                                        <td>{{ $supplierPayment->paymentDate}}</td>
+                                                        <td>{{ $supplierPayment->transactionMethod}}</td>
+                                                        <td>{{ $supplierPayment->paymentAmount}}</td>
+                                                        <td>{{ $supplierPayment->Note}}</td>
 
                                                         <td>
                                                             <div class="d-flex justify-content-center">

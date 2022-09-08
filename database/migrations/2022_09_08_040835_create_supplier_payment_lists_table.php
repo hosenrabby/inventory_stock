@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('paymentDate');
             $table->string('transactionMethod');
             $table->decimal('paymentAmount',10,2);
-            $table->string('Note');
+            $table->string('note');
             $table->timestamps();
         });
     }
