@@ -35,6 +35,7 @@
 <script src="{{ asset('public/assets/js/lib/sparklinechart/sparkline.init.js') }}"></script>
 <script src="{{ asset('public/assets/js/lib/owl-carousel/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('public/assets/js/lib/owl-carousel/owl.carousel-init.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 
@@ -91,4 +92,38 @@ changeYear: true,
 });
 
 <!-- Timepicker End -->
+
+
+
+
+<!-- Auto Complite File startd -->
+
+
+
+    // var availableTags = [];
+    // $.ajax({
+    //     method: "GET",
+    //     url: "/supplier",
+    //     success:function (response){
+    //         startAutoComplete(response);
+    //     }
+
+
+    // });
+
+    // function startAutoComplete (availableTags){
+
+    //     $( "#auto" ).autocomplete({
+    //   source: availableTags
+    //  });
+
+    // }
+
+
+
+
+
+
+<!-- Auto Complite File End -->
+
 </script>

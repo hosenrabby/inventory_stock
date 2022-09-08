@@ -20,24 +20,21 @@
                             <div class="card">
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
-                                        <a href="{{ url('authorized/purchase-manage/create') }}"class="btn btn-default mb-3">Purchase Product</a>
+                                        <a
+                                            href="{{ url('authorized/purchase-manage/create') }}"class="btn btn-default mb-3">Supplier
+                                            Payment</a>
                                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th>SL</th>
-                                                    <th>Product Name</th>
-                                                    <th>Product Code</th>
-                                                    <th>Invoice Number</th>
-                                                    <th>Purchase Date</th>
-                                                    <th>Catagory Name</th>
-                                                    <th>Sub Catagory Name</th>
-                                                    <th>Suplier Name</th>
-                                                    <th>Product QTY</th>
-                                                    <th>Product Rate</th>
-                                                    <th>Total Price</th>
-                                                    <th>Grand Total</th>
-                                                    <th>Paid Ammount</th>
-                                                    <th>Dues Ammount</th>
+                                                    <th>Supplier ID</th>
+                                                    <th>Supplier Name</th>
+                                                    <th>Supplier Email</th>
+                                                    <th>Supplier Contact</th>
+                                                    <th>Payment Date</th>
+                                                    <th>Transaction Method</th>
+                                                    <th>Payment Amount</th>
+                                                    <th>Note</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -53,11 +50,7 @@
                                                         <td>{{ $data->subCatagoryID }}</td>
                                                         <td>{{ $data->supplierID }}</td>
                                                         <td>{{ $data->prodQty }}</td>
-                                                        <td>{{ $data->prodRate }}</td>
-                                                        <td>{{ $data->grandTotal }}</td>
-                                                        <td>{{ $data->totalPrice }}</td>
-                                                        <td>{{ $data->paidAmount }}</td>
-                                                        <td>{{ $data->duesAmount }}</td>
+
                                                         <td>
                                                             <div class="d-flex justify-content-center">
                                                                 <a href="{{ url('authorized/product-stock/' . $data->id . '/edit') }}"
@@ -68,7 +61,8 @@
                                                                     action="{{ url('authorized/product-stock/' . $data->id) }}">
                                                                     @method('DELETE')
                                                                     @csrf
-                                                                    <button type="submit" class="btn btn-danger ml-1 delete-confirm"><i
+                                                                    <button type="submit"
+                                                                        class="btn btn-danger ml-1 delete-confirm"><i
                                                                             class="fa-solid fa-trash-can"></i></button>
                                                                 </form>
                                                             </div>

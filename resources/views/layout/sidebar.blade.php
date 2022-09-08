@@ -66,6 +66,14 @@
                         <li><a href="{{ url('authorized/salesproduct') }}">All Invoice</a></li>
                     </ul>
                 </li>
+                <li class="label">Payments</li>
+                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Payment <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="">Supplier payment List</a></li>
+                        <li><a href="">Customer Payment List</a></li>
+                    </ul>
+                </li>
 
                 <li class="label">REPORTS</li>
                 <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> All Reports <span

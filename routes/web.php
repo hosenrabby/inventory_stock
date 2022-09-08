@@ -45,4 +45,6 @@ Route::group(['prefix' => 'authorized'] , function(){
     Route::resource('purchaseReports', purchaseLedgerReports::class);
     Route::resource('stockLedgerReport', stockLedgerReport::class);
     Route::resource('salesReports', salesReports::class);
+
+    // Route::get('supplier',[SupplierController::class, 'supplierAjex']);
 });

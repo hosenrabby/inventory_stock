@@ -9,7 +9,7 @@
             <div class="col-lg-4 p-l-0 title-margin-left">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Table-Export</li>
+                    <li class="breadcrumb-item active">Sub Catagory Manage</li>
                 </ol>
             </div>
             <!-- /# column -->
