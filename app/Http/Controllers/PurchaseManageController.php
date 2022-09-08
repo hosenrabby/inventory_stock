@@ -35,17 +35,16 @@ class PurchaseManageController extends Controller
         $catagory = category::all();
         $subCatagory = subCategory::all();
         $supplier = Supplier::all();
+
+
         return view('admin.purchaseManage.create', compact('product','catagory','subCatagory','supplier'));
     }
 
-    public function dataRetrive(Request $request)
-    {
-        // if ($request->get('productName')) {
-        //     $query = $request->get('productName');
-        //     $data = DB::table('productstock_manages')->where('id','=', $query)->get();
-        //     // return compact('data');
-        // }
-    }
+    // public function dataRetrive($id)
+    // {
+    //     $prodData = productstockManage::where('id','=' , $id)->select('prodCode','prodRate')->get();
+    //     return response()->json($prodData, 200);
+    // }
     /**
      * Store a newly created resource in storage.
      *
@@ -63,9 +62,9 @@ class PurchaseManageController extends Controller
      * @param  \App\Models\purchaseManage  $purchaseManage
      * @return \Illuminate\Http\Response
      */
-    public function show(purchaseManage $purchaseManage)
+    public function show()
     {
-        //
+       //
     }
 
     /**

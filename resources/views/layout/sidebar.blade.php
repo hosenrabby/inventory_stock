@@ -56,7 +56,7 @@
                 </li>
 
                 <li class="label">STOCKS</li>
-                <li><a href="#"><i class="ti-bar-chart-alt"></i> Stock Manage</a></li>
+                <li><a href="{{ url('authorized/product-stock') }}"><i class="ti-bar-chart-alt"></i> Stock Manage</a></li>
 
                 <li class="label">SALES</li>
                 <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Sales Products <span
@@ -79,7 +79,7 @@
                 <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> All Reports <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
-                        <li><a href="{{ url('authorized/supplierLedgerReport') }}">Suplier Payment Reports</a></li>
+                        <li><a href="{{ url('authorized/supplierLedgerReport') }}">Suplier Ledger Reports</a></li>
                         <li><a href="{{ url('authorized/customerLedgerReport') }}">Customer Ledger Reports</a></li>
                         <li><a href="{{ url('authorized/purchaseReports') }}">Purchase Reports</a></li>
                         <li><a href="{{ url('authorized/stockLedgerReport') }}">Stock ledger Report</a></li>

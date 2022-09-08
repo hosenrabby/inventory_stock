@@ -44,7 +44,9 @@ class SalesProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input=$request->all();
+        SalesProduct::create($input);
+        return redirect('authorized/salesproduct');
     }
 
     /**
@@ -53,9 +55,10 @@ class SalesProductController extends Controller
      * @param  \App\Models\SalesProduct  $salesProduct
      * @return \Illuminate\Http\Response
      */
-    public function show(SalesProduct $salesProduct)
+    public function show($id)
     {
-        //
+        $productName=productstockManage::where('id', $id)->select('id', 'prodCode', 'prodRate')->get();
+        return response()->json($productName, 200);
     }
 
     /**
