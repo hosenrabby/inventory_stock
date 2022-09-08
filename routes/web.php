@@ -38,6 +38,7 @@ Route::group(['prefix' => 'authorized'] , function(){
 
     Route::get('purchase-manage', [PurchaseManageController::class , 'index']);
     Route::get('purchase-form', [PurchaseManageController::class , 'create']);
+    Route::post('purchase-form-insert', [PurchaseManageController::class , 'store']);
     Route::get('purchase-data/{id}', [PurchaseManageController::class , 'dataRetrive']);
     Route::get('purchase-data2/{id}', [PurchaseManageController::class , 'dataRetrive2']);
 

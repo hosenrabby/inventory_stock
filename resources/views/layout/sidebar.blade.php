@@ -71,7 +71,7 @@
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
                         <li><a href="{{ url('authorized/supplierPaymentList') }}">Supplier payment List</a></li>
-                        <li><a href="">Customer Payment List</a></li>
+                        <li><a href="#">Customer Payment List</a></li>
                     </ul>
                 </li>
 

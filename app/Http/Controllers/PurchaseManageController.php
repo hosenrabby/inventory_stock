@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\purchaseManage;
 use App\Models\productstockManage;
 use Illuminate\Support\Facades\DB;
-
+use Symfony\Component\Console\Input\Input;
 
 class PurchaseManageController extends Controller
 {
@@ -38,8 +38,11 @@ class PurchaseManageController extends Controller
         $subCatagory = subCategory::all();
         $supplier = Supplier::all();
 
-
         return view('admin.purchaseManage.create', compact('product','catagory','subCatagory','supplier'));
     }
 
+    public function store(Request $request)
+    {
+        //
+    }
 }
