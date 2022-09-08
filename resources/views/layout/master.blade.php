@@ -8,7 +8,7 @@
     @include('layout.links')
 
 </head>
-<body>
+<body onload="max_id()" >
     @include('layout.sidebar')
 
     @include('layout.header')

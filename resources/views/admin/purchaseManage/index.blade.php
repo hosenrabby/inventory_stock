@@ -20,7 +20,7 @@
                             <div class="card">
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
-                                        <a href="{{ url('authorized/purchase-manage/create') }}"class="btn btn-default mb-3">Purchase Product</a>
+                                        <a href="{{ url('authorized/purchase-form') }}"class="btn btn-default mb-3">Purchase Product</a>
                                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>

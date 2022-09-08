@@ -13,16 +13,18 @@ class purchaseManage extends Model
     protected $primarykey = 'id';
     protected $fillable = [
         // 'productID',
-        'prodName',
+        'pid',
+        'productID',
         'prodCode',
         'invNumber',
         'purchaseDate',
         'catagoryID',
-        'subCatagoryID',
+        'subcatagoryID',
         'supplierID',
         'prodQty',
         'prodRate',
         'totalPrice',
+        'grandTotal',
         'paidAmount',
         'duesAmount',
     ];
