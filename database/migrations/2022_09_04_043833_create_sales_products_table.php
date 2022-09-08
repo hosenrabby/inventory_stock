@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('invNumber');
             $table->foreignId('customerID')->constrained('customers');
             $table->string('purchaseDate');
-            $table->foreignId('productName')->constrained('productstockManage');
+            $table->foreignId('productName')->constrained('productstock_manages');
             $table->integer('prodCode');
             $table->integer('prodQty');
             $table->decimal('prodRate', 8,2);

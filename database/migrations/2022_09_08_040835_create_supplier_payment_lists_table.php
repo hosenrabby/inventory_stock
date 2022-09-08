@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('supplier_payment_lists', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('supplierID');
-            $table->foreign('supplierID')->references('id')->on('supliers');
+            $table->foreign('supplierID')->references('id')->on('suppliers');
             $table->string('supplierEmail');
             $table->string('SupplierContact');
             $table->string('paymentDate');
             $table->string('transactionMethod');
-            $table->decimal('paymentAmount');
+            $table->decimal('paymentAmount',10,2);
             $table->string('Note');
             $table->timestamps();
         });
