@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
-use App\Models\productstockManage;
-use App\Models\purchaseManage;
-use App\Models\subCategory;
 use App\Models\Supplier;
+use App\Models\subCategory;
 use Illuminate\Http\Request;
+use App\Models\purchaseManage;
+use App\Models\productstockManage;
 use Illuminate\Support\Facades\DB;
 
 class PurchaseManageController2 extends Controller
@@ -65,7 +65,8 @@ class PurchaseManageController2 extends Controller
     public function show($id)
     {
         $prodData = productstockManage::where('id','=' , $id)->select('prodCode','prodRate')->get();
-        return response()->json($prodData, 200);
+        $maxid = purchaseManage::select(DB::raw('MAX(pid) AS pid'))->get();
+        return response()->json([$prodData,$maxid], 200);
     }
 
     /**

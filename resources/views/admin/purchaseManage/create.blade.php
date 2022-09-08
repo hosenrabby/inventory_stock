@@ -24,6 +24,7 @@
                                         <form action="{{ url('authorized/purchase_manage') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="rowlenth" id="rowlenth" value="1">
+                                            <input type="hidden" name="invoice_id" id="invoice_id" value="1">
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="form-group">
@@ -207,15 +208,17 @@
             $('#rowlenth').val(i);
             i++;
 
-
-
     })
+
+    function rowDelete(id){
+        $('#deleteRow'+id).remove()
+    }
 
     function prodAdd(id){
         var optID = $('#prodName'+id).find("option:selected").attr('id');
             if (optID) {
                 $.ajax({
-                    url: "{{ url('/authorized/purchase-manage') }}/"+optID,
+                    url: "{{ url('/authorized/purchase-data') }}/"+optID,
                     type: "GET",
                     cache: false,
                     dataType: "json",
@@ -225,15 +228,31 @@
                                     $('#prodCode'+id).val(value.prodCode);
                                     $('#prodRate'+id).val(value.prodRate);
                                 })
-
                             }
                         });
                     }
                 }
 
-    function rowDelete(id){
-        $('#deleteRow'+id).remove()
-    }
+    function max_id(){
+        var id=$('#invoice_id').val();
+            $.ajax({
+                url:"{{ url('authorized/purchase-data2') }}/"+id,
+                type:"GET",
+                cache:false,
+                dataType:"json",
+                success:function(data){
+                    console.log(data);
+
+                    $.each(data, function(key, value){
+                        $('#invoice_id').val(value.pid);
+                        newVlu = $('#invoice_id').val();
+                        newVlu = parseInt(newVlu) + 1;
+                        $('#invoice_id').val(newVlu);
+                    })
+                }
+            });
+        }
+
 
     function parchaseCal(id){
         var prodQty = $('#prodQTY'+id).val();

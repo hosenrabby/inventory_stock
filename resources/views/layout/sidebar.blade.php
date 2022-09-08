@@ -62,7 +62,7 @@
                 <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Sales Products <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
-                        <li><a href="{{ url('authorized/salesproduct/create') }}">Create Invoice</a></li>
+                        <li><a href="{{ url('authorized/salesproduct-form') }}">Create Invoice</a></li>
                         <li><a href="{{ url('authorized/salesproduct') }}">All Invoice</a></li>
                     </ul>
                 </li>

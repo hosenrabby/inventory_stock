@@ -34,14 +34,20 @@ Route::group(['prefix' => 'authorized'] , function(){
     Route::resource('category', CategoryController::class);
     Route::resource('subcategory', SubCategoryController::class);
     Route::resource('product-stock', ProductstockManageController::class);
-    // Route::get('purchase-manage', [PurchaseManageController::class , 'index']);
-    // Route::get('purchase-from', [PurchaseManageController::class , 'create']);
-    // Route::get('purchase-data', [PurchaseManageController::class , 'dataRetrive']);
-    Route::resource('purchase-manage', PurchaseManageController2::class);
+
+    Route::get('purchase-manage', [PurchaseManageController::class , 'index']);
+    Route::get('purchase-form', [PurchaseManageController::class , 'create']);
+    Route::get('purchase-data/{id}', [PurchaseManageController::class , 'dataRetrive']);
+    Route::get('purchase-data2/{id}', [PurchaseManageController::class , 'dataRetrive2']);
+
+    Route::get('salesproduct', [SalesProductController::class , 'index']);
+    Route::get('salesproduct-form', [SalesProductController::class , 'create']);
+    Route::get('salesproduct-data/{id}', [SalesProductController::class , 'selData']);
+    Route::get('salesproduct-data2/{id}', [SalesProductController::class , 'selData2']);
+
     Route::resource('supplier', SupplierController::class);
     Route::resource('customer', CustomerController::class);
     Route::resource('company', CompanyDetailsController::class);
-    Route::resource('salesproduct', SalesProductController::class);
     Route::resource('supplierLedgerReport', SupplierLedgerReport::class);
     Route::resource('customerLedgerReport', customerLedgerReport::class);
     Route::resource('purchaseReports', purchaseLedgerReports::class);
