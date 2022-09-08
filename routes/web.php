@@ -12,6 +12,7 @@ use App\Http\Controllers\stockLedgerReport;
 use App\Http\Controllers\SupplierLedgerReport;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\CompanyDetailsController;
+use App\Http\Controllers\CustomerpaymentListController;
 use App\Http\Controllers\PurchaseManageController2;
 use App\Http\Controllers\ProductstockManageController;
 use App\Http\Controllers\SupplierPaymentListController;
@@ -49,6 +50,7 @@ Route::group(['prefix' => 'authorized'] , function(){
     Route::resource('stockLedgerReport', stockLedgerReport::class);
     Route::resource('salesReports', salesReports::class);
     Route::resource('supplierPaymentList',SupplierPaymentListController::class);
+    Route::resource('customerPaymentList',CustomerpaymentListController::class);
 
     // Route::get('supplier',[SupplierController::class, 'supplierAjex']);
 });

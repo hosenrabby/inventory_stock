@@ -8,7 +8,7 @@
                     <div class="col-lg-12 p-l-0 m-l-0">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Supplier Payment</li>
+                            <li class="breadcrumb-item active">Customer Payment</li>
                         </ol>
                     </div>
                 </div>
@@ -18,18 +18,18 @@
                     <div class="col-lg-10">
                         <div class="card">
                             <div class="card-title">
-                                <h4>Supplier Payment List</h4>
+                                <h4>Customer Payment List</h4>
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
-                                    <form class="forms-sample" action="{{ url('authorized/supplierPaymentList') }}" method="POST">
+                                    <form class="forms-sample" action="{{ url('authorized/customerPaymentList') }}" method="POST">
                                         {!! csrf_field() !!}
                                         <div class="form-group">
-                                            <label>Supplier Name</label>
-                                            <select class="form-control @error('supplierID') is-invalid
+                                            <label>Customer Name</label>
+                                            <select class="form-control @error('customerID') is-invalid
 
-                                            @enderror" name="supplierID" value="{{ old('supplierID') }}">
-                                            @error('supplierID')
+                                            @enderror" name="customerID"  id="customerID" value="{{ old('customerID') }}">
+                                            @error('customerID')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
 
@@ -38,21 +38,21 @@
                                             @enderror
                                                 <option selected>Open this select menu</option>
                                                 @foreach ($spl as $item)
-                                                <option value="{{ $item->id }}">{{ $item->supplierName }}</option>
+                                                <option value="{{ $item->id }}">{{ $item->customerName }}</option>
                                                 @endforeach
 
                                             </select>
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Supplier Email</label>
+                                            <label>Customer Email</label>
                                             <input type="text"
-                                                class="form-control @error('supplierEmail') is-invalid
+                                                class="form-control @error('customerEmail') is-invalid
 
                                                 @enderror"
-                                                name="supplierEmail" placeholder="Supplier Email"
-                                                value="{{ old('supplierEmail') }}">
-                                            @error('supplierEmail')
+                                                name="customerEmail"  id="customerEmail" placeholder="customer Email"
+                                                value="{{ old('customerEmail') }}">
+                                            @error('customerEmail')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
 
@@ -60,14 +60,14 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label>Supplier Contaec</label>
+                                            <label>Customer Contaec</label>
                                             <input type="text"
-                                                class="form-control @error('supplierContact') is-invalid
+                                                class="form-control @error('customerContact') is-invalid
 
                                                 @enderror"
-                                                name="supplierContact" placeholder="Supplier Contact"
-                                                value="{{ old('supplierContact') }}">
-                                            @error('supplierContact')
+                                                name="customerContact" id="customerContact" placeholder="customer Contact"
+                                                value="{{ old('customerContact') }}">
+                                            @error('customerContact')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
 
@@ -144,3 +144,33 @@
     </div>
     <!-- /# row -->
 @endsection
+
+{{-- <script type="text/javascript">
+
+function kename(){
+
+$("#customerID").change(function() {
+    var id = $(this).find('option:selected').attr('id');
+    // alert(id);
+    if(id){
+        // alert(id);
+        $.ajax({
+            url:"{{ url('authorized/customerPaymentList/create') }}/"+id,
+            type:"GET",
+            cache:false,
+            dataType:"json",
+            success:function(data){
+                console.log(data);
+
+        $.each(data, function(key, value){
+            $('#customerEmail').val(value.customerEmail);
+            $('#customerContact').val(value.customerContact);
+        })
+            }
+
+        })
+    }
+});
+}
+
+</script> --}}

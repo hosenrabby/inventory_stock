@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\supplierPaymentList;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\supplierPaymentList as RequestsSupplierPaymentList;
+use App\Models\Supplier;
 
 class SupplierPaymentListController extends Controller
 {
@@ -15,8 +18,13 @@ class SupplierPaymentListController extends Controller
      */
     public function index()
     {
-        $input=supplierPaymentList::all();
-        return view('admin.supplierPaymentList.index' , compact('input'));
+
+        $spl=DB::table('supplier_payment_lists')
+        ->leftJoin('suppliers', 'suppliers.id', '=', 'supplier_payment_lists.supplierID')->get([
+            'supplier_payment_lists.*',
+            'suppliers.supplierName',
+        ]);
+        return view('admin.supplierPaymentList.index' , compact('spl'));
     }
 
     /**
@@ -26,7 +34,8 @@ class SupplierPaymentListController extends Controller
      */
     public function create()
     {
-        //
+        $spl=Supplier::get(['id', 'supplierName']);
+        return view('admin.supplierPaymentList.create', compact('spl'));
     }
 
     /**
@@ -35,9 +44,12 @@ class SupplierPaymentListController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RequestsSupplierPaymentList $request)
     {
-        //
+        $input= $request->all();
+
+        supplierPaymentList::create($input);
+        return redirect('authorized/supplierPaymentList')->with('success', 'Supplier Payment create successfully.');
     }
 
     /**

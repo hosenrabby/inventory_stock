@@ -21,15 +21,15 @@
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
                                         <a
-                                            href="{{ url('authorized/supplierPaymentList/create') }}"class="btn btn-default mb-3">Supplier
+                                            href="{{ url('authorized/customerPaymentList/create') }}"class="btn btn-default mb-3">Customer
                                             Payment</a>
                                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th>SL</th>
-                                                    <th>Supplier ID</th>
-                                                    <th>Supplier Email</th>
-                                                    <th>Supplier Contact</th>
+                                                    <th>Customer ID</th>
+                                                    <th>Customer Email</th>
+                                                    <th>Customer Contact</th>
                                                     <th>Payment Date</th>
                                                     <th>Transaction Method</th>
                                                     <th>Payment Amount</th>
@@ -38,16 +38,16 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($spl as $supplierPayment)
+                                                @foreach ($spl as $customerPayment)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $supplierPayment->supplierName }}</td>
-                                                        <td>{{ $supplierPayment->supplierEmail}}</td>
-                                                        <td>{{ $supplierPayment->supplierContact}}</td>
-                                                        <td>{{ $supplierPayment->paymentDate}}</td>
-                                                        <td>{{ $supplierPayment->transactionMethod}}</td>
-                                                        <td>{{ $supplierPayment->paymentAmount}}</td>
-                                                        <td>{{ $supplierPayment->note}}</td>
+                                                        <td>{{ $customerPayment->customerName }}</td>
+                                                        <td>{{ $customerPayment->customerEmail}}</td>
+                                                        <td>{{ $customerPayment->customerContact}}</td>
+                                                        <td>{{ $customerPayment->paymentDate}}</td>
+                                                        <td>{{ $customerPayment->transactionMethod}}</td>
+                                                        <td>{{ $customerPayment->paymentAmount}}</td>
+                                                        <td>{{ $customerPayment->note}}</td>
 
                                                         <td>
                                                             <div class="d-flex justify-content-center">
