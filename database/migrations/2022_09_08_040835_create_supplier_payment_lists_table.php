@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('supplierID');
             $table->foreign('supplierID')->references('id')->on('suppliers');
             $table->string('supplierEmail');
-            $table->string('SupplierContact');
+            $table->string('supplierContact');
             $table->string('paymentDate');
             $table->string('transactionMethod');
             $table->decimal('paymentAmount',10,2);
