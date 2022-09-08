@@ -8,7 +8,7 @@
                     <div class="col-lg-12 p-l-0 title-margin-left">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Purchase manage</li>
+                            <li class="breadcrumb-item active">Payment manage</li>
                         </ol>
                     </div>
                     <!-- /# column -->
@@ -20,44 +20,35 @@
                             <div class="card">
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
-                                        <a href="{{ url('authorized/purchase-form') }}"class="btn btn-default mb-3">Purchase Product</a>
+                                        <a
+                                            href="{{ url('authorized/supplierPaymentList/create') }}"class="btn btn-default mb-3">Supplier
+                                            Payment</a>
                                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th>SL</th>
-                                                    <th>Product Name</th>
-                                                    <th>Product Code</th>
-                                                    <th>Invoice Number</th>
-                                                    <th>Purchase Date</th>
-                                                    <th>Catagory Name</th>
-                                                    <th>Sub Catagory Name</th>
-                                                    <th>Suplier Name</th>
-                                                    <th>Product QTY</th>
-                                                    <th>Product Rate</th>
-                                                    <th>Total Price</th>
-                                                    <th>Grand Total</th>
-                                                    <th>Paid Ammount</th>
-                                                    <th>Dues Ammount</th>
+                                                    <th>Supplier ID</th>
+                                                    <th>Supplier Email</th>
+                                                    <th>Supplier Contact</th>
+                                                    <th>Payment Date</th>
+                                                    <th>Transaction Method</th>
+                                                    <th>Payment Amount</th>
+                                                    <th>Note</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($data as $data)
+                                                @foreach ($input as $supplierPayment)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $data->productID }}</td>
-                                                        <td>{{ $data->prodCode }}</td>
-                                                        <td>{{ $data->invNumber }}</td>
-                                                        <td>{{ $data->purchaseDate }}</td>
-                                                        <td>{{ $data->catagoryID }}</td>
-                                                        <td>{{ $data->subCatagoryID }}</td>
-                                                        <td>{{ $data->supplierID }}</td>
-                                                        <td>{{ $data->prodQty }}</td>
-                                                        <td>{{ $data->prodRate }}</td>
-                                                        <td>{{ $data->grandTotal }}</td>
-                                                        <td>{{ $data->totalPrice }}</td>
-                                                        <td>{{ $data->paidAmount }}</td>
-                                                        <td>{{ $data->duesAmount }}</td>
+                                                        <td>{{ $supplierPayment->supplierID }}</td>
+                                                        <td>{{ $supplierPayment->supplierEmail}}</td>
+                                                        <td>{{ $supplierPayment->supplierContact}}</td>
+                                                        <td>{{ $supplierPayment->paymentDate}}</td>
+                                                        <td>{{ $supplierPayment->transactionMethod}}</td>
+                                                        <td>{{ $supplierPayment->paymentAmount}}</td>
+                                                        <td>{{ $supplierPayment->Note}}</td>
+
                                                         <td>
                                                             <div class="d-flex justify-content-center">
                                                                 <a href="{{ url('authorized/product-stock/' . $data->id . '/edit') }}"
@@ -68,7 +59,8 @@
                                                                     action="{{ url('authorized/product-stock/' . $data->id) }}">
                                                                     @method('DELETE')
                                                                     @csrf
-                                                                    <button type="submit" class="btn btn-danger ml-1 delete-confirm"><i
+                                                                    <button type="submit"
+                                                                        class="btn btn-danger ml-1 delete-confirm"><i
                                                                             class="fa-solid fa-trash-can"></i></button>
                                                                 </form>
                                                             </div>

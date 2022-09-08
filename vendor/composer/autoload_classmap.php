@@ -19,6 +19,12 @@ return array(
     'App\\Http\\Controllers\\SupplierController' => $baseDir . '/app/Http/Controllers/SupplierController.php',
     'App\\Http\\Controllers\\SupplierLedgerReport' => $baseDir . '/app/Http/Controllers/SupplierLedgerReport.php',
     'App\\Http\\Controllers\\customerLedgerReport' => $baseDir . '/app/Http/Controllers/customerLedgerReport.php',
+<<<<<<< HEAD
+    'App\\Http\\Controllers\\purchaseLedgerReports' => $baseDir . '/app/Http/Controllers/purchaseLedgerReports.php',
+    'App\\Http\\Controllers\\salesReports' => $baseDir . '/app/Http/Controllers/salesReports.php',
+    'App\\Http\\Controllers\\stockLedgerReport' => $baseDir . '/app/Http/Controllers/stockLedgerReport.php',
+=======
+>>>>>>> 6c9b939e34123dca32636da286cf6226b3d286f0
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
@@ -45,6 +51,7 @@ return array(
     'App\\Models\\purchaseManage' => $baseDir . '/app/Models/purchaseManage.php',
     'App\\Models\\stockManagment' => $baseDir . '/app/Models/stockManagment.php',
     'App\\Models\\subCategory' => $baseDir . '/app/Models/subCategory.php',
+    'App\\Models\\supplierPaymentList' => $baseDir . '/app/Models/supplierPaymentList.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

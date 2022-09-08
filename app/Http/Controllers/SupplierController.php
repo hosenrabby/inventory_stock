@@ -93,4 +93,17 @@ class SupplierController extends Controller
         Supplier::destroy($id);
         return redirect('authorized/supplier')->with('warning', 'Supplier delete successfully.');
     }
+
+
+    // public function supplierAjex()
+    // {
+    //     $supplier = Supplier::select('supplierName')->where('supplierName','0')->get();
+    //     $data =[];
+
+    //     foreach ($supplier as $item){
+    //         $data[] = $item['supplierName'];
+    //     }
+    //     return $data;
+
+    // }
 }

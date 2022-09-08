@@ -19,7 +19,7 @@
                         <div class="form-group">
                             <form action="">
                                 <div class="input-group input-group-rounded">
-                                    <input type="text" placeholder="Search Round" name="Search" class="form-control">
+                                    <input type="text" placeholder="Search Round" name="Search"  class="form-control" id="auto">
                                     <span class="input-group-btn">
                                         <button class="btn btn-primary weight" type="submit"
                                             style="padding-bottom: 5px;border-radius: 0px;"><i
