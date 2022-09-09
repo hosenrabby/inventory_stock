@@ -162,7 +162,7 @@
                                     <div class="dropdown-content-body">
                                         <ul>
                                             <li>
-                                                <a href="#">
+                                                <a href="https://laravel.com/docs/5.4/seeding">
                                                     <i class="ti-user"></i>
                                                     <span>Profile</span>
                                                 </a>
@@ -188,9 +188,10 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="https://laravel.com/docs/5.4/seeding">
                                                     <i class="ti-power-off"></i>
-                                                    <span>Logout</span>
+                                                    {{-- <i data-cs-icon="logout" class="me-2" data-cs-size="17"></i> --}}
+                                                    <span class="align-middle">Logout</span>
                                                 </a>
                                             </li>
                                         </ul>

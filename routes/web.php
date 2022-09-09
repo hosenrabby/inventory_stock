@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
@@ -13,6 +15,7 @@ use App\Http\Controllers\SupplierLedgerReport;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\CompanyDetailsController;
 use App\Http\Controllers\CustomerpaymentListController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PurchaseManageController2;
 use App\Http\Controllers\ProductstockManageController;
 use App\Http\Controllers\SupplierPaymentListController;
@@ -28,12 +31,18 @@ use App\Http\Controllers\SupplierPaymentListController;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.index');
-});
-
+// Route::get('/', function () {
+//     return view('admin.auth.login');
+// });
+Route::get('/', [LoginController::class, 'loginPage'])->middleware('auth');
 Route::group(['prefix' => 'authorized'] , function(){
-    Route::resource('category', CategoryController::class);
+    // Route::get('supplier',[SupplierController::class, 'supplierAjex']);
+    Route::get('login', [LoginController::class, 'loginPage'])->name('authorized.loginpage');
+    Route::post('login', [LoginController::class, 'login'])->name('authorized.login');
+    Route::get('logout', [LoginController::class, 'logout'])->name('authorized.logout');
+
+    Route::middleware(['auth'])->group(function () {
+        Route::resource('category', CategoryController::class);
     Route::resource('subcategory', SubCategoryController::class);
     Route::resource('product-stock', ProductstockManageController::class);
 
@@ -58,6 +67,5 @@ Route::group(['prefix' => 'authorized'] , function(){
     Route::resource('salesReports', salesReports::class);
     Route::resource('supplierPaymentList',SupplierPaymentListController::class);
     Route::resource('customerPaymentList',CustomerpaymentListController::class);
-
-    // Route::get('supplier',[SupplierController::class, 'supplierAjex']);
+    });
 });

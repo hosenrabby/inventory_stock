@@ -8,9 +8,17 @@
                             <span>Soeng Souy</span>
                         </a>
                     </div>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Admin <span
+                        class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="{{ route('authorized.logout') }}">Logout</a></li>
+                        </ul>
+                    </li>
                     <li class="label">Main</li>
                     <li><a href="{{ url('/') }}" class="sideba"><i class="ti-home"></i> Dashboard</a></li>
                     <li><a href="{{ route('company.index') }}" class="sideba"><i class="ti-home"></i> Company Details</a></li>
+
+
                     <li class="label">SUPLIER</li>
                     <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Suplier <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
@@ -84,6 +92,7 @@
                         <li><a href="{{ url('authorized/purchaseReports') }}">Purchase Reports</a></li>
                         <li><a href="{{ url('authorized/stockLedgerReport') }}">Stock ledger Report</a></li>
                         <li><a href="{{ url('/authorized/salesReports') }}">Sales Reports</a></li>
+
                     </ul>
                 </li>
             </ul>
