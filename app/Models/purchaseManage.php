@@ -8,11 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class purchaseManage extends Model
 {
     use HasFactory;
-    // protected $guarded = ['id'];
     protected $table = 'purchase_manage';
     protected $primarykey = 'id';
     protected $fillable = [
-        // 'productID',
         'pid',
         'productID',
         'prodCode',

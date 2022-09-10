@@ -8,5 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class SalesProduct extends Model
 {
     use HasFactory;
-    protected $guarded=['id'];
+    protected $table = 'sales_products';
+    protected $primarykey = 'id';
+    protected $fillable = [
+        'invoice_id',
+        'invNumber',
+        'customerID',
+        'purchaseDate',
+        'purchaseDate',
+        'productID',
+        'prodCode',
+        'prodQty',
+        'prodRate',
+        'prodRate',
+        'totalPrice',
+        'grandTotal',
+        'paidAmount',
+        'duesAmount',
+    ];
 }

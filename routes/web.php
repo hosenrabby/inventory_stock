@@ -52,6 +52,7 @@ Route::group(['prefix' => 'authorized'] , function(){
 
         Route::get('salesproduct', [SalesProductController::class , 'index']);
         Route::get('salesproduct-form', [SalesProductController::class , 'create']);
+        Route::post('sales-form-insert', [SalesProductController::class , 'store']);
         Route::get('salesproduct-data/{id}', [SalesProductController::class , 'selData']);
         Route::get('salesproduct-data2/{id}', [SalesProductController::class , 'selData2']);
 

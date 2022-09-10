@@ -24,7 +24,7 @@ class LoginController extends Controller
 
         if(Auth::attempt($credential, $request->filled('remember'))){
             $request->session()->regenerate();
-            return redirect()->route('admin-dashboard')->with('success', 'You are Successfully Lpged-in..!!');
+            return redirect()->route('admin-dashboard')->with('success', 'You are Successfully Loged-in..!!');
         }
         return back()->withErrors([
             'email'=>'Wrong Credentials Found'
