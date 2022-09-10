@@ -42,7 +42,7 @@ Route::group(['prefix' => 'authorized'] , function(){
     Route::get('logout', [LoginController::class, 'logout'])->name('authorized.logout');
 
     Route::middleware(['auth'])->group(function () {
-        Route::resource('category', CategoryController::class);
+    Route::resource('category', CategoryController::class);
     Route::resource('subcategory', SubCategoryController::class);
     Route::resource('product-stock', ProductstockManageController::class);
 
