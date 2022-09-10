@@ -8,10 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function dashboard()
-    {
-        return view('admin.auth.login');
-    }
 
     public function loginPage(){
         return view('admin.auth.login');
