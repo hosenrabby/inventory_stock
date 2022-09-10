@@ -31,12 +31,9 @@ use App\Http\Controllers\SupplierPaymentListController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('admin.auth.login');
-// });
-Route::get('/', [LoginController::class, 'loginPage'])->middleware('auth');
+
+Route::get('/', [LoginController::class, 'loginPage']);
 Route::group(['prefix' => 'authorized'] , function(){
-    // Route::get('supplier',[SupplierController::class, 'supplierAjex']);
     Route::get('login', [LoginController::class, 'loginPage'])->name('authorized.loginpage');
     Route::post('login', [LoginController::class, 'login'])->name('authorized.login');
     Route::get('logout', [LoginController::class, 'logout'])->name('authorized.logout');
