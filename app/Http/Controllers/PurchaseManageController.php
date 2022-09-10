@@ -43,6 +43,61 @@ class PurchaseManageController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $pid = $request->pid;
+        $invNumber = $request->invNumber;
+        $supplierID = $request->supplierID;
+        $catagoryID = $request->catagoryID;
+        $subCatagoryID = $request->subCatagoryID;
+        $purchaseDate = $request->purchaseDate;
+        $productID = $request->productID;
+        $prodCode = $request->prodCode;
+        $prodQty = $request->prodQty;
+        $prodRate = $request->prodRate;
+        $totalPrice = $request->totalPrice;
+        $grandTotal = $request->grandTotal;
+        $paidAmount = $request->paidAmount;
+        $duesAmount = $request->duesAmount;
+
+        for ($i=0; $i <count($productID) ; $i++) { 
+            $daraInsert =[
+                'pid' => $pid,
+                'productID' => $productID[$i],
+                'prodCode' => $prodCode[$i],
+                'invNumber' => $invNumber,
+                'purchaseDate' => $purchaseDate,
+                'catagoryID' => $catagoryID,
+                'subCatagoryID' => $subCatagoryID,
+                'supplierID' => $supplierID,
+                'prodQty' => $prodQty[$i],
+                'prodRate' => $prodRate[$i],
+                'totalPrice' => $totalPrice[$i],
+                'grandTotal' => $grandTotal,
+                'paidAmount' => $paidAmount,
+                'duesAmount' => $duesAmount,
+            ];
+            $inserted = purchaseManage::create($daraInsert);
+        } 
+        if ($inserted) {
+            //Supplier Stock Update
+            $findSupplier = Supplier::find($supplierID);
+            $supBlncUpdate = $duesAmount + $findSupplier->supplierCarrentBalance;
+            $UpdateBlnc = [
+                'supplierCarrentBalance' => $supBlncUpdate
+            ];
+            $findSupplier->update($UpdateBlnc);
+            //Supplier Stock Update End
+            //Product Stock Update
+            for ($i=0; $i <count($productID) ; $i++) { 
+                $findProd = productstockManage::find($productID[$i]);
+                $prodStockUpdate = $prodQty[$i] + $findProd->stockBalance;
+                $updateStock = [
+                    'stockBalance' => $prodStockUpdate
+                ];
+                
+                $findProd->update($updateStock);
+            }
+            //Product Stock Update end
+        }
+        return redirect('authorized/purchase-manage')->with('success' , 'Purchase Data and Related Stocks Updated');
     }
 }

@@ -54,7 +54,7 @@
                                                 </div>
                                                 <div class="col">
                                                     <label>Select Sub Catagory</label>
-                                                    <select class="form-control" name="subcatagoryID">
+                                                    <select class="form-control" name="subCatagoryID">
                                                         <option value="0" selected>Select Sub Catagory</option>
                                                         @foreach ($subCatagory as $subCatagory)
                                                             <option value="{{ $subCatagory->id }}" id="{{ $subCatagory->id }}">{{ $subCatagory->subCategoryName }}</option>
@@ -70,7 +70,7 @@
                                                 <div class="row mt-3">
                                                     <div class="col-1">
                                                         <button type="button" class="btn btn-sm btn-outline-dark addRow" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
-                                                        <button type="button" class="btn btn-sm btn-outline-danger" id="delRow" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>
+                                                        {{-- <button type="button" class="btn btn-sm btn-outline-danger" id="delRow" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button> --}}
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
@@ -145,7 +145,7 @@
             row+= '</div>'
             row+= '<div class="form-group col">'
             row+= '<label>Product Name</label>'
-            row+= '<select class="form-control select2" name="prodName[]" id="prodName'+i+'" onchange="prodAdd('+i+')">'
+            row+= '<select class="form-control select2" name="productID[]" id="prodName'+i+'" onchange="prodAdd('+i+')">'
             row+= '<option value="1" selected>select product</option>'
             row+= '@foreach ($product as $products)'
             row+= '<option value="{{ $products->id }}" id="{{ $products->id }}">{{ $products->productName }}</option>'
@@ -212,7 +212,10 @@
 
                     $.each(data, function(key, value){
                         $('#invoice_id').val(value.pid);
-                        newVlu = $('#invoice_id').val();
+                        var newVlu = $('#invoice_id').val();
+                        if (newVlu < 1) {
+                            newVlu = 1;
+                        } else
                         newVlu = parseInt(newVlu) + 1;
                         $('#invoice_id').val(newVlu);
                     })

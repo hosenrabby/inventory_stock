@@ -19,7 +19,7 @@ class purchaseManage extends Model
         'invNumber',
         'purchaseDate',
         'catagoryID',
-        'subcatagoryID',
+        'subCatagoryID',
         'supplierID',
         'prodQty',
         'prodRate',

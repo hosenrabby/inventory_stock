@@ -50,7 +50,7 @@
                                                 <div class="row mt-3" id="RowAppend">
                                                     <div class="col-1">
                                                         <button type="button" class="btn btn-sm btn-outline-dark" id="RowAdd" onclick="row_Append()" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
-                                                        <button type="button" class="btn btn-sm btn-outline-danger" id="RowDeletesd" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>
+                                                        {{-- <button type="button" class="btn btn-sm btn-outline-danger" id="RowDeletesd" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button> --}}
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
