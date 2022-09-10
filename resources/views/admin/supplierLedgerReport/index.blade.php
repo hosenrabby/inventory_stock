@@ -20,10 +20,10 @@
                             <form action="">
                                 <div class="form-group">
                                     {{-- <label>Select Supplier Name</label> --}}
-                                    <select class="form-control supplier" name="supplier">
+                                    <select class="form-control supplier" name="supplier" id="supplierid">
                                         <option selected>Select Supplier Name</option>
                                         @foreach ($supplier as $item)
-                                        <option value="{{ $item->id }}" id="supplierid">{{ $item->supplierName }}</option>
+                                        <option value="{{ $item->id }}" sid="{{ $item->id }}">{{ $item->supplierName }}</option>
                                         @endforeach
 
                                     </select>
@@ -77,11 +77,11 @@
                                             <tbody>
 
                                                 <tr>
-                                                    <td id="sup"></td>
-                                                    <td id="supplierName"></td>
-                                                    <td id="supplierEmail"></td>
-                                                    <td id="supplierPhone"></td>
-                                                    <td id="supplierBalance"></td>
+                                                    <td id="sup" value=""></td>
+                                                    <td id="supplierName" value=""></td>
+                                                    <td id="supplierEmail" value=""></td>
+                                                    <td id="supplierPhone" value=""></td>
+                                                    <td id="supplierBalance" value=""></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -102,7 +102,34 @@
 <script>
     $('.supplier').select2();
 
-    $("#supplierid").change(function() {
+    $('#supplierid').change(function() {
+    var id = $(this).find('option:selected').attr('sid');
+    alert(id);
+    if(id){
+        // alert(id);
+        $.ajax({
+            url:"{{ url('authorized/supplierLedgerReport') }}/"+id,
+            type:"GET",
+            cache:false,
+            dataType:"json",
+            success:function(data){
+                console.log(data);
+
+        $.each(data, function(key, value){
+            $('#sup').val(value.id);
+            $('#supplierName').val(value.supplierName);
+            $('#supplierEmail').val(value.supplierEmail);
+            $('#supplierPhone').val(value.supplierPhone);
+            $('#supplierBalance').val(value.supplierCarrentBalance);
+        })
+            }
+
+        })
+    }
+});
+</script>
+{{-- <script>
+    $('.supplierid').change(function() {
     var id = $(this).find('option:selected').attr('id');
     alert(id);
     if(id){
@@ -127,6 +154,6 @@
         })
     }
 });
-</script>
+</script> --}}
 
 @endsection
