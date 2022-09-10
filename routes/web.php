@@ -39,30 +39,31 @@ Route::group(['prefix' => 'authorized'] , function(){
     Route::get('logout', [LoginController::class, 'logout'])->name('authorized.logout');
 
     Route::middleware(['auth'])->group(function () {
+        Route::view('admin-dashboard', 'admin.index')->name('admin-dashboard');
         Route::resource('category', CategoryController::class);
-    Route::resource('subcategory', SubCategoryController::class);
-    Route::resource('product-stock', ProductstockManageController::class);
+        Route::resource('subcategory', SubCategoryController::class);
+        Route::resource('product-stock', ProductstockManageController::class);
 
-    Route::get('purchase-manage', [PurchaseManageController::class , 'index']);
-    Route::get('purchase-form', [PurchaseManageController::class , 'create']);
-    Route::post('purchase-form-insert', [PurchaseManageController::class , 'store']);
-    Route::get('purchase-data/{id}', [PurchaseManageController::class , 'dataRetrive']);
-    Route::get('purchase-data2/{id}', [PurchaseManageController::class , 'dataRetrive2']);
+        Route::get('purchase-manage', [PurchaseManageController::class , 'index']);
+        Route::get('purchase-form', [PurchaseManageController::class , 'create']);
+        Route::post('purchase-form-insert', [PurchaseManageController::class , 'store']);
+        Route::get('purchase-data/{id}', [PurchaseManageController::class , 'dataRetrive']);
+        Route::get('purchase-data2/{id}', [PurchaseManageController::class , 'dataRetrive2']);
 
-    Route::get('salesproduct', [SalesProductController::class , 'index']);
-    Route::get('salesproduct-form', [SalesProductController::class , 'create']);
-    Route::get('salesproduct-data/{id}', [SalesProductController::class , 'selData']);
-    Route::get('salesproduct-data2/{id}', [SalesProductController::class , 'selData2']);
+        Route::get('salesproduct', [SalesProductController::class , 'index']);
+        Route::get('salesproduct-form', [SalesProductController::class , 'create']);
+        Route::get('salesproduct-data/{id}', [SalesProductController::class , 'selData']);
+        Route::get('salesproduct-data2/{id}', [SalesProductController::class , 'selData2']);
 
-    Route::resource('supplier', SupplierController::class);
-    Route::resource('customer', CustomerController::class);
-    Route::resource('company', CompanyDetailsController::class);
-    Route::resource('supplierLedgerReport', SupplierLedgerReport::class);
-    Route::resource('customerLedgerReport', customerLedgerReport::class);
-    Route::resource('purchaseReports', purchaseLedgerReports::class);
-    Route::resource('stockLedgerReport', stockLedgerReport::class);
-    Route::resource('salesReports', salesReports::class);
-    Route::resource('supplierPaymentList',SupplierPaymentListController::class);
-    Route::resource('customerPaymentList',CustomerpaymentListController::class);
+        Route::resource('supplier', SupplierController::class);
+        Route::resource('customer', CustomerController::class);
+        Route::resource('company', CompanyDetailsController::class);
+        Route::resource('supplierLedgerReport', SupplierLedgerReport::class);
+        Route::resource('customerLedgerReport', customerLedgerReport::class);
+        Route::resource('purchaseReports', purchaseLedgerReports::class);
+        Route::resource('stockLedgerReport', stockLedgerReport::class);
+        Route::resource('salesReports', salesReports::class);
+        Route::resource('supplierPaymentList',SupplierPaymentListController::class);
+        Route::resource('customerPaymentList',CustomerpaymentListController::class);
     });
 });
