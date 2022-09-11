@@ -38,7 +38,7 @@
                                             @enderror
                                                 <option selected>Open this select menu</option>
                                                 @foreach ($spl as $item)
-                                                <option value="{{ $item->id }}">{{ $item->customerName }}</option>
+                                                    <option value="{{ $item->id }}" sid="{{ $item->id }}">{{ $item->customerName }}</option>
                                                 @endforeach
 
                                             </select>
@@ -50,7 +50,7 @@
                                                 class="form-control @error('customerEmail') is-invalid
 
                                                 @enderror"
-                                                name="customerEmail"  id="customerEmail" placeholder="customer Email"
+                                                name="customerEmail"  id="customerEmail" value="" placeholder="customer Email"
                                                 value="{{ old('customerEmail') }}">
                                             @error('customerEmail')
                                                 <span class="invalid-feedback" role="alert">
@@ -60,7 +60,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label>Customer Contaec</label>
+                                            <label>Customer Contact</label>
                                             <input type="text"
                                                 class="form-control @error('customerContact') is-invalid
 
@@ -145,32 +145,32 @@
     <!-- /# row -->
 @endsection
 
-{{-- <script type="text/javascript">
+@section('script')
+<script type="text/javascript">
 
-function kename(){
 
-$("#customerID").change(function() {
-    var id = $(this).find('option:selected').attr('id');
-    // alert(id);
-    if(id){
-        // alert(id);
-        $.ajax({
-            url:"{{ url('authorized/customerPaymentList/create') }}/"+id,
-            type:"GET",
-            cache:false,
-            dataType:"json",
-            success:function(data){
-                console.log(data);
 
-        $.each(data, function(key, value){
-            $('#customerEmail').val(value.customerEmail);
-            $('#customerContact').val(value.customerContact);
-        })
-            }
 
-        })
-    }
-});
-}
+        $("#customerID").change(function() {
+        var optID = $('#customerID').find("option:selected").attr('sid');
 
-</script> --}}
+             if (optID) {
+                 $.ajax({
+                     url: "{{ url('authorized/customerPaymentList') }}/"+optID,
+                     type: "GET",
+                     cache: false,
+                    dataType: "json",
+                        success: function(data) {
+                            console.log(data);
+                                $.each(data, function(key, value) {
+                                    $('#customerEmail').val(value.customerEmail);
+                                    $('#customerContact').val(value.customerPhone);
+                                })
+                             }
+                         });
+                     }
+                })
+
+
+</script>
+@endsection
