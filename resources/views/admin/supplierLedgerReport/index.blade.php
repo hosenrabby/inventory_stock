@@ -21,36 +21,14 @@
                                 <div class="form-group">
                                     {{-- <label>Select Supplier Name</label> --}}
                                     <select class="form-control supplier" name="supplier" id="supplierid">
-                                        <option selected>Select Supplier Name</option>
                                         @foreach ($supplier as $item)
-                                        <option value="{{ $item->id }}" sid="{{ $item->id }}">{{ $item->supplierName }}</option>
+                                            <option value="{{ $item->id }}" sid="{{ $item->id }}">{{ $item->supplierName }}</option>
                                         @endforeach
 
                                     </select>
                                 </div>
                             </form>
                         </div>
-                    </div>
-
-
-                    <div class="col-8 input-group input-group-rounded">
-                        <form action="#" method="POST">
-                            <div class="row">
-                                <div class="form-group col">
-                                    <input type="text" class="datepicker form-control" name="start_date"
-                                placeholder="Select Start Date">
-                                </div>
-                                <div class="form-group col">
-                            <input type="text" class="datepicker form-control" name="end_date"
-                                placeholder="Select End Date">
-                                </div>
-                                <div class="form-group col">
-                             <button class="btn btn-primary weight" type="submit"
-                                 style="padding-bottom: 5px;border-radius: 0px;"><i class="ti-search"></i>
-                             </button>
-                             </div>
-                            </div>
-                        </form>
                     </div>
                 </div>
 
@@ -71,14 +49,13 @@
                                                     <th>Supplier Email</th>
                                                     <th>Supplier Phone</th>
                                                     <th>Supplier Carrent Balance</th>
-
                                                 </tr>
                                             </thead>
                                             <tbody>
 
                                                 <tr>
                                                     <td id="sup" value=""></td>
-                                                    <td id="supplierName" value=""></td>
+                                                    <td id="supplierName" value="data"></td>
                                                     <td id="supplierEmail" value=""></td>
                                                     <td id="supplierPhone" value=""></td>
                                                     <td id="supplierBalance" value=""></td>
@@ -104,9 +81,7 @@
 
     $('#supplierid').change(function() {
     var id = $(this).find('option:selected').attr('sid');
-    alert(id);
     if(id){
-        // alert(id);
         $.ajax({
             url:"{{ url('authorized/supplierLedgerReport') }}/"+id,
             type:"GET",
@@ -116,11 +91,11 @@
                 console.log(data);
 
         $.each(data, function(key, value){
-            $('#sup').val(value.id);
-            $('#supplierName').val(value.supplierName);
-            $('#supplierEmail').val(value.supplierEmail);
-            $('#supplierPhone').val(value.supplierPhone);
-            $('#supplierBalance').val(value.supplierCarrentBalance);
+            $('#sup').html(value.id);
+            $('#supplierName').html(value.supplierName);
+            $('#supplierEmail').html(value.supplierEmail);
+            $('#supplierPhone').html(value.supplierPhone);
+            $('#supplierBalance').html(value.supplierCarrentBalance);
         })
             }
 
@@ -128,32 +103,5 @@
     }
 });
 </script>
-{{-- <script>
-    $('.supplierid').change(function() {
-    var id = $(this).find('option:selected').attr('id');
-    alert(id);
-    if(id){
-        // alert(id);
-        $.ajax({
-            url:"{{ url('authorized/supplierLedgerReport') }}",
-            type:"GET",
-            cache:false,
-            dataType:"json",
-            success:function(data){
-                console.log(data);
-
-        $.each(data, function(key, value){
-            $('#sup').val(value.id);
-            $('#supplierName').val(value.supplierName);
-            $('#supplierEmail').val(value.supplierEmail);
-            $('#supplierPhone').val(value.supplierPhone);
-            $('#supplierBalance').val(value.supplierCarrentBalance);
-        })
-            }
-
-        })
-    }
-});
-</script> --}}
 
 @endsection
