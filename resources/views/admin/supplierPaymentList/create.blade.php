@@ -28,7 +28,7 @@
                                             <label>Supplier Name</label>
                                             <select class="form-control @error('supplierID') is-invalid
 
-                                            @enderror" name="supplierID" value="{{ old('supplierID') }}">
+                                            @enderror" name="supplierID" id="supplierID" value="{{ old('supplierID') }}">
                                             @error('supplierID')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -38,7 +38,7 @@
                                             @enderror
                                                 <option selected>Open this select menu</option>
                                                 @foreach ($spl as $item)
-                                                <option value="{{ $item->id }}">{{ $item->supplierName }}</option>
+                                                <option value="{{ $item->id }}" sid="{{ $item->id }}">{{ $item->supplierName }}</option>
                                                 @endforeach
 
                                             </select>
@@ -50,7 +50,7 @@
                                                 class="form-control @error('supplierEmail') is-invalid
 
                                                 @enderror"
-                                                name="supplierEmail" placeholder="Supplier Email"
+                                                name="supplierEmail" id="supplierEmail" placeholder="Supplier Email"
                                                 value="{{ old('supplierEmail') }}">
                                             @error('supplierEmail')
                                                 <span class="invalid-feedback" role="alert">
@@ -60,12 +60,12 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label>Supplier Contaec</label>
+                                            <label>Supplier Contact</label>
                                             <input type="text"
                                                 class="form-control @error('supplierContact') is-invalid
 
                                                 @enderror"
-                                                name="supplierContact" placeholder="Supplier Contact"
+                                                name="supplierContact" id="supplierContact" placeholder="Supplier Contact"
                                                 value="{{ old('supplierContact') }}">
                                             @error('supplierContact')
                                                 <span class="invalid-feedback" role="alert">
@@ -143,4 +143,35 @@
         </div>
     </div>
     <!-- /# row -->
+@endsection
+
+@section('script')
+<script type="text/javascript">
+
+
+
+
+    $("#supplierID").change(function() {
+    var optID = $('#supplierID').find("option:selected").attr('sid');
+
+         if (optID) {
+             $.ajax({
+                 url: "{{ url('authorized/supplierPaymentList') }}/"+optID,
+                 type: "GET",
+                 cache: false,
+                dataType: "json",
+                    success: function(data) {
+                        console.log(data);
+                            $.each(data, function(key, value) {
+                                $('#supplierEmail').val(value.supplierEmail);
+                                $('#supplierContact').val(value.supplierPhone);
+                            })
+                         }
+                     });
+                 }
+            })
+
+
+</script>
+
 @endsection
