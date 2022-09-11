@@ -29,7 +29,16 @@
                                                 <div class="col">
                                                     <div class="form-group">
                                                         <label>Invoice Number</label>
-                                                        <input type="number" class="form-control" name="invNumber" placeholder="Invoice Number">
+                                                        <input type="number" class="form-control @error('invNumber') is-invalid
+
+                                                        @enderror" name="invNumber" placeholder="Invoice Number" value="{{ old('invNumber') }}">
+                                                        @error('invNumber')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+
+                                                        </span>
+
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="form-group col">
@@ -37,7 +46,7 @@
                                                     <select class="form-control" name="supplierID">
                                                         <option value="1" selected>Select Supplier</option>
                                                         @foreach ($supplier as $supplier)
-                                                            <option value="{{ $supplier->id }}">{{ $supplier->supplierName }}</option>
+                                                        <option value="{{ $supplier->id }}">{{ $supplier->supplierName }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -63,7 +72,16 @@
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Purchase Date</label>
-                                                    <input type="date" class="form-control" name="purchaseDate" placeholder="Purchase Date">
+                                                    <input type="date" class="form-control @error('purchaseDate') is-invalid
+
+                                                    @enderror" name="purchaseDate" placeholder="Purchase Date" value="{{ old('purchaseDate') }}">
+                                                    @error('purchaseDate')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+
+                                                    </span>
+
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="extra-row" id="appendRow">
@@ -87,7 +105,16 @@
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product QTY</label>
-                                                        <input type="number" class="form-control" name="prodQty[]" id="prodQTY1" onkeyup="parchaseCal(1)" placeholder="Product QTY">
+                                                        <input type="number" class="form-control @error('prodQty') is-invalid
+
+                                                        @enderror" name="prodQty[]" id="prodQTY1" onkeyup="parchaseCal(1)" placeholder="Product QTY" value="{{ old('prodQty[]') }}">
+                                                        @error('prodQty')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+
+                                                        </span>
+
+                                                        @enderror
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Rate</label>

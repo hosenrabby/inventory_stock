@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\purchaseManage as RequestsPurchaseManage;
 use App\Models\category;
 use App\Models\Supplier;
 use App\Models\subCategory;
@@ -41,7 +42,7 @@ class PurchaseManageController extends Controller
         return view('admin.purchaseManage.create', compact('product','catagory','subCatagory','supplier'));
     }
 
-    public function store(Request $request)
+    public function store(RequestsPurchaseManage $request)
     {
         $pid = $request->pid;
         $invNumber = $request->invNumber;
@@ -58,7 +59,7 @@ class PurchaseManageController extends Controller
         $paidAmount = $request->paidAmount;
         $duesAmount = $request->duesAmount;
 
-        for ($i=0; $i <count($productID) ; $i++) { 
+        for ($i=0; $i <count($productID) ; $i++) {
             $daraInsert =[
                 'pid' => $pid,
                 'productID' => $productID[$i],
@@ -76,7 +77,7 @@ class PurchaseManageController extends Controller
                 'duesAmount' => $duesAmount,
             ];
             $inserted = purchaseManage::create($daraInsert);
-        } 
+        }
         if ($inserted) {
             //Supplier Stock Update
             $findSupplier = Supplier::find($supplierID);
@@ -87,13 +88,13 @@ class PurchaseManageController extends Controller
             $findSupplier->update($UpdateBlnc);
             //Supplier Stock Update End
             //Product Stock Update
-            for ($i=0; $i <count($productID) ; $i++) { 
+            for ($i=0; $i <count($productID) ; $i++) {
                 $findProd = productstockManage::find($productID[$i]);
                 $prodStockUpdate = $prodQty[$i] + $findProd->stockBalance;
                 $updateStock = [
                     'stockBalance' => $prodStockUpdate
                 ];
-                
+
                 $findProd->update($updateStock);
             }
             //Product Stock Update end

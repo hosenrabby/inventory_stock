@@ -29,21 +29,43 @@
                                                 <div class="col">
                                                     <div class="form-group">
                                                         <label>Invoice Number</label>
-                                                        <input type="number" class="form-control" name="invNumber" placeholder="Invoice Number">
+                                                        <input type="number" class="form-control @error('invNumber') is-invalid
+
+                                                        @enderror" name="invNumber" placeholder="Invoice Number" value="{{ old('invNumber') }}">
+                                                        @error('invNumber')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+
+                                                        </span>
+
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Select Customer</label>
-                                                    <select class="form-control" name="customerID">
+                                                    <select class="form-control @error('customerID') is-invalid
+
+                                                    @enderror" name="customerID" >
                                                         <option value="1" selected>Select Customer</option>
+
                                                         @foreach ($customer as $customers)
                                                             <option value="{{ $customers->id }}">{{ $customers->customerName }}</option>
+
                                                         @endforeach
                                                     </select>
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Purchase Date</label>
-                                                    <input type="date" class="form-control" name="purchaseDate" placeholder="Purchase Date">
+                                                    <input type="date" class="form-control @error('purchaseDate') is-invalid
+
+                                                    @enderror" name="purchaseDate" placeholder="Purchase Date" value="{{ old('purchaseDate') }}">
+                                                    @error('purchaseDate')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+
+                                                    </span>
+
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="extra-row" id="" >
@@ -64,20 +86,58 @@
                                                     </div>
                                                         <div class="form-group col">
                                                             <label>Product Code</label>
-                                                            <input type="number" class="form-control" name="prodCode[]" id="productCode1" placeholder="Product Code">
+                                                            <input type="number" class="form-control @error('prodCode') is-invalid
+
+                                                            @enderror" name="prodCode[]" id="productCode1" placeholder="Product Code" value="{{ old('prodCode[]') }}">
+                                                            @error('prodCode')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+
+                                                            </span>
+
+
+                                                            @enderror
 
                                                         </div>
                                                     <div class="form-group col">
                                                         <label>Product QTY</label>
-                                                        <input type="number" class="form-control" name="prodQty[]" id="productQty1" onkeyup="parchaseeCal(1)" placeholder="Product QTY">
+                                                        <input type="number" class="form-control @error('prodQty') is-invalid
+
+                                                        @enderror" name="prodQty[]" id="productQty1" onkeyup="parchaseeCal(1)" placeholder="Product QTY" value="{{ old('prodQty[]') }}">
+                                                        @error('prodQty')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+
+                                                        </span>
+
+
+                                                        @enderror
                                                     </div>
-                                                    <div class="form-group col">
+                                                    <div class="form-group col ">
                                                         <label>Product Rate</label>
-                                                        <input type="number" class="form-control" name="prodRate[]" id="productRate1" onkeyup="parchaseeCal(1)" placeholder="Product Rate">
+                                                        <input type="number" class="form-control @error('prodRate') is-invalid
+
+                                                        @enderror" name="prodRate[]" id="productRate1" onkeyup="parchaseeCal(1)" placeholder="Product Rate" value="{{ old('prodRate[]') }}">
+                                                        @error('prodRate')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+
+                                                        </span>
+
+                                                        @enderror
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Total Price</label>
-                                                        <input type="number" class="form-control totalCount" name="totalPrice[]" id="totalePrice1" placeholder="Total Price">
+                                                        <input type="number" class="form-control totalCount @error('totalPrice') is-invalid
+
+                                                        @enderror" name="totalPrice[]" id="totalePrice1" placeholder="Total Price" value="{{ old('totalPrice[]') }}">
+                                                        @error('totalPrice')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+
+                                                        </span>
+
+                                                        @enderror
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,7 +146,16 @@
                                                 <div class="col"></div>
                                                 <div class="form-group col">
                                                     <label>Grand Total</label>
-                                                    <input type="number" class="form-control" name="grandTotal" id="grandeTotal" onkeyup="parchaseeCal()" placeholder="Grand Total">
+                                                    <input type="number" class="form-control @error('grandTotal') is-invalid
+
+                                                    @enderror" name="grandTotal" id="grandeTotal" onkeyup="parchaseeCal()" placeholder="Grand Total" value="{{ old('grandTotal') }}">
+                                                    @error('grandTotal')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+
+                                                    </span>
+
+                                                    @enderror
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Paid Amount</label>
