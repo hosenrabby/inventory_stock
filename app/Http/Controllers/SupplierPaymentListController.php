@@ -58,9 +58,10 @@ class SupplierPaymentListController extends Controller
      * @param  \App\Models\supplierPaymentList  $supplierPaymentList
      * @return \Illuminate\Http\Response
      */
-    public function show(supplierPaymentList $supplierPaymentList)
+    public function show($id)
     {
-        //
+        $supplier=Supplier::where('id', $id)->select('id', 'supplierEmail','supplierPhone')->get();
+        return response()->json($supplier, 200);
     }
 
     /**
