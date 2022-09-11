@@ -47,8 +47,18 @@ class SupplierPaymentListController extends Controller
     public function store(RequestsSupplierPaymentList $request)
     {
         $input= $request->all();
+        $dataInsert = supplierPaymentList::create($input);
 
-        supplierPaymentList::create($input);
+        $supplierID = $request->supplierID;
+        $paidBlnc = $request->paymentAmount;
+        if ($dataInsert) {
+            $findSupplier = Supplier::find($supplierID);
+            $supBlncUpdate = $findSupplier->supplierCarrentBalance - $paidBlnc;
+            $UpdateBlnc = [
+                'supplierCarrentBalance' => $supBlncUpdate
+            ];
+            $findSupplier->update($UpdateBlnc);
+        }
         return redirect('authorized/supplierPaymentList')->with('success', 'Supplier Payment create successfully.');
     }
 

@@ -75,7 +75,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-lg-8">
                         <div class="card">
                             <div class="card-title">
@@ -96,17 +96,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="row">
-                            <div class="col-lg-12">
-                                <div class="card bg-primary">
-                                    <div class="weather-widget">
-                                        <div id="weather-one" class="weather-one p-22"></div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="testimonial-widget-one p-17">
@@ -397,16 +390,16 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4">
+                    {{-- <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
                                 <div class="year-calendar"></div>
                             </div>
                         </div>
                         <!-- /# card -->
-                    </div>
+                    </div> --}}
                     <!-- /# column -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-title">
                                 <h4>Notice Board </h4>
@@ -484,7 +477,7 @@
                         <!-- /# card -->
                     </div>
                     <!-- /# column -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-title">
                                 <h4>Timeline</h4>
@@ -739,15 +732,6 @@
                         </div>
                     </div>
                     <!-- /# column -->
-                </div>
-
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer">
-                            <p>2018 © Admin Board. - <a href="#">example.com</a></p>
-                        </div>
-                    </div>
                 </div>
             </section>
         </div>

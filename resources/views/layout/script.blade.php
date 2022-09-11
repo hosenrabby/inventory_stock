@@ -1,6 +1,6 @@
 <!-- scripit init-->
 <script src="{{ asset('public/assets/js/dashboard2.js') }}"></script>
-<script src="{{ asset('assets/js/lib/data-table/datatables.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/lib/data-table/datatables.min.js') }}"></script>
 <script src="{{ asset('assets/js/lib/data-table/dataTables.buttons.min.js') }}"></script>
 <script src="{{ asset('assets/js/lib/data-table/buttons.flash.min.js') }}"></script>
 <script src="{{ asset('assets/js/lib/data-table/jszip.min.js') }}"></script>
@@ -8,7 +8,7 @@
 <script src="{{ asset('assets/js/lib/data-table/vfs_fonts.js') }}"></script>
 <script src="{{ asset('assets/js/lib/data-table/buttons.html5.min.') }}"></script>
 <script src="{{ asset('assets/js/lib/data-table/buttons.print.min.js') }}"></script>
-<script src="{{ asset('assets/js/lib/data-table/datatables-init.js') }}"></script>
+<script src="{{ asset('assets/js/lib/data-table/datatables-init.js') }}"></script> --}}
 
 <!-- jquery vendor -->
 <script src="{{ asset('public/assets/js/lib/jquery.min.js') }}"></script>
@@ -37,7 +37,7 @@
 <script src="{{ asset('public/assets/js/lib/owl-carousel/owl.carousel-init.js') }}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
 <!-- bootstrap -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

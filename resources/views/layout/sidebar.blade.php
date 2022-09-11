@@ -5,18 +5,13 @@
                 <div class="logo">
                     <a href="index.html">
                         <img src="assets/images/logo.png" alt="" />
-                        <span>Soeng Souy</span>
+                        <span>BD-ENG Stock-Inv</span>
                     </a>
                 </div>
-                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Admin <span
-                            class="sidebar-collapse-icon ti-angle-down"></span></a>
-                    <ul>
-                        <li><a href="{{ route('authorized.logout') }}">Logout</a></li>
-                    </ul>
-                </li>
+
                 <li class="label">Main</li>
-                <li><a href="{{ route('admin-dashboard') }}" class="sideba"><i class="ti-home"></i> Dashboard</a></li>
-                <li><a href="{{ route('company.index') }}" class="sideba"><i class="ti-home"></i> Company Details</a>
+                    <li><a href="{{ route('admin-dashboard') }}" class="sideba"><i class="ti-home"></i> Dashboard</a></li>
+                    <li><a href="{{ route('company.index') }}" class="sideba"><i class="ti-home"></i> Company Details</a>
                 </li>
 
 
