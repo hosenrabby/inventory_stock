@@ -77,11 +77,11 @@
                                             <tbody>
 
                                                 <tr>
-                                                    <td id="sup" value=""></td>
-                                                    <td id="supplierName" value=""></td>
-                                                    <td id="supplierEmail" value=""></td>
-                                                    <td id="supplierPhone" value=""></td>
-                                                    <td id="supplierBalance" value=""></td>
+                                                    <td id="sup"></td>
+                                                    <td id="supplierName"></td>
+                                                    <td id="supplierEmail"></td>
+                                                    <td id="supplierPhone"></td>
+                                                    <td id="supplierBalance"></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -106,7 +106,7 @@
     var id = $(this).find('option:selected').attr('sid');
     alert(id);
     if(id){
-        // alert(id);
+        alert(id);
         $.ajax({
             url:"{{ url('authorized/supplierLedgerReport') }}/"+id,
             type:"GET",
@@ -116,11 +116,11 @@
                 console.log(data);
 
         $.each(data, function(key, value){
-            $('#sup').val(value.id);
+            // $('#sup').val(value.id);
             $('#supplierName').val(value.supplierName);
-            $('#supplierEmail').val(value.supplierEmail);
-            $('#supplierPhone').val(value.supplierPhone);
-            $('#supplierBalance').val(value.supplierCarrentBalance);
+            // $('#supplierEmail').val(value.supplierEmail);
+            // $('#supplierPhone').val(value.supplierPhone);
+            // $('#supplierBalance').val(value.supplierCarrentBalance);
         })
             }
 
