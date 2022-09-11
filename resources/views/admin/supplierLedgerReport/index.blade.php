@@ -18,13 +18,15 @@
                     <div class="col-4">
                         <div class="form-group">
                             <form action="">
-                                <div class="input-group input-group-rounded">
-                                    <input type="text" placeholder="Search Round" name="Search"  class="form-control" id="auto">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary weight" type="submit"
-                                            style="padding-bottom: 5px;border-radius: 0px;"><i
-                                                class="ti-search"></i></button>
-                                    </span>
+                                <div class="form-group">
+                                    {{-- <label>Select Supplier Name</label> --}}
+                                    <select class="form-control supplier" name="supplier" id="supplierid">
+                                        <option selected>Select Supplier Name</option>
+                                        @foreach ($supplier as $item)
+                                        <option value="{{ $item->id }}" sid="{{ $item->id }}">{{ $item->supplierName }}</option>
+                                        @endforeach
+
+                                    </select>
                                 </div>
                             </form>
                         </div>
@@ -75,15 +77,12 @@
                                             <tbody>
 
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>Hasanul Banna</td>
-                                                    <td>hasanulbanna@gmail.com</td>
-                                                    <td>01955800663</td>
-                                                    <td>2000</td>
-
+                                                    <td id="sup" value=""></td>
+                                                    <td id="supplierName" value=""></td>
+                                                    <td id="supplierEmail" value=""></td>
+                                                    <td id="supplierPhone" value=""></td>
+                                                    <td id="supplierBalance" value=""></td>
                                                 </tr>
-
-
                                             </tbody>
                                         </table>
                                     </div>
@@ -97,4 +96,64 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+<script>
+    $('.supplier').select2();
+
+    $('#supplierid').change(function() {
+    var id = $(this).find('option:selected').attr('sid');
+    alert(id);
+    if(id){
+        // alert(id);
+        $.ajax({
+            url:"{{ url('authorized/supplierLedgerReport') }}/"+id,
+            type:"GET",
+            cache:false,
+            dataType:"json",
+            success:function(data){
+                console.log(data);
+
+        $.each(data, function(key, value){
+            $('#sup').val(value.id);
+            $('#supplierName').val(value.supplierName);
+            $('#supplierEmail').val(value.supplierEmail);
+            $('#supplierPhone').val(value.supplierPhone);
+            $('#supplierBalance').val(value.supplierCarrentBalance);
+        })
+            }
+
+        })
+    }
+});
+</script>
+{{-- <script>
+    $('.supplierid').change(function() {
+    var id = $(this).find('option:selected').attr('id');
+    alert(id);
+    if(id){
+        // alert(id);
+        $.ajax({
+            url:"{{ url('authorized/supplierLedgerReport') }}",
+            type:"GET",
+            cache:false,
+            dataType:"json",
+            success:function(data){
+                console.log(data);
+
+        $.each(data, function(key, value){
+            $('#sup').val(value.id);
+            $('#supplierName').val(value.supplierName);
+            $('#supplierEmail').val(value.supplierEmail);
+            $('#supplierPhone').val(value.supplierPhone);
+            $('#supplierBalance').val(value.supplierCarrentBalance);
+        })
+            }
+
+        })
+    }
+});
+</script> --}}
+
 @endsection

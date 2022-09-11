@@ -33,7 +33,7 @@
                                                     <th>Product Rate</th>
                                                     <th>Total Price</th>
                                                     <th>Grand Total</th>
-                                                    <th>Paid Amountl</th>
+                                                    <th>Paid Amount</th>
                                                     <th>Dues Amount</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -51,7 +51,7 @@
                                                         <td>{{ $data->prodRate }}</td>
                                                         <td>{{ $data->totalPrice }}</td>
                                                         <td>{{ $data->grandTotal }}</td>
-                                                        <td>{{ $data->painAmount }}</td>
+                                                        <td>{{ $data->paidAmount }}</td>
                                                         <td>{{ $data->duesAmount }}</td>
                                                         <td>
                                                             <div class="d-flex justify-content-center">
@@ -63,7 +63,8 @@
                                                                     action="{{ url('authorized/salesproduct/' . $data->id) }}">
                                                                     @method('DELETE')
                                                                     @csrf
-                                                                    <button type="submit" class="btn btn-danger ml-1 delete-confirm"><i
+                                                                    <button type="submit"
+                                                                        class="btn btn-danger ml-1 delete-confirm"><i
                                                                             class="fa-solid fa-trash-can"></i></button>
                                                                 </form>
                                                             </div>

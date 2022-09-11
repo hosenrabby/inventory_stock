@@ -1,32 +1,41 @@
 <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
-        <div class="nano">
-            <div class="nano-content">
-                <ul>
-                    <div class="logo">
-                        <a href="index.html">
-                            <img src="assets/images/logo.png" alt=""/>
-                            <span>Soeng Souy</span>
-                        </a>
-                    </div>
-                    <li class="label">Main</li>
-                    <li><a href="{{ url('/') }}" class="sideba"><i class="ti-home"></i> Dashboard</a></li>
-                    <li><a href="{{ route('company.index') }}" class="sideba"><i class="ti-home"></i> Company Details</a></li>
-                    <li class="label">SUPLIER</li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Suplier <span
-                                class="sidebar-collapse-icon ti-angle-down"></span></a>
-                        <ul>
-                            <li><a href="{{ url('authorized/supplier/create') }}">Add Suplier</a></li>
-                            <li><a href="{{ url('authorized/supplier') }}">Suplier Lists</a></li>
-                        </ul>
-                    </li>
-                    <li class="label">CUSTOMER</li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Customer <span
-                                class="sidebar-collapse-icon ti-angle-down"></span></a>
-                        <ul>
-                            <li><a href="{{ route('customer.create') }}">Add Customer</a></li>
-                            <li><a href="{{ route('customer.index') }}">Manage Customer</a></li>
-                        </ul>
-                    </li>
+    <div class="nano">
+        <div class="nano-content">
+            <ul>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/images/logo.png" alt="" />
+                        <span>Soeng Souy</span>
+                    </a>
+                </div>
+                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Admin <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="{{ route('authorized.logout') }}">Logout</a></li>
+                    </ul>
+                </li>
+                <li class="label">Main</li>
+                <li><a href="{{ route('admin-dashboard') }}" class="sideba"><i class="ti-home"></i> Dashboard</a></li>
+                <li><a href="{{ route('company.index') }}" class="sideba"><i class="ti-home"></i> Company Details</a>
+                </li>
+
+
+                <li class="label">SUPLIER</li>
+                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Suplier <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="{{ url('authorized/supplier/create') }}">Add Suplier</a></li>
+                        <li><a href="{{ url('authorized/supplier') }}">Suplier Lists</a></li>
+                    </ul>
+                </li>
+                <li class="label">CUSTOMER</li>
+                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Customer <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="{{ route('customer.create') }}">Add Customer</a></li>
+                        <li><a href="{{ route('customer.index') }}">Manage Customer</a></li>
+                    </ul>
+                </li>
                 <li class="label">CATAGORY</li>
                 <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Catagory <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
@@ -56,7 +65,8 @@
                 </li>
 
                 <li class="label">STOCKS</li>
-                <li><a href="{{ url('authorized/product-stock') }}"><i class="ti-bar-chart-alt"></i> Stock Manage</a></li>
+                <li><a href="{{ url('authorized/product-stock') }}"><i class="ti-bar-chart-alt"></i> Stock Manage</a>
+                </li>
 
                 <li class="label">SALES</li>
                 <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Sales Products <span
@@ -84,6 +94,7 @@
                         <li><a href="{{ url('authorized/purchaseReports') }}">Purchase Reports</a></li>
                         <li><a href="{{ url('authorized/stockLedgerReport') }}">Stock ledger Report</a></li>
                         <li><a href="{{ url('/authorized/salesReports') }}">Sales Reports</a></li>
+
                     </ul>
                 </li>
             </ul>

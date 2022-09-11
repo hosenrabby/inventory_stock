@@ -21,10 +21,10 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form action="{{ url('authorized/salesproduct') }}" method="POST">
+                                        <form action="{{ url('authorized/sales-form-insert') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="rowlen" id="rowlen" value="1">
-                                            <input type="hidden" name="invoice_id" id="invoice_id" value="1" />
+                                            <input type="hidden" name="invoice_id" id="invoice_id" value="1"/>
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="form-group">
@@ -50,12 +50,12 @@
                                                 <div class="row mt-3" id="RowAppend">
                                                     <div class="col-1">
                                                         <button type="button" class="btn btn-sm btn-outline-dark" id="RowAdd" onclick="row_Append()" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
-                                                        <button type="button" class="btn btn-sm btn-outline-danger" id="RowDeletesd" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>
+                                                        {{-- <button type="button" class="btn btn-sm btn-outline-danger" id="RowDeletesd" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button> --}}
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
                                                         {{-- <input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name"> --}}
-                                                        <select class="form-control" name="productName" id="productName1" onchange="salesAdd(1)">
+                                                        <select class="form-control" name="productID[]" id="productName1" onchange="salesAdd(1)">
                                                             <option value="1" selected>Select Product</option>
                                                             @foreach ($productName as $products)
                                                                 <option value="{{ $products->id }}" id="{{ $products->id }}">{{ $products->productName }}</option>
@@ -64,20 +64,20 @@
                                                     </div>
                                                         <div class="form-group col">
                                                             <label>Product Code</label>
-                                                            <input type="number" class="form-control" name="prodCode" id="productCode1" placeholder="Product Code">
+                                                            <input type="number" class="form-control" name="prodCode[]" id="productCode1" placeholder="Product Code">
 
                                                         </div>
                                                     <div class="form-group col">
                                                         <label>Product QTY</label>
-                                                        <input type="number" class="form-control" name="prodQty" id="productQty1" onkeyup="parchaseeCal(1)" placeholder="Product QTY">
+                                                        <input type="number" class="form-control" name="prodQty[]" id="productQty1" onkeyup="parchaseeCal(1)" placeholder="Product QTY">
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Rate</label>
-                                                        <input type="number" class="form-control" name="prodRate" id="productRate1" onkeyup="parchaseeCal(1)" placeholder="Product Rate">
+                                                        <input type="number" class="form-control" name="prodRate[]" id="productRate1" onkeyup="parchaseeCal(1)" placeholder="Product Rate">
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Total Price</label>
-                                                        <input type="number" class="form-control totalCount" name="totalPrice" id="totalePrice1" placeholder="Total Price">
+                                                        <input type="number" class="form-control totalCount" name="totalPrice[]" id="totalePrice1" placeholder="Total Price">
                                                     </div>
                                                 </div>
                                             </div>
@@ -114,30 +114,6 @@
 
 <script type="text/javascript">
 
-$("#productName").change(function() {
-    var id = $(this).find('option:selected').attr('id');
-    // alert(id);
-    if(id){
-        // alert(id);
-        $.ajax({
-            url:"{{ url('authorized/salesproduct') }}/"+id,
-            type:"GET",
-            cache:false,
-            dataType:"json",
-            success:function(data){
-                console.log(data);
-
-        $.each(data, function(key, value){
-            $('#productCode').val(value.prodCode);
-            $('#productRate1').val(value.prodRate);
-        })
-            }
-
-        })
-    }
-});
-
-
     function row_Append(){
         var i=1;
         var rowlength=parseInt($('#rowlen').val());
@@ -148,7 +124,7 @@ $("#productName").change(function() {
             row+='</div>'
             row+='<div class="form-group col">'
             row+='<label>Product Name</label>'
-            row+='<select class="form-control" name="productName" id="productName'+i+'" onchange="salesAdd('+i+')">'
+            row+='<select class="form-control" name="productID[]" id="productName'+i+'" onchange="salesAdd('+i+')">'
             row+='<option value="1" selected>Select Product</option>'
             row+='@foreach ($productName as $products)'
             row+='<option value="{{ $products->id }}" id="{{ $products->id }}">{{ $products->productName }}</option>'
@@ -157,24 +133,23 @@ $("#productName").change(function() {
             row+='</div>'
             row+='<div class="form-group col">'
             row+='<label>Product Code</label>'
-            row+='<input type="number" class="form-control" name="productCode" id="productCode'+i+'" placeholder="Product Code">'
+            row+='<input type="number" class="form-control" name="prodCode[]" id="productCode'+i+'" placeholder="Product Code">'
             row+='</div>'
             row+='<div class="form-group col">'
             row+='<label>Product QTY</label>'
-            row+='<input type="number" class="form-control" name="prodQty" id="productQty'+i+'" onkeyup="parchaseeCal('+i+')" placeholder="Product QTY">'
+            row+='<input type="number" class="form-control" name="prodQty[]" id="productQty'+i+'" onkeyup="parchaseeCal('+i+')" placeholder="Product QTY">'
             row+='</div>'
             row+='<div class="form-group col">'
             row+='<label>Product Rate</label>'
-            row+='<input type="number" class="form-control" name="prodRate" id="productRate'+i+'" onkeyup="parchaseeCal('+i+')" placeholder="Product Rate">'
+            row+='<input type="number" class="form-control" name="prodRate[]" id="productRate'+i+'" onkeyup="parchaseeCal('+i+')" placeholder="Product Rate">'
             row+='</div>'
             row+='<div class="form-group col">'
             row+='<label>Total Price</label>'
-            row+='<input type="number" class="form-control totalCount" name="totalPrice" id="totalePrice'+i+'" placeholder="Total Price">'
+            row+='<input type="number" class="form-control totalCount" name="totalPrice[]_" id="totalePrice'+i+'" placeholder="Total Price">'
             row+='</div>'
             row+='</div>'
 
         $('#RowAppend').append(row);
-
         $('#rowlen').val(i);
         i++;
 
@@ -188,7 +163,6 @@ $("#productName").change(function() {
     function salesAdd(id){
         var optID = $('#productName'+id).find("option:selected").attr('id');
             if (optID) {
-                alert(optID)
                 $.ajax({
                     url: "{{ url('/authorized/salesproduct-data') }}/"+optID,
                     type: "GET",
@@ -207,7 +181,7 @@ $("#productName").change(function() {
 
     function max_id(){
         var id=$('#invoice_id').val();
-        alert(id)
+        // alert(id)
             $.ajax({
                 url:"{{ url('authorized/salesproduct-data2') }}/"+id,
                 type:"GET",
@@ -217,7 +191,10 @@ $("#productName").change(function() {
                     console.log(data);
                     $.each(data, function(key, value){
                         $('#invoice_id').val(value.invoice_id);
-                        newVlu = $('#invoice_id').val();
+                        var newVlu = $('#invoice_id').val();
+                        if (newVlu < 1) {
+                            newVlu = 1;
+                        } else
                         newVlu = parseInt(newVlu) + 1;
                         $('#invoice_id').val(newVlu);
                     })

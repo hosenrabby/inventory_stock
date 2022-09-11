@@ -32,18 +32,66 @@ class SalesProductController extends Controller
     public function create()
     {
         $customer=customer::all();
-
         $productName=productstockManage::all();
-
         return view('admin.salesProduct.create', compact('customer', 'productName'));
     }
 
 
     public function store(Request $request)
     {
-        // $input=$request->all();
-        // SalesProduct::create($input);
-        // return redirect('authorized/salesproduct');
+        // dd($request->all());
+        $invoice_id = $request->invoice_id;
+        $invNumber = $request->invNumber;
+        $customerID = $request->customerID;
+        $purchaseDate = $request->purchaseDate;
+        $productID = $request->productID;
+        $prodCode = $request->prodCode;
+        $prodQty = $request->prodQty;
+        $prodRate = $request->prodRate;
+        $totalPrice = $request->totalPrice;
+        $grandTotal = $request->grandTotal;
+        $paidAmount = $request->paidAmount;
+        $duesAmount = $request->duesAmount;
+
+        for ($i=0; $i <count($productID) ; $i++) { 
+            $daraInsert =[
+                'invoice_id' => $invoice_id,
+                'invNumber' => $invNumber,
+                'customerID' => $customerID,
+                'purchaseDate' => $purchaseDate,
+                'productID' => $productID[$i],
+                'prodCode' => $prodCode[$i],
+                'prodQty' => $prodQty[$i],
+                'prodRate' => $prodRate[$i],
+                'totalPrice' => $totalPrice[$i],
+                'grandTotal' => $grandTotal,
+                'paidAmount' => $paidAmount,
+                'duesAmount' => $duesAmount,
+            ];
+            $inserted = SalesProduct::create($daraInsert);
+        } 
+        if ($inserted) {
+            //Supplier Stock Update
+            $findCustomer = customer::find($customerID);
+            $custoBlncUpdate = $duesAmount + $findCustomer->customerBalance;
+            $UpdateBlnc = [
+                'customerBalance' => $custoBlncUpdate
+            ];
+            $findCustomer->update($UpdateBlnc);
+            //Customer Stock Update End
+            //Product Stock Update
+            for ($i=0; $i <count($productID) ; $i++) { 
+                $findProd = productstockManage::find($productID[$i]);
+                $prodStockUpdate = $findProd->stockBalance - $prodQty[$i];
+                $updateStock = [
+                    'stockBalance' => $prodStockUpdate
+                ];
+                
+                $findProd->update($updateStock);
+            }
+            //Product Stock Update end
+        }
+        return redirect('authorized/salesproduct')->with('success' , 'Sales Data and Related Stocks Updated');
     }
 
 
