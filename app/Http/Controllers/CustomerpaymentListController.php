@@ -61,9 +61,10 @@ class CustomerpaymentListController extends Controller
      * @param  \App\Models\customerpaymentList  $customerpaymentList
      * @return \Illuminate\Http\Response
      */
-    public function show(customerpaymentList $customerpaymentList)
+    public function show($id)
     {
-        //
+        $customer=customer::where('id', $id)->select('id', 'customerEmail')->get();
+        return response()->json($customer, 200);
     }
 
     /**

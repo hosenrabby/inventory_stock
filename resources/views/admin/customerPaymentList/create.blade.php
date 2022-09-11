@@ -38,7 +38,7 @@
                                             @enderror
                                                 <option selected>Open this select menu</option>
                                                 @foreach ($spl as $item)
-                                                <option value="{{ $item->id }}">{{ $item->customerName }}</option>
+                                                <option value="{{ $item->id }}" id="{{ $item->id }}">{{ $item->customerName }}</option>
                                                 @endforeach
 
                                             </select>
@@ -145,32 +145,32 @@
     <!-- /# row -->
 @endsection
 
-{{-- <script type="text/javascript">
+<script type="text/javascript">
 
-function kename(){
+// function kename(){
 
 $("#customerID").change(function() {
     var id = $(this).find('option:selected').attr('id');
-    // alert(id);
-    if(id){
-        // alert(id);
-        $.ajax({
-            url:"{{ url('authorized/customerPaymentList/create') }}/"+id,
-            type:"GET",
-            cache:false,
-            dataType:"json",
-            success:function(data){
-                console.log(data);
+    alert(id);
+    // if(id){
+    //     // alert(id);
+    //     $.ajax({
+    //         url:"{{ url('authorized/customerPaymentList/create') }}/"+id,
+    //         type:"GET",
+    //         cache:false,
+    //         dataType:"json",
+    //         success:function(data){
+    //             console.log(data);
 
-        $.each(data, function(key, value){
-            $('#customerEmail').val(value.customerEmail);
-            $('#customerContact').val(value.customerContact);
+    //     $.each(data, function(key, value){
+    //         $('#customerEmail').val(value.customerEmail);
+            // $('#customerContact').val(value.customerContact);
         })
-            }
+//             }
 
-        })
-    }
-});
-}
+//         })
+//     }
+// });
+// }
 
-</script> --}}
+</script>
