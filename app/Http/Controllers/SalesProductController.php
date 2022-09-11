@@ -72,7 +72,7 @@ class SalesProductController extends Controller
             $inserted = SalesProduct::create($daraInsert);
         }
         if ($inserted) {
-            //Supplier Stock Update
+            //Customer Stock Update
             $findCustomer = customer::find($customerID);
             $custoBlncUpdate = $duesAmount + $findCustomer->customerBalance;
             $UpdateBlnc = [

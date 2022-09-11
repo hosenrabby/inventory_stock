@@ -50,8 +50,18 @@ class CustomerpaymentListController extends Controller
     public function store(RequestsCustomerpaymentList $request)
     {
         $input= $request->all();
+        $dataInsert = customerpaymentList::create($input);
 
-        customerpaymentList::create($input);
+        $customerID = $request->customerID;
+        $paidBlnc = $request->paymentAmount;
+        if ($dataInsert) {
+            $findCustomer = customer::find($customerID);
+            $custoBlncUpdate = $findCustomer->customerBalance - $paidBlnc;
+            $UpdateBlnc = [
+                'customerBalance' => $custoBlncUpdate
+            ];
+            $findCustomer->update($UpdateBlnc);
+        }
         return redirect('authorized/customerPaymentList')->with('success', 'Customer Payment create successfully.');
     }
 
