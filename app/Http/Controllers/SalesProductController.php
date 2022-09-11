@@ -53,7 +53,7 @@ class SalesProductController extends Controller
         $paidAmount = $request->paidAmount;
         $duesAmount = $request->duesAmount;
 
-        for ($i=0; $i <count($productID) ; $i++) { 
+        for ($i=0; $i <count($productID) ; $i++) {
             $daraInsert =[
                 'invoice_id' => $invoice_id,
                 'invNumber' => $invNumber,
@@ -69,9 +69,9 @@ class SalesProductController extends Controller
                 'duesAmount' => $duesAmount,
             ];
             $inserted = SalesProduct::create($daraInsert);
-        } 
+        }
         if ($inserted) {
-            //Supplier Stock Update
+            //Customer Stock Update
             $findCustomer = customer::find($customerID);
             $custoBlncUpdate = $duesAmount + $findCustomer->customerBalance;
             $UpdateBlnc = [
@@ -80,13 +80,13 @@ class SalesProductController extends Controller
             $findCustomer->update($UpdateBlnc);
             //Customer Stock Update End
             //Product Stock Update
-            for ($i=0; $i <count($productID) ; $i++) { 
+            for ($i=0; $i <count($productID) ; $i++) {
                 $findProd = productstockManage::find($productID[$i]);
                 $prodStockUpdate = $findProd->stockBalance - $prodQty[$i];
                 $updateStock = [
                     'stockBalance' => $prodStockUpdate
                 ];
-                
+
                 $findProd->update($updateStock);
             }
             //Product Stock Update end
