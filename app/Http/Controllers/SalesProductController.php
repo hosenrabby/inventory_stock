@@ -9,6 +9,7 @@ use App\Models\stockManagment;
 use App\Models\productstockManage;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\salesProduct as RequestsSalesProduct;
 
 class SalesProductController extends Controller
 {
@@ -37,7 +38,7 @@ class SalesProductController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(RequestsSalesProduct $request)
     {
         // dd($request->all());
         $invoice_id = $request->invoice_id;
