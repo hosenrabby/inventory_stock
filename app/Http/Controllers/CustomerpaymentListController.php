@@ -63,8 +63,8 @@ class CustomerpaymentListController extends Controller
      */
     public function show($id)
     {
-        $customer=customer::where('id', $id)->select('id', 'customerEmail')->get();
-        return response()->json($customer, 200);
+        $customerr=customer::where('id', $id)->select('id', 'customerEmail','customerPhone')->get();
+        return response()->json($customerr, 200);
     }
 
     /**
