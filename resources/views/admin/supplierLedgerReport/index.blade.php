@@ -54,11 +54,11 @@
                                             <tbody>
 
                                                 <tr>
-                                                    <td id="sup" value=""></td>
-                                                    <td id="supplierName" value="data"></td>
-                                                    <td id="supplierEmail" value=""></td>
-                                                    <td id="supplierPhone" value=""></td>
-                                                    <td id="supplierBalance" value=""></td>
+                                                    <td id="sup"></td>
+                                                    <td id="supplierName"></td>
+                                                    <td id="supplierEmail"></td>
+                                                    <td id="supplierPhone"></td>
+                                                    <td id="supplierBalance"></td>
                                                 </tr>
                                             </tbody>
                                         </table>
