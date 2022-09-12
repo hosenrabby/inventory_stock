@@ -61,7 +61,9 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::resource('company', CompanyDetailsController::class);
         Route::resource('supplierLedgerReport', SupplierLedgerReport::class);
         Route::resource('customerLedgerReport', customerLedgerReport::class);
-        Route::resource('purchaseReports', purchaseLedgerReports::class);
+        // Route::resource('purchaseReports', purchaseLedgerReports::class);
+        Route::get('purchaseReports', [purchaseLedgerReports::class, 'index']);
+        Route::post('purchaseReports', [purchaseLedgerReports::class, 'fetch_data'])->name('purchaseReports');;
         Route::resource('stockLedgerReport', stockLedgerReport::class);
         Route::resource('salesReports', salesReports::class);
         Route::resource('supplierPaymentList',SupplierPaymentListController::class);

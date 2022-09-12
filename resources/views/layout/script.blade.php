@@ -35,6 +35,7 @@
 <script src="{{ asset('public/assets/js/lib/sparklinechart/sparkline.init.js') }}"></script>
 <script src="{{ asset('public/assets/js/lib/owl-carousel/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('public/assets/js/lib/owl-carousel/owl.carousel-init.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>

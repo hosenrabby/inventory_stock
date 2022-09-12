@@ -20,32 +20,27 @@
 
                  <div class="">
                         <div class="input-group input-group-rounded">
-                            <form action="#" method="POST">
+                                <div class="col-md-5">Sample Data - Total Records - <b><span id="total_records"></span></b></div>
                                 <div class="row">
                                     <div class="form-group col">
-                                        <input type="text" class="datepicker form-control " name="start_date"
-                                    placeholder="Select Start Date">
+                                        <input type="text" class="form-control datepicker" name="from_date" id="from_date" placeholder="Select Start Date">
                                     </div>
                                     <div class="form-group col">
-                                <input type="text" class="datepicker form-control " name="end_date"
-                                    placeholder="Select End Date">
+                                <input type="text" class="form-control datepicker" name="to_date" id="to_date" placeholder="Select End Date">
                                     </div>
                                     <div class="form-group col">
-                                 <button class="btn btn-primary weight" type="submit"
-                                     style="padding-bottom: 5px;border-radius: 0px;"><i class="ti-search"></i>
-                                 </button>
+                                        <button class="btn btn-primary weight" type="button" name="filter" id="filter"
+                                            style="padding-bottom: 5px;border-radius: 0px;"><i class="ti-search"></i>
+                                        </button>
+                                        <button class="btn btn-danger weight" type="button" name="refresh" id="refresh"
+                                            style="padding-bottom: 5px;border-radius: 0px;"><i class="ti-reload"></i>
+                                        </button>
                                  </div>
-                                </div>
-                            </form>
+                            </div>
                         </div>
                      </div>
 
                 </div>
-
-
-
-
-
                 <!-- /# row -->
                 <section id="main-content">
                     <div class="row">
@@ -73,23 +68,9 @@
                                             </thead>
                                             <tbody>
 
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Manggo Juc</td>
-                                                    <td>333432</td>
-                                                    <td>2</td>
-                                                    <td>20-12-2022</td>
-                                                    <td>22pic</td>
-                                                    <td>500</td>
-                                                    <td>2000</td>
-                                                    <td>5000</td>
-                                                    <td>3000</td>
-                                                    <td>200</td>
-
-                                                </tr>
-
                                             </tbody>
                                         </table>
+                                        {{ csrf_field() }}
                                     </div>
                                 </div>
                             </div>
@@ -102,4 +83,71 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+<script>
+$(document).ready(function(){
+
+ var date = new Date();
+
+//  $('.input-daterange').datepicker({
+//   todayBtn: 'linked',
+//   format: 'yyyy-mm-dd',
+//   autoclose: true
+//  });
+
+ var _token = $('input[name="_token"]').val();
+
+ function fetch_data(from_date = '', to_date = '')
+ {
+  $.ajax({
+   url:"{{ route('purchaseReports') }}",
+   method:"POST",
+   data:{from_date:from_date, to_date:to_date, _token:_token},
+   dataType:"json",
+   success:function(data)
+   {
+    var output = '';
+    $('#total_records').text(data.length);
+    for(var i = 0; i < data.length; i++)
+    {
+     output += '<tr>';
+     output += '<td>' + data[i].id + '</td>';
+     output += '<td>' + data[i].productName + '</td>';
+     output += '<td>' + data[i].prodCode + '</td>';
+     output += '<td>' + data[i].invNumber + '</td>';
+     output += '<td>' + data[i].purchaseDate + '</td>';
+     output += '<td>' + data[i].prodQty + '</td>';
+     output += '<td>' + data[i].prodRate + '</td>';
+     output += '<td>' + data[i].totalPrice + '</td>';
+     output += '<td>' + data[i].grandTotal + '</td>';
+     output += '<td>' + data[i].paidAmount + '</td>';
+     output += '<td>' + data[i].duesAmount + '</td></tr>';
+    }
+    $('tbody').html(output);
+   }
+  })
+ }
+
+ $('#filter').click(function(){
+  var from_date = $('#from_date').val();
+  var to_date = $('#to_date').val();
+  if(from_date != '' &&  to_date != '')
+  {
+   fetch_data(from_date, to_date);
+  }
+  else
+  {
+   alert('Both Date is required');
+  }
+ });
+
+ $('#refresh').click(function(){
+  $('#from_date').val('');
+  $('#to_date').val('');
+  fetch_data();
+ });
+});
+</script>
 @endsection
