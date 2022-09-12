@@ -18,17 +18,18 @@
                     <div class="col-4">
                         <div class="form-group">
                             <form action="">
-                                <div class="input-group input-group-rounded">
-                                    <input type="text" placeholder="Search Round" name="Search" class="form-control">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary weight" type="submit"
-                                            style="padding-bottom: 5px;border-radius: 0px;"><i
-                                                class="ti-search"></i></button>
-                                    </span>
+                                <div class="form-group">
+                                    <select class="form-control customer" name="customer" id="customerid">
+                                        @foreach ($customer as $item)
+                                            <option value="{{ $item->id }}" sid="{{ $item->id }}">{{ $item->customerName }}</option>
+                                        @endforeach
+
+                                    </select>
                                 </div>
                             </form>
                         </div>
                     </div>
+<<<<<<< HEAD
 
 
                     <div class="col-8 input-group input-group-rounded">
@@ -47,6 +48,8 @@
                             </div>
                         </form>
                     </div>
+=======
+>>>>>>> 596b0a6ab422fa89cd32b3d2298b7b673bce14d0
                 </div>
 
 
@@ -72,11 +75,11 @@
                                             <tbody>
 
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>Hasanul Banna</td>
-                                                    <td>hasanulbanna@gmail.com</td>
-                                                    <td>01955800663</td>
-                                                    <td>2000</td>
+                                                    <td id="custid"></td>
+                                                    <td id="customerName"></td>
+                                                    <td id="customerEmail"></td>
+                                                    <td id="customerPhone"></td>
+                                                    <td id="customerBalance"></td>
 
                                                 </tr>
 
@@ -94,4 +97,38 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+<script>
+    $('.customer').select2();
+
+    $('#customerid').change(function(){
+        var id=$(this).find('option:selected').attr('sid');
+        // alert(id);
+        if(id){
+            $.ajax({
+                url:"{{ url('authorized/customerLedgerReport') }}/"+id,
+                type:"GET",
+                cache:false,
+                dataType:"json",
+
+                success:function(data){
+                    console.log(data);
+
+                    $.each(data, function(key, value){
+                        $('#custid').html(value.id);
+                        $('#customerName').html(value.customerName);
+                        $('#customerEmail').html(value.customerEmail);
+                        $('#customerPhone').html(value.customerPhone);
+                        $('#customerBalance').html(value.customerBalance);
+                    })
+                }
+            })
+        }
+    })
+
+
+</script>
+
 @endsection
