@@ -28,45 +28,52 @@
             <section id="main-content">
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="card">
-                            <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-stats-up color-success border-success"></i>
-                                </div>
-                                <div class="stat-content dib">
-                                    <div class="stat-text">Total Sales</div>
-                                    <div class="stat-digit">{{ $totalsales }}</div>
+                        <a href="{{ url('authorized/salesproduct') }}">
+                            <div class="card">
+                                <div class="stat-widget-one">
+                                    <div class="stat-icon dib"><i class="ti-stats-up color-success border-success"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Total Sales</div>
+                                        <div class="stat-digit">{{ $totalsales }}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-lg-4">
-                        <div class="card">
-                            <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-user color-primary border-primary"></i>
-                                </div>
-                                <div class="stat-content dib">
-                                    <div class="stat-text">Customer</div>
-                                    <div class="stat-digit">{{ $customer }}</div>
+                        <a href="{{ url('authorized/customer') }}">
+                            <div class="card">
+                                <div class="stat-widget-one">
+                                    <div class="stat-icon dib"><i class="ti-user color-primary border-primary"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Customer</div>
+                                        <div class="stat-digit">{{ $customer }}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-lg-4">
-                        <div class="card">
-                            <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-truck color-warning border-warning"></i>
-                                </div>
-                                <div class="stat-content dib">
-                                    <div class="stat-text">Supplier</div>
-                                    <div class="stat-digit">{{ $supplier }}</div>
+                        <a href="{{ url('authorized/supplier') }}">
+                            <div class="card">
+                                <div class="stat-widget-one">
+                                    <div class="stat-icon dib"><i class="ti-truck color-warning border-warning"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Supplier</div>
+                                        <div class="stat-digit">{{ $supplier }}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-4">
+                       <a href="{{ url('authorized/purchase-manage') }}">
                         <div class="card">
                             <div class="stat-widget-one">
                                 <div class="stat-icon dib"><i class="ti-shopping-cart-full color-pink border-pink"></i>
@@ -77,17 +84,20 @@
                                 </div>
                             </div>
                         </div>
+                       </a>
                     </div>
                     <div class="col-lg-4">
-                        <div class="card">
-                            <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-server color-danger border-danger"></i></div>
-                                <div class="stat-content dib">
-                                    <div class="stat-text">Total Item Stock</div>
-                                    <div class="stat-digit">{{ $totalitemstock }}</div>
+                        <a href="{{ url('authorized/product-stock') }}">
+                            <div class="card">
+                                <div class="stat-widget-one">
+                                    <div class="stat-icon dib"><i class="ti-server color-danger border-danger"></i></div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Total Item Stock</div>
+                                        <div class="stat-digit">{{ $totalitemstock }}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-lg-4">
                         <div class="card">
