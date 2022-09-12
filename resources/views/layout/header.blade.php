@@ -45,13 +45,13 @@
                                 <div class="dropdown-profile dropdown-menu" >
                                     <a class="dropdown-item" href="{{ route('admin-dashboard') }}"><i class="ti-user"></i>
                                         <span>Profile</span>
-                                    </a>
+                                    </a><hr class="m-0">
                                     <a class="dropdown-item" href="#"><i class="ti-email"></i>
                                         <span>Inbox</span>
-                                    </a>
+                                    </a><hr class="m-0">
                                     <a class="dropdown-item" href="#"><i class="ti-settings"></i>
                                         <span>Setting</span>
-                                    </a>
+                                    </a><hr class="m-0">
                                     <a class="dropdown-item" href="{{ route('authorized.logout') }}"><i class="ti-power-off"></i>
                                         <span>Logout</span>
                                     </a>

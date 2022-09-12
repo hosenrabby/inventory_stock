@@ -3,8 +3,8 @@
         <div class="nano-content">
             <ul>
                 <div class="logo">
-                    <a href="index.html">
-                        <img src="assets/images/logo.png" alt="" />
+                    <a href="{{ route('admin-dashboard') }}">
+                        <img src="assets/images/logo.png" alt=""/>
                         <span>BD-ENG Stock-Inv</span>
                     </a>
                 </div>
@@ -16,7 +16,7 @@
 
 
                 <li class="label">SUPLIER</li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Suplier <span
+                <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Suplier <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
                         <li><a href="{{ url('authorized/supplier/create') }}">Add Suplier</a></li>
@@ -24,7 +24,7 @@
                     </ul>
                 </li>
                 <li class="label">CUSTOMER</li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Customer <span
+                <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Customer <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
                         <li><a href="{{ route('customer.create') }}">Add Customer</a></li>
