@@ -35,17 +35,14 @@
                         <form action="#" method="POST">
                             <div class="row">
                                 <div class="form-group col">
-                                    <input type="text" class="datepicker form-control" name="start_date"
-                                placeholder="Select Start Date">
+                                    <input type="text" class="datepicker form-control" name="start_date" placeholder="Select Start Date">
                                 </div>
                                 <div class="form-group col">
-                            <input type="text" class="datepicker form-control" name="end_date"
-                                placeholder="Select End Date">
+                                    <input type="text" class="datepicker form-control" name="end_date" placeholder="Select End Date">
                                 </div>
                                 <div class="form-group col">
-                             <button class="btn btn-primary weight" type="submit"
-                                 style="padding-bottom: 5px;border-radius: 0px;"><i class="ti-search"></i>
-                             </button>
+                                    <button class="btn btn-primary weight" type="submit" style="padding-bottom: 5px;border-radius: 0px;"><i class="ti-search"></i>
+                                    </button>
                              </div>
                             </div>
                         </form>
