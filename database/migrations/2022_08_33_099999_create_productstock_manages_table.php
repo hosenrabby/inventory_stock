@@ -17,10 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('productName');
             $table->string('prodCode');
-            $table->unsignedBigInteger('catagoryID');
-            $table->foreign('catagoryID')->references('id')->on('categories');
-            $table->unsignedBigInteger('subCatagoryID');
-            $table->foreign('subCatagoryID')->references('id')->on('sub_categories')->default(0);
+            $table->foreignID('catagoryID')->constrained('categories');
+            $table->foreignID('subCatagoryID')->constrained('sub_categories')->default(0);
             $table->decimal('prodRate',8,2);
             $table->integer('stockBalance');
             $table->timestamps();

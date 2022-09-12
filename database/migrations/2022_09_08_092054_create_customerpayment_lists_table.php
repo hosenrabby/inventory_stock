@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('customerpayment_lists', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('customerID');
-            $table->foreign('customerID')->references('id')->on('customers');
+            $table->foreignID('customerID')->constrained('customers');
             $table->string('customerEmail');
             $table->string('customerContact');
             $table->string('paymentDate');
