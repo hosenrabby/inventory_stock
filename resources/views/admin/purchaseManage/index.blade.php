@@ -65,7 +65,7 @@
                                                                         class="fa-solid fa-pen-to-square"></i></a>
 
                                                                 <a href="{{ url('authorized/purchase-delete/' . $data->pid) }}"
-                                                                    class="btn btn-danger ml-1 delete-confirm"><i
+                                                                    class="btn btn-danger ml-1"><i
                                                                     class="fa-solid fa-trash-can"></i></a>
                                                             </div>
                                                         </td>

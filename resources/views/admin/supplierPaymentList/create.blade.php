@@ -24,6 +24,7 @@
                                 <div class="basic-form">
                                     <form class="forms-sample" action="{{ url('authorized/supplierPaymentList') }}" method="POST">
                                         {!! csrf_field() !!}
+
                                         <div class="form-group">
                                             <label>Supplier Name</label>
                                             <select class="form-control @error('supplierID') is-invalid
@@ -38,7 +39,7 @@
                                             @enderror
                                                 <option selected>Open this select menu</option>
                                                 @foreach ($spl as $item)
-                                                <option value="{{ $item->id }}" sid="{{ $item->id }}">{{ $item->supplierName }}</option>
+                                                <option value="{{ $item->supplierName }}" id="{{ $item->id }}">{{ $item->supplierName }}</option>
                                                 @endforeach
 
                                             </select>

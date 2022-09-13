@@ -110,6 +110,6 @@ class PurchaseManageController extends Controller
     public function destroy($pid)
     {
         purchaseManage::where('pid',$pid)->delete();
-        return back()->with('warning', 'Invoice delete successfully.') ;
+        return back()->with('warning', 'Invoice delete successfully.');
     }
 }
