@@ -16,7 +16,10 @@ class SalesProductController extends Controller
 
     public function index()
     {
-        $showData=SalesProduct::all();
+        $showData=DB::table('sales_products')
+        ->leftJoin('productstock_manages', 'sales_products.productID', '=', 'productstock_manages.id')
+        ->leftJoin('customers', 'sales_products.customerID', '=', 'customers.id')
+        ->get();
         return view('admin.salesProduct.index', compact('showData'));
     }
 
@@ -101,7 +104,9 @@ class SalesProductController extends Controller
         $productName=productstockManage::where('id', $id)->select('id', 'prodCode', 'prodRate')->get();
         return response()->json($productName, 200);
     }
-
+    // public function showinvoice($invoice_id){
+    //     return view('admin.salesReports.salesInvoice');
+    // }
 
     public function edit(SalesProduct $salesProduct)
     {

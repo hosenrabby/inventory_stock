@@ -23,7 +23,9 @@
                                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
+                                                    <th>Action</th>
                                                     <th>SL</th>
+                                                    <th>Invoice Id</th>
                                                     <th>Invoice Number</th>
                                                     <th>Customer Name</th>
                                                     <th>Purchase Date</th>
@@ -35,29 +37,15 @@
                                                     <th>Grand Total</th>
                                                     <th>Paid Amount</th>
                                                     <th>Dues Amount</th>
-                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($showData as $data)
                                                     <tr>
-                                                        <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $data->invNumber }}</td>
-                                                        <td>{{ $data->customerID }}</td>
-                                                        <td>{{ $data->purchaseDate }}</td>
-                                                        <td>{{ $data->productName }}</td>
-                                                        <td>{{ $data->prodCode }}</td>
-                                                        <td>{{ $data->prodQty }}</td>
-                                                        <td>{{ $data->prodRate }}</td>
-                                                        <td>{{ $data->totalPrice }}</td>
-                                                        <td>{{ $data->grandTotal }}</td>
-                                                        <td>{{ $data->paidAmount }}</td>
-                                                        <td>{{ $data->duesAmount }}</td>
                                                         <td>
                                                             <div class="d-flex justify-content-center">
-                                                                <a href="{{ url('authorized/salesproduct/' . $data->id . '/edit') }}"
-                                                                    class="btn btn-default"><i
-                                                                        class="fa-solid fa-pen-to-square"></i></a>
+                                                                <a href="{{ url('authorized/invoice/' .$data->invoice_id) }}"
+                                                                    class="btn btn-default"><i class="fa-solid fa-file-invoice"></i></a>
 
                                                                 <form method="post"
                                                                     action="{{ url('authorized/salesproduct/' . $data->id) }}">
@@ -69,6 +57,20 @@
                                                                 </form>
                                                             </div>
                                                         </td>
+                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td>{{ $data->invoice_id }}</td>
+                                                        <td>{{ $data->invNumber }}</td>
+                                                        <td>{{ $data->customerName }}</td>
+                                                        <td>{{ $data->purchaseDate }}</td>
+                                                        <td>{{ $data->productName }}</td>
+                                                        <td>{{ $data->prodCode }}</td>
+                                                        <td>{{ $data->prodQty }}</td>
+                                                        <td>{{ $data->prodRate }}</td>
+                                                        <td>{{ $data->totalPrice }}</td>
+                                                        <td>{{ $data->grandTotal }}</td>
+                                                        <td>{{ $data->paidAmount }}</td>
+                                                        <td>{{ $data->duesAmount }}</td>
+
                                                     </tr>
                                                 @endforeach
                                             </tbody>

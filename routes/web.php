@@ -16,6 +16,7 @@ use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\CompanyDetailsController;
 use App\Http\Controllers\CustomerpaymentListController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\invoiceController;
 use App\Http\Controllers\PurchaseManageController2;
 use App\Http\Controllers\ProductstockManageController;
 use App\Http\Controllers\SupplierPaymentListController;
@@ -55,6 +56,8 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::post('sales-form-insert', [SalesProductController::class , 'store']);
         Route::get('salesproduct-data/{id}', [SalesProductController::class , 'selData']);
         Route::get('salesproduct-data2/{id}', [SalesProductController::class , 'selData2']);
+        Route::get('showinvoice', [SalesProductController::class, 'showinvoice']);
+        Route::get('invoice/{invoice_id}', [invoiceController::class, 'index']);
 
 
         Route::resource('supplier', SupplierController::class);

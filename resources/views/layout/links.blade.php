@@ -26,6 +26,7 @@
     <link href="{{ asset('public/assets/css/lib/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('public/assets/css/lib/helper.css') }}" rel="stylesheet">
     <link href="{{ asset('public/assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/css/invcss/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
     {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" /> --}}
     <link href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
