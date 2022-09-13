@@ -19,11 +19,7 @@ class SupplierPaymentListController extends Controller
     public function index()
     {
 
-        $spl=DB::table('supplier_payment_lists')
-        ->leftJoin('suppliers', 'suppliers.id', '=', 'supplier_payment_lists.supplierID')->get([
-            'supplier_payment_lists.*',
-            'suppliers.supplierName',
-        ]);
+        $spl= supplierPaymentList::all();
         return view('admin.supplierPaymentList.index' , compact('spl'));
     }
 
@@ -49,10 +45,10 @@ class SupplierPaymentListController extends Controller
         $input= $request->all();
         $dataInsert = supplierPaymentList::create($input);
 
-        $supplierID = $request->supplierID;
+        $supID = $request->supID;
         $paidBlnc = $request->paymentAmount;
         if ($dataInsert) {
-            $findSupplier = Supplier::find($supplierID);
+            $findSupplier = Supplier::find($supID);
             $supBlncUpdate = $findSupplier->supplierCarrentBalance - $paidBlnc;
             $UpdateBlnc = [
                 'supplierCarrentBalance' => $supBlncUpdate

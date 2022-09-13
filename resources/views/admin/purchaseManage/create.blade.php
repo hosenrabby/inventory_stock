@@ -26,7 +26,6 @@
                                             <input type="hidden" name="rowlenth" id="rowlenth" value="1">
                                             <input type="hidden" name="pid" id="invoice_id" value="1">
                                             <input type="hidden" name="supplierID" id="supplierID" value="0">
-                                            <input type="hidden" name="productID" id="productID" value="0">
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="form-group">

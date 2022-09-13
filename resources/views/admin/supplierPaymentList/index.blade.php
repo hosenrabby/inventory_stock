@@ -27,7 +27,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>SL</th>
-                                                    <th>Supplier ID</th>
+                                                    <th>Supplier Name</th>
                                                     <th>Supplier Email</th>
                                                     <th>Supplier Contact</th>
                                                     <th>Payment Date</th>
