@@ -28,101 +28,89 @@
             <section id="main-content">
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="card">
-                            <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
-                                </div>
-                                <div class="stat-content dib">
-                                    <div class="stat-text">Total Profit</div>
-                                    <div class="stat-digit">1,012</div>
+                        <a href="{{ url('authorized/salesproduct') }}">
+                            <div class="card">
+                                <div class="stat-widget-one">
+                                    <div class="stat-icon dib"><i class="ti-stats-up color-success border-success"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Total Sales</div>
+                                        <div class="stat-digit">{{ $totalsales }}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-lg-4">
-                        <div class="card">
-                            <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-user color-primary border-primary"></i>
-                                </div>
-                                <div class="stat-content dib">
-                                    <div class="stat-text">New Customer</div>
-                                    <div class="stat-digit">961</div>
+                        <a href="{{ url('authorized/customer') }}">
+                            <div class="card">
+                                <div class="stat-widget-one">
+                                    <div class="stat-icon dib"><i class="ti-user color-primary border-primary"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Customer</div>
+                                        <div class="stat-digit">{{ $customer }}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-lg-4">
-                        <div class="card">
-                            <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-layout-grid2 color-pink border-pink"></i>
-                                </div>
-                                <div class="stat-content dib">
-                                    <div class="stat-text">Active Projects</div>
-                                    <div class="stat-digit">770</div>
+                        <a href="{{ url('authorized/supplier') }}">
+                            <div class="card">
+                                <div class="stat-widget-one">
+                                    <div class="stat-icon dib"><i class="ti-truck color-warning border-warning"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Supplier</div>
+                                        <div class="stat-digit">{{ $supplier }}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-4">
+                       <a href="{{ url('authorized/purchase-manage') }}">
                         <div class="card">
                             <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-layout-grid2 color-pink border-pink"></i>
+                                <div class="stat-icon dib"><i class="ti-shopping-cart-full color-pink border-pink"></i>
                                 </div>
                                 <div class="stat-content dib">
-                                    <div class="stat-text">Active Projects</div>
-                                    <div class="stat-digit">770</div>
+                                    <div class="stat-text">Purchasable Product</div>
+                                    <div class="stat-digit">{{ $purchasableProduct }}</div>
                                 </div>
                             </div>
                         </div>
+                       </a>
+                    </div>
+                    <div class="col-lg-4">
+                        <a href="{{ url('authorized/product-stock') }}">
+                            <div class="card">
+                                <div class="stat-widget-one">
+                                    <div class="stat-icon dib"><i class="ti-server color-danger border-danger"></i></div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Total Item Stock</div>
+                                        <div class="stat-digit">{{ $totalitemstock }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-link color-danger border-danger"></i></div>
+                                <div class="stat-icon dib"><i class="ti-link color-info border-info"></i></div>
                                 <div class="stat-content dib">
-                                    <div class="stat-text">Referral</div>
-                                    <div class="stat-digit">2,781</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-link color-danger border-danger"></i></div>
-                                <div class="stat-content dib">
-                                    <div class="stat-text">Referral</div>
-                                    <div class="stat-digit">2,781</div>
+                                    <div class="stat-text">User</div>
+                                    <div class="stat-digit">4</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {{-- <div class="row">
-                    <div class="col-lg-8">
-                        <div class="card">
-                            <div class="card-title">
-                                <h4>Fee Collections and Expenses</h4>
-
-                            </div>
-                            <div class="card-body">
-                                <div class="ct-bar-chart m-t-30"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="card">
-
-                            <div class="card-body">
-                                <div class="ct-pie-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="row">

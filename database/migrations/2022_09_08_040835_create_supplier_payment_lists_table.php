@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('supplier_payment_lists', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('supplierID');
-            $table->foreign('supplierID')->references('id')->on('suppliers');
+            $table->foreignID('supplierID')->constrained('suppliers');
             $table->string('supplierEmail');
             $table->string('supplierContact');
             $table->string('paymentDate');

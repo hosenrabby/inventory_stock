@@ -16,17 +16,13 @@ return new class extends Migration
         Schema::create('purchase_manage', function (Blueprint $table) {
             $table->id();
             $table->integer('pid');
-            $table->unsignedBigInteger('productID');
-            $table->foreign('productID')->references('id')->on('productstock_manages');
+            $table->foreignID('productID')->constrained('productstock_manages');
             $table->string('prodCode');
             $table->string('invNumber');
             $table->string('purchaseDate');
-            $table->unsignedBigInteger('catagoryID');
-            $table->foreign('catagoryID')->references('id')->on('categories');
-            $table->unsignedBigInteger('subCatagoryID');
-            $table->foreign('subCatagoryID')->references('id')->on('sub_categories')->default(0);
-            $table->unsignedBigInteger('supplierID');
-            $table->foreign('supplierID')->references('id')->on('suppliers');
+            $table->foreignID('catagoryID')->constrained('categories');
+            $table->foreignID('subCatagoryID')->constrained('sub_categories')->default(0);
+            $table->foreignID('supplierID')->constrained('suppliers');
             $table->integer('prodQty');
             $table->decimal('prodRate',8,2);
             $table->decimal('totalPrice',8,2);
