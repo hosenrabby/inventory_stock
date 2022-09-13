@@ -11,8 +11,7 @@
 
                 <li class="label">Main</li>
                     <li><a href="{{ route('admin-dashboard') }}" class="sideba"><i class="ti-home"></i> Dashboard</a></li>
-                    <li><a href="{{ route('company.index') }}" class="sideba"><i class="ti-home"></i> Company Details</a>
-                </li>
+                    <li><a href="{{ route('company.index') }}" class="sideba"><i class="ti-home"></i> Company Details</a></li>
 
 
                 <li class="label">SUPLIER</li>
@@ -59,9 +58,9 @@
                     </ul>
                 </li>
 
-                <li class="label">STOCKS</li>
+                {{-- <li class="label">STOCKS</li>
                 <li><a href="{{ url('authorized/product-stock') }}"><i class="ti-bar-chart-alt"></i> Stock Manage</a>
-                </li>
+                </li> --}}
 
                 <li class="label">SALES</li>
                 <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Sales Products <span
