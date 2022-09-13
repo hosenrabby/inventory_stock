@@ -25,6 +25,8 @@
                                             @csrf
                                             <input type="hidden" name="rowlenth" id="rowlenth" value="1">
                                             <input type="hidden" name="pid" id="invoice_id" value="1">
+                                            <input type="hidden" name="supplierID" id="supplierID" value="0">
+                                            <input type="hidden" name="productID" id="productID" value="0">
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="form-group">
@@ -43,10 +45,10 @@
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Select Supplier</label>
-                                                    <select class="form-control" name="supplierID">
+                                                    <select class="form-control" id="supplierName" name="supplierName" onchange="prodAdd()">
                                                         <option value="1" selected>Select Supplier</option>
                                                         @foreach ($supplier as $supplier)
-                                                        <option value="{{ $supplier->id }}">{{ $supplier->supplierName }}</option>
+                                                        <option value="{{ $supplier->supplierName }}" id="{{ $supplier->id }}">{{ $supplier->supplierName }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -54,19 +56,19 @@
                                             <div class="row">
                                                 <div class="col">
                                                     <label>Select Catagory</label>
-                                                    <select class="form-control" name="catagoryID">
+                                                    <select class="form-control" name="catagoryName">
                                                         <option value="" selected>Select Catagory</option>
                                                         @foreach ($catagory as $catagory)
-                                                            <option value="{{ $catagory->id }}">{{ $catagory->categoryName }}</option>
+                                                            <option value="{{ $catagory->categoryName }}">{{ $catagory->categoryName }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
                                                 <div class="col">
                                                     <label>Select Sub Catagory</label>
-                                                    <select class="form-control" name="subCatagoryID">
+                                                    <select class="form-control" name="subCatagoryName">
                                                         <option value="0" selected>Select Sub Catagory</option>
                                                         @foreach ($subCatagory as $subCatagory)
-                                                            <option value="{{ $subCatagory->id }}" id="{{ $subCatagory->id }}">{{ $subCatagory->subCategoryName }}</option>
+                                                            <option value="{{ $subCatagory->subCategoryName }}" id="{{ $subCatagory->id }}">{{ $subCatagory->subCategoryName }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -209,6 +211,8 @@
     }
 
     function prodAdd(id){
+        var supID = $('#supplierName').find("option:selected").attr('id');
+                    $('#supplierID').val(supID);
         var optID = $('#prodName'+id).find("option:selected").attr('id');
             if (optID) {
                 $.ajax({
@@ -249,6 +253,7 @@
                 }
             });
         }
+
 
 
     function parchaseCal(id){

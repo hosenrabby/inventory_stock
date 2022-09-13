@@ -16,7 +16,10 @@ class PurchaseManageController extends Controller
 {
     public function index()
     {
-        $data = purchaseManage::all();
+        $data = DB::table('purchase_manage')
+                ->leftJoin('productstock_manages' , 'purchase_manage.productID','=','productstock_manages.id')->get([
+                    'purchase_manage.*' ,
+                    'productstock_manages.productName',]);
         return view('admin.purchaseManage.index' , compact('data'));
     }
 
@@ -42,13 +45,15 @@ class PurchaseManageController extends Controller
         return view('admin.purchaseManage.create', compact('product','catagory','subCatagory','supplier'));
     }
 
-    public function store(RequestsPurchaseManage $request)
+    public function store(Request $request)
     {
+        // dd($request->all());
+        $supplierID = $request->supplierID;
         $pid = $request->pid;
         $invNumber = $request->invNumber;
-        $supplierID = $request->supplierID;
-        $catagoryID = $request->catagoryID;
-        $subCatagoryID = $request->subCatagoryID;
+        $supplierName = $request->supplierName;
+        $catagoryName = $request->catagoryName;
+        $subCatagoryName = $request->subCatagoryName;
         $purchaseDate = $request->purchaseDate;
         $productID = $request->productID;
         $prodCode = $request->prodCode;
@@ -66,9 +71,9 @@ class PurchaseManageController extends Controller
                 'prodCode' => $prodCode[$i],
                 'invNumber' => $invNumber,
                 'purchaseDate' => $purchaseDate,
-                'catagoryID' => $catagoryID,
-                'subCatagoryID' => $subCatagoryID,
-                'supplierID' => $supplierID,
+                'catagoryName' => $catagoryName,
+                'subCatagoryName' => $subCatagoryName,
+                'supplierName' => $supplierName,
                 'prodQty' => $prodQty[$i],
                 'prodRate' => $prodRate[$i],
                 'totalPrice' => $totalPrice[$i],
@@ -86,19 +91,25 @@ class PurchaseManageController extends Controller
                 'supplierCarrentBalance' => $supBlncUpdate
             ];
             $findSupplier->update($UpdateBlnc);
-            //Supplier Stock Update End
-            //Product Stock Update
+            // //Supplier Stock Update End
+            // //Product Stock Update
             for ($i=0; $i <count($productID) ; $i++) {
                 $findProd = productstockManage::find($productID[$i]);
                 $prodStockUpdate = $prodQty[$i] + $findProd->stockBalance;
                 $updateStock = [
                     'stockBalance' => $prodStockUpdate
                 ];
-
+                // print_r($updateStock) ;
                 $findProd->update($updateStock);
             }
             //Product Stock Update end
         }
         return redirect('authorized/purchase-manage')->with('success' , 'Purchase Data and Related Stocks Updated');
+    }
+
+    public function destroy($pid)
+    {
+        purchaseManage::where('pid',$pid)->delete();
+        return back()->with('warning', 'Invoice delete successfully.') ;
     }
 }
