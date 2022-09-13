@@ -59,10 +59,6 @@
                     </ul>
                 </li>
 
-                <li class="label">STOCKS</li>
-                <li><a href="{{ url('authorized/product-stock') }}"><i class="ti-server"></i> Stock Manage</a>
-                </li>
-
                 <li class="label">SALES</li>
                 <li><a class="sidebar-sub-toggle"><i class="ti-money"></i> Sales Products <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>

@@ -29,27 +29,6 @@
                             </form>
                         </div>
                     </div>
-<<<<<<< HEAD
-
-
-                    <div class="col-8 input-group input-group-rounded">
-                        <form action="#" method="POST">
-                            <div class="row">
-                                <div class="form-group col">
-                                    <input type="text" class="datepicker form-control" name="start_date" placeholder="Select Start Date">
-                                </div>
-                                <div class="form-group col">
-                                    <input type="text" class="datepicker form-control" name="end_date" placeholder="Select End Date">
-                                </div>
-                                <div class="form-group col">
-                                    <button class="btn btn-primary weight" type="submit" style="padding-bottom: 5px;border-radius: 0px;"><i class="ti-search"></i>
-                                    </button>
-                             </div>
-                            </div>
-                        </form>
-                    </div>
-=======
->>>>>>> 596b0a6ab422fa89cd32b3d2298b7b673bce14d0
                 </div>
 
 

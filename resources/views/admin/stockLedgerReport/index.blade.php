@@ -21,31 +21,17 @@
                     <div class="">
                            <div class="input-group input-group-rounded">
                                <form action="#" method="POST">
-                                   <div class="row">
-                                       <div class="form-group col">
-                                           <input type="text" class="datepicker form-control " name="start_date"
-                                       placeholder="Select Start Date">
-                                       </div>
-                                       <div class="form-group col">
-                                   <input type="text" class="datepicker form-control " name="end_date"
-                                       placeholder="Select End Date">
-                                       </div>
-                                       <div class="form-group col">
-                                    <button class="btn btn-primary weight" type="submit"
-                                        style="padding-bottom: 5px;border-radius: 0px;"><i class="ti-search"></i>
-                                    </button>
-                                    </div>
-                                   </div>
+                                <div class="form-group">
+                                    <select class="form-control stock" name="customer" id="stockid">
+                                        @foreach ($stock as $item)
+                                            <option value="{{ $item->id }}" sid="{{ $item->id }}">{{ $item->productName }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                </form>
                            </div>
                         </div>
-
                    </div>
-
-
-
-
-
                 <!-- /# row -->
                 <section id="main-content">
                     <div class="row">
@@ -61,20 +47,16 @@
                                                     <th>Product Code</th>
                                                      <th>Product Rate</th>
                                                     <th>Stock Balance</th>
-
                                                 </tr>
                                             </thead>
                                             <tbody>
-
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>Food</td>
-                                                        <td>33</td>
-                                                        <td>666</td>
-                                                        <td>500</td>
-
+                                                        <td id="stid"></td>
+                                                        <td id="productName"></td>
+                                                        <td id="prodCode"></td>
+                                                        <td id="prodRate"></td>
+                                                        <td id="stockBalance"></td>
                                                     </tr>
-
                                             </tbody>
                                         </table>
                                     </div>
@@ -89,4 +71,31 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+<script>
+    $('.stock').select2();
+
+    $('#stockid').change(function(){
+        var id=$(this).find('option:selected').attr('sid');
+        if(id){
+            $.ajax({
+                url:"{{ url('authorized/stockLedgerReport') }}/"+id,
+                type:'GET',
+                cache:false,
+                dataType:"json",
+                success:function(data) {
+                    console.log(data);
+                    $.each(data, function(key, value){
+                        $('#stid').html(value.id);
+                        $('#productName').html(value.productName);
+                        $('#prodCode').html(value.prodCode);
+                        $('#prodRate').html(value.prodRate);
+                        $('#stockBalance').html(value.stockBalance);
+                    })
+                }
+            })
+        }
+    })
+</script>
 @endsection
