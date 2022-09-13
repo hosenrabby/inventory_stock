@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('invoice_id');
             $table->integer('invNumber');
-            $table->foreignId('customerID')->constrained('customers');
+            $table->string('customerName');
             $table->string('purchaseDate');
             $table->foreignId('productID')->constrained('productstock_manages');
             $table->integer('prodCode');

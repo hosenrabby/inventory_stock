@@ -18,7 +18,6 @@ class SalesProductController extends Controller
     {
         $showData=DB::table('sales_products')
         ->leftJoin('productstock_manages', 'sales_products.productID', '=', 'productstock_manages.id')
-        ->leftJoin('customers', 'sales_products.customerID', '=', 'customers.id')
         ->get();
         return view('admin.salesProduct.index', compact('showData'));
     }
@@ -61,7 +60,7 @@ class SalesProductController extends Controller
             $daraInsert =[
                 'invoice_id' => $invoice_id,
                 'invNumber' => $invNumber,
-                'customerID' => $customerID,
+                'customerName' => $customerID,
                 'purchaseDate' => $purchaseDate,
                 'productID' => $productID[$i],
                 'prodCode' => $prodCode[$i],

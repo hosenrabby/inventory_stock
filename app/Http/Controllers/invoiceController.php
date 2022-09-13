@@ -17,12 +17,12 @@ class invoiceController extends Controller
 
     public function index($invoice_id)
     {
-        // $showData=DB::table('sales_products')
+        // $showData=DB::table('sales_products');
         // ->leftJoin('productstock_manages', 'sales_products.productID', '=', 'productstock_manages.id')
         // ->leftJoin('customers', 'sales_products.customerID', '=', 'customers.id')
         // ->get();
-        $showData=customer::find($invoice_id);
-        $companyData=company_details::find($invoice_id);
+        $showData=customer::select('id', 'customerName', 'customerEmail', 'customerPhone', 'customerAddress', 'customerBalance');
+        $companyData=company_details::select('id', 'companyName', 'companyEmail', 'phone', 'address', 'logo');
         $invoiceDate=SalesProduct::find($invoice_id);
         $dd=SalesProduct::where('invoice_id', $invoice_id)->get();
         // dd($dd);
