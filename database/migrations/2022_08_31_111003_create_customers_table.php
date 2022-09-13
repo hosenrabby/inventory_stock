@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('customerEmail');
             $table->string('customerPhone');
             $table->string('customerAddress');
-            $table->string('customerBalance');
+            $table->decimal('customerBalance',8,2);
             $table->timestamps();
         });
     }

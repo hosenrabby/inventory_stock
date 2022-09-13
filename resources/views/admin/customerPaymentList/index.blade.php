@@ -27,7 +27,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>SL</th>
-                                                    <th>Customer ID</th>
+                                                    <th>Customer Name</th>
                                                     <th>Customer Email</th>
                                                     <th>Customer Contact</th>
                                                     <th>Payment Date</th>
@@ -42,21 +42,19 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $customerPayment->customerName }}</td>
-                                                        <td>{{ $customerPayment->customerEmail}}</td>
-                                                        <td>{{ $customerPayment->customerContact}}</td>
-                                                        <td>{{ $customerPayment->paymentDate}}</td>
-                                                        <td>{{ $customerPayment->transactionMethod}}</td>
-                                                        <td>{{ $customerPayment->paymentAmount}}</td>
-                                                        <td>{{ $customerPayment->note}}</td>
+                                                        <td>{{ $customerPayment->customerEmail }}</td>
+                                                        <td>{{ $customerPayment->customerContact }}</td>
+                                                        <td>{{ $customerPayment->paymentDate }}</td>
+                                                        <td>{{ $customerPayment->transactionMethod }}</td>
+                                                        <td>{{ $customerPayment->paymentAmount }}</td>
+                                                        <td>{{ $customerPayment->note }}</td>
 
                                                         <td>
                                                             <div class="d-flex justify-content-center">
-                                                                <a href=""
-                                                                    class="btn btn-default"><i
+                                                                <a href="" class="btn btn-default"><i
                                                                         class="fa-solid fa-pen-to-square"></i></a>
 
-                                                                <form method="post"
-                                                                    action="">
+                                                                <form method="post" action="">
                                                                     @method('DELETE')
                                                                     @csrf
                                                                     <button type="submit"

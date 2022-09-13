@@ -88,8 +88,18 @@ class CustomerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        customer::destroy($id);
-        return redirect('authorized/customer')->with('warning', 'customer deleted successfully!');
+    {   
+        $cusData = customer::find($id);
+        $cusBlnc = $cusData->customerBalance;
+        if ($cusBlnc === '0.00') {
+            customer::destroy($id);
+            return back()->with('warning', 'Customer delete successfully.');
+        }
+        else {
+            return back()->with('warning', 'Customer Info Cant Delete Customer Balnce exist');
+        }
+
+        // customer::destroy($id);
+        // return redirect('authorized/customer')->with('warning', 'customer deleted successfully!');
     }
 }

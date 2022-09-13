@@ -94,7 +94,7 @@ class SupplierController extends Controller
         $supBlnc = $supData->supplierCarrentBalance;
         if ($supBlnc === '0.00') {
             Supplier::destroy($id);
-            return redirect('authorized/supplier')->with('warning', 'Supplier delete successfully.');
+            return back()->with('warning', 'Supplier delete successfully.');
         }
         else {
             return back()->with('warning', 'Supplier Info Cant Delete Supplier Balnce exist');

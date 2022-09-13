@@ -24,7 +24,7 @@ class customerpaymentList extends FormRequest
     public function rules()
     {
         return [
-            'customerID'=>'Bail|required|numeric',
+            'customerName'=>'Bail|required|string',
             'customerEmail'=>'Bail|required|email',
             'customerContact'=>'Bail|required|numeric',
             'paymentDate'=>'Bail|required|date',

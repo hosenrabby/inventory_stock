@@ -45,7 +45,7 @@ class PurchaseManageController extends Controller
         return view('admin.purchaseManage.create', compact('product','catagory','subCatagory','supplier'));
     }
 
-    public function store(Request $request)
+    public function store(RequestsPurchaseManage $request)
     {
         // dd($request->all());
         $supplierID = $request->supplierID;

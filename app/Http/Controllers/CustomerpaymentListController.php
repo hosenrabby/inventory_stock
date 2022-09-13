@@ -18,12 +18,7 @@ class CustomerpaymentListController extends Controller
      */
     public function index()
     {
-
-        $spl=DB::table('customerpayment_lists')
-        ->leftJoin('customers', 'customers.id', '=', 'customerpayment_lists.customerID')->get([
-            'customerpayment_lists.*',
-            'customers.customerName',
-        ]);
+        $spl= customerpaymentList::all();
         return view('admin.customerPaymentList.index' , compact('spl'));
     }
 
@@ -52,10 +47,10 @@ class CustomerpaymentListController extends Controller
         $input= $request->all();
         $dataInsert = customerpaymentList::create($input);
 
-        $customerID = $request->customerID;
+        $cusID = $request->cusID;
         $paidBlnc = $request->paymentAmount;
         if ($dataInsert) {
-            $findCustomer = customer::find($customerID);
+            $findCustomer = customer::find($cusID);
             $custoBlncUpdate = $findCustomer->customerBalance - $paidBlnc;
             $UpdateBlnc = [
                 'customerBalance' => $custoBlncUpdate

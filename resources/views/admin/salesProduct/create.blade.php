@@ -25,7 +25,7 @@
                                             @csrf
                                             <input type="hidden" name="rowlen" id="rowlen" value="1">
                                             <input type="hidden" name="invoice_id" id="invoice_id" value="1"/>
-                                            <input type="hidden" name="customer_id" id="customer_id" value="1"/>
+                                            <input type="hidden" name="customer_id" id="customer_id" value="0"/>
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="form-group">
@@ -46,11 +46,11 @@
                                                     <label>Select Customer</label>
                                                     <select class="form-control @error('customerID') is-invalid
 
-                                                    @enderror" name="customerID" id="customerName" onchange="(salesAdd())">
+                                                    @enderror" name="customerName" id="customerName" onchange="salesAdd()">
                                                         <option value="1" selected>Select Customer</option>
 
                                                         @foreach ($customer as $customers)
-                                                            <option value="{{ $customers->id }}">{{ $customers->customerName }}</option>
+                                                            <option value="{{ $customers->customerName }}" id="{{ $customers->id }}">{{ $customers->customerName }}</option>
 
                                                         @endforeach
                                                     </select>
@@ -232,8 +232,7 @@
 
     function salesAdd(id){
         var custID=$('#customerName').find('option:selected').attr('id');
-        $('#customer_id').val(custID);
-        alert(custID)
+                    $('#customer_id').val(custID);
         var optID = $('#productName'+id).find("option:selected").attr('id');
             if (optID) {
                 $.ajax({

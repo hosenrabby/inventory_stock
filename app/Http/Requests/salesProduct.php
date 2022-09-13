@@ -25,7 +25,7 @@ class salesProduct extends FormRequest
     {
         return [
              'invNumber'=>'Bail|required|string',
-             'customerID'=>'Bail|required|numeric',
+             'customerName'=>'Bail|required|string',
              'purchaseDate'=>'Bail|required|date',
             'productID'=>'Bail|required|',
             'prodQty'=>'Bail|required',

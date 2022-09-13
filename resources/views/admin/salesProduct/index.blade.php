@@ -25,7 +25,6 @@
                                                 <tr>
                                                     <th>Action</th>
                                                     <th>SL</th>
-                                                    <th>Invoice Id</th>
                                                     <th>Invoice Number</th>
                                                     <th>Customer Name</th>
                                                     <th>Purchase Date</th>
@@ -44,8 +43,9 @@
                                                     <tr>
                                                         <td>
                                                             <div class="d-flex justify-content-center">
-                                                                <a href="{{ url('authorized/invoice/' .$data->invoice_id) }}"
-                                                                    class="btn btn-default"><i class="fa-solid fa-file-invoice"></i></a>
+                                                                <a href="{{ url('authorized/invoice/' . $data->invoice_id) }}"
+                                                                    class="btn btn-default"><i
+                                                                        class="fa-solid fa-file-invoice"></i></a>
 
                                                                 <form method="post"
                                                                     action="{{ url('authorized/salesproduct/' . $data->id) }}">
@@ -58,7 +58,6 @@
                                                             </div>
                                                         </td>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $data->invoice_id }}</td>
                                                         <td>{{ $data->invNumber }}</td>
                                                         <td>{{ $data->customerName }}</td>
                                                         <td>{{ $data->purchaseDate }}</td>

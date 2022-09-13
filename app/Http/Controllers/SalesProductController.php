@@ -43,9 +43,10 @@ class SalesProductController extends Controller
     public function store(RequestsSalesProduct $request)
     {
         // dd($request->all());
+        $customer_id = $request->customer_id;
         $invoice_id = $request->invoice_id;
         $invNumber = $request->invNumber;
-        $customerID = $request->customerID;
+        $customerName = $request->customerName;
         $purchaseDate = $request->purchaseDate;
         $productID = $request->productID;
         $prodCode = $request->prodCode;
@@ -60,7 +61,7 @@ class SalesProductController extends Controller
             $daraInsert =[
                 'invoice_id' => $invoice_id,
                 'invNumber' => $invNumber,
-                'customerName' => $customerID,
+                'customerName' => $customerName,
                 'purchaseDate' => $purchaseDate,
                 'productID' => $productID[$i],
                 'prodCode' => $prodCode[$i],
@@ -75,7 +76,7 @@ class SalesProductController extends Controller
         }
         if ($inserted) {
             //Customer Stock Update
-            $findCustomer = customer::find($customerID);
+            $findCustomer = customer::find($customer_id);
             $custoBlncUpdate = $duesAmount + $findCustomer->customerBalance;
             $UpdateBlnc = [
                 'customerBalance' => $custoBlncUpdate

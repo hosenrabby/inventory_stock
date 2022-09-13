@@ -73,7 +73,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Customer Balance</label>
-                                            <input type="text" class="form-control" name="customerBalance"
+                                            <input type="number" class="form-control" name="customerBalance"
                                                 placeholder="Customer Balance">
                                         </div>
 

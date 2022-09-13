@@ -22,23 +22,27 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
-                                    <form class="forms-sample" action="{{ url('authorized/customerPaymentList') }}" method="POST">
+                                    <form class="forms-sample" action="{{ url('authorized/customerPaymentList') }}"
+                                        method="POST">
                                         {!! csrf_field() !!}
+                                        <input type="hidden" name="cusID" id="cusID" value="0">
                                         <div class="form-group">
                                             <label>Customer Name</label>
-                                            <select class="form-control @error('customerID') is-invalid
+                                            <select
+                                                class="form-control @error('customerID') is-invalid
 
-                                            @enderror" name="customerID"  id="customerID" value="{{ old('customerID') }}">
-                                            @error('customerID')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
+                                            @enderror"
+                                                name="customerName" id="customerName" value="{{ old('customerName') }}">
+                                                @error('customerID')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
 
-                                            </span>
-
-                                            @enderror
+                                                    </span>
+                                                @enderror
                                                 <option selected>Open this select menu</option>
                                                 @foreach ($spl as $item)
-                                                    <option value="{{ $item->id }}" sid="{{ $item->id }}">{{ $item->customerName }}</option>
+                                                    <option value="{{ $item->customerName }}" id="{{ $item->id }}">
+                                                        {{ $item->customerName }}</option>
                                                 @endforeach
 
                                             </select>
@@ -50,8 +54,8 @@
                                                 class="form-control @error('customerEmail') is-invalid
 
                                                 @enderror"
-                                                name="customerEmail"  id="customerEmail" value="" placeholder="customer Email"
-                                                value="{{ old('customerEmail') }}">
+                                                name="customerEmail" id="customerEmail" value=""
+                                                placeholder="customer Email" value="{{ old('customerEmail') }}">
                                             @error('customerEmail')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -76,57 +80,61 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Payment Date</label>
-                                            <input type="text" class="form-control datepicker @error('paymentDate') is-invalid
+                                            <input type="text"
+                                                class="form-control datepicker @error('paymentDate') is-invalid
 
-                                            @enderror " name="paymentDate"
-                                                placeholder="Payment Date" value="{{ old('paymentDate') }}">
-                                                @error('paymentDate')
+                                            @enderror "
+                                                name="paymentDate" placeholder="Payment Date"
+                                                value="{{ old('paymentDate') }}">
+                                            @error('paymentDate')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
 
                                                 </span>
-
-                                                @enderror
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label>Transaction Method</label>
-                                            <input type="text" class="form-control @error('transactionMethod') is-invalid
+                                            <input type="text"
+                                                class="form-control @error('transactionMethod') is-invalid
 
-                                            @enderror" name="transactionMethod"
-                                                placeholder="Transaction Method" value="{{ old('transactionMethod') }}">
-                                                @error('transactionMethod')
+                                            @enderror"
+                                                name="transactionMethod" placeholder="Transaction Method"
+                                                value="{{ old('transactionMethod') }}">
+                                            @error('transactionMethod')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
 
                                                 </span>
-
-                                                @enderror
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label>Payment Ammount</label>
-                                            <input type="number" class="form-control @error('paymentAmount') is-invalid
+                                            <input type="number"
+                                                class="form-control @error('paymentAmount') is-invalid
 
-                                            @enderror" name="paymentAmount"
-                                                placeholder="Payment Ammount" value="{{ old('paymentAmount') }}">
-                                                @error('paymentAmount')
+                                            @enderror"
+                                                name="paymentAmount" placeholder="Payment Ammount"
+                                                value="{{ old('paymentAmount') }}">
+                                            @error('paymentAmount')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
 
                                                 </span>
-
-                                                @enderror
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label>Note</label>
-                                            <input type="text" class="form-control @error('note') is-invalid
+                                            <input type="text"
+                                                class="form-control @error('note') is-invalid
 
-                                            @enderror" name="note" placeholder="Note" value="{{ old('note') }}">
+                                            @enderror"
+                                                name="note" placeholder="Note" value="{{ old('note') }}">
                                             @error('note')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
 
-                                            </span>
-
+                                                </span>
                                             @enderror
                                         </div>
 
@@ -146,31 +154,25 @@
 @endsection
 
 @section('script')
-<script type="text/javascript">
-
-
-
-
-        $("#customerID").change(function() {
-        var optID = $('#customerID').find("option:selected").attr('sid');
-
-             if (optID) {
-                 $.ajax({
-                     url: "{{ url('authorized/customerPaymentList') }}/"+optID,
-                     type: "GET",
-                     cache: false,
+    <script type="text/javascript">
+        $("#customerName").change(function() {
+            var optID = $('#customerName').find("option:selected").attr('id');
+            $('#cusID').val(optID)
+            if (optID) {
+                $.ajax({
+                    url: "{{ url('authorized/customerPaymentList') }}/" + optID,
+                    type: "GET",
+                    cache: false,
                     dataType: "json",
-                        success: function(data) {
-                            console.log(data);
-                                $.each(data, function(key, value) {
-                                    $('#customerEmail').val(value.customerEmail);
-                                    $('#customerContact').val(value.customerPhone);
-                                })
-                             }
-                         });
-                     }
-                })
-
-
-</script>
+                    success: function(data) {
+                        console.log(data);
+                        $.each(data, function(key, value) {
+                            $('#customerEmail').val(value.customerEmail);
+                            $('#customerContact').val(value.customerPhone);
+                        })
+                    }
+                });
+            }
+        })
+    </script>
 @endsection
