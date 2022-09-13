@@ -19,15 +19,13 @@ class salesReports extends Controller
 
     public function searchData(Request $request)
     {
-        $custoName = customer::all();
-        $sTerm = $request->custoID;
+       
         $dateFrom = Carbon::parse($request->start_date)->format('Y-m-d');
         $dateTo = Carbon::parse($request->end_date)->format('Y-m-d');
 
-        $searchData = SalesProduct::where('customerID' , $sTerm)
-                ->whereBetween('purchaseDate' , [$dateFrom, $dateTo])
+        $searchData = SalesProduct::whereBetween('purchaseDate' , [$dateFrom, $dateTo])
                 ->get();
-                return view('admin.salesReports.index' , compact('searchData','custoName'));
+                return view('admin.salesReports.index' , compact('searchData'));
                 // return $searchData;
     }
 }

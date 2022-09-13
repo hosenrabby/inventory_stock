@@ -232,7 +232,7 @@
 
     function salesAdd(id){
         var custID=$('#customerName').find('option:selected').attr('id');
-                    $('#customer_id').val(custID);
+                $('#customer_id').val(custID);
         var optID = $('#productName'+id).find("option:selected").attr('id');
             if (optID) {
                 $.ajax({

@@ -17,30 +17,25 @@
 
 
                 <div class="row">
-                        <div class="input-group">
-                            <form action="{{ url('authorized/salesReports-search') }}" method="POST">
-                                @csrf
-                                <div class="row ml-4">
-                                    <div class="input-group">
-                                        {{-- <input type="text" placeholder="Search Round" name="Search" class="form-control"> --}}
-                                        <select class="form-control customer" name="custoID">
-                                            <option value="0" selected>Select Supplier</option>
-                                            @foreach ($custoName as $custoNames)
-                                            <option value="{{ $custoNames->id }}">{{ $custoNames->customerName }}</option>
-                                            @endforeach
-                                        </select>
-                                        <input type="text" class="datepicker form-control " name="start_date" placeholder="Select End Date">
-                                        <input type="text" class="datepicker form-control " name="end_date" placeholder="Select End Date">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-primary weight" type="submit"
-                                                style="padding-bottom: 5px;border-radius: 0px;"><i
-                                                    class="ti-search"></i></button>
-                                        </span>
-                                    </div>
+                    <div class="input-group">
+                        <form action="{{ url('authorized/salesReports-search') }}" method="POST">
+                            @csrf
+                            <div class="row ml-4">
+                                <div class="input-group">
+                                    <input type="text" class="datepicker form-control " name="start_date"
+                                        placeholder="Select End Date">
+                                    <input type="text" class="datepicker form-control " name="end_date"
+                                        placeholder="Select End Date">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary weight" type="submit"
+                                            style="padding-bottom: 5px;border-radius: 0px;"><i
+                                                class="ti-search"></i></button>
+                                    </span>
                                 </div>
-                            </form>
-                        </div>
-                     </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
                 <!-- /# row -->
                 <section id="main-content">
@@ -65,15 +60,15 @@
                                             <tbody>
 
                                                 @foreach ($searchData as $searchData)
-                                                <tr>
-                                                    <td>{{ $searchData->invNumber }}</td>
-                                                    <td>{{ $searchData->customerID }}</td>
-                                                    <td>{{ $searchData->purchaseDate }}</td>
-                                                    <td>{{ $searchData->productID }}</td>
-                                                    <td>{{ $searchData->prodQty }}</td>
-                                                    <td>{{ $searchData->totalPrice }}</td>
-                                                    <td>{{ $searchData->grandTotal }}</td>
-                                                </tr>
+                                                    <tr>
+                                                        <td>{{ $searchData->invNumber }}</td>
+                                                        <td>{{ $searchData->customerName }}</td>
+                                                        <td>{{ $searchData->purchaseDate }}</td>
+                                                        <td>{{ $searchData->productID }}</td>
+                                                        <td>{{ $searchData->prodQty }}</td>
+                                                        <td>{{ $searchData->totalPrice }}</td>
+                                                        <td>{{ $searchData->grandTotal }}</td>
+                                                    </tr>
                                                 @endforeach
 
                                             </tbody>
@@ -92,8 +87,7 @@
     </div>
 @endsection
 @section('script')
-<script>
-    $('.customer').select2();
-</script>
-
+    <script>
+        $('.customer').select2();
+    </script>
 @endsection

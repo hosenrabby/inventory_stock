@@ -20,8 +20,10 @@
                             <form action="">
                                 <div class="form-group">
                                     <select class="form-control customer" name="customer" id="customerid">
+                                        <option value="" selected>Select Customer Name Or Search</option>
                                         @foreach ($customer as $item)
-                                            <option value="{{ $item->id }}" sid="{{ $item->id }}">{{ $item->customerName }}</option>
+                                            <option value="{{ $item->id }}" sid="{{ $item->id }}">
+                                                {{ $item->customerName }}</option>
                                         @endforeach
 
                                     </select>
@@ -79,35 +81,32 @@
 @endsection
 
 @section('script')
-<script>
-    $('.customer').select2();
+    <script>
+        $('.customer').select2();
 
-    $('#customerid').change(function(){
-        var id=$(this).find('option:selected').attr('sid');
-        // alert(id);
-        if(id){
-            $.ajax({
-                url:"{{ url('authorized/customerLedgerReport') }}/"+id,
-                type:"GET",
-                cache:false,
-                dataType:"json",
+        $('#customerid').change(function() {
+            var id = $(this).find('option:selected').attr('sid');
+            // alert(id);
+            if (id) {
+                $.ajax({
+                    url: "{{ url('authorized/customerLedgerReport') }}/" + id,
+                    type: "GET",
+                    cache: false,
+                    dataType: "json",
 
-                success:function(data){
-                    console.log(data);
+                    success: function(data) {
+                        console.log(data);
 
-                    $.each(data, function(key, value){
-                        $('#custid').html(value.id);
-                        $('#customerName').html(value.customerName);
-                        $('#customerEmail').html(value.customerEmail);
-                        $('#customerPhone').html(value.customerPhone);
-                        $('#customerBalance').html(value.customerBalance);
-                    })
-                }
-            })
-        }
-    })
-
-
-</script>
-
+                        $.each(data, function(key, value) {
+                            $('#custid').html(value.id);
+                            $('#customerName').html(value.customerName);
+                            $('#customerEmail').html(value.customerEmail);
+                            $('#customerPhone').html(value.customerPhone);
+                            $('#customerBalance').html(value.customerBalance);
+                        })
+                    }
+                })
+            }
+        })
+    </script>
 @endsection
