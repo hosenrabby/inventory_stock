@@ -25,7 +25,7 @@ class supplierPaymentList extends FormRequest
     {
         return [
 
-            'supplierID'=>'Bail|required|numeric',
+            'supplierName'=>'Bail|required',
             'supplierEmail'=>'Bail|required|email',
             'supplierContact'=>'Bail|required|numeric',
             'paymentDate'=>'Bail|required|date',
