@@ -90,16 +90,17 @@ class SupplierController extends Controller
      */
     public function destroy($id)
     {
-        // $supData = Supplier::where('id', $id)->get('supplierCarrentBalance');
-        // $supData = strval($supData);
-        // $supData = intval($supData);
-        // dd($supData);
-        // if ($supData == 0) {
-            Supplier::destroy($id);
+        Supplier::destroy($id);
+
+        // $supData = Supplier::find($id);
+        // $supBlnc = $supData->supplierCarrentBalance;
+        // if ($supData === '0.00') {
+        //     Supplier::destroy($id);
+        //     return redirect('authorized/supplier')->with('warning', 'Supplier delete successfully.');
         // }
-        // else {return back()->with('warning', 'Supplier Info Cant Delete Supplier Balnce exist');}
-        return redirect('authorized/supplier')->with('warning', 'Supplier delete successfully.');
-        // return $supData;
+        // else {
+        //     return back()->with('warning', 'Supplier Info Cant Delete Supplier Balnce exist');
+        // }
     }
 
 

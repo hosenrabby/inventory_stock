@@ -50,6 +50,7 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::post('purchase-form-insert', [PurchaseManageController::class , 'store']);
         Route::get('purchase-data/{id}', [PurchaseManageController::class , 'dataRetrive']);
         Route::get('purchase-data2/{id}', [PurchaseManageController::class , 'dataRetrive2']);
+        Route::get('purchase-delete/{pid}', [PurchaseManageController::class , 'destroy']);
 
         Route::get('salesproduct', [SalesProductController::class , 'index']);
         Route::get('salesproduct-form', [SalesProductController::class , 'create']);

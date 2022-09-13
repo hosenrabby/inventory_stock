@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('purchase_manage', function (Blueprint $table) {
             $table->id();
             $table->integer('pid');
-            $table->foreignID('productID')->constrained('productstock_manages');
+            $table->foreignId('productID')->constrained('productstock_manages');
             $table->string('prodCode');
             $table->string('invNumber');
             $table->string('purchaseDate');
-            $table->foreignID('catagoryID')->constrained('categories');
-            $table->foreignID('subCatagoryID')->constrained('sub_categories')->default(0);
-            $table->foreignID('supplierID')->constrained('suppliers');
+            $table->string('catagoryName');
+            $table->string('subCatagoryName')->default('No Name');
+            $table->string('supplierName');
             $table->integer('prodQty');
             $table->decimal('prodRate',8,2);
             $table->decimal('totalPrice',8,2);

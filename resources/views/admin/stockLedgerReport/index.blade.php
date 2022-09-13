@@ -21,8 +21,9 @@
                     <div class="">
                            <div class="input-group input-group-rounded">
                                <form action="#" method="POST">
-                                <div class="form-group">
+                                <div class="form-group ml-3">
                                     <select class="form-control stock" name="customer" id="stockid">
+                                        <option value="" selected>Select search name</option>
                                         @foreach ($stock as $item)
                                             <option value="{{ $item->id }}" sid="{{ $item->id }}">{{ $item->productName }}</option>
                                         @endforeach

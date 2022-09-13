@@ -45,13 +45,13 @@
                                                 @foreach ($data as $data)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $data->productID }}</td>
+                                                        <td>{{ $data->productName }}</td>
                                                         <td>{{ $data->prodCode }}</td>
                                                         <td>{{ $data->invNumber }}</td>
                                                         <td>{{ $data->purchaseDate }}</td>
-                                                        <td>{{ $data->catagoryID }}</td>
-                                                        <td>{{ $data->subCatagoryID }}</td>
-                                                        <td>{{ $data->supplierID }}</td>
+                                                        <td>{{ $data->catagoryName }}</td>
+                                                        <td>{{ $data->subCatagoryName }}</td>
+                                                        <td>{{ $data->supplierName }}</td>
                                                         <td>{{ $data->prodQty }}</td>
                                                         <td>{{ $data->prodRate }}</td>
                                                         <td>{{ $data->grandTotal }}</td>
@@ -60,17 +60,13 @@
                                                         <td>{{ $data->duesAmount }}</td>
                                                         <td>
                                                             <div class="d-flex justify-content-center">
-                                                                <a href="{{ url('authorized/product-stock/' . $data->id . '/edit') }}"
+                                                                <a href="#"
                                                                     class="btn btn-default"><i
                                                                         class="fa-solid fa-pen-to-square"></i></a>
 
-                                                                <form method="post"
-                                                                    action="{{ url('authorized/product-stock/' . $data->id) }}">
-                                                                    @method('DELETE')
-                                                                    @csrf
-                                                                    <button type="submit" class="btn btn-danger ml-1 delete-confirm"><i
-                                                                            class="fa-solid fa-trash-can"></i></button>
-                                                                </form>
+                                                                <a href="{{ url('authorized/purchase-delete/' . $data->pid) }}"
+                                                                    class="btn btn-danger ml-1"><i
+                                                                    class="fa-solid fa-trash-can"></i></a>
                                                             </div>
                                                         </td>
                                                     </tr>
