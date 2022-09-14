@@ -24,12 +24,12 @@
                     <img src="{{ asset('public/assets/images/invlogo.png') }}" alt="logo" class="img-fluid" width="250px" height="250px">
                 </div>
                 <div class="top-left">
-                        <p><strong>Invoice No:</strong>@foreach ($salesData1 as $item)
-                            {{ $item->invNumber }}
-                        @endforeach</p>
-                        <p><strong>Date:</strong>@foreach ($salesData1 as $item)
-                            {{ $item->purchaseDate }}
-                        @endforeach</p>
+                    <p><strong>Invoice No:</strong>@foreach ($productGranTotal as $item)
+                        {{ $item->invNumber }}
+                    @endforeach</p>
+                    <p><strong>Date:</strong>@foreach ($productGranTotal as $item)
+                        {{ $item->purchaseDate }}
+                    @endforeach</p>
                 </div>
             </section>
 
@@ -68,29 +68,37 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <H5>@foreach ($showData as $item)
-                                            {{ $item->customerName }}
-                                        @endforeach</H5>
+                                        <H5>
+                                            @foreach ($supplier as $item)
+                                            {{ $item->supplierName}}
+                                        @endforeach
+                                    </H5>
                                      </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <th>Mobile :</th>
-                                        <td>@foreach ($showData as $item)
-                                            {{ $item->customerPhone }}
-                                        @endforeach</td>
+                                        <td>
+                                            @foreach ($supplier as $item)
+                                            {{ $item->supplierPhone}}
+                                        @endforeach
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Email :</th>
-                                        <td>@foreach ($showData as $item)
-                                            {{ $item->customerEmail }}
-                                        @endforeach</td>
+                                        <td>
+                                            @foreach ($supplier as $item)
+                                            {{ $item->supplierEmail}}
+                                        @endforeach
+                                        </td>
                                      </tr>
                                     <tr>
                                         <th>Address :</th>
-                                        <td>@foreach ($showData as $item)
-                                            {{ $item->customerAddress }}
-                                        @endforeach</td>
+                                        <td>
+                                            @foreach ($supplier as $item)
+                                            {{ $item->supplierAddress}}
+                                        @endforeach
+                                        </td>
                                      </tr>
 
                                 </tbody>
@@ -146,9 +154,11 @@
                             <tfoot>
                                 <tr>
                                     <td>Grand Total:</td>
-                                    <td>@foreach ($salesData1 as $item)
+                                    <td>
+                                        @foreach ($productGranTotal as $item)
                                         {{ $item->grandTotal }}
-                                    @endforeach</td>
+                                        @endforeach
+                                    </td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -178,7 +188,7 @@
                     </span>
                     <span class="pr-2">
                         <i class="fab fa-facebook-f"></i>
-                        <span>/admin</span>
+                        <span>/facebook</span>
                     </span>
                 </div>
             </footer>

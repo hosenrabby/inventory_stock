@@ -73,6 +73,7 @@ class PurchaseManageController extends Controller
                 'purchaseDate' => $purchaseDate,
                 'catagoryName' => $catagoryName,
                 'subCatagoryName' => $subCatagoryName,
+                'supplierID' => $supplierID,
                 'supplierName' => $supplierName,
                 'prodQty' => $prodQty[$i],
                 'prodRate' => $prodRate[$i],

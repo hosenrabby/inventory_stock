@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('purchaseDate');
             $table->string('catagoryName');
             $table->string('subCatagoryName')->default('No Name');
+            $table->integer('supplierID');
             $table->string('supplierName');
             $table->integer('prodQty');
             $table->decimal('prodRate',8,2);
