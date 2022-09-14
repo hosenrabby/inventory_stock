@@ -43,7 +43,7 @@
                                                     <tr>
                                                         <td>
                                                             <div class="d-flex justify-content-center">
-                                                                <a href="{{ url('authorized/invoice/' . $data->invoice_id) }}"
+                                                                <a href="{{ url('authorized/salesinvoice/' . $data->invoice_id) }}"
                                                                     class="btn btn-default"><i
                                                                         class="fa-solid fa-file-invoice"></i></a>
                                                                 <a href="{{ url('authorized/salesproduct-inv-del/' . $data->invoice_id) }}"

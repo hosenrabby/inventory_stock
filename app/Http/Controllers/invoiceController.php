@@ -28,7 +28,16 @@ class invoiceController extends Controller
         $salesData=SalesProduct::where('productID', $invoice_id)->get();
 
         // dd($product);
-        return view('admin.salesReports.salesInvoice', compact('companyData', 'showData', 'salesData1','salesData', 'product'));
+        return view('admin.Invoices.salesInvoice', compact('companyData', 'showData', 'salesData1','salesData', 'product'));
+    }
+
+    public function purchaseInv($pid)
+    {
+        $supplier=DB::table('');
+
+        $companyData=company_details::find(1);
+
+        return view('admin.Invoices.purchaseInvoice', compact('companyData'));
     }
 
 }

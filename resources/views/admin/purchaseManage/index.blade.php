@@ -24,6 +24,7 @@
                                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
+                                                    <th>Action</th>
                                                     <th>SL</th>
                                                     <th>Product Name</th>
                                                     <th>Product Code</th>
@@ -38,12 +39,23 @@
                                                     <th>Grand Total</th>
                                                     <th>Paid Ammount</th>
                                                     <th>Dues Ammount</th>
-                                                    <th>Action</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($data as $data)
                                                     <tr>
+                                                        <td>
+                                                            <div class="d-flex justify-content-center">
+                                                                <a href="{{ url('authorized/purchaseinvoice/' .$data->pid) }}"
+                                                                    class="btn btn-default"><i
+                                                                        class="fa-solid fa-file-invoice"></i></a>
+
+                                                                <a href="{{ url('authorized/purchase-delete/' . $data->pid) }}"
+                                                                    class="btn btn-danger ml-1"><i
+                                                                    class="fa-solid fa-trash-can"></i></a>
+                                                            </div>
+                                                        </td>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $data->productName }}</td>
                                                         <td>{{ $data->prodCode }}</td>
@@ -58,17 +70,7 @@
                                                         <td>{{ $data->totalPrice }}</td>
                                                         <td>{{ $data->paidAmount }}</td>
                                                         <td>{{ $data->duesAmount }}</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <a href="#"
-                                                                    class="btn btn-default"><i
-                                                                        class="fa-solid fa-pen-to-square"></i></a>
 
-                                                                <a href="{{ url('authorized/purchase-delete/' . $data->pid) }}"
-                                                                    class="btn btn-danger ml-1"><i
-                                                                    class="fa-solid fa-trash-can"></i></a>
-                                                            </div>
-                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>

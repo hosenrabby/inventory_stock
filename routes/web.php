@@ -60,7 +60,8 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::get('salesproduct-inv-del/{id}', [SalesProductController::class , 'destroy']);
 
 
-        Route::get('invoice/{invoice_id}', [invoiceController::class, 'salesInv']);
+        Route::get('salesinvoice/{invoice_id}', [invoiceController::class, 'salesInv']);
+        Route::get('purchaseinvoice/{invoice_id}', [invoiceController::class, 'purchaseInv']);
 
 
         Route::resource('supplier', SupplierController::class);
