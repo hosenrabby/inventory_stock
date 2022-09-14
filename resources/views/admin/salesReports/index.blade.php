@@ -64,7 +64,7 @@
                                                         <td>{{ $searchData->invNumber }}</td>
                                                         <td>{{ $searchData->customerName }}</td>
                                                         <td>{{ $searchData->purchaseDate }}</td>
-                                                        <td>{{ $searchData->productID }}</td>
+                                                        <td>{{ $searchData->productName }}</td>
                                                         <td>{{ $searchData->prodQty }}</td>
                                                         <td>{{ $searchData->totalPrice }}</td>
                                                         <td>{{ $searchData->grandTotal }}</td>

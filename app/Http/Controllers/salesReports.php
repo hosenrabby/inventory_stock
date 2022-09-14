@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\customer;
 use App\Models\SalesProduct;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class salesReports extends Controller
 {
@@ -19,13 +20,18 @@ class salesReports extends Controller
 
     public function searchData(Request $request)
     {
-       
+
         $dateFrom = Carbon::parse($request->start_date)->format('Y-m-d');
         $dateTo = Carbon::parse($request->end_date)->format('Y-m-d');
 
-        $searchData = SalesProduct::whereBetween('purchaseDate' , [$dateFrom, $dateTo])
-                ->get();
+        $searchData = DB::table('sales_products')
+                    ->leftJoin('customers' , 'sales_products.customerID','=','customers.id')
+                    ->leftJoin('productstock_manages' , 'sales_products.productID','=','productstock_manages.id')
+                    ->get([
+                        'sales_products.*' ,
+                        'customers.customerName',
+                        'productstock_manages.productName',
+                    ]);
                 return view('admin.salesReports.index' , compact('searchData'));
-                // return $searchData;
     }
 }
