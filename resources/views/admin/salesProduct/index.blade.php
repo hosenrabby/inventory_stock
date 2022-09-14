@@ -46,15 +46,18 @@
                                                                 <a href="{{ url('authorized/invoice/' . $data->invoice_id) }}"
                                                                     class="btn btn-default"><i
                                                                         class="fa-solid fa-file-invoice"></i></a>
+                                                                <a href="{{ url('authorized/salesproduct-inv-del/' . $data->invoice_id) }}"
+                                                                            class="btn btn-danger ml-1"><i
+                                                                            class="fa-solid fa-trash-can"></i></a>
 
-                                                                <form method="post"
+                                                                {{-- <form method="post"
                                                                     action="{{ url('authorized/salesproduct/' . $data->id) }}">
                                                                     @method('DELETE')
                                                                     @csrf
                                                                     <button type="submit"
                                                                         class="btn btn-danger ml-1 delete-confirm"><i
                                                                             class="fa-solid fa-trash-can"></i></button>
-                                                                </form>
+                                                                </form> --}}
                                                             </div>
                                                         </td>
                                                         <td>{{ $loop->iteration }}</td>
