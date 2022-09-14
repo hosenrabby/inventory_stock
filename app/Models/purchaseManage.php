@@ -18,6 +18,7 @@ class purchaseManage extends Model
         'purchaseDate',
         'catagoryName',
         'subCatagoryName',
+        'supplierID',
         'supplierName',
         'prodQty',
         'prodRate',

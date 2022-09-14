@@ -33,11 +33,19 @@ class invoiceController extends Controller
 
     public function purchaseInv($pid)
     {
-        $supplier=DB::table('');
+        $supplier=DB::table('purchase_manage')
+        ->leftJoin('suppliers','purchase_manage.supplierID', '=', 'suppliers.id')->where('pid', $pid)->limit(1)
+        ->get();
 
         $companyData=company_details::find(1);
 
-        return view('admin.Invoices.purchaseInvoice', compact('companyData'));
+        $product=DB::table('purchase_manage')
+        ->leftJoin('productstock_manages', 'purchase_manage.productID', '=', 'productstock_manages.id')->where('pid', $pid)
+        ->get();
+
+        $productGranTotal=purchaseManage::where('pid', $pid)->limit(1)->get();
+
+        return view('admin.Invoices.purchaseInvoice', compact('supplier','companyData', 'product','productGranTotal'));
     }
 
 }
