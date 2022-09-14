@@ -15,18 +15,20 @@ use App\Models\SalesProduct;
 class invoiceController extends Controller
 {
 
-    public function index($invoice_id)
+    public function salesInv($invoice_id)
     {
-        // $showData=DB::table('sales_products');
-        // ->leftJoin('productstock_manages', 'sales_products.productID', '=', 'productstock_manages.id')
-        // ->leftJoin('customers', 'sales_products.customerID', '=', 'customers.id')
-        // ->get();
-        $showData=customer::select('id', 'customerName', 'customerEmail', 'customerPhone', 'customerAddress', 'customerBalance');
-        $companyData=company_details::select('id', 'companyName', 'companyEmail', 'phone', 'address', 'logo');
-        $invoiceDate=SalesProduct::find($invoice_id);
-        $dd=SalesProduct::where('invoice_id', $invoice_id)->get();
-        // dd($dd);
-        return view('admin.salesReports.salesInvoice', compact('showData', 'companyData', 'invoiceDate', 'dd'));
+        $showData=DB::table('sales_products')
+        ->leftJoin('customers', 'sales_products.customerID', '=', 'customers.id')->where('invoice_id', $invoice_id)->limit(1)
+        ->get();
+        $product=DB::table('sales_products')
+        ->leftJoin('productstock_manages', 'sales_products.productID', '=', 'productstock_manages.id')->where('invoice_id', $invoice_id)
+        ->get();
+        $companyData=company_details::find(1);
+        $salesData1=SalesProduct::where('invoice_id', $invoice_id)->limit(1)->get();
+        $salesData=SalesProduct::where('productID', $invoice_id)->get();
+
+        // dd($product);
+        return view('admin.salesReports.salesInvoice', compact('companyData', 'showData', 'salesData1','salesData', 'product'));
     }
 
 }

@@ -24,65 +24,73 @@
                     <img src="{{ asset('public/assets/images/invlogo.png') }}" alt="logo" class="img-fluid" width="250px" height="250px">
                 </div>
                 <div class="top-left">
-                    <div class="graphic-path">
-                        <p>Invoice</p>
-                    </div>
-                    <div class="position-relative">
-                        <p>Invoice No. <span>123</span></p>
-                    </div>
+                        <p><strong>Invoice No:</strong>@foreach ($salesData1 as $item)
+                            {{ $item->invNumber }}
+                        @endforeach</p>
+                        <p><strong>Date:</strong>@foreach ($salesData1 as $item)
+                            {{ $item->purchaseDate }}
+                        @endforeach</p>
                 </div>
             </section>
 
             <section class="store-user mt-5">
-                <div class="col-10">
+                <div class="col-12">
                     <div class="row bb pb-3">
-                        <div class="col-7">
+                        <div class="col-6">
                             <table>
                                 <thead>
                                     <tr>
-                                        <H4>{{ $showData->customerName }}</H4>
+                                        <H4>{{ $companyData->companyName }}</H4>
 
 
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    <tr>
-                                        <th>Mobile :</th>
-                                        <td>{{ $showData->customerPhone }}</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th>Email :</th>
-                                        <td>{{ $showData->customerEmail }}</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th>Address :</th>
-                                        <td>{{ $showData->customerAddress }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-5">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <H5>{{ $companyData->companyName }}</H5>
-                                     </tr>
-                                </thead>
-                                <tbody>
                                     <tr>
                                         <th>Mobile :</th>
                                         <td>{{ $companyData->phone }}</td>
+
                                     </tr>
                                     <tr>
                                         <th>Email :</th>
                                         <td>{{ $companyData->companyEmail }}</td>
-                                     </tr>
+
+                                    </tr>
                                     <tr>
                                         <th>Address :</th>
                                         <td>{{ $companyData->address }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-6">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <H5>@foreach ($showData as $item)
+                                            {{ $item->customerName }}
+                                        @endforeach</H5>
+                                     </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>Mobile :</th>
+                                        <td>@foreach ($showData as $item)
+                                            {{ $item->customerPhone }}
+                                        @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email :</th>
+                                        <td>@foreach ($showData as $item)
+                                            {{ $item->customerEmail }}
+                                        @endforeach</td>
+                                     </tr>
+                                    <tr>
+                                        <th>Address :</th>
+                                        <td>@foreach ($showData as $item)
+                                            {{ $item->customerAddress }}
+                                        @endforeach</td>
                                      </tr>
 
                                 </tbody>
@@ -90,15 +98,6 @@
 
 
 
-                        </div>
-                    </div>
-                    <div class="row extra-info pt-3">
-                        <div class="col-7">
-                            <p>Payment Method: <span>bKash</span></p>
-                            <p>Order Number: <span>#868</span></p>
-                        </div>
-                        <div class="col-5">
-                            <p>Invoice Date: <span>{{ $invoiceDate->purchaseDate }}</span></p>
                         </div>
                     </div>
                 </div>
@@ -108,36 +107,31 @@
                 <table class="table table-hover">
                     <thead class="text-bord">
                         <tr>
-                            <th>Product Description</th>
+                            <th>Product Name</th>
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($product as $item)
                         <tr>
                             <td>
                                 <div class="media">
 
                                     <div class="media-body">
                                         <p class="mt-0 title">
-                                            @foreach ($dd as $object)
-                                            {{ $object->productID }}
-                                        @endforeach
+                                            {{ $item->productName }}
                                         </p>
                                     </div>
                                 </div>
                             </td>
-                            <td>@foreach ($dd as $object)
-                                {{ $object->prodRate }}
-                            @endforeach</td>
-                            <td>@foreach ($dd as $object)
-                                {{ $object->prodQty }}
-                            @endforeach</td>
-                            <td>@foreach ($dd as $object)
-                                {{ $object->totalPrice }}
-                            @endforeach</td>
+                            <td>{{ $item->prodRate }}</td>
+                            <td>{{ $item->prodQty }}</td>
+                            <td>{{ $item->totalPrice }}</td>
                         </tr>
+                        @endforeach
+
                     </tbody>
                 </table>
             </section>
@@ -149,22 +143,12 @@
                     </div>
                     <div class="col-4">
                         <table class="table border-0 table-hover">
-                            <tr>
-                                <td>Sub Total:</td>
-                                <td>800$</td>
-                            </tr>
-                            <tr>
-                                <td>Tax:</td>
-                                <td>15$</td>
-                            </tr>
-                            <tr>
-                                <td>Deliver:</td>
-                                <td>10$</td>
-                            </tr>
                             <tfoot>
                                 <tr>
-                                    <td>Total:</td>
-                                    <td>825$</td>
+                                    <td>Grand Total:</td>
+                                    <td>@foreach ($salesData1 as $item)
+                                        {{ $item->grandTotal }}
+                                    @endforeach</td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -186,23 +170,15 @@
                 <div class="social pt-3">
                     <span class="pr-2">
                         <i class="fas fa-mobile-alt"></i>
-                        <span>01955800663</span>
+                        <span>{{ $companyData->phone }}</span>
                     </span>
                     <span class="pr-2">
                         <i class="fas fa-envelope"></i>
-                        <span>hasan@gmail.com</span>
+                        <span>{{ $companyData->companyEmail }}</span>
                     </span>
                     <span class="pr-2">
                         <i class="fab fa-facebook-f"></i>
-                        <span>/bannna</span>
-                    </span>
-                    <span class="pr-2">
-                        <i class="fab fa-youtube"></i>
-                        <span>/banna</span>
-                    </span>
-                    <span class="pr-2">
-                        <i class="fab fa-github"></i>
-                        <span>/banna</span>
+                        <span>/admin</span>
                     </span>
                 </div>
             </footer>

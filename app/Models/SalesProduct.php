@@ -13,6 +13,7 @@ class SalesProduct extends Model
     protected $fillable = [
         'invoice_id',
         'invNumber',
+        'customerID',
         'customerName',
         'purchaseDate',
         'purchaseDate',

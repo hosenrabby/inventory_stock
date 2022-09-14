@@ -57,8 +57,9 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::post('sales-form-insert', [SalesProductController::class , 'store']);
         Route::get('salesproduct-data/{id}', [SalesProductController::class , 'selData']);
         Route::get('salesproduct-data2/{id}', [SalesProductController::class , 'selData2']);
-        Route::get('showinvoice', [SalesProductController::class, 'showinvoice']);
-        Route::get('invoice/{invoice_id}', [invoiceController::class, 'index']);
+
+
+        Route::get('invoice/{invoice_id}', [invoiceController::class, 'salesInv']);
 
 
         Route::resource('supplier', SupplierController::class);

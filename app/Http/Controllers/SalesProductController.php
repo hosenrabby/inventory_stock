@@ -61,6 +61,7 @@ class SalesProductController extends Controller
             $daraInsert =[
                 'invoice_id' => $invoice_id,
                 'invNumber' => $invNumber,
+                'customerID' => $customer_id,
                 'customerName' => $customerName,
                 'purchaseDate' => $purchaseDate,
                 'productID' => $productID[$i],
