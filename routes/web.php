@@ -57,6 +57,7 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::post('sales-form-insert', [SalesProductController::class , 'store']);
         Route::get('salesproduct-data/{id}', [SalesProductController::class , 'selData']);
         Route::get('salesproduct-data2/{id}', [SalesProductController::class , 'selData2']);
+        Route::get('salesproduct-inv-del/{id}', [SalesProductController::class , 'destroy']);
 
 
         Route::get('invoice/{invoice_id}', [invoiceController::class, 'salesInv']);
@@ -65,14 +66,14 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::resource('supplier', SupplierController::class);
         Route::resource('customer', CustomerController::class);
         Route::resource('company', CompanyDetailsController::class);
+
         Route::resource('supplierLedgerReport', SupplierLedgerReport::class);
         Route::resource('customerLedgerReport', customerLedgerReport::class);
-        // Route::resource('purchaseReports', purchaseLedgerReports::class);
         Route::get('purchaseReports', [purchaseLedgerReports::class, 'index']);
         Route::post('purchaseReports', [purchaseLedgerReports::class, 'fetch_data'])->name('purchaseReports');;
         Route::resource('stockLedgerReport', stockLedgerReport::class);
 
-        // Route::resource('salesReports', salesReports::class);
+
         Route::get('salesReports', [salesReports::class , 'index']);
         Route::post('salesReports-search', [salesReports::class , 'searchData']);
 
