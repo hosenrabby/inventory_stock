@@ -146,7 +146,7 @@ $(document).ready(function(){
  $('#refresh').click(function(){
   $('#from_date').val('');
   $('#to_date').val('');
-  fetch_data();
+//   fetch_data();
  });
 });
 </script>

@@ -3,19 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\category;
 use App\Models\productstockManage;
+use App\Models\purchaseManage;
+use App\Models\subCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class stockLedgerReport extends Controller
 {
     public function index() {
-        $stock=productstockManage::all();
-        return view('admin.stockLedgerReport.index', compact('stock'));
+        $stock=category::all();
+        $data=subCategory::all();
+        $product=productstockManage::all();
+        // $subcategory=subCategory::where('category_id')->get();
+        // dd($product);
+        return view('admin.stockLedgerReport.index', compact('stock', 'product', 'data'));
     }
 
-    public function show($id)
+    public function category($id)
     {
-        $stock=productstockManage::where('id', $id)->select('id', 'productName', 'prodCode', 'prodRate', 'stockBalance')->get();
+        $stock=productstockManage::where('catagoryID', $id)->select('id', 'productName', 'prodCode', 'prodRate', 'stockBalance')->get();
         return response()->json($stock, 200);
+    }
+
+    public function subcategory($catID){
+        $subcategory=subCategory::where('category_id', $catID)->get();
+        // dd($subcategory);
+        return response()->json($subcategory, 200);
+    }
+
+    public function subcategorydata($id){
+        $data=productstockManage::where('subCatagoryID', $id)->select('id', 'productName', 'prodCode', 'prodRate', 'stockBalance')->get();
+        return response()->json($data, 200);
     }
 }

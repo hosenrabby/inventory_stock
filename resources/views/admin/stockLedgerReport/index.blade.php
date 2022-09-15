@@ -21,15 +21,28 @@
                     <div class="">
                            <div class="input-group input-group-rounded">
                                <form action="#" method="POST">
-                                <div class="form-group ml-3">
-                                    <select class="form-control stock" name="customer" id="stockid">
-                                        <option value="" selected>Select search name</option>
-                                        @foreach ($stock as $item)
-                                            <option value="{{ $item->id }}" sid="{{ $item->id }}">{{ $item->productName }}</option>
-                                        @endforeach
-                                    </select>
+                                <div class="form-group ml-5">
+                                    <div class="row">
+                                        <select class="form-control col category_records" name="category" id="categoryid">
+                                            <option value="Select Category" selected>Select Category</option>
+                                            @foreach ($stock as $item)
+                                                <option value="{{ $item->id }}" sid="{{ $item->id }}">{{ $item->categoryName }}</option>
+                                            @endforeach
+                                        </select>
+                                        <select class="form-control ml-3 col select2 subcategory_records" name="subCategoryName" id="subCategoryName">
+                                            <option value="Select SubCategory" selected>Select SubCategory</option>
+                                            {{-- @foreach ($data as $item) --}}
+                                                <option value="" id=""></option>
+                                            {{-- @endforeach --}}
+                                        </select>
+                                    </div>
                                 </div>
                                </form>
+                               <div class="form-group col">
+                                <button class="btn btn-danger weight" type="button" name="refresh" id="refresh"
+                                    style="padding-bottom: 5px;border-radius: 0px;"><i class="ti-reload"></i>
+                                </button>
+                         </div>
                            </div>
                         </div>
                    </div>
@@ -51,15 +64,19 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                    <tr>
-                                                        <td id="stid"></td>
-                                                        <td id="productName"></td>
-                                                        <td id="prodCode"></td>
-                                                        <td id="prodRate"></td>
-                                                        <td id="stockBalance"></td>
-                                                    </tr>
+                                                @foreach ($product as $item)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $item->productName }}</td>
+                                                    <td>{{ $item->prodCode }}</td>
+                                                    <td>{{ $item->prodRate }}</td>
+                                                    <td>{{ $item->stockBalance }}</td>
+                                                </tr>
+                                                @endforeach
+
                                             </tbody>
                                         </table>
+                                        {{ csrf_field() }}
                                     </div>
                                 </div>
                             </div>
@@ -75,28 +92,88 @@
 @endsection
 @section('script')
 <script>
-    $('.stock').select2();
+    // $('.select2').select2();
 
-    $('#stockid').change(function(){
+    $('#categoryid').change(function(){
         var id=$(this).find('option:selected').attr('sid');
         if(id){
             $.ajax({
-                url:"{{ url('authorized/stockLedgerReport') }}/"+id,
+                url:"{{ url('authorized/category-product-search') }}/"+id,
                 type:'GET',
                 cache:false,
                 dataType:"json",
                 success:function(data) {
-                    console.log(data);
-                    $.each(data, function(key, value){
-                        $('#stid').html(value.id);
-                        $('#productName').html(value.productName);
-                        $('#prodCode').html(value.prodCode);
-                        $('#prodRate').html(value.prodRate);
-                        $('#stockBalance').html(value.stockBalance);
-                    })
+                    var output = '';
+                    $('.category_records').text(data.length);
+                    for(var i = 0; i < data.length; i++)
+                    {
+                    output += '<tr>';
+                    output += '<td>' + data[i].id + '</td>';
+                    output += '<td>' + data[i].productName + '</td>';
+                    output += '<td>' + data[i].prodCode + '</td>';
+                    output += '<td>' + data[i].prodRate + '</td>';
+                    output += '<td>' + data[i].stockBalance + '</tr>';
+                    }
+                    $('tbody').html(output);
+
+
                 }
+
             })
         }
     })
+
+    $('#categoryid').change(function(){
+        var catID = $(this).find("option:selected").attr('sid');
+        if (catID) {
+                $.ajax({
+                    url: "{{ url('/authorized/subcategory-product-search') }}/"+catID,
+                    type: "GET",
+                    cache: false,
+                    dataType: "json",
+                    success: function(data) {
+                        var output = '<option value="">Select Sub Catagory</option>';
+                        for(var i = 0; i < data.length; i++)
+                        {
+                        output += '<option value="'+data[i].subCategoryName+'" id="'+data[i].id+'">'+data[i].subCategoryName+'</option>';
+                        }
+                        $('#subCategoryName').html(output);
+                    }
+                });
+            }
+        })
+
+        $('#subCategoryName').change(function(){
+        var id=$(this).find('option:selected').attr('id');
+        if(id){
+            $.ajax({
+                url:"{{ url('authorized/subcategorydata-product-search') }}/"+id,
+                type:'GET',
+                cache:false,
+                dataType:"json",
+                success:function(data) {
+                    var output = '';
+                    $('.subcategory_records').text(data.length);
+                    for(var i = 0; i < data.length; i++)
+                    {
+                    output += '<tr>';
+                    output += '<td>' + data[i].id + '</td>';
+                    output += '<td>' + data[i].productName + '</td>';
+                    output += '<td>' + data[i].prodCode + '</td>';
+                    output += '<td>' + data[i].prodRate + '</td>';
+                    output += '<td>' + data[i].stockBalance + '</tr>';
+                    }
+                    $('tbody').html(output);
+
+
+                }
+
+            })
+        }
+    })
+
+    $('#refresh').click(function() {
+    location.reload();
+    });
 </script>
 @endsection
