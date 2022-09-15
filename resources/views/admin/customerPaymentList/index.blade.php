@@ -21,7 +21,28 @@
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
                                         <a
-                                            href="{{ url('authorized/customerPaymentList/create') }}"class="btn btn-default mb-3">Customer
+                                            href="{{ url('authorized/customerPaymentList/create') }}"class="btn btn-<?php
+
+                                            namespace App\Http\Controllers;
+
+                                            use App\Http\Controllers\Controller;
+                                            use App\Models\customer;
+                                            use Illuminate\Http\Request;
+
+                                            class customerLedgerReport extends Controller
+                                            {
+                                                public function index()
+                                                {
+                                                    $customer=customer::all();
+                                                    return view('admin.customerLedgerReport.index', compact('customer'));
+                                                }
+
+                                                public function show($id){
+                                                    $customer=customer::where('id', $id)->select('id', 'customerName', 'customerEmail', 'customerPhone', 'customerBalance')->get();
+                                                    return response()->json($customer, 200);
+                                                }
+                                            }
+                                             mb-3">Customer
                                             Payment</a>
                                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                             <thead>

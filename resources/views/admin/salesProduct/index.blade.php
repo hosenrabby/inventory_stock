@@ -44,7 +44,7 @@
                                                         <td>
                                                             <div class="d-flex justify-content-center">
                                                                 <a href="{{ url('authorized/salesinvoice/' . $data->invoice_id) }}"
-                                                                    class="btn btn-default"><i
+                                                                    class="btn btn-default btn btn-success" target="_blank"><i
                                                                         class="fa-solid fa-file-invoice"></i></a>
                                                                 <a href="{{ url('authorized/salesproduct-inv-del/' . $data->invoice_id) }}"
                                                                             class="btn btn-danger ml-1"><i
