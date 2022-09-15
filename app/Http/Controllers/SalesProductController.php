@@ -23,7 +23,7 @@ class SalesProductController extends Controller
     }
 
     public function selData($id){
-        $prodData = productstockManage::where('id','=' , $id)->select('prodCode','prodRate')->get();
+        $prodData = productstockManage::where('id','=' , $id)->select('prodCode','prodRate','stockBalance')->get();
         return response()->json($prodData, 200);
     }
 

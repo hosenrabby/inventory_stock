@@ -101,7 +101,7 @@
 
                                                         </div>
                                                     <div class="form-group col">
-                                                        <label>Product QTY</label>
+                                                        <label>Product QTY <span id="qtyLabel1"></span></label>
                                                         <input type="number" class="form-control @error('prodQty') is-invalid
 
                                                         @enderror" name="prodQty[]" id="productQty1" onkeyup="parchaseeCal(1)" placeholder="Product QTY" value="{{ old('prodQty[]') }}">
@@ -206,7 +206,7 @@
             row+='<input type="number" class="form-control" name="prodCode[]" id="productCode'+i+'" placeholder="Product Code">'
             row+='</div>'
             row+='<div class="form-group col">'
-            row+='<label>Product QTY</label>'
+            row+='<label>Product QTY<span id="qtyLabel'+i+'"></span></label>'
             row+='<input type="number" class="form-control" name="prodQty[]" id="productQty'+i+'" onkeyup="parchaseeCal('+i+')" placeholder="Product QTY">'
             row+='</div>'
             row+='<div class="form-group col">'
@@ -244,7 +244,7 @@
                             console.log(data);
                                 $.each(data, function(key, value) {
                                     $('#productCode'+id).val(value.prodCode);
-                                    $('#productRate'+id).val(value.prodRate);
+                                    $('#qtyLabel'+id).html('(Available Stock)'+value.stockBalance);
                                 })
                             }
                         });

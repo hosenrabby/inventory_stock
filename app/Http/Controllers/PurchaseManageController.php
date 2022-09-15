@@ -23,26 +23,40 @@ class PurchaseManageController extends Controller
         return view('admin.purchaseManage.index' , compact('data'));
     }
 
-    public function dataRetrive($id)
+    public function ProdData($id)
     {
         $prodData = productstockManage::where('id','=' , $id)->select('prodCode','prodRate')->get();
         return response()->json($prodData, 200);
     }
 
-    public function dataRetrive2($id)
+    public function maxID($id)
     {
         $maxid = purchaseManage::select(DB::raw('MAX(pid) AS pid'))->get();
         return response()->json($maxid, 200);
+    }
+    public function subCat($id)
+    {
+        $subCat = subCategory::where('category_id', $id)->get();
+        return response()->json($subCat , 200);
+    }
+    public function catProd($id)
+    {
+        $catProd = productstockManage::where('catagoryID', $id)->get();
+        return response()->json($catProd , 200);
+    }
+    public function subProd($id)
+    {
+        $subProd = productstockManage::where('subCatagoryID', $id)->get();
+        return response()->json($subProd , 200);
     }
 
     public function create()
     {
         $product = productstockManage::all();
         $catagory = category::all();
-        $subCatagory = subCategory::all();
         $supplier = Supplier::all();
 
-        return view('admin.purchaseManage.create', compact('product','catagory','subCatagory','supplier'));
+        return view('admin.purchaseManage.create', compact('product','catagory','supplier'));
     }
 
     public function store(RequestsPurchaseManage $request)

@@ -26,6 +26,7 @@
                                             <input type="hidden" name="rowlenth" id="rowlenth" value="1">
                                             <input type="hidden" name="pid" id="invoice_id" value="1">
                                             <input type="hidden" name="supplierID" id="supplierID" value="0">
+                                            <input type="hidden" name="incriment" id="incriment" value="0">
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="form-group">
@@ -51,26 +52,6 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label>Select Catagory</label>
-                                                    <select class="form-control" name="catagoryName">
-                                                        <option value="" selected>Select Catagory</option>
-                                                        @foreach ($catagory as $catagory)
-                                                            <option value="{{ $catagory->categoryName }}">{{ $catagory->categoryName }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div class="col">
-                                                    <label>Select Sub Catagory</label>
-                                                    <select class="form-control" name="subCatagoryName">
-                                                        <option value="0" selected>Select Sub Catagory</option>
-                                                        @foreach ($subCatagory as $subCatagory)
-                                                            <option value="{{ $subCatagory->subCategoryName }}" id="{{ $subCatagory->id }}">{{ $subCatagory->subCategoryName }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
                                                 <div class="form-group col">
                                                     <label>Purchase Date</label>
                                                     <input type="date" class="form-control @error('purchaseDate') is-invalid
@@ -93,7 +74,7 @@
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
-                                                        <select class="form-control" name="productID[]" id="prodName1" onchange="prodAdd(1)">
+                                                        <select class="form-control prodName" name="productID[]" id="prodName1" onchange="prodAdd(1)">
                                                             <option value="1" id="1" selected>select product</option>
                                                             @foreach ($product as $products)
                                                                 <option value="{{ $products->id }}" id="{{ $products->id }}">{{ $products->productName }}</option>
@@ -102,7 +83,7 @@
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Code</label>
-                                                        <input type="number" class="form-control" name="prodCode[]" id="prodCode1" placeholder="Product Code">
+                                                        <input type="text" class="form-control" name="prodCode[]" id="prodCode1" placeholder="Product Code">
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product QTY</label>
@@ -165,15 +146,15 @@
     $('.addRow').click(function(){
         // alert('Hello world');
         var i=1;
-        var rowlen=parseInt($('#rowlenth').val());
+        var rowlen = parseInt($('#rowlenth').val());
         i+=rowlen;
         var row = '<div class="row mt-3" id="deleteRow'+i+'">'
             row+= '<div class="col-1">'
-            row+= '<button type="button" class="btn btn-sm btn-outline-danger" id="delRow'+i+'" onclick="rowDelete('+i+')" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>'
+            row+= '<button type="button" class="btn btn-sm btn-outline-danger" id="delRow'+i+'" onclick="rowDelete('+i+')" onchange="catProd('+i+')" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>'
             row+= '</div>'
             row+= '<div class="form-group col">'
             row+= '<label>Product Name</label>'
-            row+= '<select class="form-control select2" name="productID[]" id="prodName'+i+'" onchange="prodAdd('+i+')">'
+            row+= '<select class="form-control" name="productID[]" id="prodName'+i+'" onchange="prodAdd('+i+')">'
             row+= '<option value="1" selected>select product</option>'
             row+= '@foreach ($product as $products)'
             row+= '<option value="{{ $products->id }}" id="{{ $products->id }}">{{ $products->productName }}</option>'
@@ -230,10 +211,71 @@
                     }
                 }
 
+    // $('#category').change(function(){
+    //     var catID = $(this).find("option:selected").attr('id');
+    //     if (catID) {
+    //             $.ajax({
+    //                 url: "{{ url('/authorized/purchase-data2') }}/"+catID,
+    //                 type: "GET",
+    //                 cache: false,
+    //                 dataType: "json",
+    //                 success: function(data) {
+    //                     var output = '<option value="" id="">Select Sub Catagory</option>';
+    //                     for(var i = 0; i < data.length; i++)
+    //                     {
+    //                     output += '<option value="'+data[i].subCategoryName+'" id="'+data[i].id+'">'+data[i].subCategoryName+'</option>';
+    //                     }
+    //                     $('#subCat').html(output);
+    //                 }
+    //             });
+    //         }
+    //     })
+
+    // function catProd(){
+    //     var catID = $('#category').find("option:selected").attr('id');
+    //     if (catID) {
+    //             $.ajax({
+    //                 url: "{{ url('/authorized/purchase-data3') }}/"+catID,
+    //                 type: "GET",
+    //                 cache: false,
+    //                 dataType: "json",
+    //                 success: function(data) {
+    //                     var output = '<option value="" id="">Select Product Name</option>';
+    //                     for(var i = 0; i < data.length; i++)
+    //                     {
+    //                     output += '<option value="'+data[i].id+'" id="'+data[i].id+'">'+data[i].productName+'</option>';
+    //                     }
+    //                     $('.prodName').html(output);
+    //                 }
+    //             });
+    //         }
+    //     }
+
+    // $('#subCat').change(function(){
+    //     var supID = $(this).find("option:selected").attr('id');
+    //     alert(supID);
+    //     if (supID) {
+    //             $.ajax({
+    //                 url: "{{ url('/authorized/purchase-data4') }}/"+supID,
+    //                 type: "GET",
+    //                 cache: false,
+    //                 dataType: "json",
+    //                 success: function(data) {
+    //                     var output = '<option value="" id="">Select Product Name</option>';
+    //                     for(var i = 0; i < data.length; i++)
+    //                     {
+    //                     output += '<option value="'+data[i].id+'" id="'+data[i].id+'">'+data[i].productName+'</option>';
+    //                     }
+    //                     $('.prodName').html(output);
+    //                 }
+    //             });
+    //         }
+    //     })
+
     function max_id(){
         var id=$('#invoice_id').val();
             $.ajax({
-                url:"{{ url('authorized/purchase-data2') }}/"+id,
+                url:"{{ url('authorized/purchase-data1') }}/"+id,
                 type:"GET",
                 cache:false,
                 dataType:"json",
