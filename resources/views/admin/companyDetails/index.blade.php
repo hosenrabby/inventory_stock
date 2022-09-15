@@ -89,7 +89,7 @@
                                           <td>
                                                 <div class="d-flex justify-content-left">
 
-                                                    <a href="{{ url('authorized/company/' . $company->id) . '/edit' }}" class="btn btn-default "><i class="fa-solid fa-pen-to-square"></i></a>
+                                                    <a href="{{ url('authorized/company/' . $company->id) . '/edit' }}" class="btn btn-success "><i class="fa-solid fa-pen-to-square"></i></a>
                                                 </div>
                                          </td>
                                          @endforeach

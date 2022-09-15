@@ -29,7 +29,7 @@
                                 <input type="text" class="form-control datepicker" name="to_date" id="to_date" placeholder="Select End Date">
                                     </div>
                                     <div class="form-group col">
-                                        <button class="btn btn-primary weight" type="button" name="filter" id="filter"
+                                        <button class="btn btn-success weight" type="button" name="filter" id="filter"
                                             style="padding-bottom: 5px;border-radius: 0px;"><i class="ti-search"></i>
                                         </button>
                                         <button class="btn btn-danger weight" type="button" name="refresh" id="refresh"

@@ -27,7 +27,7 @@
                                     <input type="text" class="datepicker form-control " name="end_date"
                                         placeholder="Select End Date">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-primary weight" type="submit"
+                                        <button class="btn btn-success weight" type="submit"
                                             style="padding-bottom: 5px;border-radius: 0px;"><i
                                                 class="ti-search"></i></button>
                                     </span>
