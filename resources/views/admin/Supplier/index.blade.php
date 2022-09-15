@@ -46,7 +46,7 @@
 
 
                                                                 <a href="{{ url('authorized/supplier/' . $supplier->id . '/edit') }}"
-                                                                    class="btn btn-default">
+                                                                    class="btn btn-success">
                                                                     <i class="fa-solid fa-pen-to-square"></i> </a>
 
 

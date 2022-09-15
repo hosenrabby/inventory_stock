@@ -46,7 +46,7 @@
                                                         <td>
                                                             <div class="d-flex justify-content-center">
                                                                 <a href="{{ url('authorized/product-stock/' . $data->id . '/edit') }}"
-                                                                    class="btn btn-default"><i
+                                                                    class="btn btn-success"><i
                                                                         class="fa-solid fa-pen-to-square"></i></a>
 
                                                                 <form method="post"

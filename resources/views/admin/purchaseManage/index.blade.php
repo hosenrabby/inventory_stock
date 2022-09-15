@@ -20,7 +20,7 @@
                             <div class="card">
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
-                                        <a href="{{ url('authorized/purchase-form') }}"class="btn btn-default mb-3">Purchase Product</a>
+                                        <a href="{{ url('authorized/purchase-form') }}"class="btn btn-primary mb-3">Purchase Product</a>
                                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
@@ -48,7 +48,7 @@
                                                         <td>
                                                             <div class="d-flex justify-content-center">
                                                                 <a href="{{ url('authorized/purchaseinvoice/' .$data->pid) }}"
-                                                                    class="btn btn-default"><i
+                                                                    class="btn btn-default btn btn-success" target="_blank"><i
                                                                         class="fa-solid fa-file-invoice"></i></a>
 
                                                                 <a href="{{ url('authorized/purchase-delete/' . $data->pid) }}"

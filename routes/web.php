@@ -20,6 +20,7 @@ use App\Http\Controllers\invoiceController;
 use App\Http\Controllers\PurchaseManageController2;
 use App\Http\Controllers\ProductstockManageController;
 use App\Http\Controllers\SupplierPaymentListController;
+use App\Http\Controllers\TodayReport;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,7 +76,10 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::resource('customerLedgerReport', customerLedgerReport::class);
         Route::get('purchaseReports', [purchaseLedgerReports::class, 'index']);
         Route::post('purchaseReports', [purchaseLedgerReports::class, 'fetch_data'])->name('purchaseReports');;
-        Route::resource('stockLedgerReport', stockLedgerReport::class);
+        Route::get('stockLedgerReport', [stockLedgerReport::class, 'index']);
+        Route::get('category-product-search/{id}', [stockLedgerReport::class, 'category']);
+        Route::get('subcategory-product-search/{id}', [stockLedgerReport::class, 'subcategory']);
+        Route::get('subcategorydata-product-search/{id}', [stockLedgerReport::class, 'subcategorydata']);
 
 
         Route::get('salesReports', [salesReports::class , 'index']);
@@ -84,5 +88,6 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::resource('supplierPaymentList',SupplierPaymentListController::class);
         Route::resource('customerPaymentList',CustomerpaymentListController::class);
         Route::get('admin-dashboard',[DashboardController::class,'index'])->name('admin-dashboard');
-    });
-});
+        Route::get('TodayReport',[TodayReport::class, 'index']);
+     });
+ });

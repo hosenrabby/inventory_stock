@@ -21,7 +21,7 @@
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
                                         <a
-                                            href="{{ url('authorized/customerPaymentList/create') }}"class="btn btn-default mb-3">Customer
+                                            href="{{ url('authorized/customerPaymentList/create') }}"class="btn btn-primary mb-3">Customer
                                             Payment</a>
                                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                             <thead>
