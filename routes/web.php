@@ -20,6 +20,7 @@ use App\Http\Controllers\invoiceController;
 use App\Http\Controllers\PurchaseManageController2;
 use App\Http\Controllers\ProductstockManageController;
 use App\Http\Controllers\SupplierPaymentListController;
+use App\Http\Controllers\TodayReport;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,5 +82,6 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::resource('supplierPaymentList',SupplierPaymentListController::class);
         Route::resource('customerPaymentList',CustomerpaymentListController::class);
         Route::get('admin-dashboard',[DashboardController::class,'index'])->name('admin-dashboard');
-    });
-});
+        Route::get('TodayReport',[TodayReport::class, 'index']);
+     });
+ });

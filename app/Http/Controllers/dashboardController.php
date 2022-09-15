@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\customer;
-use App\Models\productstockManage;
-use App\Models\purchaseManage;
-use App\Models\SalesProduct;
-use App\Models\stockManagment;
 use App\Models\Supplier;
+use App\Models\SalesProduct;
 use Illuminate\Http\Request;
+use App\Models\purchaseManage;
+use App\Models\stockManagment;
+use Illuminate\Support\Carbon;
+use App\Models\productstockManage;
+use App\Http\Controllers\Controller;
 
 class dashboardController extends Controller
 {
@@ -20,6 +21,12 @@ class dashboardController extends Controller
         $totalsales=SalesProduct::count();
         $totalitemstock=productstockManage::count();
         $purchasableProduct=purchaseManage::count();
+        $todaysales=SalesProduct::whereDate('purchaseDate', Carbon::today())->get();
+         $today=count($todaysales);
+
+        $monthlysales=SalesProduct::whereMonth('purchaseDate', Carbon::now()->month)
+        ->get();
+        $month=count($monthlysales);
 
 
 
@@ -29,6 +36,8 @@ class dashboardController extends Controller
             'totalsales'=>$totalsales,
             'totalitemstock'=>$totalitemstock,
             'purchasableProduct'=>$purchasableProduct,
+            'todaysales'=>$today,
+            'monthlysales'=>$month,
         ]);
 
 
