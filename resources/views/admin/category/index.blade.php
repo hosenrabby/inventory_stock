@@ -40,7 +40,7 @@
                                                             <div class="d-flex justify-content-center">
 
                                                                 <a href="{{ route('category.edit', ['category' =>  $categories->id]) }}"
-                                                                    class="btn btn-default">
+                                                                    class="btn btn-success">
                                                                     <i class="fa-solid fa-pen-to-square"></i></a>
                                                                 <form
                                                                     action="{{ route('category.destroy', ['category' =>  $categories->id]) }}"

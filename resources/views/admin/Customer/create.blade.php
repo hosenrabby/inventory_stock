@@ -75,10 +75,10 @@
                                             <label>Customer Balance</label>
                                             <input type="number" class="form-control" name="customerBalance"
                                                 placeholder="Customer Balance">
-                                        </div>
+                                            </div>
 
-                                        <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>
-                                    </form>
+                                            <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>
+                                        </form>
                                 </div>
                             </div>
                         </div>
