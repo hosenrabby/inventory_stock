@@ -32,8 +32,10 @@
                                                     <th>Supplier Contact</th>
                                                     <th>Payment Date</th>
                                                     <th>Transaction Method</th>
-                                                    <th>Payment Amount</th>
                                                     <th>Note</th>
+                                                    <th>Supplier Prev Balance</th>
+                                                    <th>Payment Amount</th>
+                                                    <th>Supplier Carrnt Balance</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -42,21 +44,21 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $supplierPayment->supplierName }}</td>
-                                                        <td>{{ $supplierPayment->supplierEmail}}</td>
-                                                        <td>{{ $supplierPayment->supplierContact}}</td>
-                                                        <td>{{ $supplierPayment->paymentDate}}</td>
-                                                        <td>{{ $supplierPayment->transactionMethod}}</td>
-                                                        <td>{{ $supplierPayment->paymentAmount}}</td>
-                                                        <td>{{ $supplierPayment->note}}</td>
+                                                        <td>{{ $supplierPayment->supplierEmail }}</td>
+                                                        <td>{{ $supplierPayment->supplierContact }}</td>
+                                                        <td>{{ $supplierPayment->paymentDate }}</td>
+                                                        <td>{{ $supplierPayment->transactionMethod }}</td>
+                                                        <td>{{ $supplierPayment->note }}</td>
+                                                        <td>{{ $supplierPayment->supplierPrevBalance }}</td>
+                                                        <td>{{ $supplierPayment->paymentAmount }}</td>
+                                                        <td>{{ $supplierPayment->supplierCarrentBalance }}</td>
 
                                                         <td>
                                                             <div class="d-flex justify-content-center">
-                                                                <a href=""
-                                                                    class="btn btn-default"><i
+                                                                <a href="" class="btn btn-default"><i
                                                                         class="fa-solid fa-pen-to-square"></i></a>
 
-                                                                <form method="post"
-                                                                    action="">
+                                                                <form method="post" action="">
                                                                     @method('DELETE')
                                                                     @csrf
                                                                     <button type="submit"

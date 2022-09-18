@@ -28,7 +28,9 @@
                                                     <th>Supplier Email</th>
                                                     <th>Supplier Phone</th>
                                                     <th>Supplier Address</th>
+                                                    <th>Supplier Previous Balance</th>
                                                     <th>Supplier Carrent Balance</th>
+                                                    <th>Note</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -40,7 +42,9 @@
                                                         <td>{{ $supplier->supplierEmail }}</td>
                                                         <td>{{ $supplier->supplierPhone }}</td>
                                                         <td>{{ $supplier->supplierAddress }}</td>
+                                                        <td>{{ $supplier->supplierPrevBalance }} ৳</td>
                                                         <td>{{ $supplier->supplierCarrentBalance }} ৳</td>
+                                                        <td>{{ $supplier->note }}</td>
                                                         <td>
                                                             <div class="d-flex justify-content-center">
 
@@ -56,7 +60,8 @@
                                                                     @method('DELETE')
                                                                     @csrf
                                                                     <button type="submit"
-                                                                        class="btn btn-danger ml-1 delete-confirm"><i class="fa-solid fa-trash-can"></i></button>
+                                                                        class="btn btn-danger ml-1 delete-confirm"><i
+                                                                            class="fa-solid fa-trash-can"></i></button>
                                                                 </form>
                                                             </div>
                                                         </td>

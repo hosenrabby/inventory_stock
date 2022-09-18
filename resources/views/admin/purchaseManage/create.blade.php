@@ -17,7 +17,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-title">
-                                    <h4>Product Stock Form</h4>
+                                    <h4>Product Stock Invoice</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">

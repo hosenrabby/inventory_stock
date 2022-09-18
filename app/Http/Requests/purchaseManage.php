@@ -26,8 +26,6 @@ class purchaseManage extends FormRequest
         return [
             'invNumber'=>'Bail|required|string',
             'supplierName'=>'Bail|required|string',
-            'catagoryName'=>'Bail|required|string',
-            'subCatagoryName'=>'Bail|required|string',
             'purchaseDate'=>'Bail|required|date',
             'productID'=>'Bail|required',
             'prodQty'=>'Bail|required',

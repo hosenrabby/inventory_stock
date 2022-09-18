@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <!-- Custom Style -->
@@ -21,15 +23,20 @@
             <section class="top-content bb d-flex justify-content-between">
                 <div class="logo">
 
-                    <img src="{{ asset('public/assets/images/invlogo.png') }}" alt="logo" class="img-fluid" width="250px" height="250px">
+                    <img src="{{ asset('public/assets/images/invlogo.png') }}" alt="logo" class="img-fluid"
+                        width="250px" height="250px">
                 </div>
                 <div class="top-left">
-                    <p><strong>Invoice No:</strong>@foreach ($productGranTotal as $item)
-                        {{ $item->invNumber }}
-                    @endforeach</p>
-                    <p><strong>Date:</strong>@foreach ($productGranTotal as $item)
-                        {{ $item->purchaseDate }}
-                    @endforeach</p>
+                    <p><strong>Invoice No:</strong>
+                        @foreach ($productGranTotal as $item)
+                            {{ $item->invNumber }}
+                        @endforeach
+                    </p>
+                    <p><strong>Date:</strong>
+                        @foreach ($productGranTotal as $item)
+                            {{ $item->purchaseDate }}
+                        @endforeach
+                    </p>
                 </div>
             </section>
 
@@ -70,36 +77,36 @@
                                     <tr>
                                         <H5>
                                             @foreach ($supplier as $item)
-                                            {{ $item->supplierName}}
-                                        @endforeach
-                                    </H5>
-                                     </tr>
+                                                {{ $item->supplierName }}
+                                            @endforeach
+                                        </H5>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <th>Mobile :</th>
                                         <td>
                                             @foreach ($supplier as $item)
-                                            {{ $item->supplierPhone}}
-                                        @endforeach
+                                                {{ $item->supplierPhone }}
+                                            @endforeach
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Email :</th>
                                         <td>
                                             @foreach ($supplier as $item)
-                                            {{ $item->supplierEmail}}
-                                        @endforeach
+                                                {{ $item->supplierEmail }}
+                                            @endforeach
                                         </td>
-                                     </tr>
+                                    </tr>
                                     <tr>
                                         <th>Address :</th>
                                         <td>
                                             @foreach ($supplier as $item)
-                                            {{ $item->supplierAddress}}
-                                        @endforeach
+                                                {{ $item->supplierAddress }}
+                                            @endforeach
                                         </td>
-                                     </tr>
+                                    </tr>
 
                                 </tbody>
                             </table>
@@ -123,21 +130,21 @@
                     </thead>
                     <tbody>
                         @foreach ($product as $item)
-                        <tr>
-                            <td>
-                                <div class="media">
+                            <tr>
+                                <td>
+                                    <div class="media">
 
-                                    <div class="media-body">
-                                        <p class="mt-0 title">
-                                            {{ $item->productName }}
-                                        </p>
+                                        <div class="media-body">
+                                            <p class="mt-0 title">
+                                                {{ $item->productName }}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td>{{ $item->prodRate }} ৳</td>
-                            <td>{{ $item->prodQty }}</td>
-                            <td>{{ $item->totalPrice }} ৳</td>
-                        </tr>
+                                </td>
+                                <td>{{ $item->prodRate }} ৳</td>
+                                <td>{{ $item->prodQty }}</td>
+                                <td>{{ $item->totalPrice }} ৳</td>
+                            </tr>
                         @endforeach
 
                     </tbody>
@@ -156,7 +163,23 @@
                                     <td>Grand Total:</td>
                                     <td>
                                         @foreach ($productGranTotal as $item)
-                                        {{ $item->grandTotal }}
+                                            {{ $item->grandTotal }}
+                                        @endforeach
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Paid Amount:</td>
+                                    <td>
+                                        @foreach ($productGranTotal as $item)
+                                            {{ $item->paidAmount }}
+                                        @endforeach
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Dues Amount:</td>
+                                    <td>
+                                        @foreach ($productGranTotal as $item)
+                                            {{ $item->duesAmount }}
                                         @endforeach
                                     </td>
                                 </tr>
@@ -165,7 +188,8 @@
 
                         <!-- Signature -->
                         <div class="col-12">
-                            <img src="{{ asset('public/assets/images/invsignature.png') }}" class="img-fluid" alt="">
+                            <img src="{{ asset('public/assets/images/invsignature.png') }}" class="img-fluid"
+                                alt="">
                             <p class="text-center m-0"> Director Signature </p>
                         </div>
                     </div>
@@ -195,4 +219,5 @@
         </div>
     </div>
 </body>
+
 </html>

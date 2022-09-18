@@ -20,7 +20,8 @@ return new class extends Migration
             $table->integer('supplierPhone');
             $table->string('supplierAddress');
             $table->string('note');
-            $table->decimal('supplierCarrentBalance',8,2);
+            $table->decimal('supplierPrevBalance',10,2);
+            $table->decimal('supplierCarrentBalance',10,2);
             $table->timestamps();
         });
     }

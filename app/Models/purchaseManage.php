@@ -24,5 +24,6 @@ class purchaseManage extends Model
         'grandTotal',
         'paidAmount',
         'duesAmount',
+        'note',
     ];
 }

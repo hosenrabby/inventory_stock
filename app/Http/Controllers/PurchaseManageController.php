@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\purchaseManage;
 use App\Models\productstockManage;
 use App\Models\purchaseShortManage;
+use App\Models\supplierPaymentList;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Input\Input;
 
@@ -93,7 +94,22 @@ class PurchaseManageController extends Controller
             'supplierName' => $supplierName,
             'purchaseDate' => $purchaseDate,
         ];
-        purchaseShortManage::create($shortData);
+        $shortDataInsert = purchaseShortManage::create($shortData);
+
+        if ($shortDataInsert) {
+            $findSupp = Supplier::find($supplierID);
+            $supPamntData = [
+                'supplierName' => $supplierName,
+                'supplierEmail' => $findSupp->supplierEmail,
+                'supplierContact' => $findSupp->supplierPhone,
+                'paymentDate' => $purchaseDate,
+                'supplierPrevBalance' => $findSupp->supplierCarrentBalance,
+                'paymentAmount' => $paidAmount,
+                'supplierCarrentBalance' => $findSupp->supplierCarrentBalance + $duesAmount,
+            ];
+            // return $supPamntData;
+            supplierPaymentList::create($supPamntData);
+        }
 
         if ($inserted) {
             //Supplier Stock Update

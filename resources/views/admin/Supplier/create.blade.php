@@ -25,73 +25,80 @@
                                     <form class="forms-sample" action="{{ url('authorized/supplier') }}" method="POST">
                                         {!! csrf_field() !!}
                                         <div class="row">
-                                        <div class="form-group col">
+                                            <div class="form-group col">
 
-                                            <label>Supplier Name</label>
-                                            <input type="text"
-                                                class="form-control @error('supplierName')
+                                                <label>Supplier Name</label>
+                                                <input type="text"
+                                                    class="form-control @error('supplierName')
                                                 is-invalid
 
                                                 @enderror"
-                                                name="supplierName" placeholder="Supplier Name"
-                                                value="{{ old('supplierName') }}">
-                                            @error('supplierName')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
+                                                    name="supplierName" placeholder="Supplier Name"
+                                                    value="{{ old('supplierName') }}">
+                                                @error('supplierName')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
 
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group col">
-                                            <label>Supplier Email</label>
-                                            <input type="text"
-                                                class="form-control @error('supplierEmail') is-invalid
-
-                                                @enderror"
-                                                name="supplierEmail" placeholder="Supplier Email"
-                                                value="{{ old('supplierEmail') }}">
-                                            @error('supplierEmail')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-5">
-                                            <label>Supplier Phone</label>
-                                            <input type="text"
-                                                class="form-control @error('supplierPhone') is-invalid
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group col">
+                                                <label>Supplier Email</label>
+                                                <input type="text"
+                                                    class="form-control @error('supplierEmail') is-invalid
 
                                                 @enderror"
-                                                name="supplierPhone" placeholder="Supplier Phone"
-                                                value="{{ old('supplierPhone') }}">
-                                            @error('supplierPhone')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
+                                                    name="supplierEmail" placeholder="Supplier Email"
+                                                    value="{{ old('supplierEmail') }}">
+                                                @error('supplierEmail')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
 
-                                                </span>
-                                            @enderror
+                                                    </span>
+                                                @enderror
+                                            </div>
                                         </div>
-                                        <div class="form-group col-7">
-                                            <label>Supplier Address</label>
-                                            <input type="text" class="form-control" name="supplierAddress"
-                                                placeholder="Supplier Address">
+                                        <div class="row">
+                                            <div class="form-group col-5">
+                                                <label>Supplier Phone</label>
+                                                <input type="text"
+                                                    class="form-control @error('supplierPhone') is-invalid
+
+                                                @enderror"
+                                                    name="supplierPhone" placeholder="Supplier Phone"
+                                                    value="{{ old('supplierPhone') }}">
+                                                @error('supplierPhone')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group col-7">
+                                                <label>Supplier Address</label>
+                                                <input type="text" class="form-control" name="supplierAddress"
+                                                    placeholder="Supplier Address">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col">
-                                            <label>Note</label>
-                                            <input type="text" class="form-control" name="note"
-                                                placeholder="Some note About Supplier">
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <label>Note</label>
+                                                <input type="text" class="form-control" name="note"
+                                                    placeholder="Some note About Supplier">
+                                            </div>
                                         </div>
-                                        <div class="form-group col">
-                                            <label>Supplier Carrent Balance</label>
-                                            <input type="number" class="form-control" name="supplierCarrentBalance"
-                                                placeholder="Supplier Carrent Balance">
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <label>Supplier Previous Balance</label>
+                                                <input type="number" class="form-control" name="supplierPrevBalance"
+                                                    placeholder="Supplier Previous Balance">
+                                            </div>
+                                            <div class="form-group col">
+                                                <label>Supplier Carrent Balance</label>
+                                                <input type="number" class="form-control" name="supplierCarrentBalance"
+                                                    placeholder="Supplier Carrent Balance">
+                                            </div>
                                         </div>
-                                    </div>
 
                                         <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>
                                     </form>
