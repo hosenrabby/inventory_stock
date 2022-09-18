@@ -34,20 +34,10 @@ class PurchaseManageController extends Controller
         $maxid = purchaseManage::select(DB::raw('MAX(pid) AS pid'))->get();
         return response()->json($maxid, 200);
     }
-    public function subCat($id)
+    public function prodCode($pCode)
     {
-        $subCat = subCategory::where('category_id', $id)->get();
-        return response()->json($subCat , 200);
-    }
-    public function catProd($id)
-    {
-        $catProd = productstockManage::where('catagoryID', $id)->get();
-        return response()->json($catProd , 200);
-    }
-    public function subProd($id)
-    {
-        $subProd = productstockManage::where('subCatagoryID', $id)->get();
-        return response()->json($subProd , 200);
+        $code = productstockManage::where('prodCode', $pCode)->get();
+        return response()->json($code , 200);
     }
 
     public function create()

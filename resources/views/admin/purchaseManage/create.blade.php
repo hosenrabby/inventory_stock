@@ -83,7 +83,7 @@
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Code</label>
-                                                        <input type="text" class="form-control" name="prodCode[]" id="prodCode1" placeholder="Product Code">
+                                                        <input type="text" class="form-control" name="prodCode[]" id="prodCode1" onkeyup="prodCode(1)" placeholder="Product Code">
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product QTY</label>
@@ -163,7 +163,7 @@
             row+= '</div>'
             row+= '<div class="form-group col">'
             row+= '<label>Product Code</label>'
-            row+= '<input type="number" class="form-control" name="prodCode[]" id="prodCode'+i+'" placeholder="Product Code">'
+            row+= '<input type="number" class="form-control" name="prodCode[]" id="prodCode'+i+'" onkeyup="prodCode('+i+')" placeholder="Product Code">'
             row+= '</div>'
             row+= '<div class="form-group col">'
             row+= '<label>Product QTY</label>'
@@ -209,27 +209,33 @@
                             }
                         });
                     }
-                }
 
-    // $('#category').change(function(){
-    //     var catID = $(this).find("option:selected").attr('id');
-    //     if (catID) {
-    //             $.ajax({
-    //                 url: "{{ url('/authorized/purchase-data2') }}/"+catID,
-    //                 type: "GET",
-    //                 cache: false,
-    //                 dataType: "json",
-    //                 success: function(data) {
-    //                     var output = '<option value="" id="">Select Sub Catagory</option>';
-    //                     for(var i = 0; i < data.length; i++)
-    //                     {
-    //                     output += '<option value="'+data[i].subCategoryName+'" id="'+data[i].id+'">'+data[i].subCategoryName+'</option>';
-    //                     }
-    //                     $('#subCat').html(output);
-    //                 }
-    //             });
-    //         }
-    //     })
+        }
+
+    function prodCode(id){
+        var prodCod = $('#prodCode'+id).val();
+        if (prodCod) {
+                $.ajax({
+                    url: "{{ url('/authorized/purchase-data2') }}/"+prodCod,
+                    type: "GET",
+                    cache: false,
+                    dataType: "json",
+                    success: function(data) {
+                        var output = '<option value="" id="">Select Sub Catagory</option>';
+                        for(var i = 0; i < data.length; i++)
+                        {
+                        output += '<option selected value="'+data[i].id+'" id="'+data[i].id+'">'+data[i].productName+'</option>';
+                        }
+                        $('#prodName'+id).html(output);
+
+                        $.each(data, function(key, value) {
+                            $('#prodRate'+id).val(value.prodRate);
+                        })
+
+                    }
+                });
+            }
+    }
 
     // function catProd(){
     //     var catID = $('#category').find("option:selected").attr('id');
