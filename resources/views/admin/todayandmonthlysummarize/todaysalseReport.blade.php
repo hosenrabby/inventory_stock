@@ -8,7 +8,7 @@
                     <div class="col-lg-12 p-l-0 title-margin-left">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Purchase manage</li>
+                            <li class="breadcrumb-item active">Today Sales</li>
                         </ol>
                     </div>
                     <!-- /# column -->
@@ -20,52 +20,58 @@
                             <div class="card">
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
-                                        <a href="{{ url('authorized/purchase-form') }}"class="btn btn-primary mb-3">Purchase Product</a>
                                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th>Action</th>
                                                     <th>SL</th>
-                                                    {{-- <th>Product Name</th>
-                                                    <th>Product Code</th> --}}
                                                     <th>Invoice Number</th>
-                                                    <th>Suplier Name</th>
+                                                    <th>Customer Name</th>
                                                     <th>Purchase Date</th>
-                                                    {{-- <th>Product QTY</th>
+                                                    <th>Product Name</th>
+                                                    <th>Product Code</th>
+                                                    <th>Product Quantity</th>
                                                     <th>Product Rate</th>
                                                     <th>Total Price</th>
                                                     <th>Grand Total</th>
-                                                    <th>Paid Ammount</th>
-                                                    <th>Dues Ammount</th> --}}
-
+                                                    <th>Paid Amount</th>
+                                                    <th>Dues Amount</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($data as $data)
+                                                @foreach ($todaysalseReport as $todaysalseReport)
                                                     <tr>
                                                         <td>
                                                             <div class="d-flex justify-content-center">
-                                                                <a href="{{ url('authorized/purchaseinvoice/' .$data->pID) }}"
+                                                                <a href="{{ url('authorized/salesinvoice/' . $todaysalseReport->invoice_id) }}"
                                                                     class="btn btn-default btn btn-success" target="_blank"><i
                                                                         class="fa-solid fa-file-invoice"></i></a>
+                                                                <a href="{{ url('authorized/salesproduct-inv-del/' . $todaysalseReport->invoice_id) }}"
+                                                                            class="btn btn-danger ml-1"><i
+                                                                            class="fa-solid fa-trash-can"></i></a>
 
-                                                                <a href="{{ url('authorized/purchase-delete/' . $data->pID) }}"
-                                                                    class="btn btn-danger ml-1"><i
-                                                                    class="fa-solid fa-trash-can"></i></a>
+                                                                {{-- <form method="post"
+                                                                    action="{{ url('authorized/salesproduct/' . $todaysalseReport->id) }}">
+                                                                    @method('DELETE')
+                                                                    @csrf
+                                                                    <button type="submit"
+                                                                        class="btn btn-danger ml-1 delete-confirm"><i
+                                                                            class="fa-solid fa-trash-can"></i></button>
+                                                                </form> --}}
                                                             </div>
                                                         </td>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        {{-- <td>{{ $data->productName }}</td>
-                                                        <td>{{ $data->prodCode }}</td> --}}
-                                                        <td>{{ $data->invNumber }}</td>
-                                                        <td>{{ $data->supplierName }}</td>
-                                                        <td>{{ $data->purchaseDate }}</td>
-                                                        {{-- <td>{{ $data->prodQty }}</td>
-                                                        <td>{{ $data->prodRate }}</td>
-                                                        <td>{{ $data->grandTotal }}</td>
-                                                        <td>{{ $data->totalPrice }} ৳</td>
-                                                        <td>{{ $data->paidAmount }}</td>
-                                                        <td>{{ $data->duesAmount }}</td> --}}
+                                                        <td>{{ $todaysalseReport->invNumber }}</td>
+                                                        <td>{{ $todaysalseReport->customerName }}</td>
+                                                        <td>{{ $todaysalseReport->purchaseDate }}</td>
+                                                        <td>{{ $todaysalseReport->productName }}</td>
+                                                        <td>{{ $todaysalseReport->prodCode }}</td>
+                                                        <td>{{ $todaysalseReport->prodQty }}</td>
+                                                        <td>{{ $todaysalseReport->prodRate }}</td>
+                                                        <td>{{ $todaysalseReport->totalPrice }}</td>
+                                                        <td>{{ $todaysalseReport->grandTotal }}</td>
+                                                        <td>{{ $todaysalseReport->paidAmount }}</td>
+                                                        <td>{{ $todaysalseReport->duesAmount }}</td>
 
                                                     </tr>
                                                 @endforeach

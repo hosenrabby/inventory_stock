@@ -40,7 +40,7 @@
                                                         <td>{{ $supplier->supplierEmail }}</td>
                                                         <td>{{ $supplier->supplierPhone }}</td>
                                                         <td>{{ $supplier->supplierAddress }}</td>
-                                                        <td>{{ $supplier->supplierCarrentBalance }}</td>
+                                                        <td>{{ $supplier->supplierCarrentBalance }} ৳</td>
                                                         <td>
                                                             <div class="d-flex justify-content-center">
 

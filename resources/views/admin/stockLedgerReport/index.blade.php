@@ -23,13 +23,13 @@
                                <form action="#" method="POST">
                                 <div class="form-group ml-5">
                                     <div class="row">
-                                        <select class="form-control col category_records" name="category" id="categoryid">
+                                        <select class="form-control col category_records" name="category" id="categoryid" style="width:150px">
                                             <option value="Select Category" selected>Select Category</option>
                                             @foreach ($stock as $item)
                                                 <option value="{{ $item->id }}" sid="{{ $item->id }}">{{ $item->categoryName }}</option>
                                             @endforeach
                                         </select>
-                                        <select class="form-control ml-3 col select2 subcategory_records" name="subCategoryName" id="subCategoryName">
+                                        <select class="form-control ml-3 col select2 subcategory_records" name="subCategoryName" id="subCategoryName" style="width:150px">
                                             <option value="Select SubCategory" selected>Select SubCategory</option>
                                             {{-- @foreach ($data as $item) --}}
                                                 <option value="" id=""></option>
@@ -53,7 +53,7 @@
                             <div class="card">
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
-                                        <table id="" class="table table-striped table-bordered">
+                                        <table id="" class="table table-striped table-bordered ">
                                             <thead>
                                                 <tr>
                                                     <th>SL</th>
@@ -66,11 +66,11 @@
                                             <tbody>
                                                 @foreach ($product as $item)
                                                 <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $item->productName }}</td>
-                                                    <td>{{ $item->prodCode }}</td>
-                                                    <td>{{ $item->prodRate }}</td>
-                                                    <td>{{ $item->stockBalance }}</td>
+                                                    <td >{{ $loop->iteration }}</td>
+                                                    <td >{{ $item->productName }}</td>
+                                                    <td >{{ $item->prodCode }}</td>
+                                                    <td >{{ $item->prodRate }}</td>
+                                                    <td >{{ $item->stockBalance }}</td>
                                                 </tr>
                                                 @endforeach
 

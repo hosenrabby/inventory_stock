@@ -63,12 +63,12 @@
                                             <div class="form-group col">
                                                 <label>Product Rate</label>
                                                 <input type="number" class="form-control" name="prodRate"
-                                                    placeholder="Product Rate" value="{{ $findData->prodRate }}">
+                                                    placeholder="Product Rate" value="{{ $findData->prodRate }} ">
                                             </div>
                                             <div class="form-group col">
                                                 <label>Stock Balance</label>
                                                 <input type="number" class="form-control" name="stockBalance"
-                                                    placeholder="Stock Balance" value="{{ $findData->stockBalance }}">
+                                                    placeholder="Stock Balance" value="{{ $findData->stockBalance }} ">
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>
