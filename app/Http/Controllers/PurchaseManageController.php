@@ -9,6 +9,7 @@ use App\Models\subCategory;
 use Illuminate\Http\Request;
 use App\Models\purchaseManage;
 use App\Models\productstockManage;
+use App\Models\purchaseShortManage;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Input\Input;
 
@@ -16,10 +17,11 @@ class PurchaseManageController extends Controller
 {
     public function index()
     {
-        $data = DB::table('purchase_manage')
-                ->leftJoin('productstock_manages' , 'purchase_manage.productID','=','productstock_manages.id')->get([
-                    'purchase_manage.*' ,
-                    'productstock_manages.productName',]);
+        // $data = DB::table('purchase_manage')
+        //         ->leftJoin('productstock_manages' , 'purchase_manage.productID','=','productstock_manages.id')->get([
+        //             'purchase_manage.*' ,
+        //             'productstock_manages.productName',]);
+        $data = purchaseShortManage::all();
         return view('admin.purchaseManage.index' , compact('data'));
     }
 
@@ -56,8 +58,6 @@ class PurchaseManageController extends Controller
         $pid = $request->pid;
         $invNumber = $request->invNumber;
         $supplierName = $request->supplierName;
-        $catagoryName = $request->catagoryName;
-        $subCatagoryName = $request->subCatagoryName;
         $purchaseDate = $request->purchaseDate;
         $productID = $request->productID;
         $prodCode = $request->prodCode;
@@ -69,14 +69,12 @@ class PurchaseManageController extends Controller
         $duesAmount = $request->duesAmount;
 
         for ($i=0; $i <count($productID) ; $i++) {
-            $daraInsert =[
+            $dataInsert =[
                 'pid' => $pid,
                 'productID' => $productID[$i],
                 'prodCode' => $prodCode[$i],
                 'invNumber' => $invNumber,
                 'purchaseDate' => $purchaseDate,
-                'catagoryName' => $catagoryName,
-                'subCatagoryName' => $subCatagoryName,
                 'supplierID' => $supplierID,
                 'supplierName' => $supplierName,
                 'prodQty' => $prodQty[$i],
@@ -86,8 +84,17 @@ class PurchaseManageController extends Controller
                 'paidAmount' => $paidAmount,
                 'duesAmount' => $duesAmount,
             ];
-            $inserted = purchaseManage::create($daraInsert);
+            $inserted = purchaseManage::create($dataInsert);
+
         }
+        $shortData = [
+            'pID' => $pid,
+            'invNumber' => $invNumber,
+            'supplierName' => $supplierName,
+            'purchaseDate' => $purchaseDate,
+        ];
+        purchaseShortManage::create($shortData);
+
         if ($inserted) {
             //Supplier Stock Update
             $findSupplier = Supplier::find($supplierID);

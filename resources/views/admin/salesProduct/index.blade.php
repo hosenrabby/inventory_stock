@@ -67,8 +67,8 @@
                                                         <td>{{ $data->productName }}</td>
                                                         <td>{{ $data->prodCode }}</td>
                                                         <td>{{ $data->prodQty }}</td>
-                                                        <td>{{ $data->prodRate }}</td>
-                                                        <td>{{ $data->totalPrice }}</td>
+                                                        <td>{{ $data->prodRate }} ৳</td>
+                                                        <td>{{ $data->totalPrice }} ৳</td>
                                                         <td>{{ $data->grandTotal }}</td>
                                                         <td>{{ $data->paidAmount }}</td>
                                                         <td>{{ $data->duesAmount }}</td>

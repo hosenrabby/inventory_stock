@@ -134,9 +134,9 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>{{ $item->prodRate }}</td>
+                            <td>{{ $item->prodRate }} ৳</td>
                             <td>{{ $item->prodQty }}</td>
-                            <td>{{ $item->totalPrice }}</td>
+                            <td>{{ $item->totalPrice }} ৳</td>
                         </tr>
                         @endforeach
 

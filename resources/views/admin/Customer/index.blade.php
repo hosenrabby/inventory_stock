@@ -40,7 +40,7 @@
                                             <td>{{ $customers->customerEmail }}</td>
                                             <td>{{ $customers->customerPhone }}</td>
                                             <td>{{ $customers->customerAddress }}</td>
-                                            <td>{{ $customers->customerBalance }}</td>
+                                            <td>{{ $customers->customerBalance }} ৳</td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
                                                     <a href="{{ route('customer.edit', ['customer'=>$customers->id]) }}" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></a>

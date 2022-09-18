@@ -20,8 +20,6 @@ return new class extends Migration
             $table->string('prodCode');
             $table->string('invNumber');
             $table->string('purchaseDate');
-            $table->string('catagoryName');
-            $table->string('subCatagoryName')->default('No Name');
             $table->integer('supplierID');
             $table->string('supplierName');
             $table->integer('prodQty');

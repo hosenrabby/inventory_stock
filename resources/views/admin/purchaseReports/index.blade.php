@@ -119,8 +119,8 @@ $(document).ready(function(){
      output += '<td>' + data[i].invNumber + '</td>';
      output += '<td>' + data[i].purchaseDate + '</td>';
      output += '<td>' + data[i].prodQty + '</td>';
-     output += '<td>' + data[i].prodRate + '</td>';
-     output += '<td>' + data[i].totalPrice + '</td>';
+     output += '<td>' + data[i].prodRate + ' </td>';
+     output += '<td>' + data[i].totalPrice + ' </td>';
      output += '<td>' + data[i].grandTotal + '</td>';
      output += '<td>' + data[i].paidAmount + '</td>';
      output += '<td>' + data[i].duesAmount + '</td></tr>';
