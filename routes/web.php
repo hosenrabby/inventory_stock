@@ -21,6 +21,7 @@ use App\Http\Controllers\PurchaseManageController2;
 use App\Http\Controllers\ProductstockManageController;
 use App\Http\Controllers\SupplierPaymentListController;
 use App\Http\Controllers\TodayReport;
+use App\Http\Controllers\todaysalseReport;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,9 +52,7 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::post('purchase-form-insert', [PurchaseManageController::class , 'store']);
         Route::get('purchase-data/{id}', [PurchaseManageController::class , 'ProdData']);
         Route::get('purchase-data1/{id}', [PurchaseManageController::class , 'maxID']);
-        Route::get('purchase-data2/{id}', [PurchaseManageController::class , 'subCat']);
-        Route::get('purchase-data3/{id}', [PurchaseManageController::class , 'catProd']);
-        Route::get('purchase-data4/{id}', [PurchaseManageController::class , 'subProd']);
+        Route::get('purchase-data2/{id}', [PurchaseManageController::class , 'prodCode']);
         Route::get('purchase-delete/{pid}', [PurchaseManageController::class , 'destroy']);
 
         Route::get('salesproduct', [SalesProductController::class , 'index']);
@@ -90,5 +89,8 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::resource('customerPaymentList',CustomerpaymentListController::class);
         Route::get('admin-dashboard',[DashboardController::class,'index'])->name('admin-dashboard');
         Route::get('TodayReport',[TodayReport::class, 'index']);
+        Route::get('todaysalseReport',[DashboardController::class,'todaysalseReport']);
+        Route::get('monthlysalseReport',[DashboardController::class,'monthlysalseReport']);
+
      });
  });

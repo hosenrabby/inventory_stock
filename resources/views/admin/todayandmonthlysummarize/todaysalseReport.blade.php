@@ -8,7 +8,7 @@
                     <div class="col-lg-12 p-l-0 title-margin-left">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Total Sales</li>
+                            <li class="breadcrumb-item active">Today Sales</li>
                         </ol>
                     </div>
                     <!-- /# column -->
@@ -39,19 +39,19 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($showData as $data)
+                                                @foreach ($todaysalseReport as $todaysalseReport)
                                                     <tr>
                                                         <td>
                                                             <div class="d-flex justify-content-center">
-                                                                <a href="{{ url('authorized/salesinvoice/' . $data->invoice_id) }}"
+                                                                <a href="{{ url('authorized/salesinvoice/' . $todaysalseReport->invoice_id) }}"
                                                                     class="btn btn-default btn btn-success" target="_blank"><i
                                                                         class="fa-solid fa-file-invoice"></i></a>
-                                                                <a href="{{ url('authorized/salesproduct-inv-del/' . $data->invoice_id) }}"
+                                                                <a href="{{ url('authorized/salesproduct-inv-del/' . $todaysalseReport->invoice_id) }}"
                                                                             class="btn btn-danger ml-1"><i
                                                                             class="fa-solid fa-trash-can"></i></a>
 
                                                                 {{-- <form method="post"
-                                                                    action="{{ url('authorized/salesproduct/' . $data->id) }}">
+                                                                    action="{{ url('authorized/salesproduct/' . $todaysalseReport->id) }}">
                                                                     @method('DELETE')
                                                                     @csrf
                                                                     <button type="submit"
@@ -61,17 +61,17 @@
                                                             </div>
                                                         </td>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $data->invNumber }}</td>
-                                                        <td>{{ $data->customerName }}</td>
-                                                        <td>{{ $data->purchaseDate }}</td>
-                                                        <td>{{ $data->productName }}</td>
-                                                        <td>{{ $data->prodCode }}</td>
-                                                        <td>{{ $data->prodQty }}</td>
-                                                        <td>{{ $data->prodRate }}</td>
-                                                        <td>{{ $data->totalPrice }}</td>
-                                                        <td>{{ $data->grandTotal }}</td>
-                                                        <td>{{ $data->paidAmount }}</td>
-                                                        <td>{{ $data->duesAmount }}</td>
+                                                        <td>{{ $todaysalseReport->invNumber }}</td>
+                                                        <td>{{ $todaysalseReport->customerName }}</td>
+                                                        <td>{{ $todaysalseReport->purchaseDate }}</td>
+                                                        <td>{{ $todaysalseReport->productName }}</td>
+                                                        <td>{{ $todaysalseReport->prodCode }}</td>
+                                                        <td>{{ $todaysalseReport->prodQty }}</td>
+                                                        <td>{{ $todaysalseReport->prodRate }}</td>
+                                                        <td>{{ $todaysalseReport->totalPrice }}</td>
+                                                        <td>{{ $todaysalseReport->grandTotal }}</td>
+                                                        <td>{{ $todaysalseReport->paidAmount }}</td>
+                                                        <td>{{ $todaysalseReport->duesAmount }}</td>
 
                                                     </tr>
                                                 @endforeach
