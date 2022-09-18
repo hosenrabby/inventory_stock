@@ -80,6 +80,7 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::get('category-product-search/{id}', [stockLedgerReport::class, 'category']);
         Route::get('subcategory-product-search/{id}', [stockLedgerReport::class, 'subcategory']);
         Route::get('subcategorydata-product-search/{id}', [stockLedgerReport::class, 'subcategorydata']);
+        Route::get('stockLedgerInvoice', [stockLedgerReport::class, 'stockPrint']);
 
 
         Route::get('salesReports', [salesReports::class , 'index']);
