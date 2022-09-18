@@ -24,7 +24,8 @@
                                 <div class="basic-form">
                                     <form class="forms-sample" action="{{ url('authorized/supplier') }}" method="POST">
                                         {!! csrf_field() !!}
-                                        <div class="form-group">
+                                        <div class="row">
+                                        <div class="form-group col">
 
                                             <label>Supplier Name</label>
                                             <input type="text"
@@ -41,7 +42,7 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group col">
                                             <label>Supplier Email</label>
                                             <input type="text"
                                                 class="form-control @error('supplierEmail') is-invalid
@@ -56,7 +57,9 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                        <div class="form-group">
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-5">
                                             <label>Supplier Phone</label>
                                             <input type="text"
                                                 class="form-control @error('supplierPhone') is-invalid
@@ -71,17 +74,24 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group col-7">
                                             <label>Supplier Address</label>
                                             <input type="text" class="form-control" name="supplierAddress"
                                                 placeholder="Supplier Address">
                                         </div>
-                                        <div class="form-group">
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col">
+                                            <label>Note</label>
+                                            <input type="text" class="form-control" name="note"
+                                                placeholder="Some note About Supplier">
+                                        </div>
+                                        <div class="form-group col">
                                             <label>Supplier Carrent Balance</label>
                                             <input type="number" class="form-control" name="supplierCarrentBalance"
                                                 placeholder="Supplier Carrent Balance">
                                         </div>
-
+                                    </div>
 
                                         <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>
                                     </form>

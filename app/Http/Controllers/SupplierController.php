@@ -38,9 +38,25 @@ class SupplierController extends Controller
      */
     public function store(supplierRequest $request)
     {
-        $input= $request->all();
+        // $input= $request->all();
+        $supplierName = $request->supplierName;
+        $supplierEmail = $request->supplierEmail;
+        $supplierPhone = $request->supplierPhone;
+        $supplierAddress = $request->supplierAddress;
+        $note = $request->note;
+        $supplierCarrentBalance = $request->supplierCarrentBalance;
 
-        Supplier::create($input);
+        $supplier = [
+            'supplierName' => $supplierName,
+            'supplierEmail' => $supplierEmail,
+            'supplierPhone' => $supplierPhone,
+            'supplierAddress' => $supplierAddress,
+            'note' => $note,
+            'supplierCarrentBalance' => $supplierCarrentBalance,
+        ];
+
+        Supplier::create($supplier);
+        // Supplier::create($input);
         return redirect('authorized/supplier')->with('success', 'Supplier create successfully.');
     }
 
