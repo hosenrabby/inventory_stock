@@ -53,7 +53,7 @@
                             <div class="card">
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
-                                        <table id="" class="table table-striped table-bordered">
+                                        <table id="" class="table table-striped table-bordered ">
                                             <thead>
                                                 <tr>
                                                     <th>SL</th>
@@ -66,11 +66,11 @@
                                             <tbody>
                                                 @foreach ($product as $item)
                                                 <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $item->productName }}</td>
-                                                    <td>{{ $item->prodCode }}</td>
-                                                    <td>{{ $item->prodRate }}</td>
-                                                    <td>{{ $item->stockBalance }}</td>
+                                                    <td >{{ $loop->iteration }}</td>
+                                                    <td >{{ $item->productName }}</td>
+                                                    <td >{{ $item->prodCode }}</td>
+                                                    <td >{{ $item->prodRate }}</td>
+                                                    <td >{{ $item->stockBalance }}</td>
                                                 </tr>
                                                 @endforeach
 

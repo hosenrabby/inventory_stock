@@ -65,9 +65,9 @@
                                                         <td>{{ $data->subCatagoryName }}</td>
                                                         <td>{{ $data->supplierName }}</td>
                                                         <td>{{ $data->prodQty }}</td>
-                                                        <td>{{ $data->prodRate }}</td>
+                                                        <td>{{ $data->prodRate }} ৳</td>
                                                         <td>{{ $data->grandTotal }}</td>
-                                                        <td>{{ $data->totalPrice }}</td>
+                                                        <td>{{ $data->totalPrice }} ৳</td>
                                                         <td>{{ $data->paidAmount }}</td>
                                                         <td>{{ $data->duesAmount }}</td>
 

@@ -41,8 +41,8 @@
                                                         <td>{{ $data->prodCode }}</td>
                                                         <td>{{ $data->categoryName }}</td>
                                                         <td>{{ $data->subCategoryName }}</td>
-                                                        <td>{{ $data->prodRate }}</td>
-                                                        <td>{{ $data->stockBalance }}</td>
+                                                        <td>{{ $data->prodRate }} ৳</td>
+                                                        <td>{{ $data->stockBalance }} ৳</td>
                                                         <td>
                                                             <div class="d-flex justify-content-center">
                                                                 <a href="{{ url('authorized/product-stock/' . $data->id . '/edit') }}"
