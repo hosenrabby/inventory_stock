@@ -21,6 +21,7 @@ use App\Http\Controllers\PurchaseManageController2;
 use App\Http\Controllers\ProductstockManageController;
 use App\Http\Controllers\SupplierPaymentListController;
 use App\Http\Controllers\TodayReport;
+use App\Http\Controllers\todaysalseReport;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,5 +90,8 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::resource('customerPaymentList',CustomerpaymentListController::class);
         Route::get('admin-dashboard',[DashboardController::class,'index'])->name('admin-dashboard');
         Route::get('TodayReport',[TodayReport::class, 'index']);
+        Route::get('todaysalseReport',[DashboardController::class,'todaysalseReport']);
+        Route::get('monthlysalseReport',[DashboardController::class,'monthlysalseReport']);
+
      });
  });

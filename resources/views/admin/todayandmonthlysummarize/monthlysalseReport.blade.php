@@ -8,7 +8,7 @@
                     <div class="col-lg-12 p-l-0 title-margin-left">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Total Sales</li>
+                            <li class="breadcrumb-item active">Monthly Sales</li>
                         </ol>
                     </div>
                     <!-- /# column -->
@@ -39,7 +39,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($showData as $data)
+                                                @foreach ($monthlysalseReport as $data)
                                                     <tr>
                                                         <td>
                                                             <div class="d-flex justify-content-center">

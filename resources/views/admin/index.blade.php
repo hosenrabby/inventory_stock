@@ -31,7 +31,7 @@
                             <a href="{{ url('authorized/salesproduct') }}">
                                 <div class="card">
                                     <div class="stat-widget-one">
-                                        <div class="stat-icon dib"><i class="ti-stats-up color-success border-success"></i>
+                                        <div class="stat-icon dib"><i class="ti-bar-chart color-success border-success"></i>
                                         </div>
                                         <div class="stat-content dib">
                                             <div class="stat-text">Total sales</div>
@@ -42,10 +42,10 @@
                             </a>
                         </div>
                         <div class="col-lg-4">
-                            <a href="{{ url('authorized/salesproduct') }}">
+                            <a href="{{ url('authorized/monthlysalseReport') }}">
                                 <div class="card">
                                     <div class="stat-widget-one">
-                                        <div class="stat-icon dib"><i class="ti-stats-up color-success border-success"></i>
+                                        <div class="stat-icon dib"><i class="ti-calendar color-info border-info"></i>
                                         </div>
                                         <div class="stat-content dib">
                                             <div class="stat-text">Monthly sales</div>
@@ -56,28 +56,28 @@
                             </a>
                         </div>
                         <div class="col-lg-4">
-                            <a href="{{ url('#') }}">
+                            <a href="{{ url('authorized/todaysalseReport') }}">
                                 <div class="card">
                                     <div class="stat-widget-one">
                                         <div class="stat-icon dib"><i class="ti-stats-up color-success border-success"></i>
                                         </div>
                                         <div class="stat-content dib">
-                                            <div class="stat-text">Total sales</div>
-                                            <div class="stat-digit"></div>
+                                            <div class="stat-text">Today Sales</div>
+                                            <div class="stat-digit">{{ $todaysales }}</div>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-4">
-                            <a href="{{ url('authorized/salesproduct') }}">
+                            <a href="{{ url('#') }}">
                                 <div class="card">
                                     <div class="stat-widget-one">
-                                        <div class="stat-icon dib"><i class="ti-stats-up color-success border-success"></i>
+                                        <div class="stat-icon dib"><i class="ti-stats-up color-warning border-warning"></i>
                                         </div>
                                         <div class="stat-content dib">
-                                            <div class="stat-text">To Day sales</div>
-                                            <div class="stat-digit">{{ $todaysales }}</div>
+                                            <div class="stat-text"></div>
+                                            <div class="stat-digit"></div>
                                         </div>
                                     </div>
                                 </div>

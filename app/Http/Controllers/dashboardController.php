@@ -24,8 +24,7 @@ class dashboardController extends Controller
         $todaysales=SalesProduct::whereDate('purchaseDate', Carbon::today())->get();
          $today=count($todaysales);
 
-        $monthlysales=SalesProduct::whereMonth('purchaseDate', Carbon::now()->month)
-        ->get();
+        $monthlysales=SalesProduct::whereMonth('purchaseDate', Carbon::now()->month)->get();
         $month=count($monthlysales);
 
 
@@ -40,6 +39,17 @@ class dashboardController extends Controller
             'monthlysales'=>$month,
         ]);
 
+
+    }
+    public function todaysalseReport(){
+        $todaysalseReport=SalesProduct::whereDate('purchaseDate', Carbon::today())->get();
+        return view('admin.todayandmonthlysummarize.todaysalseReport',compact('todaysalseReport'));
+
+    }
+    public function monthlysalseReport(){
+        $monthlysalseReport=SalesProduct::whereMonth('purchaseDate', Carbon::now()->month)
+        ->get();
+        return view('admin.todayandmonthlysummarize.monthlysalseReport',compact('monthlysalseReport'));
 
     }
 
