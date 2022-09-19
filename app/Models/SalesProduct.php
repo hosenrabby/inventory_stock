@@ -26,5 +26,6 @@ class SalesProduct extends Model
         'grandTotal',
         'paidAmount',
         'duesAmount',
+        'note',
     ];
 }

@@ -110,7 +110,12 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col"></div>
+                                                <div class="col">
+                                                    <div class="form-group col">
+                                                        <label>Note</label>
+                                                        <input type="text" class="form-control" name="note" id="note" placeholder="Some Note">
+                                                    </div>
+                                                </div>
                                                 <div class="form-group col">
                                                     <label>Grand Total</label>
                                                     <input type="number" class="form-control" name="grandTotal" id="grandTot" onkeyup="parchaseCal()" placeholder="Grand Total">
@@ -221,7 +226,7 @@
                     cache: false,
                     dataType: "json",
                     success: function(data) {
-                        var output = '<option value="" id="">Select Sub Catagory</option>';
+                        var output = '<option value="" id="">Select Product</option>';
                         for(var i = 0; i < data.length; i++)
                         {
                         output += '<option selected value="'+data[i].id+'" id="'+data[i].id+'">'+data[i].productName+'</option>';

@@ -60,6 +60,7 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::post('sales-form-insert', [SalesProductController::class , 'store']);
         Route::get('salesproduct-data/{id}', [SalesProductController::class , 'selData']);
         Route::get('salesproduct-data2/{id}', [SalesProductController::class , 'selData2']);
+        Route::get('salesproduct-data3/{id}', [SalesProductController::class , 'productCode']);
         Route::get('salesproduct-inv-del/{id}', [SalesProductController::class , 'destroy']);
 
 

@@ -89,7 +89,7 @@
                                                             <label>Product Code</label>
                                                             <input type="number" class="form-control @error('prodCode') is-invalid
 
-                                                            @enderror" name="prodCode[]" id="productCode1" placeholder="Product Code" value="{{ old('prodCode[]') }}">
+                                                            @enderror" name="prodCode[]" id="productCode1" onkeyup="prodCode(1)" placeholder="Product Code" value="{{ old('prodCode[]') }}">
                                                             @error('prodCode')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -144,7 +144,12 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col"></div>
+                                                <div class="col">
+                                                    <div class="form-group col">
+                                                        <label>Note</label>
+                                                        <input type="text" class="form-control" name="note" id="note" placeholder="Some Note">
+                                                    </div>
+                                                </div>
                                                 <div class="form-group col">
                                                     <label>Grand Total</label>
                                                     <input type="number" class="form-control @error('grandTotal') is-invalid
@@ -203,7 +208,7 @@
             row+='</div>'
             row+='<div class="form-group col">'
             row+='<label>Product Code</label>'
-            row+='<input type="number" class="form-control" name="prodCode[]" id="productCode'+i+'" placeholder="Product Code">'
+            row+='<input type="number" class="form-control" name="prodCode[]" id="productCode'+i+'" onkeyup="prodCode('+i+')" placeholder="Product Code">'
             row+='</div>'
             row+='<div class="form-group col">'
             row+='<label>Product QTY<span id="qtyLabel'+i+'"></span></label>'
@@ -250,6 +255,32 @@
                         });
                     }
                 }
+
+    function prodCode(id){
+        var prodCod = $('#productCode'+id).val();
+        if (prodCod) {
+                $.ajax({
+                    url: "{{ url('/authorized/salesproduct-data3') }}/"+prodCod,
+                    type: "GET",
+                    cache: false,
+                    dataType: "json",
+                    success: function(data) {
+                        var output = '<option value="" id="">Select Product</option>';
+                        for(var i = 0; i < data.length; i++)
+                        {
+                        output += '<option selected value="'+data[i].id+'" id="'+data[i].id+'">'+data[i].productName+'</option>';
+                        }
+                        $('#productName'+id).html(output);
+
+                        $.each(data, function(key, value) {
+                            $('#productRate'+id).val(value.prodRate);
+                            $('#qtyLabel'+id).html('(Available Stock)'+value.stockBalance);
+                        })
+
+                    }
+                });
+            }
+    }
 
     function max_id(){
         var id=$('#invoice_id').val();

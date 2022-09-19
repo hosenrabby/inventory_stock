@@ -44,14 +44,37 @@ class CustomerpaymentListController extends Controller
      */
     public function store(RequestsCustomerpaymentList $request)
     {
-        $input= $request->all();
-        $dataInsert = customerpaymentList::create($input);
+        // $input= $request->all();
+        // $dataInsert = customerpaymentList::create($input);
 
         $cusID = $request->cusID;
-        $paidBlnc = $request->paymentAmount;
+        $customerName = $request->customerName;
+        $customerEmail = $request->customerEmail;
+        $customerContact = $request->customerContact;
+        $paymentDate = $request->paymentDate;
+        $transactionMethod = $request->transactionMethod;
+        $paymentAmount = $request->paymentAmount;
+        $note = $request->note;
+
+        $findCust = customer::find($cusID);
+        $paymListInsert = [
+            'customerName' => $customerName,
+            'customerEmail' => $customerEmail,
+            'customerContact' => $customerContact,
+            'paymentDate' => $paymentDate,
+            'transactionMethod' => $transactionMethod,
+            'note' => $note,
+            'custoPrevBalance' => $findCust->customerBalance,
+            'paymentAmount' => $paymentAmount,
+            'custoCarrentBalance' => $findCust->customerBalance - $paymentAmount,
+        ];
+        $dataInsert = customerpaymentList::create($paymListInsert);
+
+
+        // $paidBlnc = $request->paymentAmount;
         if ($dataInsert) {
             $findCustomer = customer::find($cusID);
-            $custoBlncUpdate = $findCustomer->customerBalance - $paidBlnc;
+            $custoBlncUpdate = $findCustomer->customerBalance - $paymentAmount;
             $UpdateBlnc = [
                 'customerBalance' => $custoBlncUpdate
             ];

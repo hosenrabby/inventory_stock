@@ -32,8 +32,10 @@
                                                     <th>Customer Contact</th>
                                                     <th>Payment Date</th>
                                                     <th>Transaction Method</th>
-                                                    <th>Payment Amount</th>
                                                     <th>Note</th>
+                                                    <th>Customer Prev Blnc</th>
+                                                    <th>Payment Amount</th>
+                                                    <th>Customer Currnt Blnc</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -46,8 +48,10 @@
                                                         <td>{{ $customerPayment->customerContact }}</td>
                                                         <td>{{ $customerPayment->paymentDate }}</td>
                                                         <td>{{ $customerPayment->transactionMethod }}</td>
-                                                        <td>{{ $customerPayment->paymentAmount }}</td>
                                                         <td>{{ $customerPayment->note }}</td>
+                                                        <td>{{ $customerPayment->custoPrevBalance }}</td>
+                                                        <td>{{ $customerPayment->paymentAmount }}</td>
+                                                        <td>{{ $customerPayment->custoCarrentBalance }}</td>
 
                                                         <td>
                                                             <div class="d-flex justify-content-center">
