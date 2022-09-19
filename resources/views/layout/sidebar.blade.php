@@ -86,6 +86,7 @@
                         <li><a href="{{ url('authorized/purchaseReports') }}">Purchase Reports</a></li>
                         <li><a href="{{ url('/authorized/salesReports') }}">Sales Reports</a></li>
                         <li><a href="{{ url('/authorized/supplierpaymentreport') }}">Supplier Payment Reports</a></li>
+                        <li><a href="{{ url('/authorized/customerpaymentreport') }}">Customer Payment Reports</a></li>
 
                     </ul>
                 </li>
