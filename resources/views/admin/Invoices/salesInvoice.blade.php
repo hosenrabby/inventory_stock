@@ -150,6 +150,18 @@
                                         {{ $item->grandTotal }}
                                     @endforeach</td>
                                 </tr>
+                                <tr>
+                                    <td>Paid Amount:</td>
+                                    <td>@foreach ($salesData1 as $item)
+                                        {{ $item->paidAmount }}
+                                    @endforeach</td>
+                                </tr>
+                                <tr>
+                                    <td>Dues Amount:</td>
+                                    <td>@foreach ($salesData1 as $item)
+                                        {{ $item->duesAmount }}
+                                    @endforeach</td>
+                                </tr>
                             </tfoot>
                         </table>
 

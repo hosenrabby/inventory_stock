@@ -28,14 +28,14 @@
                                                     <th>Invoice Number</th>
                                                     <th>Customer Name</th>
                                                     <th>Purchase Date</th>
-                                                    <th>Product Name</th>
+                                                    {{-- <th>Product Name</th>
                                                     <th>Product Code</th>
                                                     <th>Product Quantity</th>
                                                     <th>Product Rate</th>
                                                     <th>Total Price</th>
                                                     <th>Grand Total</th>
                                                     <th>Paid Amount</th>
-                                                    <th>Dues Amount</th>
+                                                    <th>Dues Amount</th> --}}
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -64,14 +64,14 @@
                                                         <td>{{ $data->invNumber }}</td>
                                                         <td>{{ $data->customerName }}</td>
                                                         <td>{{ $data->purchaseDate }}</td>
-                                                        <td>{{ $data->productName }}</td>
+                                                        {{-- <td>{{ $data->productName }}</td>
                                                         <td>{{ $data->prodCode }}</td>
                                                         <td>{{ $data->prodQty }}</td>
                                                         <td>{{ $data->prodRate }} ৳</td>
                                                         <td>{{ $data->totalPrice }} ৳</td>
                                                         <td>{{ $data->grandTotal }}</td>
                                                         <td>{{ $data->paidAmount }}</td>
-                                                        <td>{{ $data->duesAmount }}</td>
+                                                        <td>{{ $data->duesAmount }}</td> --}}
 
                                                     </tr>
                                                 @endforeach

@@ -68,6 +68,7 @@ class PurchaseManageController extends Controller
         $grandTotal = $request->grandTotal;
         $paidAmount = $request->paidAmount;
         $duesAmount = $request->duesAmount;
+        $note = $request->note;
 
         for ($i=0; $i <count($productID) ; $i++) {
             $dataInsert =[
@@ -84,6 +85,7 @@ class PurchaseManageController extends Controller
                 'grandTotal' => $grandTotal,
                 'paidAmount' => $paidAmount,
                 'duesAmount' => $duesAmount,
+                'note' => $note,
             ];
             $inserted = purchaseManage::create($dataInsert);
 
@@ -106,6 +108,7 @@ class PurchaseManageController extends Controller
                 'supplierPrevBalance' => $findSupp->supplierCarrentBalance,
                 'paymentAmount' => $paidAmount,
                 'supplierCarrentBalance' => $findSupp->supplierCarrentBalance + $duesAmount,
+                'note' => $note,
             ];
             // return $supPamntData;
             supplierPaymentList::create($supPamntData);

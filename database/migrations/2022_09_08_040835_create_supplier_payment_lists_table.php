@@ -23,7 +23,7 @@ return new class extends Migration
             $table->decimal('supplierPrevBalance',10,2)->default(00.00);
             $table->decimal('paymentAmount',10,2)->default(00.00);
             $table->decimal('supplierCarrentBalance',10,2)->default(00.00);
-            $table->string('note');
+            $table->string('note')->default('------');
             $table->timestamps();
         });
     }

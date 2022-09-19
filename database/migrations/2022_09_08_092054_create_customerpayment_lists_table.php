@@ -16,11 +16,13 @@ return new class extends Migration
         Schema::create('customerpayment_lists', function (Blueprint $table) {
             $table->id();
             $table->string('customerName');
-            $table->string('customerEmail');
-            $table->string('customerContact');
+            $table->string('customerEmail')->default('customer@email.com');
+            $table->string('customerContact')->default('01XXXXXXXXX');
             $table->string('paymentDate');
-            $table->string('transactionMethod');
-            $table->decimal('paymentAmount',10,2);
+            $table->string('transactionMethod')->default('------');
+            $table->decimal('custoPrevBalance',10,2)->default(00.00);
+            $table->decimal('paymentAmount',10,2)->default(00.00);
+            $table->decimal('custoCarrentBalance',10,2)->default(00.00);
             $table->string('note');
             $table->timestamps();
         });

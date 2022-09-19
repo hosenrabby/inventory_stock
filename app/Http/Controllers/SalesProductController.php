@@ -8,17 +8,22 @@ use Illuminate\Http\Request;
 use App\Models\stockManagment;
 use App\Models\productstockManage;
 use Illuminate\Support\Facades\DB;
+use App\Models\purchaseShortManage;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\customerpaymentList;
 use App\Http\Requests\salesProduct as RequestsSalesProduct;
+use App\Models\customerpaymentList as ModelsCustomerpaymentList;
+use App\Models\salsShortMang;
 
 class SalesProductController extends Controller
 {
 
     public function index()
     {
-        $showData=DB::table('sales_products')
-        ->leftJoin('productstock_manages', 'sales_products.productID', '=', 'productstock_manages.id')
-        ->get();
+        // $showData=DB::table('sales_products')
+        // ->leftJoin('productstock_manages', 'sales_products.productID', '=', 'productstock_manages.id')
+        // ->get();
+        $showData = salsShortMang::all();
         return view('admin.salesProduct.index', compact('showData'));
     }
 
@@ -30,6 +35,11 @@ class SalesProductController extends Controller
     public function selData2($id){
         $maxid = SalesProduct::select(DB::raw('MAX(invoice_id) AS invoice_id'))->get();
         return response()->json($maxid, 200);
+    }
+
+    public function productCode($pCode){
+        $code = productstockManage::where('prodCode', $pCode)->get();
+        return response()->json($code , 200);
     }
 
     public function create()
@@ -56,6 +66,7 @@ class SalesProductController extends Controller
         $grandTotal = $request->grandTotal;
         $paidAmount = $request->paidAmount;
         $duesAmount = $request->duesAmount;
+        $note = $request->note;
 
         for ($i=0; $i <count($productID) ; $i++) {
             $daraInsert =[
@@ -72,9 +83,34 @@ class SalesProductController extends Controller
                 'grandTotal' => $grandTotal,
                 'paidAmount' => $paidAmount,
                 'duesAmount' => $duesAmount,
+                'note' => $note,
             ];
             $inserted = SalesProduct::create($daraInsert);
         }
+
+        $shortData = [
+            'invoice_id' => $invoice_id,
+            'invNumber' => $invNumber,
+            'customerName' => $customerName,
+            'purchaseDate' => $purchaseDate,
+        ];
+        $shortDataInsert = salsShortMang::create($shortData);
+
+        if ($shortDataInsert) {
+            $findCust = customer::find($customer_id);
+            $custPamntData = [
+                'customerName' => $customerName,
+                'customerEmail' => $findCust->customerEmail,
+                'customerContact' => $findCust->customerPhone,
+                'paymentDate' => $purchaseDate,
+                'custoPrevBalance' => $findCust->customerBalance,
+                'paymentAmount' => $paidAmount,
+                'custoCarrentBalance' => $findCust->customerBalance + $duesAmount,
+                'note' => $note,
+            ];
+            ModelsCustomerpaymentList::create($custPamntData);
+        }
+
         if ($inserted) {
             //Customer Stock Update
             $findCustomer = customer::find($customer_id);
