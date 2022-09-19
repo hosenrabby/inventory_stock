@@ -40,7 +40,7 @@
                                                         <td>{{ $item->customerEmail }}</td>
                                                         <td>{{ $item->customerPhone }}</td>
                                                         <td>{{ $item->customerAddress }}</td>
-                                                        <td>{{ $item->customerBalance }}</td>
+                                                        <td>{{ $item->customerBalance }} ৳</td>
                                                     </tr>
                                                 @endforeach
 

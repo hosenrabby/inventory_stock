@@ -46,7 +46,7 @@
                                                         <td>{{ $customerPayment->customerContact }}</td>
                                                         <td>{{ $customerPayment->paymentDate }}</td>
                                                         <td>{{ $customerPayment->transactionMethod }}</td>
-                                                        <td>{{ $customerPayment->paymentAmount }}</td>
+                                                        <td>{{ $customerPayment->paymentAmount }} ৳</td>
                                                         <td>{{ $customerPayment->note }}</td>
 
                                                         <td>
