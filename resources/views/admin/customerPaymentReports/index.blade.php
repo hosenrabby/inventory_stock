@@ -23,50 +23,39 @@
                             <div class="card">
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
-                                        <table id="supplierReport" class="table table-striped table-bordered">
+                                        <table id="customerReport" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th>SL</th>
-                                                    <th>Supplier Name</th>
-                                                    <th>Supplier Email</th>
-                                                    <th>Supplier Contact</th>
+                                                    <th>Customer Name</th>
+                                                    <th>Customer Email</th>
+                                                    <th>Customer Contact</th>
                                                     <th>Payment Date</th>
                                                     <th>Transaction Method</th>
                                                     <th>Note</th>
-                                                    <th>Supplier Prev Balance</th>
+                                                    <th>Cutomer Prev Balance</th>
                                                     <th>Payment Amount</th>
-                                                    <th>Supplier Carrnt Balance</th>
+                                                    <th>Customer Carrnt Balance</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($supplier as $supplierreport)
+                                                @foreach ($customer as $customerreport)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $supplierreport->supplierName }}</td>
-                                                        <td>{{ $supplierreport->supplierEmail }}</td>
-                                                        <td>{{ $supplierreport->supplierContact }}</td>
-                                                        <td>{{ $supplierreport->paymentDate }}</td>
-                                                        <td>{{ $supplierreport->transactionMethod }}</td>
-                                                        <td>{{ $supplierreport->note }}</td>
-                                                        <td>{{ $supplierreport->supplierPrevBalance }}</td>
-                                                        <td>{{ $supplierreport->paymentAmount }}</td>
-                                                        <td>{{ $supplierreport->supplierCarrentBalance }}</td>
+                                                        <td>{{ $customerreport->customerName }}</td>
+                                                        <td>{{ $customerreport->customerEmail }}</td>
+                                                        <td>{{ $customerreport->customerContact }}</td>
+                                                        <td>{{ $customerreport->paymentDate }}</td>
+                                                        <td>{{ $customerreport->transactionMethod }}</td>
+                                                        <td>{{ $customerreport->note }}</td>
+                                                        <td>{{ $customerreport->custoPrevBalance }}</td>
+                                                        <td>{{ $customerreport->paymentAmount }}</td>
+                                                        <td>{{ $customerreport->custoCarrentBalance }}</td>
                                                     </tr>
                                                 @endforeach
-                                                <tr>
-                                                    <td style="display: none"></td>
-                                                    <td style="display: none"></td>
-                                                    <td style="display: none"></td>
-                                                    <td style="display: none"></td>
-                                                    <td style="display: none"></td>
-                                                    <td style="display: none"></td>
-                                                    <td style="display: none"></td>
-                                                    <td style="display: none"></td>
-                                                    <td colspan="9">Total:</td>
-                                                    <td colspan="1">{{ $balance }}</td>
-                                                </tr>
                                             </tbody>
-                                            <tfoot style="display: none">
+                                            <tfoot>
                                                 <tr>
                                                     <td></td>
                                                     <td></td>
@@ -76,9 +65,10 @@
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
-                                                    <td colspan="9"></td>
-                                                    <td colspan="1"></td>
+                                                    <td>Total:</td>
+                                                    <td>{{ $balance }}</td>
                                                 </tr>
+
                                             </tfoot>
                                         </table>
                                     </div>
@@ -104,7 +94,7 @@
 
 <script>
 $(document).ready(function() {
-    $('#supplierReport').DataTable( {
+    $('#customerReport').DataTable( {
         dom: 'Bfrtip',
         buttons: [
             'print'
