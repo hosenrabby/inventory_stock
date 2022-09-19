@@ -21,6 +21,8 @@ class dashboardController extends Controller
         $totalsales=SalesProduct::count();
         $totalitemstock=productstockManage::count();
         $purchasableProduct=purchaseManage::count();
+        $invoice=SalesProduct::count();
+        
         $todaysales=SalesProduct::whereDate('purchaseDate', Carbon::today())->get();
          $today=count($todaysales);
 
@@ -35,6 +37,7 @@ class dashboardController extends Controller
             'totalsales'=>$totalsales,
             'totalitemstock'=>$totalitemstock,
             'purchasableProduct'=>$purchasableProduct,
+            'invoice'=>$invoice,
             'todaysales'=>$today,
             'monthlysales'=>$month,
         ]);

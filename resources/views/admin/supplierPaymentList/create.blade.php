@@ -75,7 +75,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Payment Date</label>
-                                            <input type="text" class="form-control @error('paymentDate') is-invalid
+                                            <input type="text" class="form-control datepicker @error('paymentDate') is-invalid
 
                                             @enderror " name="paymentDate"
                                                 placeholder="Payment Date" value="{{ old('paymentDate') }}">

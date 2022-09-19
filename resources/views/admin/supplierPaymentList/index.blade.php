@@ -1,5 +1,6 @@
 @extends('layout.master')
 @section('content')
+
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
@@ -49,9 +50,9 @@
                                                         <td>{{ $supplierPayment->paymentDate }}</td>
                                                         <td>{{ $supplierPayment->transactionMethod }}</td>
                                                         <td>{{ $supplierPayment->note }}</td>
-                                                        <td>{{ $supplierPayment->supplierPrevBalance }}</td>
+                                                        <td>{{ $supplierPayment->supplierPrevBalance }} ৳</td>
                                                         <td>{{ $supplierPayment->paymentAmount }}</td>
-                                                        <td>{{ $supplierPayment->supplierCarrentBalance }}</td>
+                                                        <td>{{ $supplierPayment->supplierCarrentBalance }} ৳</td>
 
                                                         <td>
                                                             <div class="d-flex justify-content-center">
@@ -83,4 +84,6 @@
             </div>
         </div>
     </div>
+
 @endsection
+

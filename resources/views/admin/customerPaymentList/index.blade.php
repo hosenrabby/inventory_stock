@@ -50,7 +50,7 @@
                                                         <td>{{ $customerPayment->transactionMethod }}</td>
                                                         <td>{{ $customerPayment->note }}</td>
                                                         <td>{{ $customerPayment->custoPrevBalance }}</td>
-                                                        <td>{{ $customerPayment->paymentAmount }}</td>
+                                                        <td>{{ $customerPayment->paymentAmount }} ৳</td>
                                                         <td>{{ $customerPayment->custoCarrentBalance }}</td>
 
                                                         <td>

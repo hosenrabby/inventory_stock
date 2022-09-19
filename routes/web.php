@@ -1,27 +1,28 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\TodayReport;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\salesReports;
+use App\Http\Controllers\todaysalseReport;
+use App\Http\Controllers\invoiceController;
+use App\Http\Controllers\stockLedgerReport;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\customerLedgerReport;
-use App\Http\Controllers\purchaseLedgerReports;
-use App\Http\Controllers\PurchaseManageController;
-use App\Http\Controllers\SalesProductController;
-use App\Http\Controllers\salesReports;
-use App\Http\Controllers\stockLedgerReport;
-use App\Http\Controllers\SupplierLedgerReport;
-use App\Http\Controllers\SubCategoryController;
-use App\Http\Controllers\CompanyDetailsController;
-use App\Http\Controllers\CustomerpaymentListController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\invoiceController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\customerLedgerReport;
+use App\Http\Controllers\SupplierLedgerReport;
+use App\Http\Controllers\purchaseLedgerReports;
+use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\supplierpaymentreport;
+use App\Http\Controllers\SalesProductController;
+use App\Http\Controllers\CompanyDetailsController;
+use App\Http\Controllers\PurchaseManageController;
 use App\Http\Controllers\PurchaseManageController2;
 use App\Http\Controllers\ProductstockManageController;
+use App\Http\Controllers\CustomerpaymentListController;
 use App\Http\Controllers\SupplierPaymentListController;
-use App\Http\Controllers\TodayReport;
-use App\Http\Controllers\todaysalseReport;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,6 +88,8 @@ Route::group(['prefix' => 'authorized'] , function(){
 
         Route::get('salesReports', [salesReports::class , 'index']);
         Route::post('salesReports-search', [salesReports::class , 'searchData']);
+
+        Route::get('supplierpaymentreport', [supplierpaymentreport::class, 'index']);
 
         Route::resource('supplierPaymentList',SupplierPaymentListController::class);
         Route::resource('customerPaymentList',CustomerpaymentListController::class);

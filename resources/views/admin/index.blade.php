@@ -70,14 +70,15 @@
                             </a>
                         </div>
                         <div class="col-lg-4">
-                            <a href="{{ url('#') }}">
+                            <a href="{{ url('authorized/salesproduct') }}">
                                 <div class="card">
                                     <div class="stat-widget-one">
-                                        <div class="stat-icon dib"><i class="ti-stats-up color-warning border-warning"></i>
+                                        <div class="stat-icon dib"><i class="ti-file color-warning border-warning"></i>
                                         </div>
                                         <div class="stat-content dib">
-                                            <div class="stat-text"></div>
-                                            <div class="stat-digit"></div>
+                                            <div class="stat-text">Invoice</div>
+
+                                            <div class="stat-digit">{{ $invoice }}</div>
                                         </div>
                                     </div>
                                 </div>
