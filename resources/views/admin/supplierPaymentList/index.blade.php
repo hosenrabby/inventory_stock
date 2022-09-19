@@ -1,5 +1,6 @@
 @extends('layout.master')
 @section('content')
+
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
@@ -83,4 +84,6 @@
             </div>
         </div>
     </div>
+
 @endsection
+
