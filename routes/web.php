@@ -13,6 +13,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\customerLedgerReport;
 use App\Http\Controllers\SupplierLedgerReport;
+use App\Http\Controllers\customerpaymentreport;
 use App\Http\Controllers\purchaseLedgerReports;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\supplierpaymentreport;
