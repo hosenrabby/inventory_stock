@@ -17,7 +17,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-title">
-                                    <h4>Product Stock Form</h4>
+                                    <h4>Product Stock Invoice</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
@@ -31,7 +31,7 @@
                                                 <div class="col">
                                                     <div class="form-group">
                                                         <label>Invoice Number</label>
-                                                        <input type="number" class="form-control @error('invNumber') is-invalid
+                                                        <input type="text" class="form-control @error('invNumber') is-invalid
 
                                                         @enderror" name="invNumber" placeholder="Invoice Number" value="{{ old('invNumber') }}">
                                                         @error('invNumber')

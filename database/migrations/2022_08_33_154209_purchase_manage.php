@@ -20,8 +20,6 @@ return new class extends Migration
             $table->string('prodCode');
             $table->string('invNumber');
             $table->string('purchaseDate');
-            $table->string('catagoryName');
-            $table->string('subCatagoryName')->default('No Name');
             $table->integer('supplierID');
             $table->string('supplierName');
             $table->integer('prodQty');
@@ -30,6 +28,7 @@ return new class extends Migration
             $table->decimal('grandTotal',8,2);
             $table->decimal('paidAmount',8,2);
             $table->decimal('duesAmount',8,2);
+            $table->string('note')->default('------');
             $table->timestamps();
         });
     }

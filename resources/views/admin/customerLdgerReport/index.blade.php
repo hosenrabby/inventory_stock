@@ -22,53 +22,45 @@
                                     <div class="table-responsive">
                                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                             <thead>
+                                                <a class="btn btn-success" href="{{ url('authorized/customerInoices/') }}" role="button"><i class="fa fa-print"></i> Print Invoice</a>
                                                 <tr>
                                                     <th>Serial No</th>
                                                     <th>Supplier Name</th>
                                                     <th>Supplier Email</th>
                                                     <th>Supplier Phone</th>
                                                     <th>Supplier Address</th>
-                                                    <th>Supplier Previous Balance</th>
                                                     <th>Supplier Carrent Balance</th>
-                                                    <th>Note</th>
-                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($input as $supplier)
+                                                @foreach ($customer as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $supplier->supplierName }}</td>
-                                                        <td>{{ $supplier->supplierEmail }}</td>
-                                                        <td>{{ $supplier->supplierPhone }}</td>
-                                                        <td>{{ $supplier->supplierAddress }}</td>
-                                                        <td>{{ $supplier->supplierPrevBalance }} ৳</td>
-                                                        <td>{{ $supplier->supplierCarrentBalance }} ৳</td>
-                                                        <td>{{ $supplier->note }}</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-
-
-                                                                <a href="{{ url('authorized/supplier/' . $supplier->id . '/edit') }}"
-                                                                    class="btn btn-success">
-                                                                    <i class="fa-solid fa-pen-to-square"></i> </a>
-
-
-                                                                <form
-                                                                    action="{{ url('authorized/supplier/' . $supplier->id) }}"
-                                                                    method="POST">
-                                                                    @method('DELETE')
-                                                                    @csrf
-                                                                    <button type="submit"
-                                                                        class="btn btn-danger ml-1 delete-confirm"><i
-                                                                            class="fa-solid fa-trash-can"></i></button>
-                                                                </form>
-                                                            </div>
-                                                        </td>
+                                                        <td>{{ $item->customerName }}</td>
+                                                        <td>{{ $item->customerEmail }}</td>
+                                                        <td>{{ $item->customerPhone }}</td>
+                                                        <td>{{ $item->customerAddress }}</td>
+                                                        <td>{{ $item->customerBalance }}</td>
                                                     </tr>
                                                 @endforeach
 
                                             </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>Total:</td>
+                                                    <td>
+                                                        {{-- @foreach ($balance as $item)
+                                                        {{ echo $item; }}
+                                                        @endforeach --}}
+                                                        {{ $balance }}
+                                                    </td>
+
+                                                </tr>
+                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>

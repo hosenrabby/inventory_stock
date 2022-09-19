@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('suppliers', function (Blueprint $table) {
+        Schema::create('purchase_short_manages', function (Blueprint $table) {
             $table->id();
+            $table->integer('pID');
+            $table->string('invNumber');
             $table->string('supplierName');
-            $table->string('supplierEmail');
-            $table->integer('supplierPhone');
-            $table->string('supplierAddress');
-            $table->string('note');
-            $table->decimal('supplierPrevBalance',10,2);
-            $table->decimal('supplierCarrentBalance',10,2);
+            $table->string('purchaseDate');
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suppliers');
+        Schema::dropIfExists('purchase_short_manages');
     }
 };

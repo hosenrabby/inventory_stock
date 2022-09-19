@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Supplier;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\supplierRequest;
+use App\Models\supplierPaymentList;
 use Illuminate\Http\Request;
 
 class SupplierController extends Controller
@@ -38,9 +39,36 @@ class SupplierController extends Controller
      */
     public function store(supplierRequest $request)
     {
-        $input= $request->all();
+        // $input= $request->all();
+        $supplierName = $request->supplierName;
+        $supplierEmail = $request->supplierEmail;
+        $supplierPhone = $request->supplierPhone;
+        $supplierAddress = $request->supplierAddress;
+        $note = $request->note;
+        $supplierPrevBalance = $request->supplierPrevBalance;
+        $supplierCarrentBalance = $request->supplierCarrentBalance;
 
-        Supplier::create($input);
+        $supplier = [
+            'supplierName' => $supplierName,
+            'supplierEmail' => $supplierEmail,
+            'supplierPhone' => $supplierPhone,
+            'supplierAddress' => $supplierAddress,
+            'note' => $note,
+            'supplierPrevBalance' => $supplierPrevBalance,
+            'supplierCarrentBalance' => $supplierCarrentBalance,
+        ];
+        Supplier::create($supplier);
+        // Supplier::create($input);
+        $supPayment = [
+            'supplierName' => $supplierName,
+            'supplierEmail' => $supplierEmail,
+            'supplierContact' => $supplierPhone,
+            'paymentDate' => date('d-m-Y'),
+            'note' => $note,
+            'supplierPrevBalance' => $supplierPrevBalance,
+            'supplierCarrentBalance' => $supplierCarrentBalance,
+        ];
+        supplierPaymentList::create($supPayment);
         return redirect('authorized/supplier')->with('success', 'Supplier create successfully.');
     }
 

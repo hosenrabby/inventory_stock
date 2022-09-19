@@ -37,4 +37,10 @@ class stockLedgerReport extends Controller
         $data=productstockManage::where('subCatagoryID', $id)->select('id', 'productName', 'prodCode', 'prodRate', 'stockBalance')->get();
         return response()->json($data, 200);
     }
+
+    public function stockPrint(){
+
+        $product=productstockManage::all();
+        return view('admin.Invoices.stockInvoice', compact('product'));
+    }
 }

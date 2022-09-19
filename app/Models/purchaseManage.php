@@ -16,8 +16,6 @@ class purchaseManage extends Model
         'prodCode',
         'invNumber',
         'purchaseDate',
-        'catagoryName',
-        'subCatagoryName',
         'supplierID',
         'supplierName',
         'prodQty',
@@ -26,5 +24,6 @@ class purchaseManage extends Model
         'grandTotal',
         'paidAmount',
         'duesAmount',
+        'note',
     ];
 }
