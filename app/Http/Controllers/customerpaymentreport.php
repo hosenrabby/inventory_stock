@@ -11,7 +11,6 @@ class customerpaymentreport extends Controller
 {
     public function index(){
         $customer=customerpaymentList::all();
-        $balance=DB::table('customerpayment_lists')->sum('custoCarrentBalance');
-        return view('admin.customerPaymentReports.index', compact('customer', 'balance'));
+        return view('admin.customerPaymentReports.index', compact('customer'));
     }
 }

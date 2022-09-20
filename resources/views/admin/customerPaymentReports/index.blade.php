@@ -53,47 +53,25 @@
                                                         <td>{{ $customerreport->custoCarrentBalance }}</td>
                                                     </tr>
                                                 @endforeach
-                                                <tr>
-                                                    <td style="display: none"></td>
-                                                    <td style="display: none"></td>
-                                                    <td style="display: none"></td>
-                                                    <td style="display: none"></td>
-                                                    <td style="display: none"></td>
-                                                    <td style="display: none"></td>
-                                                    <td style="display: none"></td>
-                                                    <td style="display: none"></td>
-                                                    <td colspan="9">Total:</td>
-                                                    <td colspan="1">{{ $balance }}</td>
-                                                </tr>
                                             </tbody>
-                                            <tfoot style="display: none">
+                                            <tfoot>
+                                                {{-- <tr style="text-align: right">
+                                                    <th style="display: none"></th>
+                                                    <th style="display: none"></th>
+                                                    <th style="display: none"></th>
+                                                    <th style="display: none"></th>
+                                                    <th style="display: none"></th>
+                                                    <th style="display: none"></th>
+                                                    <th style="display: none"></th>
+                                                    <th style="display: none"></th>
+                                                    <th>Total:</th>
+                                                    <th></th>
+                                                </tr> --}}
                                                 <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td colspan="9"></td>
-                                                    <td colspan="1"></td>
+                                                    <th colspan="8" style="text-align: right">Total:</th>
+                                                    <th colspan="2"></th>
                                                 </tr>
-                                            </tbody>
-                                                <tfoot style="display: none">
-                                                    <tr>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td colspan="9"></td>
-                                                        <td colspan="1"></td>
-                                                    </tr>
-                                                </tfoot>
+                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>
@@ -117,13 +95,41 @@
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
 
 <script>
-$(document).ready(function() {
-    $('#customerReport').DataTable( {
+$(document).ready(function () {
+    $('#customerReport').DataTable({
+
+        footerCallback: function (row, data, start, end, display) {
+            var api = this.api();
+
+            // Remove the formatting to get integer data for summation
+            var intVal = function (i) {
+                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+            };
+
+            // Total over all pages
+            total = api
+                .column(9)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+
+            // Total over this page
+            pageTotal = api
+                .column(9, { page: 'current' })
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+
+            // Update footer
+            $(api.column(9).footer()).html('৳' + pageTotal + ' ( ৳' + total + ' total)');
+        },
         dom: 'Bfrtip',
         buttons: [
-            'print'
+            {extend: 'print', footer:true}
         ]
-    } );
-} );
+    });
+});
 </script>
 @endsection

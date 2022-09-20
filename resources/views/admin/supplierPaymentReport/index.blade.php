@@ -55,7 +55,7 @@
                                                 @endforeach
                                             </tbody>
                                             <tfoot>
-                                                <tr style="text-align: right">
+                                                {{-- <tr style="text-align: right">
                                                     <th style="display: none"></th>
                                                     <th style="display: none"></th>
                                                     <th style="display: none"></th>
@@ -66,6 +66,10 @@
                                                     <th style="display: none"></th>
                                                     <th>Total:</th>
                                                     <th></th>
+                                                </tr> --}}
+                                                <tr>
+                                                    <th colspan="8" style="text-align: right">Total:</th>
+                                                    <th colspan="2"></th>
                                                 </tr>
                                             </tfoot>
                                         </table>
