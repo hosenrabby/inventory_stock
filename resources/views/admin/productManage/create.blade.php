@@ -53,21 +53,40 @@
                                             <div class="row">
                                                 <div class="col">
                                                     <label>Select Catagory</label>
-                                                    <select class="form-control" name="catagoryID">
+                                                    <select class="form-control @error('catagoryID') is-invalid
+
+                                                    @enderror" name="catagoryID">
                                                         <option value="" selected>Select Catagory</option>
                                                         @foreach ($catagory as $catagory)
                                                             <option value="{{ $catagory->id }}">{{ $catagory->categoryName }}</option>
                                                         @endforeach
                                                     </select>
+                                                    @error('catagoryID')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+
+                                                    </span>
+
+                                                    @enderror
+
                                                 </div>
                                                 <div class="col">
                                                     <label>Select Sub Catagory</label>
-                                                    <select class="form-control" name="subcatagoryID">
-                                                        <option value="1" selected>Select Sub Catagory</option>
+                                                    <select class="form-control @error('subcatagoryID') is-invalid
+
+                                                    @enderror" name="subcatagoryID">
+                                                        <option value="" selected>Select Sub Catagory</option>
                                                         @foreach ($subcatagory as $subcatagory)
                                                             <option value="{{ $subcatagory->id }}">{{ $subcatagory->subCategoryName }}</option>
                                                         @endforeach
                                                     </select>
+                                                    @error('subcatagoryID')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+
+                                                    </span>
+
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="row">

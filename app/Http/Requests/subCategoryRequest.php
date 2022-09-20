@@ -24,6 +24,7 @@ class subCategoryRequest extends FormRequest
     public function rules()
     {
         return [
+            'category_id'=>'Bail|required |numeric',
             'subCategoryName'=>'Bail|required|string|max:255',
             'subCategoryCode'=>'Bail|required|numeric'
         ];

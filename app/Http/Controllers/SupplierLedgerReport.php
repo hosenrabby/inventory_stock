@@ -18,11 +18,6 @@ class SupplierLedgerReport extends Controller
     public function SupplierLedgerReport(){
         $supplier=Supplier::all();
         $balance=DB::table('suppliers')->sum('supplierCarrentBalance');
-        // return Supplier::all()->reduce(function ($carry, $item) {
-        //     return $item->type == 'supplierCarrentBalance'
-        //        ? $carry + $item->supplierCarrentBalance : $carry + $item->supplierCarrentBalance;
-        //   },0);
-        // return $balance;
         return view('admin.supplierLedgerReport.supplierInvoice', compact('supplier', 'balance'));
     }
 }

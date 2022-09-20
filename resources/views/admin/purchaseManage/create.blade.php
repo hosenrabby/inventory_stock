@@ -45,12 +45,21 @@
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Select Supplier</label>
-                                                    <select class="form-control" id="supplierName" name="supplierName" onchange="prodAdd()">
-                                                        <option value="1" selected>Select Supplier</option>
+                                                    <select class="form-control @error('supplierName') is-invalid
+
+                                                    @enderror" id="supplierName" name="supplierName" onchange="prodAdd()">
+                                                        <option value="" selected>Select Supplier</option>
                                                         @foreach ($supplier as $supplier)
                                                         <option value="{{ $supplier->supplierName }}" id="{{ $supplier->id }}">{{ $supplier->supplierName }}</option>
                                                         @endforeach
                                                     </select>
+                                                    @error('supplierName')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+
+                                                    </span>
+
+                                                    @enderror
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Purchase Date</label>
@@ -74,29 +83,23 @@
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
-                                                        <select class="form-control prodName" name="productID[]" id="prodName1" onchange="prodAdd(1)">
-                                                            <option value="1" id="1" selected>select product</option>
+                                                        <select class="form-control prodName" name="productID[]" id="prodName1" onchange="prodAdd(1)" required>
+                                                            <option value="" id="1" selected>select product</option>
                                                             @foreach ($product as $products)
                                                                 <option value="{{ $products->id }}" id="{{ $products->id }}">{{ $products->productName }}</option>
                                                             @endforeach
                                                         </select>
+
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Code</label>
-                                                        <input type="text" class="form-control" name="prodCode[]" id="prodCode1" onkeyup="prodCode(1)" placeholder="Product Code">
+                                                        <input type="text" class="form-control " name="prodCode[]" id="prodCode1" onkeyup="prodCode(1)" placeholder="Product Code" required>
+
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product QTY</label>
-                                                        <input type="number" class="form-control @error('prodQty') is-invalid
+                                                        <input type="number" class="form-control" name="prodQty[]" id="prodQTY1" onkeyup="parchaseCal(1)" placeholder="Product QTY" required>
 
-                                                        @enderror" name="prodQty[]" id="prodQTY1" onkeyup="parchaseCal(1)" placeholder="Product QTY" value="{{ old('prodQty[]') }}">
-                                                        @error('prodQty')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-
-                                                        </span>
-
-                                                        @enderror
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Rate</label>
