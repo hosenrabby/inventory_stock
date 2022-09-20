@@ -37,7 +37,7 @@ use App\Http\Controllers\SupplierPaymentListController;
 */
 
 
-Route::get('/', [LoginController::class, 'loginPage']);
+Route::get('/', [DashboardController::class , 'index'])->middleware('auth');
 Route::group(['prefix' => 'authorized'] , function(){
     Route::get('login', [LoginController::class, 'loginPage'])->name('authorized.loginpage');
     Route::post('login', [LoginController::class, 'login'])->name('authorized.login');
