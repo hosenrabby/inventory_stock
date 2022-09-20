@@ -55,7 +55,7 @@
                                     <div class="table-responsive">
                                         <table id="" class="table table-striped table-bordered ">
                                             <thead>
-                                                <a class="btn btn-success" href="{{ url('authorized/stockLedgerInvoice/') }}" role="button"><i class="fa fa-print"></i> Print Invoice</a>
+                                                <a class="btn btn-success mb-3" target="blank" href="{{ url('authorized/stockLedgerInvoice/') }}" role="button"><i class="fa fa-print"></i> Print</a>
                                                 <tr>
                                                     <th>SL</th>
                                                     <th>Product Name</th>
