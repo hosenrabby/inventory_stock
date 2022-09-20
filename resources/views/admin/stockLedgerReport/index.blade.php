@@ -55,7 +55,7 @@
                                     <div class="table-responsive">
                                         <table id="" class="table table-striped table-bordered ">
                                             <thead>
-                                                <a class="btn btn-success mb-3" target="blank" href="{{ url('authorized/stockLedgerInvoice/') }}" role="button"><i class="fa fa-print"></i> Print</a>
+                                                <a class="btn btn-success mb-3" target="blank" id="printBtn" href="{{ url('authorized/stockLedgerInvoice/') }}" role="button"><i class="fa fa-print"></i> Print</a>
                                                 <tr>
                                                     <th>SL</th>
                                                     <th>Product Name</th>
@@ -97,6 +97,8 @@
 
     $('#categoryid').change(function(){
         var id=$(this).find('option:selected').attr('sid');
+        var newurl=$('#printBtn').attr('href')+'/'+id;
+                    $('#printBtn').attr("href", newurl);
         if(id){
             $.ajax({
                 url:"{{ url('authorized/category-product-search') }}/"+id,
@@ -146,6 +148,9 @@
 
         $('#subCategoryName').change(function(){
         var id=$(this).find('option:selected').attr('id');
+        $('#printBtn').attr('href' , 'http://localhost/inventory_stock/authorized/stockLedgerSubcat'+'/'+id);
+        // $('#printBtn').attr('href');
+                    // alert(oldurl);
         if(id){
             $.ajax({
                 url:"{{ url('authorized/subcategorydata-product-search') }}/"+id,

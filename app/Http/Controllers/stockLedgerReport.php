@@ -39,8 +39,17 @@ class stockLedgerReport extends Controller
     }
 
     public function stockPrint(){
-
         $product=productstockManage::all();
+        return view('admin.Invoices.stockInvoice', compact('product'));
+    }
+
+    public function stockPrintCat($id){
+        $product=productstockManage::where('catagoryID' , $id)->get();
+        return view('admin.Invoices.stockInvoice', compact('product'));
+    }
+
+    public function stockPrintSubcat($id){
+        $product=productstockManage::where('subCatagoryID' , $id)->get();
         return view('admin.Invoices.stockInvoice', compact('product'));
     }
 }
