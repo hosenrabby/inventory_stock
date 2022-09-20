@@ -43,4 +43,11 @@ class stockLedgerReport extends Controller
         $product=productstockManage::all();
         return view('admin.Invoices.stockInvoice', compact('product'));
     }
+
+    // public function show(){
+    //     $products=DB::table('productstock_manages')->select('id', 'productName', 'prodCode', 'prodRate', 'stockBalance')
+    //     ->whereHas('catagoryID')->get();
+    //     dd($products);
+    //     return view('admin.Invoices.stockInvoice', compact('products'));
+    // }
 }
