@@ -40,6 +40,7 @@ class stockLedgerReport extends Controller
 
     public function stockPrint(){
         $product=productstockManage::all();
+
         return view('admin.Invoices.stockInvoice', compact('product'));
     }
 

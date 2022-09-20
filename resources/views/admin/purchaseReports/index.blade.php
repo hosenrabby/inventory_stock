@@ -52,7 +52,6 @@
                                         <table id="" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>SL</th>
                                                     <th>Product Name</th>
                                                     <th>Product Code</th>
                                                     <th>Invoice Number</th>
@@ -113,7 +112,7 @@ $(document).ready(function(){
     for(var i = 0; i < data.length; i++)
     {
      output += '<tr>';
-     output += '<td>' + data[i].id + '</td>';
+    //  output += '<td>' + data[i].id + '</td>';
      output += '<td>' + data[i].productName + '</td>';
      output += '<td>' + data[i].prodCode + '</td>';
      output += '<td>' + data[i].invNumber + '</td>';

@@ -22,9 +22,9 @@ class dashboardController extends Controller
         $totalitemstock=productstockManage::count();
         $purchasableProduct=purchaseManage::count();
         $invoice=SalesProduct::count();
-        
+
         $todaysales=SalesProduct::whereDate('purchaseDate', Carbon::today())->get();
-         $today=count($todaysales);
+        $today=count($todaysales);
 
         $monthlysales=SalesProduct::whereMonth('purchaseDate', Carbon::now()->month)->get();
         $month=count($monthlysales);
