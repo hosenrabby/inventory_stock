@@ -24,6 +24,7 @@ class invoiceController extends Controller
         ->leftJoin('productstock_manages', 'sales_products.productID', '=', 'productstock_manages.id')->where('invoice_id', $invoice_id)
         ->get();
         $companyData=company_details::find(1);
+
         $salesData1=SalesProduct::where('invoice_id', $invoice_id)->limit(1)->get();
         $salesData=SalesProduct::where('productID', $invoice_id)->get();
 
@@ -47,5 +48,7 @@ class invoiceController extends Controller
 
         return view('admin.Invoices.purchaseInvoice', compact('supplier','companyData', 'product','productGranTotal'));
     }
+
+
 
 }
