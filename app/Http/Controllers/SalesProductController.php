@@ -159,6 +159,7 @@ class SalesProductController extends Controller
     public function destroy($iID)
     {
         SalesProduct::where('invoice_id',$iID)->delete();
-        return back()->with('warning', 'Purchase Invoice delete successfully.');
+        salsShortMang::where('invoice_id',$iID)->delete();
+        return back()->with('warning', 'Sales Invoice deleted successfully.');
     }
 }
