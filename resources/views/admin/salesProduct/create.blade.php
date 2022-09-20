@@ -46,8 +46,8 @@
                                                     <label>Select Customer</label>
                                                     <select class="form-control @error('customerID') is-invalid
 
-                                                    @enderror" name="customerName" id="customerName" onchange="salesAdd()">
-                                                        <option value="1" selected>Select Customer</option>
+                                                    @enderror"  name="customerName" id="customerName" onchange="salesAdd()" required>
+                                                        <option value="" selected>Select Customer</option>
 
                                                         @foreach ($customer as $customers)
                                                             <option value="{{ $customers->customerName }}" id="{{ $customers->id }}">{{ $customers->customerName }}</option>
@@ -78,8 +78,8 @@
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
                                                         {{-- <input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name"> --}}
-                                                        <select class="form-control" name="productID[]" id="productName1" onchange="salesAdd(1)">
-                                                            <option value="1" selected>Select Product</option>
+                                                        <select class="form-control"  name="productID[]" id="productName1" onchange="salesAdd(1)" required>
+                                                            <option value="" selected>Select Product</option>
                                                             @foreach ($productName as $products)
                                                                 <option value="{{ $products->id }}" id="{{ $products->id }}">{{ $products->productName }}</option>
                                                             @endforeach

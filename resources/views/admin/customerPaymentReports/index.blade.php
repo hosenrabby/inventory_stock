@@ -36,7 +36,6 @@
                                                     <th>Cutomer Prev Balance</th>
                                                     <th>Payment Amount</th>
                                                     <th>Customer Carrnt Balance</th>
-
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -65,6 +64,20 @@
                                                     <td style="display: none"></td>
                                                     <td colspan="9">Total:</td>
                                                     <td colspan="1">{{ $balance }}</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot style="display: none">
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td colspan="9"></td>
+                                                    <td colspan="1"></td>
                                                 </tr>
                                             </tbody>
                                                 <tfoot style="display: none">

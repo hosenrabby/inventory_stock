@@ -28,6 +28,7 @@ class purchaseManage extends FormRequest
             'supplierName'=>'Bail|required|string',
             'purchaseDate'=>'Bail|required|date',
             'productID'=>'Bail|required',
+            'prodCode'=>'Bail|required',
             'prodQty'=>'Bail|required',
             'paidAmount'=>'Bail|required',
         ];

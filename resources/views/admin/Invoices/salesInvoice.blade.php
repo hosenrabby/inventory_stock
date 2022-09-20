@@ -22,6 +22,7 @@
                 <div class="logo">
 
                     <img src="{{ asset('public/assets/images/invlogo.png') }}" alt="logo" class="img-fluid" width="250px" height="250px">
+
                 </div>
                 <div class="top-left">
                         <p><strong>Invoice No:</strong>@foreach ($salesData1 as $item)

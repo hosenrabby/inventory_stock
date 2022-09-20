@@ -73,8 +73,17 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Customer Balance</label>
-                                            <input type="number" class="form-control" name="customerBalance"
-                                                placeholder="Customer Balance">
+                                            <input type="number" class="form-control @error('customerBalance') is-invalid
+
+                                            @enderror" name="customerBalance"
+                                                placeholder="Customer Balance" value="{{ old('customerBalance') }}">
+                                                @error('customerBalance')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+
+                                                </span>
+
+                                                @enderror
                                             </div>
 
                                             <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>

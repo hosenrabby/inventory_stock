@@ -79,12 +79,15 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::get('customerLedgerReport', [customerLedgerReport::class, 'index']);
         Route::get('customerInoices', [customerLedgerReport::class, 'customerLedgerReport']);
         Route::get('purchaseReports', [purchaseLedgerReports::class, 'index']);
-        Route::post('purchaseReports', [purchaseLedgerReports::class, 'fetch_data'])->name('purchaseReports');;
+        Route::post('purchaseReports', [purchaseLedgerReports::class, 'fetch_data'])->name('purchaseReports');
+
         Route::get('stockLedgerReport', [stockLedgerReport::class, 'index']);
         Route::get('category-product-search/{id}', [stockLedgerReport::class, 'category']);
         Route::get('subcategory-product-search/{id}', [stockLedgerReport::class, 'subcategory']);
         Route::get('subcategorydata-product-search/{id}', [stockLedgerReport::class, 'subcategorydata']);
         Route::get('stockLedgerInvoice', [stockLedgerReport::class, 'stockPrint']);
+        Route::get('stockLedgerInvoice/{id}', [stockLedgerReport::class, 'stockPrintCat']);
+        Route::get('stockLedgerSubcat/{id}', [stockLedgerReport::class, 'stockPrintSubcat']);
 
 
         Route::get('salesReports', [salesReports::class , 'index']);
