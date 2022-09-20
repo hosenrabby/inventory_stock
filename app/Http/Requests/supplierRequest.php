@@ -27,6 +27,8 @@ class supplierRequest extends FormRequest
             'supplierName'=>'Bail|required|string',
             'supplierEmail'=>'Bail|required|email',
             'supplierPhone'=>'Bail|required|numeric',
+            'supplierPrevBalance'=>'Bail|required|numeric',
+            'supplierCarrentBalance'=>'Bail|required|numeric',
         ];
     }
 

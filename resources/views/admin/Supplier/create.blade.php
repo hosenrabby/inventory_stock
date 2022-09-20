@@ -90,13 +90,32 @@
                                         <div class="row">
                                             <div class="form-group col">
                                                 <label>Supplier Previous Balance</label>
-                                                <input type="number" class="form-control" name="supplierPrevBalance"
-                                                    placeholder="Supplier Previous Balance">
+                                                <input type="number" class="form-control @error('supplierPrevBalance') is-invalid
+
+                                                @enderror" name="supplierPrevBalance"
+                                                    placeholder="Supplier Previous Balance" value="{{ old('supplierPrevBalance') }}">
+                                                    @error('supplierPrevBalance')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+
+                                                    </span>
+
+
+                                                    @enderror
                                             </div>
                                             <div class="form-group col">
                                                 <label>Supplier Carrent Balance</label>
-                                                <input type="number" class="form-control" name="supplierCarrentBalance"
-                                                    placeholder="Supplier Carrent Balance">
+                                                <input type="number" class="form-control @error('supplierCarrentBalance') is-invalid
+
+                                                @enderror" name="supplierCarrentBalance"
+                                                    placeholder="Supplier Carrent Balance" value="{{ old('supplierCarrentBalance') }}">
+                                                    @error('supplierCarrentBalance')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+
+                                                    </span>
+
+                                                    @enderror
                                             </div>
                                         </div>
 
