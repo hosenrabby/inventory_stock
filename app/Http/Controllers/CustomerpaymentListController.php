@@ -64,9 +64,9 @@ class CustomerpaymentListController extends Controller
             'paymentDate' => $paymentDate,
             'transactionMethod' => $transactionMethod,
             'note' => $note,
-            'custoPrevBalance' => $findCust->customerBalance,
+            'custoPrevBalance' => $findCust->custoPrevBalance,
             'paymentAmount' => $paymentAmount,
-            'custoCarrentBalance' => $findCust->customerBalance - $paymentAmount,
+            'custoCarrentBalance' => $findCust->customerCurrentBalance - $paymentAmount,
         ];
         $dataInsert = customerpaymentList::create($paymListInsert);
 
@@ -74,9 +74,9 @@ class CustomerpaymentListController extends Controller
         // $paidBlnc = $request->paymentAmount;
         if ($dataInsert) {
             $findCustomer = customer::find($cusID);
-            $custoBlncUpdate = $findCustomer->customerBalance - $paymentAmount;
+            $custoBlncUpdate = $findCustomer->customerCurrentBalance - $paymentAmount;
             $UpdateBlnc = [
-                'customerBalance' => $custoBlncUpdate
+                'customerCurrentBalance' => $custoBlncUpdate
             ];
             $findCustomer->update($UpdateBlnc);
         }

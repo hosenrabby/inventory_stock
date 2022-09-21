@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\customer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomerRequest;
+use App\Models\customerpaymentList;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -36,10 +37,36 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CustomerRequest $request)
+    public function store(Request $request)
     {
-        $input=$request->all();
-        customer::create($input);
+        $customerName = $request->customerName;
+        $customerEmail = $request->customerEmail;
+        $customerPhone = $request->customerPhone;
+        $customerAddress = $request->customerAddress;
+        $note = $request->note;
+        $custoPrevBalance = $request->custoPrevBalance;
+        $customerCurrentBalance = $request->customerCurrentBalance;
+
+        $customer = [
+            'customerName' => $customerName,
+            'customerEmail' => $customerEmail,
+            'customerPhone' => $customerPhone,
+            'customerAddress' => $customerAddress,
+            'note' => $note,
+            'custoPrevBalance' => $custoPrevBalance,
+            'customerCurrentBalance' => $customerCurrentBalance,
+        ];
+        customer::create($customer);
+        $custoPayment = [
+            'customerName' => $customerName,
+            'customerEmail' => $customerEmail,
+            'customerContact' => $customerPhone,
+            'paymentDate' => date('d-m-Y'),
+            'note' => $note,
+            'custoPrevBalance' => $custoPrevBalance,
+            'custoCarrentBalance' => $customerCurrentBalance,
+        ];
+        customerpaymentList::create($custoPayment);
         return redirect('authorized/customer')->with('success', 'Customer Created successfully.');
     }
 
@@ -88,7 +115,7 @@ class CustomerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {   
+    {
         $cusData = customer::find($id);
         $cusBlnc = $cusData->customerBalance;
         if ($cusBlnc === '0.00') {

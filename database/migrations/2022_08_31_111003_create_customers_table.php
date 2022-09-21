@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('customerEmail');
             $table->string('customerPhone');
             $table->string('customerAddress');
-            $table->decimal('customerBalance',8,2);
+            $table->string('note');
+            $table->decimal('custoPrevBalance',10,2);
+            $table->decimal('customerCurrentBalance',10,2);
             $table->timestamps();
         });
     }

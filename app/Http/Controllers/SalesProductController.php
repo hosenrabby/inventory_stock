@@ -103,9 +103,9 @@ class SalesProductController extends Controller
                 'customerEmail' => $findCust->customerEmail,
                 'customerContact' => $findCust->customerPhone,
                 'paymentDate' => $purchaseDate,
-                'custoPrevBalance' => $findCust->customerBalance,
+                'custoPrevBalance' => $findCust->customerCurrentBalance,
                 'paymentAmount' => $paidAmount,
-                'custoCarrentBalance' => $findCust->customerBalance + $duesAmount,
+                'custoCarrentBalance' => $findCust->customerCurrentBalance + $duesAmount,
                 'note' => $note,
             ];
             ModelsCustomerpaymentList::create($custPamntData);
