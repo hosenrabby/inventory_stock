@@ -48,13 +48,13 @@
                                             </div>
                                             <div class="form-group col">
                                                 <label>Customer Balance</label>
-                                                <input type="number" class="form-control" name="customerBalance"
-                                                    value="{{ $customer->customerBalance }}">
+                                                <input type="number" class="form-control" name="customerCurrentBalance"
+                                                    value="{{ $customer->customerCurrentBalance }}">
                                             </div>
                                         </div>
 
 
-                                        <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>
+                                        <button type="submit" class="btn btn-outline-primary ml-2 mt-3">UPDATE</button>
                                     </form>
                                 </div>
                             </div>

@@ -117,7 +117,7 @@ class CustomerController extends Controller
     public function destroy($id)
     {
         $cusData = customer::find($id);
-        $cusBlnc = $cusData->customerBalance;
+        $cusBlnc = $cusData->customerCurrentBalance;
         if ($cusBlnc === '0.00') {
             customer::destroy($id);
             return back()->with('warning', 'Customer delete successfully.');

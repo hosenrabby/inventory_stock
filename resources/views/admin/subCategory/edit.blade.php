@@ -45,7 +45,7 @@
                                                 <input type="number" class="form-control" name="subCategoryCode" placeholder="SubCategory Code" value="{{ $findData->subCategoryCode }}">
                                             </div>
 
-                                            <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>
+                                            <button type="submit" class="btn btn-outline-primary ml-2 mt-3">UPDATE</button>
                                         </form>
                                     </div>
                                 </div>

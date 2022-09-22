@@ -26,9 +26,9 @@ class CustomerRequest extends FormRequest
         return [
             'customerName'=>'Bail|required|string|max:255',
             'customerEmail'=>'Bail|required|email|max:255',
-            'customerPhone'=>'Bail|required|min:11|numeric',
+            'customerPhone'=>'Bail|required|min:14|numeric',
             'customerAddress'=>'Bail|required|max:300',
-            'customerBalance'=>'Bail|required|numeric|'
+            'customerCurrentBalance'=>'Bail|required|numeric'
         ];
     }
 }
