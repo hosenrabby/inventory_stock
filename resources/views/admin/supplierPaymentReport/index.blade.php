@@ -124,7 +124,7 @@
                 }, 0);
 
             // Update footer
-            $(api.column(9).footer()).html('৳' + pageTotal + ' ( ৳' + total + ' total)');
+            $(api.column(9).footer()).html('৳' + pageTotal + ' (Total ৳' + total + ')');
         },
         dom: 'Bfrtip',
         buttons: [
