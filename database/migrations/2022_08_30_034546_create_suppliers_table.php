@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('supplierName');
             $table->string('supplierEmail');
-            $table->integer('supplierPhone');
+            $table->string('supplierPhone');
             $table->string('supplierAddress');
             $table->string('note');
             $table->decimal('supplierPrevBalance',10,2);

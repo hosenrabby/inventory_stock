@@ -11,14 +11,14 @@ class customerLedgerReport extends Controller
 {
     public function index(){
         $customer=customer::all();
-        $balance=DB::table('customers')->sum('customerBalance');
+        $balance=DB::table('customers')->sum('customerCurrentBalance');
 
         return view('admin.customerLdgerReport.index', compact('customer', 'balance'));
 
     }
     public function customerLedgerReport(){
         $customer=customer::all();
-        $balance=DB::table('customers')->sum('customerBalance');
+        $balance=DB::table('customers')->sum('customerCurrentBalance');
 
         return view('admin.customerLdgerReport.customerInvoice', compact('customer', 'balance'));
     }

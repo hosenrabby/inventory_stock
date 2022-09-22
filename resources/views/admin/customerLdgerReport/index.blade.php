@@ -25,11 +25,11 @@
                                                 <a class="btn btn-success mb-3" target="blank" href="{{ url('authorized/customerInoices/') }}" role="button"><i class="fa fa-print"></i> Print </a>
                                                 <tr>
                                                     <th>Serial No</th>
-                                                    <th>Supplier Name</th>
-                                                    <th>Supplier Email</th>
-                                                    <th>Supplier Phone</th>
-                                                    <th>Supplier Address</th>
-                                                    <th>Supplier Carrent Balance</th>
+                                                    <th>Customer Name</th>
+                                                    <th>Customer Email</th>
+                                                    <th>Customer Phone</th>
+                                                    <th>Customer Address</th>
+                                                    <th>Customer Carrent Balance</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -40,7 +40,7 @@
                                                         <td>{{ $item->customerEmail }}</td>
                                                         <td>{{ $item->customerPhone }}</td>
                                                         <td>{{ $item->customerAddress }}</td>
-                                                        <td>{{ $item->customerBalance }} ৳</td>
+                                                        <td>{{ $item->customerCurrentBalance }} ৳</td>
                                                     </tr>
                                                 @endforeach
 

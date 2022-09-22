@@ -25,9 +25,9 @@ return new class extends Migration
             $table->integer('prodQty');
             $table->decimal('prodRate', 8,2);
             $table->decimal('totalPrice', 8,2);
-            $table->decimal('grandTotal', 8,2);
-            $table->decimal('paidAmount', 8,2);
-            $table->decimal('duesAmount', 8,2);
+            $table->decimal('grandTotal', 10,2);
+            $table->decimal('paidAmount', 10,2);
+            $table->decimal('duesAmount', 10,2);
             $table->string('note')->default('------');
             $table->timestamps();
         });

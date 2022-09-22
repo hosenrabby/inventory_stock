@@ -114,9 +114,9 @@ class SalesProductController extends Controller
         if ($inserted) {
             //Customer Stock Update
             $findCustomer = customer::find($customer_id);
-            $custoBlncUpdate = $duesAmount + $findCustomer->customerBalance;
+            $custoBlncUpdate = $findCustomer->customerCurrentBalance + $duesAmount;
             $UpdateBlnc = [
-                'customerBalance' => $custoBlncUpdate
+                'customerCurrentBalance' => $custoBlncUpdate
             ];
             $findCustomer->update($UpdateBlnc);
             //Customer Stock Update End
