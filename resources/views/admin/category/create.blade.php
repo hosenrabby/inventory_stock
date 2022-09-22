@@ -39,7 +39,7 @@
                                                 <label>Category Code</label>
                                                 <input type="number" class="form-control @error('categoryCode') is-invalid
 
-                                                @enderror" name="categoryCode" placeholder="Category Code" value="{{ old('categoryCode') }}">
+                                                @enderror" name="categoryCode" placeholder="000abc" value="{{ old('categoryCode') }}">
                                                 @error('categoryCode')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

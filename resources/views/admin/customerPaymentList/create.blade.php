@@ -26,102 +26,78 @@
                                         method="POST">
                                         {!! csrf_field() !!}
                                         <input type="hidden" name="cusID" id="cusID" value="0">
-                                        <div class="form-group">
-                                            <label>Customer Name</label>
-                                            <select
-                                                class="form-control @error('customerID') is-invalid
+
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <label>Customer Name</label>
+                                                <select
+                                                    class="form-control @error('customerID') is-invalid
 
                                             @enderror"
-                                                name="customerName" id="customerName" value="{{ old('customerName') }}">
-                                                @error('customerID')
+                                                    name="customerName" id="customerName" value="{{ old('customerName') }}">
+                                                    @error('customerID')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+
+                                                        </span>
+                                                    @enderror
+                                                    <option selected>Open this select menu</option>
+                                                    @foreach ($spl as $item)
+                                                        <option value="{{ $item->customerName }}" id="{{ $item->id }}">
+                                                            {{ $item->customerName }}</option>
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col">
+                                                <label>Customer Email</label>
+                                                <input type="text"
+                                                    class="form-control @error('customerEmail') is-invalid
+
+                                                @enderror"
+                                                    name="customerEmail" id="customerEmail" value=""
+                                                    placeholder="example@gmail.com" value="{{ old('customerEmail') }}">
+                                                @error('customerEmail')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
 
                                                     </span>
                                                 @enderror
-                                                <option selected>Open this select menu</option>
-                                                @foreach ($spl as $item)
-                                                    <option value="{{ $item->customerName }}" id="{{ $item->id }}">
-                                                        {{ $item->customerName }}</option>
-                                                @endforeach
-
-                                            </select>
+                                            </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label>Customer Email</label>
-                                            <input type="text"
-                                                class="form-control @error('customerEmail') is-invalid
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <label>Customer Contact</label>
+                                                <input type="text"
+                                                    class="form-control @error('customerContact') is-invalid
 
-                                                @enderror"
-                                                name="customerEmail" id="customerEmail" value=""
-                                                placeholder="customer Email" value="{{ old('customerEmail') }}">
-                                            @error('customerEmail')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
+                                                    @enderror"
+                                                    name="customerContact" id="customerContact" placeholder="01XXXXXXXXX"
+                                                    value="{{ old('customerContact') }}">
+                                                @error('customerContact')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
 
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Customer Contact</label>
-                                            <input type="text"
-                                                class="form-control @error('customerContact') is-invalid
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group col">
+                                                <label>Payment Date</label>
+                                                <input type="text"
+                                                    class="form-control datepicker @error('paymentDate') is-invalid
 
-                                                @enderror"
-                                                name="customerContact" id="customerContact" placeholder="customer Contact"
-                                                value="{{ old('customerContact') }}">
-                                            @error('customerContact')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
+                                                @enderror "
+                                                    name="paymentDate" placeholder="dd-mm-yyyy"
+                                                    value="{{ old('paymentDate') }}">
+                                                @error('paymentDate')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
 
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Payment Date</label>
-                                            <input type="text"
-                                                class="form-control datepicker @error('paymentDate') is-invalid
-
-                                            @enderror "
-                                                name="paymentDate" placeholder="Payment Date"
-                                                value="{{ old('paymentDate') }}">
-                                            @error('paymentDate')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Transaction Method</label>
-                                            <input type="text"
-                                                class="form-control @error('transactionMethod') is-invalid
-
-                                            @enderror"
-                                                name="transactionMethod" placeholder="Transaction Method"
-                                                value="{{ old('transactionMethod') }}">
-                                            @error('transactionMethod')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Payment Ammount</label>
-                                            <input type="number"
-                                                class="form-control @error('paymentAmount') is-invalid
-
-                                            @enderror"
-                                                name="paymentAmount" placeholder="Payment Ammount"
-                                                value="{{ old('paymentAmount') }}">
-                                            @error('paymentAmount')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-
-                                                </span>
-                                            @enderror
+                                                    </span>
+                                                @enderror
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Note</label>
@@ -137,6 +113,44 @@
                                                 </span>
                                             @enderror
                                         </div>
+
+
+
+
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <label>Transaction Method</label>
+                                                <input type="text"
+                                                    class="form-control @error('transactionMethod') is-invalid
+
+                                            @enderror"
+                                                    name="transactionMethod" placeholder="Transaction Method"
+                                                    value="{{ old('transactionMethod') }}">
+                                                @error('transactionMethod')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group col">
+                                                <label>Payment Ammount</label>
+                                                <input type="number"
+                                                    class="form-control @error('paymentAmount') is-invalid
+
+                                            @enderror"
+                                                    name="paymentAmount" placeholder="0.00"
+                                                    value="{{ old('paymentAmount') }}">
+                                                @error('paymentAmount')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+
+                                                    </span>
+                                                @enderror
+                                            </div>
+
+                                        </div>
+
 
 
                                         <button type="submit" class="btn btn-outline-primary ml-2 mt-3">SUBMIT</button>

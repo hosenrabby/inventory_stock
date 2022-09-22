@@ -56,7 +56,7 @@
 
                                                         <td>
                                                             <div class="d-flex justify-content-center">
-                                                                <a href="" class="btn btn-default"><i
+                                                                <a href="" class="btn btn-success"><i
                                                                         class="fa-solid fa-pen-to-square"></i></a>
 
                                                                 <form method="post" action="">

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('supplierEmail');
             $table->string('supplierPhone');
             $table->string('supplierAddress');
-            $table->string('note');
+            $table->string('note')->default('-------');
             $table->decimal('supplierPrevBalance',10,2);
             $table->decimal('supplierCarrentBalance',10,2);
             $table->timestamps();

@@ -67,7 +67,7 @@
                                                 class="form-control @error('subCategoryCode') is-invalid
 
                                                 @enderror"
-                                                name="subCategoryCode" placeholder="SubCategory Code"
+                                                name="subCategoryCode" placeholder="000abc"
                                                 value="{{ old('subCategoryCode') }}">
                                             @error('subCategoryCode')
                                                 <span class="invalid-feedback" role="alert">
