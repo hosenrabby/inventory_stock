@@ -9,7 +9,7 @@ use App\Http\Controllers\stockLedgerReport;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\customerLedgerReport;
 use App\Http\Controllers\SupplierLedgerReport;
@@ -98,10 +98,10 @@ Route::group(['prefix' => 'authorized'] , function(){
 
         Route::resource('supplierPaymentList',SupplierPaymentListController::class);
         Route::resource('customerPaymentList',CustomerpaymentListController::class);
-        Route::get('admin-dashboard',[DashboardController::class,'index'])->name('admin-dashboard');
+        Route::get('admin-dashboard',[dashboardController::class,'index'])->name('admin-dashboard');
         Route::get('TodayReport',[TodayReport::class, 'index']);
-        Route::get('todaysalseReport',[DashboardController::class,'todaysalseReport']);
-        Route::get('monthlysalseReport',[DashboardController::class,'monthlysalseReport']);
+        Route::get('todaysalseReport',[dashboardController::class,'todaysalseReport']);
+        Route::get('monthlysalseReport',[dashboardController::class,'monthlysalseReport']);
 
      });
  });
