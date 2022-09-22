@@ -32,7 +32,7 @@
                                                         <label>Invoice Number</label>
                                                         <input type="number" class="form-control @error('invNumber') is-invalid
 
-                                                        @enderror" name="invNumber" placeholder="Invoice Number" value="{{ old('invNumber') }}">
+                                                        @enderror" name="invNumber" placeholder="000AX" value="{{ old('invNumber') }}">
                                                         @error('invNumber')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -59,7 +59,7 @@
                                                     <label>Purchase Date</label>
                                                     <input type="date" class="form-control @error('purchaseDate') is-invalid
 
-                                                    @enderror" name="purchaseDate" placeholder="Purchase Date" value="{{ old('purchaseDate') }}">
+                                                    @enderror" name="purchaseDate" placeholder="dd-mm-yyyy" value="{{ old('purchaseDate') }}">
                                                     @error('purchaseDate')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -89,7 +89,7 @@
                                                             <label>Product Code</label>
                                                             <input type="number" class="form-control @error('prodCode') is-invalid
 
-                                                            @enderror" name="prodCode[]" id="productCode1" onkeyup="prodCode(1)" placeholder="Product Code" value="{{ old('prodCode[]') }}">
+                                                            @enderror" name="prodCode[]" id="productCode1" onkeyup="prodCode(1)" placeholder="000abc" value="{{ old('prodCode[]') }}">
                                                             @error('prodCode')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -118,7 +118,7 @@
                                                         <label>Product Rate</label>
                                                         <input type="number" class="form-control @error('prodRate') is-invalid
 
-                                                        @enderror" name="prodRate[]" id="productRate1" onkeyup="parchaseeCal(1)" placeholder="Product Rate" value="{{ old('prodRate[]') }}">
+                                                        @enderror" name="prodRate[]" id="productRate1" onkeyup="parchaseeCal(1)" placeholder="0.00" value="{{ old('prodRate[]') }}">
                                                         @error('prodRate')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -152,20 +152,12 @@
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Grand Total</label>
-                                                    <input type="number" class="form-control @error('grandTotal') is-invalid
+                                                    <input type="number" class="form-control " name="grandTotal" id="grandeTotal" onkeyup="parchaseeCal()" placeholder="Grand Total" value="{{ old('grandTotal') }}">
 
-                                                    @enderror" name="grandTotal" id="grandeTotal" onkeyup="parchaseeCal()" placeholder="Grand Total" value="{{ old('grandTotal') }}">
-                                                    @error('grandTotal')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-
-                                                    </span>
-
-                                                    @enderror
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Paid Amount</label>
-                                                    <input type="number" class="form-control" name="paidAmount" id="paiddAmount" onkeyup="parchaseeCal()" placeholder="Paid Amount">
+                                                    <input type="number" class="form-control" name="paidAmount" id="paiddAmount" onkeyup="parchaseeCal()" placeholder="0.00">
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Dues Amunt</label>

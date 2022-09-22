@@ -28,7 +28,8 @@ class CustomerRequest extends FormRequest
             'customerEmail'=>'Bail|required|email|max:255',
             'customerPhone'=>'Bail|required|min:11|numeric',
             'customerAddress'=>'Bail|required|max:300',
-            'customerBalance'=>'Bail|required|numeric|'
+            'custoPrevBalance'=>'Bail|required|numeric|',
+            'customerCurrentBalance'=>'Bail|required|numeric|',
         ];
     }
 }

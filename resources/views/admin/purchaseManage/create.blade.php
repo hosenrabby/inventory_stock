@@ -33,7 +33,7 @@
                                                         <label>Invoice Number</label>
                                                         <input type="text" class="form-control @error('invNumber') is-invalid
 
-                                                        @enderror" name="invNumber" placeholder="Invoice Number" value="{{ old('invNumber') }}">
+                                                        @enderror" name="invNumber" placeholder="000AX" value="{{ old('invNumber') }}">
                                                         @error('invNumber')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -65,7 +65,7 @@
                                                     <label>Purchase Date</label>
                                                     <input type="date" class="form-control @error('purchaseDate') is-invalid
 
-                                                    @enderror" name="purchaseDate" placeholder="Purchase Date" value="{{ old('purchaseDate') }}">
+                                                    @enderror" name="purchaseDate" placeholder="dd-mm-yyyy" value="{{ old('purchaseDate') }}">
                                                     @error('purchaseDate')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -93,7 +93,7 @@
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Code</label>
-                                                        <input type="text" class="form-control " name="prodCode[]" id="prodCode1" onkeyup="prodCode(1)" placeholder="Product Code" required>
+                                                        <input type="text" class="form-control " name="prodCode[]" id="prodCode1" onkeyup="prodCode(1)" placeholder="000abc" required>
 
                                                     </div>
                                                     <div class="form-group col">
@@ -103,7 +103,7 @@
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Rate</label>
-                                                        <input type="number" class="form-control" name="prodRate[]" id="prodRate1" onkeyup="parchaseCal(1)" placeholder="Product Rate">
+                                                        <input type="number" class="form-control" name="prodRate[]" id="prodRate1" onkeyup="parchaseCal(1)" placeholder="0.00">
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Total Price</label>
@@ -125,7 +125,7 @@
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Paid Amount</label>
-                                                    <input type="number" class="form-control" name="paidAmount" id="paidAmount" onkeyup="parchaseCal()" placeholder="Paid Amount">
+                                                    <input type="number" class="form-control" name="paidAmount" id="paidAmount" onkeyup="parchaseCal()" placeholder="0.00">
                                                 </div>
                                                 <div class="form-group col">
                                                     <label>Dues Amunt</label>

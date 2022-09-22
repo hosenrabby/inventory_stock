@@ -45,7 +45,7 @@
                                                 class="form-control @error('supplierEmail') is-invalid
 
                                                 @enderror"
-                                                name="supplierEmail" id="supplierEmail" placeholder="Supplier Email"
+                                                name="supplierEmail" id="supplierEmail" placeholder="example@gmail.com"
                                                 value="{{ old('supplierEmail') }}">
                                             @error('supplierEmail')
                                                 <span class="invalid-feedback" role="alert">
@@ -60,7 +60,7 @@
                                                 class="form-control @error('supplierContact') is-invalid
 
                                                 @enderror"
-                                                name="supplierContact" id="supplierContact" placeholder="Supplier Contact"
+                                                name="supplierContact" id="supplierContact" placeholder="01XXXXXXXXX"
                                                 value="{{ old('supplierContact') }}">
                                             @error('supplierContact')
                                                 <span class="invalid-feedback" role="alert">
@@ -74,7 +74,7 @@
                                             <input type="text" class="form-control datepicker @error('paymentDate') is-invalid
 
                                             @enderror " name="paymentDate"
-                                                placeholder="Payment Date" value="{{ old('paymentDate') }}">
+                                                placeholder="dd-mm-yyyy" value="{{ old('paymentDate') }}">
                                                 @error('paymentDate')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -102,7 +102,7 @@
                                             <input type="number" class="form-control @error('paymentAmount') is-invalid
 
                                             @enderror" name="paymentAmount"
-                                                placeholder="Payment Ammount" value="{{ old('paymentAmount') }}">
+                                                placeholder="0.00" value="{{ old('paymentAmount') }}">
                                                 @error('paymentAmount')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

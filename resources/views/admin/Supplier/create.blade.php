@@ -48,7 +48,7 @@
                                                     class="form-control @error('supplierEmail') is-invalid
 
                                                 @enderror"
-                                                    name="supplierEmail" placeholder="Supplier Email"
+                                                    name="supplierEmail" placeholder="example@gmail.com"
                                                     value="{{ old('supplierEmail') }}">
                                                 @error('supplierEmail')
                                                     <span class="invalid-feedback" role="alert">
@@ -65,7 +65,7 @@
                                                     class="form-control @error('supplierPhone') is-invalid
 
                                                 @enderror"
-                                                    name="supplierPhone" placeholder="Supplier Phone"
+                                                    name="supplierPhone" placeholder="01XXXXXXXXX"
                                                     value="{{ old('supplierPhone') }}">
                                                 @error('supplierPhone')
                                                     <span class="invalid-feedback" role="alert">
@@ -76,15 +76,24 @@
                                             </div>
                                             <div class="form-group col-7">
                                                 <label>Supplier Address</label>
-                                                <input type="text" class="form-control" name="supplierAddress"
-                                                    placeholder="Supplier Address">
+                                                <input type="text" class="form-control @error('supplierAddress') is-invalid
+
+                                                @enderror" name="supplierAddress"
+                                                    placeholder="Supplier Address" value="{{ old('supplierAddress') }}">
+                                                    @error('supplierAddress')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+
+                                                    </span>
+
+                                                    @enderror
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col">
                                                 <label>Note</label>
                                                 <input type="text" class="form-control" name="note"
-                                                    placeholder="Some note About Supplier">
+                                                    placeholder="Some note about supplier">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -93,7 +102,7 @@
                                                 <input type="number" class="form-control @error('supplierPrevBalance') is-invalid
 
                                                 @enderror" name="supplierPrevBalance"
-                                                    placeholder="Supplier Previous Balance" value="{{ old('supplierPrevBalance') }}">
+                                                    placeholder="0.00" value="{{ old('supplierPrevBalance') }}">
                                                     @error('supplierPrevBalance')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -108,7 +117,7 @@
                                                 <input type="number" class="form-control @error('supplierCarrentBalance') is-invalid
 
                                                 @enderror" name="supplierCarrentBalance"
-                                                    placeholder="Supplier Carrent Balance" value="{{ old('supplierCarrentBalance') }}">
+                                                    placeholder="0.00" value="{{ old('supplierCarrentBalance') }}">
                                                     @error('supplierCarrentBalance')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

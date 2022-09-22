@@ -55,7 +55,7 @@
 
                                                 @enderror"
                                                 name="customerEmail" id="customerEmail" value=""
-                                                placeholder="customer Email" value="{{ old('customerEmail') }}">
+                                                placeholder="example@gmail.com" value="{{ old('customerEmail') }}">
                                             @error('customerEmail')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -69,7 +69,7 @@
                                                 class="form-control @error('customerContact') is-invalid
 
                                                 @enderror"
-                                                name="customerContact" id="customerContact" placeholder="customer Contact"
+                                                name="customerContact" id="customerContact" placeholder="01XXXXXXXXX"
                                                 value="{{ old('customerContact') }}">
                                             @error('customerContact')
                                                 <span class="invalid-feedback" role="alert">
@@ -84,7 +84,7 @@
                                                 class="form-control datepicker @error('paymentDate') is-invalid
 
                                             @enderror "
-                                                name="paymentDate" placeholder="Payment Date"
+                                                name="paymentDate" placeholder="dd-mm-yyyy"
                                                 value="{{ old('paymentDate') }}">
                                             @error('paymentDate')
                                                 <span class="invalid-feedback" role="alert">
@@ -114,7 +114,7 @@
                                                 class="form-control @error('paymentAmount') is-invalid
 
                                             @enderror"
-                                                name="paymentAmount" placeholder="Payment Ammount"
+                                                name="paymentAmount" placeholder="0.00"
                                                 value="{{ old('paymentAmount') }}">
                                             @error('paymentAmount')
                                                 <span class="invalid-feedback" role="alert">

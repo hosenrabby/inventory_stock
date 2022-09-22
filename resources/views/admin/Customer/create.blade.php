@@ -45,7 +45,7 @@
                                                     class="form-control @error('customerEmail') is-invalid
 
                                                     @enderror"
-                                                    name="customerEmail" placeholder="Customer Email"
+                                                    name="customerEmail" placeholder="example@gmail.com"
                                                     value="{{ old('customerEmail') }}">
                                                 @error('customerEmail')
                                                     <span class="invalid-feedback" role="alert">
@@ -61,7 +61,7 @@
                                                     class="form-control @error('customerPhone') is-invalid
 
                                                     @enderror"
-                                                    name="customerPhone" placeholder="Customer Phone"
+                                                    name="customerPhone" placeholder="01XXXXXXXXX"
                                                     value="{{ old('customerPhone') }}">
                                                 @error('customerPhone')
                                                     <span class="invalid-feedback" role="alert">
@@ -71,8 +71,17 @@
                                             </div>
                                             <div class="form-group col-7">
                                                 <label>Customer Address</label>
-                                                <input type="text" class="form-control" name="customerAddress"
-                                                    placeholder="Customer Address">
+                                                <input type="text" class="form-control @error('customerAddress') is-invalid
+
+                                                @enderror" name="customerAddress"
+                                                    placeholder="Customer Address" value="{{ old('customerAddress') }}">
+                                                    @error('customerAddress')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+
+                                                    </span>
+
+                                                    @enderror
                                             </div>
                                         </div>
                                         <div class="row">
@@ -89,7 +98,7 @@
                                                     class="form-control @error('custoPrevBalance') is-invalid
 
                                                 @enderror"
-                                                    name="custoPrevBalance" placeholder="Customer Previous Balance"
+                                                    name="custoPrevBalance" placeholder="0.00"
                                                     value="{{ old('custoPrevBalance') }}">
                                                 @error('custoPrevBalance')
                                                     <span class="invalid-feedback" role="alert">
@@ -104,7 +113,7 @@
                                                     class="form-control @error('customerCurrentBalance') is-invalid
 
                                                 @enderror"
-                                                    name="customerCurrentBalance" placeholder="Customer Current Balance"
+                                                    name="customerCurrentBalance" placeholder="0.00"
                                                     value="{{ old('customerCurrentBalance') }}">
                                                 @error('customerCurrentBalance')
                                                     <span class="invalid-feedback" role="alert">

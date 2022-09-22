@@ -41,7 +41,7 @@
                                                 <label>Product Code</label>
                                                 <input type="number" class="form-control @error('prodCode') is-invalid
 
-                                                @enderror" name="prodCode" placeholder="Product Code" value="{{ old('prodCode') }}">
+                                                @enderror" name="prodCode" placeholder="000abc" value="{{ old('prodCode') }}">
                                                 @error('prodCode')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -94,7 +94,7 @@
                                                     <label>Product Rate</label>
                                                     <input type="number" class="form-control @error('prodRate') is-invalid
 
-                                                    @enderror" name="prodRate" placeholder="Product Rate" value="{{ old('prodRate') }}">
+                                                    @enderror" name="prodRate" placeholder="0.00" value="{{ old('prodRate') }}">
                                                     @error('prodRate')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -108,7 +108,7 @@
                                                     <label>Stock Balance</label>
                                                     <input type="number" class="form-control @error('stockBalance') is-invalid
 
-                                                    @enderror" name="stockBalance" placeholder="Stock Balance" value="{{ old('stockBalance') }}">
+                                                    @enderror" name="stockBalance" placeholder="0.00" value="{{ old('stockBalance') }}">
                                                     @error('stockBalance')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
