@@ -25,22 +25,18 @@
                                     <form class="forms-sample" action="{{ url('authorized/supplierPaymentList') }}" method="POST">
                                         {!! csrf_field() !!}
                                         <input type="hidden" name="supID" id="supID" value="0">
+
                                         <div class="form-group">
                                             <label>Supplier Name</label>
-                                            <select class="form-control @error('supplierID') is-invalid
+                                            <select class="form-control " name="supplierName" id="supplierID">
 
-                                            @enderror" name="supplierName" id="supplierID" value="{{ old('supplierID') }}">
-                                            @error('supplierID')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
                                                 <option selected>Open this select menu</option>
                                                 @foreach ($spl as $item)
                                                 <option value="{{ $item->supplierName }}" id="{{ $item->id }}">{{ $item->supplierName }}</option>
                                                 @endforeach
 
                                             </select>
+
                                         </div>
 
                                         <div class="form-group">
