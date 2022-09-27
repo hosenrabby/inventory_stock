@@ -1,8 +1,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
- <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
 @extends('layout.master')
 @section('content')
-
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
@@ -28,14 +27,12 @@
                                                 <tr>
                                                     <th>SL</th>
                                                     <th>Supplier Name</th>
-                                                    <th>Supplier Email</th>
-                                                    <th>Supplier Contact</th>
                                                     <th>Payment Date</th>
                                                     <th>Transaction Method</th>
-                                                    <th>Note</th>
                                                     <th>Supplier Prev Balance</th>
                                                     <th>Payment Amount</th>
                                                     <th>Supplier Carrnt Balance</th>
+                                                    <th>Note</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -43,14 +40,12 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $supplierreport->supplierName }}</td>
-                                                        <td>{{ $supplierreport->supplierEmail }}</td>
-                                                        <td>{{ $supplierreport->supplierContact }}</td>
                                                         <td>{{ $supplierreport->paymentDate }}</td>
                                                         <td>{{ $supplierreport->transactionMethod }}</td>
-                                                        <td>{{ $supplierreport->note }}</td>
                                                         <td>{{ $supplierreport->supplierPrevBalance }}</td>
                                                         <td>{{ $supplierreport->paymentAmount }}</td>
                                                         <td>{{ $supplierreport->supplierCarrentBalance }}</td>
+                                                        <td>{{ $supplierreport->note }}</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -68,7 +63,7 @@
                                                     <th></th>
                                                 </tr> --}}
                                                 <tr>
-                                                    <th colspan="8" style="text-align: right">Total:</th>
+                                                    <th colspan="6" style="text-align: right">Total:</th>
                                                     <th colspan="2"></th>
                                                 </tr>
                                             </tfoot>
@@ -85,52 +80,55 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @section('script')
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
 
 
-<script>
-    $(document).ready(function () {
-    $('#supplierReport').DataTable({
+    <script>
+        $(document).ready(function() {
+            $('#supplierReport').DataTable({
 
-        footerCallback: function (row, data, start, end, display) {
-            var api = this.api();
+                footerCallback: function(row, data, start, end, display) {
+                    var api = this.api();
 
-            // Remove the formatting to get integer data for summation
-            var intVal = function (i) {
-                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
-            };
+                    // Remove the formatting to get integer data for summation
+                    var intVal = function(i) {
+                        return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i ===
+                            'number' ? i : 0;
+                    };
 
-            // Total over all pages
-            total = api
-                .column(9)
-                .data()
-                .reduce(function (a, b) {
-                    return intVal(a) + intVal(b);
-                }, 0);
+                    // Total over all pages
+                    total = api
+                        .column(8)
+                        .data()
+                        .reduce(function(a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
 
-            // Total over this page
-            pageTotal = api
-                .column(9, { page: 'current' })
-                .data()
-                .reduce(function (a, b) {
-                    return intVal(a) + intVal(b);
-                }, 0);
+                    // Total over this page
+                    pageTotal = api
+                        .column(8, {
+                            page: 'current'
+                        })
+                        .data()
+                        .reduce(function(a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
 
-            // Update footer
-            $(api.column(9).footer()).html('৳' + pageTotal + ' (Total ৳' + total + ')');
-        },
-        dom: 'Bfrtip',
-        buttons: [
-            {extend: 'print', footer:true}
-        ]
-    });
-});
-</script>
+                    // Update footer
+                    $(api.column(8).footer()).html('৳' + pageTotal + ' (Total ৳' + total + ')');
+                },
+                dom: 'Bfrtip',
+                buttons: [{
+                    extend: 'print',
+                    footer: true
+                }]
+            });
+        });
+    </script>
 @endsection

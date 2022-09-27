@@ -4,14 +4,14 @@
             <ul>
                 <div class="logo">
                     <a href="{{ route('admin-dashboard') }}">
-                        <img src="assets/images/logo.png" alt=""/>
+                        <img src="assets/images/logo.png" alt="" />
                         <span>BD-ENG Stock-Inv</span>
                     </a>
                 </div>
 
                 <li class="label">Main</li>
-                    <li><a href="{{ route('admin-dashboard') }}" class="sideba"><i class="ti-home"></i> Dashboard</a></li>
-                    <li><a href="{{ route('company.index') }}" class="sideba"><i class="ti-link"></i> Company Details</a>
+                <li><a href="{{ route('admin-dashboard') }}" class="sideba"><i class="ti-home"></i> Dashboard</a></li>
+                <li><a href="{{ route('company.index') }}" class="sideba"><i class="ti-link"></i> Company Details</a>
                 </li>
 
 
@@ -80,8 +80,8 @@
                 <li><a class="sidebar-sub-toggle"><i class="ti-files"></i> All Reports <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
-                        <li><a href="{{ url('authorized/supplierLedgerReport') }}">Suplier Ledger Reports</a></li>
-                        <li><a href="{{ url('authorized/customerLedgerReport') }}">Customer Ledger Reports</a></li>
+                        <li><a href="{{ url('authorized/supplierLedgerReport') }}">All Suplier Ledger Reports</a></li>
+                        <li><a href="{{ url('authorized/customerLedgerReport') }}">All Customer Ledger Reports</a></li>
                         <li><a href="{{ url('authorized/stockLedgerReport') }}">Stock ledger Report</a></li>
                         <li><a href="{{ url('authorized/purchaseReports') }}">Purchase Reports</a></li>
                         <li><a href="{{ url('/authorized/salesReports') }}">Sales Reports</a></li>

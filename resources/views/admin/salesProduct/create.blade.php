@@ -30,7 +30,7 @@
                                                 <div class="col">
                                                     <div class="form-group">
                                                         <label>Invoice Number</label>
-                                                        <input type="number" class="form-control @error('invNumber') is-invalid
+                                                        <input type="text" class="form-control @error('invNumber') is-invalid
 
                                                         @enderror" name="invNumber" placeholder="000AX" value="{{ old('invNumber') }}">
                                                         @error('invNumber')
@@ -69,11 +69,21 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            <div class="extra-row" id="" >
-                                                <div class="row mt-3" id="RowAppend">
+                                            <div class="extra-row" id="RowAppend">
+                                                <div class="row mt-3">
                                                     <div class="col-1">
-                                                        <button type="button" class="btn btn-sm btn-outline-dark" id="RowAdd" onclick="row_Append()" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
+                                                        <button type="button" class="btn btn-sm btn-outline-dark" id="RowAdd" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
                                                         {{-- <button type="button" class="btn btn-sm btn-outline-danger" id="RowDeletesd" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button> --}}
+                                                    </div>
+                                                        <div class="form-group col">
+                                                            <label>Product Code</label>
+                                                            <input type="text" class="form-control @error('prodCode') is-invalid
+                                                            @enderror" name="prodCode[]" id="productCode1" onkeyup="prodCode(1)" placeholder="000abc" value="{{ old('prodCode[]') }}">
+                                                            @error('prodCode')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                            @enderror
                                                     </div>
                                                     <div class="form-group col">
                                                         <label>Product Name</label>
@@ -85,21 +95,6 @@
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                        <div class="form-group col">
-                                                            <label>Product Code</label>
-                                                            <input type="number" class="form-control @error('prodCode') is-invalid
-
-                                                            @enderror" name="prodCode[]" id="productCode1" onkeyup="prodCode(1)" placeholder="000abc" value="{{ old('prodCode[]') }}">
-                                                            @error('prodCode')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-
-                                                            </span>
-
-
-                                                            @enderror
-
-                                                        </div>
                                                     <div class="form-group col">
                                                         <label>Product QTY <span id="qtyLabel1"></span></label>
                                                         <input type="number" class="form-control @error('prodQty') is-invalid
@@ -146,6 +141,12 @@
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="form-group col">
+                                                        <label>Trnasetion Method</label>
+                                                        <input type="text" class="form-control" name="transactionMethod" id="transactionMethod" placeholder="Trnasetion Method">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group col">
                                                         <label>Note</label>
                                                         <input type="text" class="form-control" name="note" id="note" placeholder="Some Note">
                                                     </div>
@@ -181,13 +182,17 @@
 
 <script type="text/javascript">
 
-    function row_Append(){
+        $('#RowAdd').click(function(){
         var i=1;
         var rowlength=parseInt($('#rowlen').val());
         i+=rowlength;
         var row='<div class="row mt-3" id="DelRow'+i+'">'
             row+='<div class="col-1">'
             row+='<button type="button" class="btn btn-sm btn-outline-danger" id="minus" onclick="row_Remove('+i+')"  style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>'
+            row+='</div>'
+            row+='<div class="form-group col">'
+            row+='<label>Product Code</label>'
+            row+='<input type="text" class="form-control" name="prodCode[]" id="productCode'+i+'" onkeyup="prodCode('+i+')" placeholder="Product Code">'
             row+='</div>'
             row+='<div class="form-group col">'
             row+='<label>Product Name</label>'
@@ -197,10 +202,6 @@
             row+='<option value="{{ $products->id }}" id="{{ $products->id }}">{{ $products->productName }}</option>'
             row+='@endforeach'
             row+='</select>'
-            row+='</div>'
-            row+='<div class="form-group col">'
-            row+='<label>Product Code</label>'
-            row+='<input type="number" class="form-control" name="prodCode[]" id="productCode'+i+'" onkeyup="prodCode('+i+')" placeholder="Product Code">'
             row+='</div>'
             row+='<div class="form-group col">'
             row+='<label>Product QTY<span id="qtyLabel'+i+'"></span></label>'
@@ -220,7 +221,7 @@
         $('#rowlen').val(i);
         i++;
 
-    }
+    })
 
     function row_Remove(id){
         $('#DelRow'+id).remove();
@@ -241,7 +242,8 @@
                             console.log(data);
                                 $.each(data, function(key, value) {
                                     $('#productCode'+id).val(value.prodCode);
-                                    $('#qtyLabel'+id).html('(Available Stock)'+value.stockBalance);
+                                    $('#productRate'+id).val(value.prodRate);
+                                    $('#qtyLabel'+id).html('(Stock)'+value.stockBalance);
                                 })
                             }
                         });
@@ -266,7 +268,8 @@
 
                         $.each(data, function(key, value) {
                             $('#productRate'+id).val(value.prodRate);
-                            $('#qtyLabel'+id).html('(Available Stock)'+value.stockBalance);
+                            $('#productRate'+id).val(value.prodRate);
+                            $('#qtyLabel'+id).html('(Stock)'+value.stockBalance);
                         })
 
                     }

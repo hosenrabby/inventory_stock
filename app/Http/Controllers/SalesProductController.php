@@ -63,6 +63,7 @@ class SalesProductController extends Controller
         $prodQty = $request->prodQty;
         $prodRate = $request->prodRate;
         $totalPrice = $request->totalPrice;
+        $transactionMethod = $request->transactionMethod;
         $grandTotal = $request->grandTotal;
         $paidAmount = $request->paidAmount;
         $duesAmount = $request->duesAmount;
@@ -99,12 +100,15 @@ class SalesProductController extends Controller
         if ($shortDataInsert) {
             $findCust = customer::find($customer_id);
             $custPamntData = [
+                'invoice_id' => $invoice_id,
+                'invNumber' => $invNumber,
                 'customerName' => $customerName,
-                'customerEmail' => $findCust->customerEmail,
-                'customerContact' => $findCust->customerPhone,
+                'paymentDate' => $purchaseDate,
+                'transactionMethod' => $transactionMethod,
                 'paymentDate' => $purchaseDate,
                 'custoPrevBalance' => $findCust->customerCurrentBalance,
                 'paymentAmount' => $paidAmount,
+                'duesAmount' => $duesAmount,
                 'custoCarrentBalance' => $findCust->customerCurrentBalance + $duesAmount,
                 'note' => $note,
             ];

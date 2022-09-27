@@ -49,40 +49,6 @@
 
                                                 </select>
                                             </div>
-
-                                            <div class="form-group col">
-                                                <label>Customer Email</label>
-                                                <input type="text"
-                                                    class="form-control @error('customerEmail') is-invalid
-
-                                                @enderror"
-                                                    name="customerEmail" id="customerEmail" value=""
-                                                    placeholder="example@gmail.com" value="{{ old('customerEmail') }}">
-                                                @error('customerEmail')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="form-group col">
-                                                <label>Customer Contact</label>
-                                                <input type="text"
-                                                    class="form-control @error('customerContact') is-invalid
-
-                                                    @enderror"
-                                                    name="customerContact" id="customerContact" placeholder="01XXXXXXXXX"
-                                                    value="{{ old('customerContact') }}">
-                                                @error('customerContact')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-
-                                                    </span>
-                                                @enderror
-                                            </div>
                                             <div class="form-group col">
                                                 <label>Payment Date</label>
                                                 <input type="text"
@@ -172,21 +138,21 @@
         $("#customerName").change(function() {
             var optID = $('#customerName').find("option:selected").attr('id');
             $('#cusID').val(optID)
-            if (optID) {
-                $.ajax({
-                    url: "{{ url('authorized/customerPaymentList') }}/" + optID,
-                    type: "GET",
-                    cache: false,
-                    dataType: "json",
-                    success: function(data) {
-                        console.log(data);
-                        $.each(data, function(key, value) {
-                            $('#customerEmail').val(value.customerEmail);
-                            $('#customerContact').val(value.customerPhone);
-                        })
-                    }
-                });
-            }
+            // if (optID) {
+            //     $.ajax({
+            //         url: "{{ url('authorized/customerPaymentList') }}/" + optID,
+            //         type: "GET",
+            //         cache: false,
+            //         dataType: "json",
+            //         success: function(data) {
+            //             console.log(data);
+            //             $.each(data, function(key, value) {
+            //                 $('#customerEmail').val(value.customerEmail);
+            //                 $('#customerContact').val(value.customerPhone);
+            //             })
+            //         }
+            //     });
+            // }
         })
     </script>
 @endsection

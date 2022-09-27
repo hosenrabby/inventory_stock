@@ -45,8 +45,6 @@ class SupplierPaymentListController extends Controller
         // $input= $request->all();
         $supID = $request->supID;
         $supplierName = $request->supplierName;
-        $supplierEmail = $request->supplierEmail;
-        $supplierContact = $request->supplierContact;
         $paymentDate = $request->paymentDate;
         $transactionMethod = $request->transactionMethod;
         $paymentAmount = $request->paymentAmount;
@@ -55,8 +53,6 @@ class SupplierPaymentListController extends Controller
         $findSupp = Supplier::find($supID);
         $paymListInsert = [
             'supplierName' => $supplierName,
-            'supplierEmail' => $supplierEmail,
-            'supplierContact' => $supplierContact,
             'paymentDate' => $paymentDate,
             'transactionMethod' => $transactionMethod,
             'note' => $note,

@@ -59,8 +59,6 @@ class CustomerController extends Controller
         customer::create($customer);
         $custoPayment = [
             'customerName' => $customerName,
-            'customerEmail' => $customerEmail,
-            'customerContact' => $customerPhone,
             'paymentDate' => date('d-m-Y'),
             'note' => $note,
             'custoPrevBalance' => $custoPrevBalance,

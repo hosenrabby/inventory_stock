@@ -25,8 +25,6 @@ class customerpaymentList extends FormRequest
     {
         return [
             'customerName'=>'Bail|required|string',
-            'customerEmail'=>'Bail|required|email',
-            'customerContact'=>'Bail|required|numeric',
             'paymentDate'=>'Bail|required|date',
             'transactionMethod'=>'Bail|required|string',
             'paymentAmount'=>'Bail|required|numeric',

@@ -24,9 +24,9 @@ class salesProduct extends FormRequest
     public function rules()
     {
         return [
-             'invNumber'=>'Bail|required|string',
-             'customerName'=>'Bail|required|string',
-             'purchaseDate'=>'Bail|required|date',
+            'invNumber'=>'Bail|required|string',
+            'customerName'=>'Bail|required|string',
+            'purchaseDate'=>'Bail|required|date',
             'productID'=>'Bail|required|',
             'prodQty'=>'Bail|required',
             'grandTotal'=>'Bail|required|numeric',

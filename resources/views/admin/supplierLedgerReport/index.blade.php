@@ -20,9 +20,11 @@
                             <div class="card">
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
-                                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                        <table class="table table-striped table-bordered">
                                             <thead>
-                                                <a class="btn btn-success mb-3" target="blank" href="{{ url('authorized/supplierInoices/') }}" role="button"><i class="fa fa-print"></i> Print</a>
+                                                <a class="btn btn-success mb-3" target="blank"
+                                                    href="{{ url('authorized/supplierInoices/') }}" role="button"><i
+                                                        class="fa fa-print"></i> Print</a>
                                                 <tr>
                                                     <th>Serial No</th>
                                                     <th>Supplier Name</th>

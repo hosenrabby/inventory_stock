@@ -115,8 +115,14 @@
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="form-group col">
+                                                        <label>Trnasetion Method</label>
+                                                        <input type="text" class="form-control" name="transactionMethod" id="transactionMethod" placeholder="Trnasetion Method">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group col">
                                                         <label>Note</label>
-                                                        <input type="text" class="form-control" name="note" id="note" placeholder="Some Note">
+                                                        <input type="text" class="form-control" name="note" id="note" placeholder="Note About Transection">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col">

@@ -61,8 +61,6 @@ class SupplierController extends Controller
         // Supplier::create($input);
         $supPayment = [
             'supplierName' => $supplierName,
-            'supplierEmail' => $supplierEmail,
-            'supplierContact' => $supplierPhone,
             'paymentDate' => date('d-m-Y'),
             'note' => $note,
             'supplierPrevBalance' => $supplierPrevBalance,

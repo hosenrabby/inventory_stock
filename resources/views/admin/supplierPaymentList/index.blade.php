@@ -1,6 +1,5 @@
 @extends('layout.master')
 @section('content')
-
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
@@ -29,15 +28,14 @@
                                                 <tr>
                                                     <th>SL</th>
                                                     <th>Supplier Name</th>
-                                                    <th>Supplier Email</th>
-                                                    <th>Supplier Contact</th>
                                                     <th>Payment Date</th>
                                                     <th>Transaction Method</th>
-                                                    <th>Note</th>
                                                     <th>Supplier Prev Balance</th>
                                                     <th>Payment Amount</th>
+                                                    <th>Dues Amount</th>
                                                     <th>Supplier Carrnt Balance</th>
-                                                    <th>Action</th>
+                                                    <th>Note</th>
+                                                    {{-- <th>Action</th> --}}
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -45,16 +43,17 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $supplierPayment->supplierName }}</td>
-                                                        <td>{{ $supplierPayment->supplierEmail }}</td>
-                                                        <td>{{ $supplierPayment->supplierContact }}</td>
                                                         <td>{{ $supplierPayment->paymentDate }}</td>
                                                         <td>{{ $supplierPayment->transactionMethod }}</td>
-                                                        <td>{{ $supplierPayment->note }}</td>
                                                         <td>{{ $supplierPayment->supplierPrevBalance }} ৳</td>
-                                                        <td>{{ $supplierPayment->paymentAmount }}</td>
+                                                        <td>{{ $supplierPayment->paymentAmount }} ৳</td>
+                                                        <td><a target="blank"
+                                                                href="{{ url('authorized/purchaseinvoice/' . $supplierPayment->pID) }}">(Ref-INV)
+                                                            </a>{{ $supplierPayment->duesAmount }} ৳</td>
                                                         <td>{{ $supplierPayment->supplierCarrentBalance }} ৳</td>
+                                                        <td>{{ $supplierPayment->note }}</td>
 
-                                                        <td>
+                                                        {{-- <td>
                                                             <div class="d-flex justify-content-center">
                                                                 <a href="" class="btn btn-success"><i
                                                                         class="fa-solid fa-pen-to-square"></i></a>
@@ -67,7 +66,7 @@
                                                                             class="fa-solid fa-trash-can"></i></button>
                                                                 </form>
                                                             </div>
-                                                        </td>
+                                                        </td> --}}
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -84,6 +83,4 @@
             </div>
         </div>
     </div>
-
 @endsection
-

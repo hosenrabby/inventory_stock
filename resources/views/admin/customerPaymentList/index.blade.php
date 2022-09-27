@@ -27,16 +27,15 @@
                                             <thead>
                                                 <tr>
                                                     <th>SL</th>
-                                                    <th>Customer Name</th>
-                                                    <th>Customer Email</th>
                                                     <th>Customer Contact</th>
                                                     <th>Payment Date</th>
                                                     <th>Transaction Method</th>
-                                                    <th>Note</th>
                                                     <th>Customer Prev Blnc</th>
                                                     <th>Payment Amount</th>
+                                                    <th>Dues Amount</th>
                                                     <th>Customer Currnt Blnc</th>
-                                                    <th>Action</th>
+                                                    <th>Note</th>
+                                                    {{-- <th>Action</th> --}}
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -44,16 +43,17 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $customerPayment->customerName }}</td>
-                                                        <td>{{ $customerPayment->customerEmail }}</td>
-                                                        <td>{{ $customerPayment->customerContact }}</td>
                                                         <td>{{ $customerPayment->paymentDate }}</td>
                                                         <td>{{ $customerPayment->transactionMethod }}</td>
-                                                        <td>{{ $customerPayment->note }}</td>
-                                                        <td>{{ $customerPayment->custoPrevBalance }}</td>
+                                                        <td>{{ $customerPayment->custoPrevBalance }} ৳</td>
                                                         <td>{{ $customerPayment->paymentAmount }} ৳</td>
-                                                        <td>{{ $customerPayment->custoCarrentBalance }}</td>
+                                                        <td><a target="blank"
+                                                                href="{{ url('authorized/salesinvoice/' . $customerPayment->invoice_id) }}">(Ref-INV)
+                                                            </a>{{ $customerPayment->duesAmount }} ৳</td>
+                                                        <td>{{ $customerPayment->custoCarrentBalance }} ৳</td>
+                                                        <td>{{ $customerPayment->note }}</td>
 
-                                                        <td>
+                                                        {{-- <td>
                                                             <div class="d-flex justify-content-center">
                                                                 <a href="" class="btn btn-success"><i
                                                                         class="fa-solid fa-pen-to-square"></i></a>
@@ -66,7 +66,7 @@
                                                                             class="fa-solid fa-trash-can"></i></button>
                                                                 </form>
                                                             </div>
-                                                        </td>
+                                                        </td> --}}
                                                     </tr>
                                                 @endforeach
                                             </tbody>

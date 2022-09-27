@@ -162,7 +162,6 @@
                             <div class="card">
                                 <div class="card-title">
                                     <h4>Task</h4>
-
                                 </div>
                                 <div class="todo-list">
                                     <div class="tdl-holder">
@@ -170,44 +169,8 @@
                                             <ul>
                                                 <li>
                                                     <label>
-                                                        <input type="checkbox"><i></i><span>22,Dec Publish The Final
-                                                            Exam Result</span>
-                                                        <a href='#' class="ti-close"></a>
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <label>
-                                                        <input type="checkbox" checked><i></i><span>First Jan Start Our
-                                                            School</span>
-                                                        <a href='#' class="ti-close"></a>
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <label>
-                                                        <input type="checkbox"><i></i><span>Recently Our Maganement
-                                                            Programme Start</span>
-                                                        <a href='#' class="ti-close"></a>
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <label>
-                                                        <input type="checkbox" checked><i></i><span>Check out some
-                                                            Popular courses</span>
-                                                        <a href='#' class="ti-close"></a>
-                                                    </label>
-                                                </li>
-
-                                                <li>
-                                                    <label>
-                                                        <input type="checkbox" checked><i></i><span>First Jan Start Our
-                                                            School</span>
-                                                        <a href='#' class="ti-close"></a>
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <label>
-                                                        <input type="checkbox" checked><i></i><span>Connect with one new
-                                                            person</span>
+                                                        <input type="checkbox"><i></i><span>Add Some ToDay ToDo Work
+                                                            List</span>
                                                         <a href='#' class="ti-close"></a>
                                                     </label>
                                                 </li>

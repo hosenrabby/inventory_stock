@@ -68,6 +68,7 @@ class PurchaseManageController extends Controller
         $grandTotal = $request->grandTotal;
         $paidAmount = $request->paidAmount;
         $duesAmount = $request->duesAmount;
+        $transection = $request->transactionMethod;
         $note = $request->note;
 
         for ($i=0; $i <count($productID) ; $i++) {
@@ -101,12 +102,14 @@ class PurchaseManageController extends Controller
         if ($shortDataInsert) {
             $findSupp = Supplier::find($supplierID);
             $supPamntData = [
+                'pID' => $pid,
+                'invNumber' => $invNumber,
                 'supplierName' => $supplierName,
-                'supplierEmail' => $findSupp->supplierEmail,
-                'supplierContact' => $findSupp->supplierPhone,
                 'paymentDate' => $purchaseDate,
+                'transactionMethod' => $transection,
                 'supplierPrevBalance' => $findSupp->supplierCarrentBalance,
                 'paymentAmount' => $paidAmount,
+                'duesAmount' => $duesAmount,
                 'supplierCarrentBalance' => $findSupp->supplierCarrentBalance + $duesAmount,
                 'note' => $note,
             ];

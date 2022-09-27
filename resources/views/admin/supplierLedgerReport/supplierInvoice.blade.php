@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <!-- Custom Style -->
@@ -21,12 +23,13 @@
             <section class="top-content bb d-flex justify-content-between">
                 <div class="logo">
 
-                    <img src="{{ asset('public/assets/images/invlogo.png') }}" alt="logo" class="img-fluid" width="250px" height="250px">
+                    <img src="{{ asset('public/assets/images/invlogo.png') }}" alt="logo" class="img-fluid"
+                        width="250px" height="250px">
                 </div>
                 <div class="top-left">
                     <p><strong>Date:</strong>
                         {{ date('d-m-y') }}
-                </p>
+                    </p>
                 </div>
             </section>
 
@@ -38,46 +41,41 @@
                             <th>Supplier Name</th>
                             <th>Supplier Email</th>
                             <th>Supplier Phone</th>
-                            <th>Supplier Address</th>
                             <th>Supplier Current Balance</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($supplier as $item)
-                        <tr>
-                            <td>
-                                <div class="media">
+                            <tr>
+                                <td>
+                                    <div class="media">
 
-                                    <div class="media-body">
-                                        <p class="mt-0 title">
-                                            {{ $loop->iteration }}
-                                        </p>
+                                        <div class="media-body">
+                                            <p class="mt-0 title">
+                                                {{ $loop->iteration }}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td>
-                                {{ $item->supplierName }}
-                            </td>
-                            <td>
-                                {{ $item->supplierEmail }}
-                            </td>
-                            <td>
-                                {{ $item->supplierPhone }}
-                            </td>
-                            <td>
-                                {{ $item->supplierAddress }}
-                            </td>
-                            <td>
-                                {{ $item->supplierCarrentBalance }}
-                            </td>
-                        </tr>
+                                </td>
+                                <td>
+                                    {{ $item->supplierName }}
+                                </td>
+                                <td>
+                                    {{ $item->supplierEmail }}
+                                </td>
+                                <td>
+                                    {{ $item->supplierPhone }}
+                                </td>
+                                <td>
+                                    {{ $item->supplierCarrentBalance }}
+                                </td>
+                            </tr>
                         @endforeach
 
                     </tbody>
 
                     <tfoot>
                         <tr>
-                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -137,4 +135,5 @@
         </div>
     </div>
 </body>
+
 </html>

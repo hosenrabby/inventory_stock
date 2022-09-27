@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <!-- Custom Style -->
@@ -21,12 +23,13 @@
             <section class="top-content bb d-flex justify-content-between">
                 <div class="logo">
 
-                    <img src="{{ asset('public/assets/images/invlogo.png') }}" alt="logo" class="img-fluid" width="250px" height="250px">
+                    <img src="{{ asset('public/assets/images/invlogo.png') }}" alt="logo" class="img-fluid"
+                        width="250px" height="250px">
                 </div>
                 <div class="top-left">
                     <p><strong>Date:</strong>
                         {{ date('d-m-y') }}
-                </p>
+                    </p>
                 </div>
             </section>
 
@@ -38,46 +41,41 @@
                             <th>Customer Name</th>
                             <th>Customer Email</th>
                             <th>Customer Phone</th>
-                            <th>Customer Address</th>
                             <th>Customer Current Balance</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($customer as $item)
-                        <tr>
-                            <td>
-                                <div class="media">
+                            <tr>
+                                <td>
+                                    <div class="media">
 
-                                    <div class="media-body">
-                                        <p class="mt-0 title">
-                                            {{ $loop->iteration }}
-                                        </p>
+                                        <div class="media-body">
+                                            <p class="mt-0 title">
+                                                {{ $loop->iteration }}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td>
-                                {{ $item->customerName }}
-                            </td>
-                            <td>
-                                {{ $item->customerEmail }}
-                            </td>
-                            <td>
-                                {{ $item->customerPhone }}
-                            </td>
-                            <td>
-                                {{ $item->customerAddress }}
-                            </td>
-                            <td>
-                                {{ $item->customerBalance }}
-                            </td>
-                        </tr>
+                                </td>
+                                <td>
+                                    {{ $item->customerName }}
+                                </td>
+                                <td>
+                                    {{ $item->customerEmail }}
+                                </td>
+                                <td>
+                                    {{ $item->customerPhone }}
+                                </td>
+                                <td>
+                                    {{ $item->customerCurrentBalance }}
+                                </td>
+                            </tr>
                         @endforeach
 
                     </tbody>
 
                     <tfoot>
                         <tr>
-                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -137,4 +135,5 @@
         </div>
     </div>
 </body>
+
 </html>
