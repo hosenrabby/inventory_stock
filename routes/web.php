@@ -97,7 +97,11 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::get('supplier-id', [supplierpaymentreport::class, 'suppMaxID']);
         Route::get('supplierLedger-search/{id}', [supplierpaymentreport::class, 'SuppData']);
         Route::get('supplierLedger-data/{id}', [supplierpaymentreport::class, 'SuppLedgerData']);
-        // Route::get('customerpaymentreport', [customerpaymentreport::class, 'index']);
+
+        Route::get('customerpaymentreport', [customerpaymentreport::class, 'index']);
+        Route::get('customer-id', [customerpaymentreport::class, 'custoMaxID']);
+        Route::get('customerLedger-search/{id}', [customerpaymentreport::class, 'custoData']);
+        Route::get('customerLedger-data/{id}', [customerpaymentreport::class, 'SuppLedgerData']);
 
         Route::resource('supplierPaymentList',SupplierPaymentListController::class);
         Route::resource('customerPaymentList',CustomerpaymentListController::class);

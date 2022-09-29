@@ -1,8 +1,5 @@
-<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
- <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
 @extends('layout.master')
 @section('content')
-
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
@@ -11,10 +8,32 @@
                     <div class="col-lg-12 p-l-0 title-margin-left">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Payment manage</li>
+                            <li class="breadcrumb-item active">Customer Ledger Report</li>
                         </ol>
                     </div>
                     <!-- /# column -->
+                </div>
+                <div class="row">
+                    <div class="input-group input-group-rounded">
+                        <form action="#" method="POST">
+                            <div class="form-group ml-5">
+                                <div class="row">
+                                    <select class="form-control col select2 supplier_rec" name="customer" id="customer"
+                                        style="width:220px">
+                                        <option value="" selected>Select Customer to see Data</option>
+                                        @foreach ($customer as $item)
+                                            <option value="{{ $item->id }}">{{ $item->customerName }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="form-group col">
+                            <button class="btn btn-danger weight" type="button" name="refresh" id="refresh"
+                                style="padding-bottom: 5px;border-radius: 0px;"><i class="ti-reload"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <!-- /# row -->
                 <section id="main-content">
@@ -23,56 +42,38 @@
                             <div class="card">
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
-                                        <table id="customerReport" class="table table-striped table-bordered">
+                                        <table id="" class="table table-striped table-bordered ">
                                             <thead>
+                                                <a class="btn btn-success mb-3" target="blank" id="printBtn"
+                                                    href="{{ url('authorized/customerLedger-data') }}" role="button"><i
+                                                        class="fa fa-print"></i>
+                                                    Print</a>
                                                 <tr>
-                                                    <th>SL</th>
                                                     <th>Customer Name</th>
-                                                    <th>Customer Email</th>
-                                                    <th>Customer Contact</th>
                                                     <th>Payment Date</th>
                                                     <th>Transaction Method</th>
-                                                    <th>Note</th>
-                                                    <th>Cutomer Prev Balance</th>
+                                                    <th>Customer Prev Balance</th>
                                                     <th>Payment Amount</th>
-                                                    <th>Customer Carrnt Balance</th>
+                                                    <th>Dues Amount</th>
+                                                    <th>Custoemr Carrnt Balance</th>
+                                                    <th>Note</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($customer as $customerreport)
-                                                    <tr>
-                                                        <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $customerreport->customerName }}</td>
-                                                        <td>{{ $customerreport->customerEmail }}</td>
-                                                        <td>{{ $customerreport->customerContact }}</td>
-                                                        <td>{{ $customerreport->paymentDate }}</td>
-                                                        <td>{{ $customerreport->transactionMethod }}</td>
-                                                        <td>{{ $customerreport->note }}</td>
-                                                        <td>{{ $customerreport->custoPrevBalance }}</td>
-                                                        <td>{{ $customerreport->paymentAmount }}</td>
-                                                        <td>{{ $customerreport->custoCarrentBalance }}</td>
-                                                    </tr>
-                                                @endforeach
+                                                {{-- @if ($supplierData != '')
+                                                    @foreach ($supplierData as $item)
+                                                        <tr>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $item->supplierName }}</td>
+                                                            <td>{{ $item->paymentDate }}</td>
+                                                            <td>{{ $item->transactionMethod }}</td>
+                                                            <td>{{ $item->supplierPrevBalance }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endif --}}
                                             </tbody>
-                                            <tfoot>
-                                                {{-- <tr style="text-align: right">
-                                                    <th style="display: none"></th>
-                                                    <th style="display: none"></th>
-                                                    <th style="display: none"></th>
-                                                    <th style="display: none"></th>
-                                                    <th style="display: none"></th>
-                                                    <th style="display: none"></th>
-                                                    <th style="display: none"></th>
-                                                    <th style="display: none"></th>
-                                                    <th>Total:</th>
-                                                    <th></th>
-                                                </tr> --}}
-                                                <tr>
-                                                    <th colspan="8" style="text-align: right">Total:</th>
-                                                    <th colspan="2"></th>
-                                                </tr>
-                                            </tfoot>
                                         </table>
+                                        {{ csrf_field() }}
                                     </div>
                                 </div>
                             </div>
@@ -85,51 +86,49 @@
             </div>
         </div>
     </div>
-
 @endsection
-
 @section('script')
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script>
+        $('.select2').select2();
 
-<script>
-$(document).ready(function () {
-    $('#customerReport').DataTable({
+        $('#customer').change(function() {
+            var value = $(this).find('option:selected').val();
+            var newurl = $('#printBtn').attr('href') + '/' + value;
+            $('#printBtn').attr("href", newurl);
+            if (value) {
+                $.ajax({
+                    url: "{{ url('authorized/customerLedger-search') }}/" + value,
+                    type: 'GET',
+                    cache: false,
+                    dataType: "json",
+                    success: function(data) {
+                        var output = '';
+                        for (var i = 0; i < data.length; i++) {
+                            output += "<tr>";
+                            output += "<td>" + data[i].customerName + "</td>";
+                            output += "<td>" + data[i].paymentDate + "</td>";
+                            output += "<td>" + data[i].transactionMethod + "</td>";
+                            output += "<td>" + data[i].custoPrevBalance + "</td>";
+                            output += "<td>" + data[i].paymentAmount + "</td>";
+                            output += "<td><a class='text-info' target='blank' href='salesinvoice/" +
+                                data[i].invoice_id +
+                                "'>Inv no(" + data[i].invNumber + ")</a> " + data[i]
+                                .duesAmount + "</td>";
+                            output += "<td>" + data[i].custoCarrentBalance + "</td>";
+                            output += "<td>" + data[i].note + "</tr>";
+                            // output += '</tr>';
+                        }
+                        $('tbody').html(output);
 
-        footerCallback: function (row, data, start, end, display) {
-            var api = this.api();
 
-            // Remove the formatting to get integer data for summation
-            var intVal = function (i) {
-                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
-            };
+                    }
 
-            // Total over all pages
-            total = api
-                .column(9)
-                .data()
-                .reduce(function (a, b) {
-                    return intVal(a) + intVal(b);
-                }, 0);
+                })
+            }
+        })
 
-            // Total over this page
-            pageTotal = api
-                .column(9, { page: 'current' })
-                .data()
-                .reduce(function (a, b) {
-                    return intVal(a) + intVal(b);
-                }, 0);
-
-            // Update footer
-            $(api.column(9).footer()).html('৳' + pageTotal + ' (Total ৳ ' + total + ' )');
-        },
-        dom: 'Bfrtip',
-        buttons: [
-            {extend: 'print', footer:true}
-        ]
-    });
-});
-</script>
+        $('#refresh').click(function() {
+            location.reload();
+        });
+    </script>
 @endsection

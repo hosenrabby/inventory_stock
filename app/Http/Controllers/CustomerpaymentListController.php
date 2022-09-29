@@ -49,8 +49,6 @@ class CustomerpaymentListController extends Controller
 
         $cusID = $request->cusID;
         $customerName = $request->customerName;
-        $customerEmail = $request->customerEmail;
-        $customerContact = $request->customerContact;
         $paymentDate = $request->paymentDate;
         $transactionMethod = $request->transactionMethod;
         $paymentAmount = $request->paymentAmount;
@@ -58,6 +56,7 @@ class CustomerpaymentListController extends Controller
 
         $findCust = customer::find($cusID);
         $paymListInsert = [
+            'customerID' => $cusID,
             'customerName' => $customerName,
             'paymentDate' => $paymentDate,
             'transactionMethod' => $transactionMethod,

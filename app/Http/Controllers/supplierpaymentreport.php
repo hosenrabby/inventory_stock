@@ -11,11 +11,6 @@ use Illuminate\Support\Facades\DB;
 
 class supplierpaymentreport extends Controller
 {
-//    public function index(){
-//      $supplier= supplierPaymentList::all();
-//      $balance=DB::table('supplier_payment_lists')->sum('supplierCarrentBalance');
-//      return view('admin.supplierPaymentReport.index', compact('supplier', 'balance'));
-//    }
    public function index(){
      $supplier= Supplier::all();
      return view('admin.supplierPaymentReport.index', compact('supplier'));

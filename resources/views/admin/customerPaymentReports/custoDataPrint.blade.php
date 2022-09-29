@@ -64,21 +64,21 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <H5>{{ $supplier->supplierName }}</H5>
+                                        <H5>{{ $customer->customerName }}</H5>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <th>Email :</th>
-                                        <td>{{ $supplier->supplierEmail }}</td>
+                                        <td>{{ $customer->customerEmail }}</td>
                                     </tr>
                                     <tr>
                                         <th>Mobile :</th>
-                                        <td>{{ $supplier->supplierPhone }}</td>
+                                        <td>{{ $customer->customerPhone }}</td>
                                     </tr>
                                     <tr>
                                         <th>Address :</th>
-                                        <td>{{ $supplier->supplierAddress }}</td>
+                                        <td>{{ $customer->customerAddress }}</td>
                                     </tr>
 
                                 </tbody>
@@ -105,14 +105,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($supplierData as $item)
+                        @foreach ($customerData as $item)
                             <tr>
                                 <td>{{ $item->paymentDate }}</td>
                                 <td>{{ $item->transactionMethod }}</td>
-                                <td>{{ $item->supplierPrevBalance }} ৳</td>
+                                <td>{{ $item->custoPrevBalance }} ৳</td>
                                 <td>{{ $item->paymentAmount }} ৳</td>
                                 <td>INV No({{ $item->invNumber }}) {{ $item->duesAmount }} ৳</td>
-                                <td>{{ $item->supplierCarrentBalance }} ৳</td>
+                                <td>{{ $item->custoCarrentBalance }} ৳</td>
                                 <td>{{ $item->note }}</td>
                             </tr>
                         @endforeach
@@ -131,15 +131,15 @@
                             <tfoot>
                                 <tr>
                                     <td>Total Payment:</td>
-                                    <td>{{ $supPaymentBlnc }}</td>
+                                    <td>{{ $custoPaymentBlnc }}</td>
                                 </tr>
                                 <tr>
                                     <td>Total Dues:</td>
-                                    <td>{{ $supplier->supplierCarrentBalance }}</td>
+                                    <td>{{ $customer->customerCurrentBalance }}</td>
                                 </tr>
                                 <tr>
                                     <td>Grand Total:</td>
-                                    <td>{{ $supPaymentBlnc + $supplier->supplierCarrentBalance }}.00</td>
+                                    <td>{{ $custoPaymentBlnc + $customer->customerCurrentBalance }}.00</td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -162,11 +162,11 @@
                 <div class="social pt-3">
                     <span class="pr-2">
                         <i class="fas fa-mobile-alt"></i>
-                        <span>01785452548</span>
+                        <span>{{ $company->phone }}</span>
                     </span>
                     <span class="pr-2">
                         <i class="fas fa-envelope"></i>
-                        <span>bd@gmail.com</span>
+                        <span>{{ $company->companyEmail }}</span>
                     </span>
                     <span class="pr-2">
                         <i class="fab fa-facebook-f"></i>

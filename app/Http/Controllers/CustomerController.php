@@ -39,6 +39,7 @@ class CustomerController extends Controller
      */
     public function store(CustomerRequest $request)
     {
+        $customerID = $request->customerID;
         $customerName = $request->customerName;
         $customerEmail = $request->customerEmail;
         $customerPhone = $request->customerPhone;
@@ -58,6 +59,7 @@ class CustomerController extends Controller
         ];
         customer::create($customer);
         $custoPayment = [
+            'customerID' => $customerID,
             'customerName' => $customerName,
             'paymentDate' => date('d-m-Y'),
             'note' => $note,

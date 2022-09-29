@@ -162,11 +162,11 @@
                 <div class="social pt-3">
                     <span class="pr-2">
                         <i class="fas fa-mobile-alt"></i>
-                        <span>01785452548</span>
+                        <span>{{ $company->phone }}</span>
                     </span>
                     <span class="pr-2">
                         <i class="fas fa-envelope"></i>
-                        <span>bd@gmail.com</span>
+                        <span>{{ $company->companyEmail }}</span>
                     </span>
                     <span class="pr-2">
                         <i class="fab fa-facebook-f"></i>

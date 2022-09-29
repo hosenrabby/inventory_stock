@@ -242,7 +242,7 @@
                             console.log(data);
                                 $.each(data, function(key, value) {
                                     $('#productCode'+id).val(value.prodCode);
-                                    $('#productRate'+id).val(value.prodRate);
+                                    // $('#productRate'+id).val(value.prodRate);
                                     $('#qtyLabel'+id).html('(Stock)'+value.stockBalance);
                                 })
                             }
@@ -267,8 +267,7 @@
                         $('#productName'+id).html(output);
 
                         $.each(data, function(key, value) {
-                            $('#productRate'+id).val(value.prodRate);
-                            $('#productRate'+id).val(value.prodRate);
+                            // $('#productRate'+id).val(value.prodRate);
                             $('#qtyLabel'+id).html('(Stock)'+value.stockBalance);
                         })
 
