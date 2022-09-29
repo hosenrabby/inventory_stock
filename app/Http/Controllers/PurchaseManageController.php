@@ -104,6 +104,7 @@ class PurchaseManageController extends Controller
             $supPamntData = [
                 'pID' => $pid,
                 'invNumber' => $invNumber,
+                'supplierID' => $supplierID,
                 'supplierName' => $supplierName,
                 'paymentDate' => $purchaseDate,
                 'transactionMethod' => $transection,

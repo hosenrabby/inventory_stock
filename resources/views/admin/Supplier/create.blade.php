@@ -24,6 +24,7 @@
                                 <div class="basic-form">
                                     <form class="forms-sample" action="{{ url('authorized/supplier') }}" method="POST">
                                         {!! csrf_field() !!}
+                                        <input type="hidden" name="maxID" id="maxID" value="0">
                                         <div class="row">
                                             <div class="form-group col">
 
@@ -76,17 +77,18 @@
                                             </div>
                                             <div class="form-group col-7">
                                                 <label>Supplier Address</label>
-                                                <input type="text" class="form-control @error('supplierAddress') is-invalid
+                                                <input type="text"
+                                                    class="form-control @error('supplierAddress') is-invalid
 
-                                                @enderror" name="supplierAddress"
-                                                    placeholder="Supplier Address" value="{{ old('supplierAddress') }}">
-                                                    @error('supplierAddress')
+                                                @enderror"
+                                                    name="supplierAddress" placeholder="Supplier Address"
+                                                    value="{{ old('supplierAddress') }}">
+                                                @error('supplierAddress')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
 
                                                     </span>
-
-                                                    @enderror
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="row">
@@ -99,32 +101,33 @@
                                         <div class="row">
                                             <div class="form-group col">
                                                 <label>Supplier Previous Balance</label>
-                                                <input type="number" class="form-control @error('supplierPrevBalance') is-invalid
+                                                <input type="number"
+                                                    class="form-control @error('supplierPrevBalance') is-invalid
 
-                                                @enderror" name="supplierPrevBalance"
-                                                    placeholder="0.00" value="{{ old('supplierPrevBalance') }}">
-                                                    @error('supplierPrevBalance')
+                                                @enderror"
+                                                    name="supplierPrevBalance" placeholder="0.00"
+                                                    value="{{ old('supplierPrevBalance') }}">
+                                                @error('supplierPrevBalance')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
 
                                                     </span>
-
-
-                                                    @enderror
+                                                @enderror
                                             </div>
                                             <div class="form-group col">
                                                 <label>Supplier Carrent Balance</label>
-                                                <input type="number" class="form-control @error('supplierCarrentBalance') is-invalid
+                                                <input type="number"
+                                                    class="form-control @error('supplierCarrentBalance') is-invalid
 
-                                                @enderror" name="supplierCarrentBalance"
-                                                    placeholder="0.00" value="{{ old('supplierCarrentBalance') }}">
-                                                    @error('supplierCarrentBalance')
+                                                @enderror"
+                                                    name="supplierCarrentBalance" placeholder="0.00"
+                                                    value="{{ old('supplierCarrentBalance') }}">
+                                                @error('supplierCarrentBalance')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
 
                                                     </span>
-
-                                                    @enderror
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -140,4 +143,29 @@
         </div>
     </div>
     <!-- /# row -->
+@endsection
+@section('script')
+    <script type="text/javascript">
+        function max_id() {
+            $.ajax({
+                url: "{{ url('authorized/supplier-id') }}",
+                type: "GET",
+                cache: false,
+                dataType: "json",
+                success: function(data) {
+                    console.log(data);
+
+                    $.each(data, function(key, value) {
+                        $('#maxID').val(value.id);
+                        var newVlu = $('#maxID').val();
+                        if (newVlu < 1) {
+                            newVlu = 1;
+                        } else
+                            newVlu = parseInt(newVlu) + 1;
+                        $('#maxID').val(newVlu);
+                    })
+                }
+            });
+        }
+    </script>
 @endsection

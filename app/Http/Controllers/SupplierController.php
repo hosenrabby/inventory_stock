@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Supplier;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\supplierPaymentList;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\supplierRequest;
-use App\Models\supplierPaymentList;
-use Illuminate\Http\Request;
 
 class SupplierController extends Controller
 {
@@ -40,6 +41,7 @@ class SupplierController extends Controller
     public function store(supplierRequest $request)
     {
         // $input= $request->all();
+        $suppMaxID = $request->maxID;
         $supplierName = $request->supplierName;
         $supplierEmail = $request->supplierEmail;
         $supplierPhone = $request->supplierPhone;
@@ -58,8 +60,11 @@ class SupplierController extends Controller
             'supplierCarrentBalance' => $supplierCarrentBalance,
         ];
         Supplier::create($supplier);
-        // Supplier::create($input);
+
+        // dd($maxid);
+        // return $maxid;
         $supPayment = [
+            'supplierID' => $suppMaxID,
             'supplierName' => $supplierName,
             'paymentDate' => date('d-m-Y'),
             'note' => $note,

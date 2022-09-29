@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('pID')->default(0);
             $table->string('invNumber')->default('------');
+            $table->integer('supplierID');
             $table->string('supplierName');
             $table->string('paymentDate');
             $table->string('transactionMethod')->default('------');

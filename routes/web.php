@@ -93,7 +93,10 @@ Route::group(['prefix' => 'authorized'] , function(){
         Route::get('salesReports', [salesReports::class , 'index']);
         Route::post('salesReports-search', [salesReports::class , 'searchData']);
 
-        // Route::get('supplierpaymentreport', [supplierpaymentreport::class, 'index']);
+        Route::get('supplierpaymentreport', [supplierpaymentreport::class, 'index']);
+        Route::get('supplier-id', [supplierpaymentreport::class, 'suppMaxID']);
+        Route::get('supplierLedger-search/{id}', [supplierpaymentreport::class, 'SuppData']);
+        Route::get('supplierLedger-data/{id}', [supplierpaymentreport::class, 'SuppLedgerData']);
         // Route::get('customerpaymentreport', [customerpaymentreport::class, 'index']);
 
         Route::resource('supplierPaymentList',SupplierPaymentListController::class);
