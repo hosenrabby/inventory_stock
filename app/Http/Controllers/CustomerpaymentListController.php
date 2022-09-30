@@ -56,12 +56,12 @@ class CustomerpaymentListController extends Controller
 
         $findCust = customer::find($cusID);
         $paymListInsert = [
-            'supplierID' => $cusID,
+            'customerID' => $cusID,
             'customerName' => $customerName,
             'paymentDate' => $paymentDate,
             'transactionMethod' => $transactionMethod,
             'note' => $note,
-            'custoPrevBalance' => $findCust->custoPrevBalance,
+            'custoPrevBalance' => $findCust->customerCurrentBalance,
             'paymentAmount' => $paymentAmount,
             'custoCarrentBalance' => $findCust->customerCurrentBalance - $paymentAmount,
         ];

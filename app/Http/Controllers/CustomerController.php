@@ -59,7 +59,7 @@ class CustomerController extends Controller
         ];
         customer::create($customer);
         $custoPayment = [
-            'supplierID' => $customerID,
+            'customerID' => $customerID,
             'customerName' => $customerName,
             'paymentDate' => date('d-m-Y'),
             'note' => $note,

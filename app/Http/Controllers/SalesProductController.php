@@ -102,11 +102,10 @@ class SalesProductController extends Controller
             $custPamntData = [
                 'invoice_id' => $invoice_id,
                 'invNumber' => $invNumber,
-                'supplierID' => $customer_id,
+                'customerID' => $customer_id,
                 'customerName' => $customerName,
                 'paymentDate' => $purchaseDate,
                 'transactionMethod' => $transactionMethod,
-                'paymentDate' => $purchaseDate,
                 'custoPrevBalance' => $findCust->customerCurrentBalance,
                 'paymentAmount' => $paidAmount,
                 'duesAmount' => $duesAmount,

@@ -82,6 +82,11 @@
                                                         {{-- <button type="button" class="btn btn-sm btn-outline-danger" id="delRow" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button> --}}
                                                     </div>
                                                     <div class="form-group col">
+                                                        <label>Product Code</label>
+                                                        <input type="text" class="form-control " name="prodCode[]" id="prodCode1" onkeyup="prodCode(1)" placeholder="000abc" required>
+
+                                                    </div>
+                                                    <div class="form-group col">
                                                         <label>Product Name</label>
                                                         <select class="form-control prodName" name="productID[]" id="prodName1" onchange="prodAdd(1)" required>
                                                             <option value="" id="1" selected>select product</option>
@@ -89,11 +94,6 @@
                                                                 <option value="{{ $products->id }}" id="{{ $products->id }}">{{ $products->productName }}</option>
                                                             @endforeach
                                                         </select>
-
-                                                    </div>
-                                                    <div class="form-group col">
-                                                        <label>Product Code</label>
-                                                        <input type="text" class="form-control " name="prodCode[]" id="prodCode1" onkeyup="prodCode(1)" placeholder="000abc" required>
 
                                                     </div>
                                                     <div class="form-group col">
@@ -167,6 +167,10 @@
             row+= '<button type="button" class="btn btn-sm btn-outline-danger" id="delRow'+i+'" onclick="rowDelete('+i+')" onchange="catProd('+i+')" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>'
             row+= '</div>'
             row+= '<div class="form-group col">'
+            row+= '<label>Product Code</label>'
+            row+= '<input type="number" class="form-control" name="prodCode[]" id="prodCode'+i+'" onkeyup="prodCode('+i+')" placeholder="Product Code">'
+            row+= '</div>'
+            row+= '<div class="form-group col">'
             row+= '<label>Product Name</label>'
             row+= '<select class="form-control" name="productID[]" id="prodName'+i+'" onchange="prodAdd('+i+')">'
             row+= '<option value="1" selected>select product</option>'
@@ -174,10 +178,6 @@
             row+= '<option value="{{ $products->id }}" id="{{ $products->id }}">{{ $products->productName }}</option>'
             row+= '@endforeach'
             row+= '</select>'
-            row+= '</div>'
-            row+= '<div class="form-group col">'
-            row+= '<label>Product Code</label>'
-            row+= '<input type="number" class="form-control" name="prodCode[]" id="prodCode'+i+'" onkeyup="prodCode('+i+')" placeholder="Product Code">'
             row+= '</div>'
             row+= '<div class="form-group col">'
             row+= '<label>Product QTY</label>'
