@@ -14,8 +14,7 @@ class salesReports extends Controller
     public function index()
     {
         $searchData = [];
-        $custoName = customer::all();
-        return view('admin.salesReports.index' , compact('custoName'))->with('searchData' , $searchData);
+        return view('admin.salesReports.index' )->with('searchData' , $searchData);
     }
 
     public function searchData(Request $request)
@@ -27,6 +26,7 @@ class salesReports extends Controller
         $searchData = DB::table('sales_products')
                     ->leftJoin('customers' , 'sales_products.customerID','=','customers.id')
                     ->leftJoin('productstock_manages' , 'sales_products.productID','=','productstock_manages.id')
+                    ->whereBetween('purchaseDate', [$dateFrom, $dateTo])
                     ->get([
                         'sales_products.*' ,
                         'customers.customerName',
